@@ -1,9 +1,16 @@
 <script setup lang="ts">
-import type { Flashcard } from '~/types/bookpack'
 import type { FlashResult } from '~/utils/progress'
 
+export interface DeckCard {
+  id: string
+  q: string
+  a: string
+  page?: number | null
+  context?: string  // da dove viene: serve nel ripasso, dove i libri si mescolano
+}
+
 const props = defineProps<{
-  flashcards: Flashcard[]
+  flashcards: DeckCard[]
   results: Record<string, FlashResult>
 }>()
 
@@ -45,6 +52,10 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
   <div class="flex h-full flex-col px-4">
     <p class="pb-3 text-center text-sm text-muted">
       Flashcard {{ index + 1 }} di {{ flashcards.length }}
+      <span
+        v-if="current.context"
+        class="mt-0.5 block truncate text-xs"
+      >{{ current.context }}</span>
     </p>
 
     <button
@@ -76,7 +87,10 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
           <p class="card-body my-auto py-4 font-serif text-highlighted">
             {{ current.a }}
           </p>
-          <p class="text-right text-xs text-muted">
+          <p
+            v-if="current.page"
+            class="text-right text-xs text-muted"
+          >
             p. {{ current.page }}
           </p>
         </div>

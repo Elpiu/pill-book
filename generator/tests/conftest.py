@@ -114,7 +114,7 @@ def valid_pack() -> dict:
         return data
 
     return {
-        "schemaVersion": 1,
+        "schemaVersion": 2,
         "generator": {"version": "0.1.0", "model": "test", "generatedAt": "2026-01-01T00:00:00Z"},
         "book": {"id": "libro", "title": "Libro", "lang": "it", "sourcePages": 10},
         "overview": {
@@ -131,6 +131,7 @@ def valid_pack() -> dict:
                 "pageEnd": 5,
                 "estMinutes": 5,
                 "tldr": "In breve.",
+                "summary": "Riassunto del capitolo con abbastanza parole. " * 8,
                 "cards": [*(card(i) for i in range(1, 5)), card(5, "takeaway")],
                 "mindmap": "# Capitolo\n## Ramo\n- Foglia",
                 "flashcards": [

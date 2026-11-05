@@ -25,8 +25,14 @@ describe('validatePack', () => {
     expect(validatePack([]).ok).toBe(false)
   })
 
+  it('spiega che un pack vecchio va rigenerato', () => {
+    const result = validatePack({ ...sample(), schemaVersion: 1 })
+    expect(result.ok).toBe(false)
+    if (!result.ok) expect(result.errors[0]).toContain('Rigeneralo')
+  })
+
   it('spiega che una versione futura richiede di aggiornare l\'app', () => {
-    const result = validatePack({ ...sample(), schemaVersion: 2 })
+    const result = validatePack({ ...sample(), schemaVersion: 3 })
     expect(result.ok).toBe(false)
     if (!result.ok) expect(result.errors[0]).toContain('Aggiorna l\'app')
   })
@@ -42,7 +48,7 @@ describe('validatePack', () => {
     const result = validatePack(pack)
     expect(result.ok).toBe(false)
     if (result.ok) return
-    expect(result.errors).toContain('capitolo 1 › cards: servono almeno 5 elementi')
+    expect(result.errors).toContain('capitolo 1 › cards: servono almeno 3 elementi')
     expect(result.errors).toContain('book: manca il campo "title"')
   })
 

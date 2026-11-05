@@ -1,21 +1,22 @@
 # Stato del progetto
 
-Aggiornato al 5 novembre 2026.
+Aggiornato al 5 novembre 2026. Il formato attuale è la v2: vedi [decisions.md](decisions.md).
 
 | Milestone | Stato | Note |
 |---|---|---|
 | M0 Setup | Fatta | Entrambi i progetti si installano e si avviano |
 | M1 Schema e modelli | Fatta | Il pack d'esempio passa `validate` e la validazione lato web |
 | M2 Estrazione | Fatta | 12 capitoli corretti più prefazione sul libro Gutenberg, 17 sezioni sul libro di 417 pagine |
-| M3 Condensazione | **Da provare con un LLM vero** | Tutto verificato con il provider finto; nessuna chiamata reale |
+| M3 Condensazione | Fatta | Provata con generazioni reali su `~deepseek/deepseek-flash-latest` |
 | M4 Libreria e percorso | Fatta | |
 | M5 Sessione | Fatta | Interazioni a 375 px, vedi sotto |
 | M6 Progresso e PWA | **Quasi** | Mancano il primo deploy e la prova su telefono |
-| M7 Esempio e documentazione | **Parziale** | Il pack d'esempio è scritto a mano, non generato dalla pipeline |
+| M7 Esempio e documentazione | Fatta | Il pack d'esempio è generato dalla pipeline da un libro di pubblico dominio |
+| Formato v2 | Fatto | Spazio proporzionale, card dense, domande, riassunto, ripasso |
 
 ## Cosa è stato verificato
 
-**Controlli automatici**: 120 test del generatore, 23 del lettore, ruff, ESLint e `nuxt typecheck` verdi.
+**Controlli automatici**: 138 test del generatore, 36 del lettore, ruff, ESLint e `nuxt typecheck` verdi.
 
 **Nel browser** (build statica, viewport mobile):
 
@@ -32,7 +33,8 @@ Aggiornato al 5 novembre 2026.
 
 **Generatore**:
 
-- `build --fake --chapters 2-4` sul libro di 417 pagine con map-reduce: pack valido, 19 chiamate;
+- generazione reale di un capitolo di 76 pagine: pack valido, 8 chiamate, 5 parti, copertura di tutte le sottosezioni;
+- generazione reale del libro d'esempio: pack valido, 29 chiamate, citazioni trovate nel testo;
 - ripresa dopo un'interruzione: nessuna chiamata già fatta viene ripetuta (test);
 - ritentativi con l'errore passato al modello (test);
 - richieste verso OpenRouter e gestione degli errori, anche quelli con stato 200, controllate con un trasporto HTTP simulato (test);
@@ -45,34 +47,23 @@ Aggiornato al 5 novembre 2026.
 
 | Cosa | Perché | Come chiuderlo |
 |---|---|---|
-| Chiamate reali a un LLM e qualità dei prompt | In questo ambiente non c'è una chiave API e ogni prova ha un costo | `build --chapters 1-2` con una chiave OpenRouter: circa $0,12 sul libro d'esempio con il modello di default, stima |
+| Altri modelli oltre a `~deepseek/deepseek-flash-latest` | Ogni prova ha un costo | Un confronto sullo stesso capitolo |
+| Quanto resta davvero al lettore | Le misure dicono quanto testo c'è, non cosa si ricorda | Uso reale per qualche settimana |
 | Modelli senza output strutturato | Il ripiego con lo schema nel prompt è provato solo in simulazione | Una prova con un modello senza "Schema" in `bookpack models` |
 | Finestra su macOS e Linux | Provata solo su Windows | Un avvio su quei sistemi |
-| Deploy su GitHub Pages | Il repo non ha ancora commit né remote, quindi il workflow non è mai stato eseguito | Push su GitHub e attivazione di Pages |
+| Deploy su GitHub Pages | Il repository non è ancora su GitHub. I comandi del workflow sono stati provati su una copia pulita, ma non su Linux né su GitHub | Primo push |
 | Telefono vero | Solo emulazione: gesti simulati col mouse, pinch-zoom e installazione non provati | Aprire l'app pubblicata su un telefono |
 | Viewport esatto di 390 px | A 390 il pannello del browser sfalsava i clic. Le interazioni sono state fatte a 375 px; a 390 è stato controllato solo il layout, senza overflow | Coperto dalla prova su telefono |
 | Lighthouse PWA | Dalla versione 12 Lighthouse non ha più la categoria PWA. Controllati a mano manifest, icone, service worker e offline | Installazione dal telefono |
 
 ## Scostamenti dal piano
 
-- **Il pack di M7 non viene dalla pipeline.** Senza chiave API è stato condensato a mano in una sessione di Claude Code, con gli stessi vincoli del generatore. Lo dichiara `generator.model`. Il comando per rigenerarlo è in [../samples/README.md](../samples/README.md).
+- **Formato v2.** Il piano prevedeva sessioni da 5 minuti, 5-12 card e 3-5 flashcard per capitolo. Le misure sui primi pack hanno mostrato che i capitoli lunghi perdevano troppo: vedi [decisions.md](decisions.md).
+- **Solo OpenRouter**, al posto dei provider Anthropic e OpenAI-compatibili.
 - **Il PDF "di Project Gutenberg" è impaginato da noi** a partire dal testo di Gutenberg, che di rado offre PDF.
-
-## Note su `books/AgenticSE_Book.pdf`
-
-Il PDF è in gitignore e non ha metadati. Prima di spendere conviene esportare la divisione e correggerla:
-
-```bash
-uv run bookpack toc ../books/AgenticSE_Book.pdf -o out/agentic.toc.yaml
-```
-
-- `title` e `author` vanno inseriti a mano: oggi il titolo risulta "AgenticSE Book";
-- "Reference Tables" e "Glossary Table" sono incluse come capitoli: probabilmente è meglio escluderle con `exclude: true`;
-- "Leveraging the power of AI teammates" ha 76 pagine e riceverebbe comunque al massimo 12 card: si può dividere in più voci.
 
 ## Cosa resta
 
-1. Prova di `build` con un LLM vero e revisione dei prompt in base al risultato.
-2. Rigenerare il pack d'esempio con la pipeline e sostituire quello scritto a mano.
-3. Primo commit, push, attivazione di GitHub Pages.
-4. Prova su telefono: gesti, pinch-zoom, installazione, modalità aereo.
+1. Primo push e attivazione di GitHub Pages: vedi [web.md](web.md).
+2. Prova su telefono: gesti, scorrimento delle card lunghe, pinch-zoom, installazione, modalità aereo.
+3. Rigenerare con il formato v2 i libri già generati: i vecchi pack non si importano più.

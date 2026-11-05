@@ -2,7 +2,7 @@ import Ajv2020, { type ErrorObject } from 'ajv/dist/2020'
 import schema from '#schema'
 import type { BookPack } from '~/types/bookpack'
 
-export const SUPPORTED_SCHEMA_VERSION = 1
+export const SUPPORTED_SCHEMA_VERSION = 2
 const MAX_MESSAGES = 8
 
 export type PackValidation =
@@ -95,7 +95,7 @@ export function validatePack(data: unknown): PackValidation {
       errors: [
         typeof version === 'number' && version > SUPPORTED_SCHEMA_VERSION
           ? `Questo pack usa il formato v${version}, ma l'app arriva alla v${SUPPORTED_SCHEMA_VERSION}. Aggiorna l'app e riprova.`
-          : `Formato del pack non supportato (versione ${JSON.stringify(version)}). Rigeneralo con il generatore.`,
+          : `Questo pack usa un formato vecchio (v${JSON.stringify(version)}), senza riassunti e domande. Rigeneralo con il generatore.`,
       ],
     }
   }

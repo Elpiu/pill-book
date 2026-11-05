@@ -1,9 +1,9 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "generator": {
     "version": "0.1.0",
-    "model": "manual-condensation-no-api-call",
-    "generatedAt": "2026-11-04T00:00:00+00:00"
+    "model": "~deepseek/deepseek-flash-latest",
+    "generatedAt": "2026-11-05T10:33:04+00:00"
   },
   "book": {
     "id": "how-to-live-on-24-hours-a-day",
@@ -16,11 +16,15 @@
   "overview": {
     "summary": "Esempio ridotto a due capitoli del pack completo.",
     "keyIdeas": [
-      "Non avrai mai più tempo: hai già tutto il tempo che esiste.",
-      "Le sedici ore fuori dal lavoro sono un giorno a sé, non un margine.",
-      "Una piccola quantità di tempo ben difesa ravviva l'intera settimana."
+      "Le ventiquattro ore sono una fornitura uguale, inalienabile e limitata: vanno gestite subito, non aumentate.",
+      "L'inquietudine di fare di più nasce dall'idea fissa di superare i propri obblighi, non dalla mancanza di tempo.",
+      "Il problema è trattare le ore d'ufficio come tutta la giornata; le altre sedici vanno vissute come una giornata dentro la giornata.",
+      "La stanchezza serale è fabbricata e si possono recuperare novanta minuti a sere alterne per un lavoro mentale serio.",
+      "Il programma va costruito su sei giorni, con poche ore sottratte alle abitudini e un inizio dimesso.",
+      "La concentrazione si allena e rende possibile l'esame di sé; la lettura seria deve costare fatica.",
+      "Coltivare la percezione di causa ed effetto rende interessante il quotidiano; vanno evitati pedanteria, adorazione del programma, fretta e fallimento iniziale."
     ],
-    "mindmap": "# How to Live on Twenty-Four Hours a Day\n## The Daily Miracle\n- Il tempo vale più del denaro\n## The Desire To Exceed One's Programme\n- Il disagio di chi rimanda"
+    "mindmap": "# How to Live on Twenty-Four Hours a Day\n## The Daily Miracle\n- Le ventiquattro ore sono una fornitura d\n## The Desire To Exceed One's Programme\n- L'inquietudine di fare di più non nasce "
   },
   "chapters": [
     {
@@ -29,82 +33,72 @@
       "title": "The Daily Miracle",
       "pageStart": 8,
       "pageEnd": 10,
-      "estMinutes": 3,
-      "tldr": "Il tempo è l'unica ricchezza uguale per tutti: non ne avrai mai di più, quindi conta come lo spendi.",
+      "estMinutes": 5,
+      "tldr": "Le ventiquattro ore sono una fornitura di tempo uguale per tutti, inalienabile e non aumentabile come il denaro, perciò vanno gestite subito, senza aspettare un tempo futuro che non arriverà.",
+      "summary": "Nessuna somma di denaro, nemmeno la ricchezza di un guardaroba del Carlton Hotel, aggiunge un minuto alla nostra giornata, mentre con il tempo il denaro si può ottenere. Eppure i giornali spiegano come vivere con una rendita di denaro, mai con ventiquattro ore al giorno. Queste ventiquattro ore formano una democrazia perfetta: uguali per tutti, inalienabili, senza debiti verso il futuro, e nessun potere misterioso ce le ridurrà per punirci dello spreco.\n\nLa differenza decisiva è che una rendita di denaro insufficiente si aumenta lavorando, mentre la fornitura di tempo è regolare ma crudelmente limitata. Chi non la sa gestire vive lo stesso squilibrio di chi non sa gestire il denaro. Dire «cambierò quando avrò un po' più di tempo» è perciò un'illusione: abbiamo sempre avuto tutto il tempo che esiste.",
       "cards": [
         {
           "id": "ch-01-c01",
           "type": "concept",
           "title": "Il tempo vale più del denaro",
-          "body": "Con il tempo di solito si ottiene denaro, ma nessuna ricchezza compra un minuto in più. Eppure si discute ovunque di come vivere con un certo reddito, e mai di come vivere con ventiquattro ore al giorno.",
+          "body": "I giornali spiegano come vivere con una data rendita di denaro, mai con una data rendita di tempo. Eppure il tempo è molto più del denaro: con il tempo si può ottenere denaro, ma nessuna somma compra un minuto in più, né per noi né per il gatto davanti al fuoco.",
+          "details": "Il testo cita gli articoli su una donna che vive in campagna con 85 sterline l'anno e un saggio «Come vivere con otto scellini a settimana»: la violenza della corrispondenza che suscitano dimostra quanto l'argomento interessi. Ma nessuno scrive «Come vivere con ventiquattro ore al giorno». Anche possedendo la ricchezza di un guardaroba del Carlton Hotel, non ci si può comprare un minuto di tempo in più.",
           "page": 8
         },
         {
           "id": "ch-01-c02",
-          "type": "example",
-          "title": "Abito nuovo, cappello vecchio",
-          "body": "Chi guadagna bene e ha sempre problemi di soldi disperde il reddito senza goderselo: bella cravatta e pantaloni sformati, cristalli e carne cattiva. Con il proprio tempo quasi tutti fanno lo stesso errore che criticano negli altri.",
-          "page": 8
+          "type": "concept",
+          "title": "La democrazia delle ventiquattro ore",
+          "body": "Le ventiquattro ore quotidiane formano una democrazia perfetta: nessuno può portarcele via, nessuno ne riceve più o meno, il genio non ottiene un'ora in più e chi spreca non viene punito con una fornitura ridotta.",
+          "details": "Il tempo è inalienabile e non si può prelevare dal futuro: non esistono debiti di tempo. Si può sprecare solo il momento che passa; domani e la prossima ora sono già tenuti da parte per noi. La fornitura è più sicura delle consols e il pagamento non si ferma nemmeno la domenica. Nessun potere misterioso dirà: «Quest'uomo è uno sciocco, non merita tempo, gli si tagli il contatore».",
+          "page": 9
         },
         {
           "id": "ch-01-c03",
           "type": "concept",
-          "title": "Un miracolo quotidiano",
-          "body": "Ogni mattina ti ritrovi con ventiquattro ore nuove. Sono la materia grezza di tutto: con il tempo ogni cosa è possibile, senza non si fa nulla. Sono tue e nessuno può rubartele.",
-          "page": 9
+          "title": "Il denaro si aumenta, il tempo no",
+          "body": "Se una rendita di denaro non basta, si guadagna di più e si pareggia il bilancio; se non si fa bastare la rendita di ventiquattro ore, la vita si ingarbuglia davvero, perché la fornitura di tempo è regolare ma crudelmente limitata.",
+          "details": "L'uomo che non sa gestire il denaro ha l'appartamento mezzo vuoto, il vestito nuovo con il cappello vecchio, il bicchiere di cristallo con la carne cattiva: chi non gestisce il tempo vive lo stesso squilibrio. La frase che tutti ci ripetiamo, «cambierò quando avrò un po' più di tempo», è un'illusione: non avremo mai più tempo, abbiamo sempre avuto tutto il tempo che esiste.",
+          "page": 10
         },
         {
           "id": "ch-01-c04",
-          "type": "concept",
-          "title": "La democrazia perfetta del tempo",
-          "body": "Nessuno riceve più o meno di te: né la ricchezza né il genio danno un'ora in più. Nemmeno chi spreca viene punito, perché la fornitura non si interrompe mai.",
-          "page": 9
+          "type": "check",
+          "body": "Perché il tempo, a differenza del denaro, non permette di rimandare il problema a domani?",
+          "answer": "Perché non si può andare in debito con il tempo né prelevarlo dal futuro: si può sprecare solo il momento presente, mentre le ore future sono già tenute da parte per noi. Inoltre la fornitura non aumenta mai, quindi l'unica via è esaminare subito come spendiamo le giornate.",
+          "page": 10
         },
         {
           "id": "ch-01-c05",
-          "type": "concept",
-          "title": "Non si spreca il futuro",
-          "body": "Non puoi indebitarti con il tempo. Puoi sprecare solo il momento che passa: l'ora dopo e il domani restano intatti, tenuti da parte per te.",
-          "page": 9
-        },
-        {
-          "id": "ch-01-c06",
-          "type": "concept",
-          "title": "Perché qui l'errore pesa di più",
-          "body": "Se il denaro non basta, puoi guadagnarne un po' di più. Se ventiquattro ore non coprono le spese che contano, la vita si ingarbuglia davvero: la fornitura è regolare, ma crudelmente limitata.",
-          "page": 10
-        },
-        {
-          "id": "ch-01-c07",
-          "type": "quote",
-          "body": "We never shall have any more time. We have, and we have always had, all the time there is.",
-          "page": 10
-        },
-        {
-          "id": "ch-01-c08",
           "type": "takeaway",
-          "body": "Smetti di dire \"lo farò quando avrò più tempo\". Quel momento non arriverà: la domanda utile è come spendi le ventiquattro ore che hai già."
+          "body": "Il tempo è l'unica risorsa che nessuna somma può aumentare: le ventiquattro ore sono uguali per tutti e non si ricaricano dal futuro. Non ha senso rimandare a un tempo più libero che non arriverà: la gestione va fatta sulle ore che già abbiamo."
         }
       ],
-      "mindmap": "# Il miracolo quotidiano\n## Il tempo come reddito\n- Più prezioso del denaro\n- Non si compra\n- Materia grezza di tutto\n## Le sue regole\n- Uguale per tutti\n- Non si può rubare\n- Nessun debito\n- Nessuna punizione\n## Il problema\n- Si spreca solo il presente\n- Sbagliare ingarbuglia la vita\n- Non avrai mai più tempo",
+      "mindmap": "# Vivere con ventiquattro ore al giorno\n## Tempo contro denaro\n- Si scrive di rendite di denaro\n- Mai di rendite di tempo\n- Nessuna somma compra un minuto\n## Democrazia delle ventiquattro ore\n- Nessuno ce le può togliere\n- Nessuno ne ha di più\n- Nessun debito di tempo\n- Lo spreco non è punito\n## Denaro e tempo a confronto\n- Il denaro si può aumentare\n- Il tempo è fisso e limitato\n- Cattiva gestione, stesso squilibrio\n## L'illusione del tempo futuro\n- «Cambierò quando avrò più tempo»\n- Non arriverà mai più tempo\n",
       "flashcards": [
         {
           "id": "ch-01-f01",
-          "q": "Perché il tempo vale più del denaro?",
-          "a": "Con il tempo di solito si può ottenere denaro, ma nessuna ricchezza compra un minuto in più.",
+          "q": "Perché il tempo è considerato più prezioso del denaro?",
+          "a": "Perché con il tempo si può ottenere del denaro, ma nessuna somma di denaro compra un minuto di tempo in più, né per noi né per chi ci sta accanto.",
           "page": 8
         },
         {
           "id": "ch-01-f02",
-          "q": "Cosa rende il tempo una \"democrazia ideale\"?",
-          "a": "Tutti ricevono la stessa quantità: né ricchezza né genio danno un'ora in più, e chi spreca non viene punito.",
+          "q": "Che cosa rende le ventiquattro ore quotidiane una «democrazia perfetta»?",
+          "a": "Perché è uguale per tutti e inalienabile: nessuno può portarcela via, il genio non ha un'ora in più e chi spreca non riceve una fornitura ridotta. Inoltre non si può prelevare tempo dal futuro, quindi non esistono debiti di tempo.",
           "page": 9
         },
         {
           "id": "ch-01-f03",
-          "q": "Quale tempo si può sprecare davvero?",
-          "a": "Solo il momento che passa: il futuro resta intatto.",
-          "page": 9
+          "q": "Che cosa accade a chi non riesce a far bastare le proprie ventiquattro ore?",
+          "a": "Vive lo stesso squilibrio di chi non sa gestire il denaro: l'appartamento mezzo vuoto, il vestito nuovo con il cappello vecchio, il bicchiere di cristallo con la carne cattiva. La fornitura di tempo è regolare ma limitata, e non si può semplicemente aumentarla.",
+          "page": 10
+        },
+        {
+          "id": "ch-01-f04",
+          "q": "Perché la frase «cambierò quando avrò un po' più di tempo» è un'illusione?",
+          "a": "È un'illusione: non avremo mai più tempo di quello che abbiamo sempre avuto, perché abbiamo sempre avuto tutto il tempo che esiste. La fornitura non cresce, quindi rimandare la cura del tempo a un futuro più libero non ha senso.",
+          "page": 10
         }
       ]
     },
@@ -114,81 +108,71 @@
       "title": "The Desire To Exceed One's Programme",
       "pageStart": 11,
       "pageEnd": 13,
-      "estMinutes": 3,
-      "tldr": "Il disagio di chi sente passare gli anni nasce dal desiderio di fare più del dovuto, e resta finché non si prova a soddisfarlo.",
+      "estMinutes": 6,
+      "tldr": "L'inquietudine di fare di più non nasce dalla mancanza di tempo ma dall'idea fissa di superare i propri obblighi, e non si placa restando fermi, perché il desiderio di conoscenza va oltre qualunque programma, letterario o no.",
+      "summary": "L'aspirazione che ci inquieta non nasce dalla mancanza di tempo, ma dall'idea fissa che si debba fare qualcosa in più rispetto agli obblighi morali e sociali; quegli obblighi — mantenere sé e la famiglia, pagare i debiti, risparmiare, accrescere la prosperità con l'efficienza — sono già un compito difficilissimo, eppure assolverli non basta a mettere a tacere il senso di incompletezza.\n\nChi desidera la Mecca e si mette in cammino si trova in una condizione diversa da chi resta a Brixton: anche se non arriverà mai, ha già fatto qualcosa, mentre chi non parte è divorato dal desiderio. La maggior parte di noi non parte nemmeno e si giustifica con le ventiquattro ore del giorno. Quel desiderio è una forma del bisogno universale di conoscenza: non si esaurisce nella letteratura e spinge oltre il proprio programma anche chi vive di studio sistematico, come Herbert Spencer.",
       "cards": [
         {
           "id": "ch-02-c01",
           "type": "concept",
-          "title": "Il disagio che accompagna gli anni",
-          "body": "Molti sono perseguitati dalla sensazione che gli anni scorrano senza che la loro vita sia in ordine. È un misto di attesa e aspirazione: uno scheletro alla festa, che si fa vivo anche nei momenti di svago.",
+          "title": "L'inquietudine nasce da un'idea fissa",
+          "body": "L'aspirazione che disturba non è mancanza di tempo: nasce dall'idea fissa che si debba fare qualcosa in più rispetto agli obblighi morali e sociali, e resta anche quando quegli obblighi sono assolti.",
+          "details": "Gli obblighi — mantenersi e mantenere la famiglia, pagare i debiti, risparmiare, aumentare la prosperità accrescendo l'efficienza — sono già un compito difficilissimo, che pochi raggiungono e spesso supera le nostre capacità. Eppure, anche riuscendoci, non si è soddisfatti: il sentimento si comporta come uno scheletro al banchetto, che tra un atto e l'altro alza un dito ossuto e chiede che cosa si è fatto della propria giovinezza e della propria età.",
           "page": 11
         },
         {
           "id": "ch-02-c02",
           "type": "example",
-          "title": "La Mecca e Brixton",
-          "body": "Chi parte per la Mecca e muore per strada resta insoddisfatto, ma non soffre come chi desidera arrivarci e non lascia mai Brixton. Non è la meta mancata a tormentare: è non essere mai partiti.",
+          "title": "Mecca: chi parte e chi resta a Brixton",
+          "body": "Chi desidera la Mecca e si mette in viaggio, anche se non arriverà mai, non è tormentato come chi resta a Brixton senza muoversi: aver lasciato Brixton è già qualcosa.",
+          "details": "Il pellegrino può annegare prima di Port Said o perire sulla costa del Mar Rosso: la sua aspirazione resta frustrata e può turbarlo sempre, ma in modo diverso da chi è divorato dal desiderio di partire e non parte. La maggior parte di noi non ha lasciato Brixton, non ha nemmeno preso una carrozza fino a Ludgate Circus per chiedere da Cook's il prezzo di un viaggio organizzato, e si giustifica dicendo che ci sono solo ventiquattro ore nel giorno.",
           "page": 12
         },
         {
           "id": "ch-02-c03",
-          "type": "quote",
-          "body": "It is something to have left Brixton.",
-          "page": 12
+          "type": "concept",
+          "title": "Sete di conoscenza, non solo letteratura",
+          "body": "Il desiderio di superare il programma formale è una forma del desiderio universale di conoscenza, comune a tutti gli uomini che nell'evoluzione sono saliti oltre un certo livello, e non si placa solo con la letteratura.",
+          "details": "È così forte che uomini dediti per tutta la vita all'acquisizione sistematica di conoscenza ne sono stati spinti oltre i limiti del loro programma: anche Herbert Spencer, secondo il testo la più grande mente mai esistita, fu spesso costretto in piacevoli piccole insenature di indagine. In molti curiosi intellettuali l'aspirazione prende forma letteraria — vorrebbero intraprendere un corso di lettura — ma la letteratura non esaurisce il campo della conoscenza: la letteratura non è l'unico pozzo.",
+          "page": 13
         },
         {
           "id": "ch-02-c04",
-          "type": "concept",
-          "title": "La scusa delle ventiquattro ore",
-          "body": "Quasi nessuno ha fatto nemmeno il primo passo, neanche chiedere il prezzo di un viaggio organizzato. E la giustificazione che ci diamo è sempre la stessa: nella giornata ci sono solo ventiquattro ore.",
+          "type": "check",
+          "body": "Perché chi parte verso la Mecca e non arriva soffre meno di chi resta a Brixton?",
+          "answer": "Perché il primo ha trasformato il desiderio in tentativo: la sua aspirazione può restare frustrata, ma aver lasciato Brixton è già qualcosa. Il secondo è tormentato da un desiderio che non ha mai messo alla prova, e maschera l'inerzia con la scusa delle sole ventiquattro ore.",
           "page": 12
         },
         {
           "id": "ch-02-c05",
-          "type": "concept",
-          "title": "Fare qualcosa oltre il dovuto",
-          "body": "Alla radice c'è l'idea fissa di dover fare qualcosa in più degli obblighi: mantenersi, pagare i debiti, risparmiare, migliorare. Anche chi ci riesce non è soddisfatto: lo scheletro resta.",
-          "page": 12
-        },
-        {
-          "id": "ch-02-c06",
-          "type": "concept",
-          "title": "Finché non si comincia",
-          "body": "Il desiderio di superare il proprio programma è comune e si manifesta come sete di conoscenza. Finché non si fa uno sforzo per soddisfarlo, resta l'attesa inquieta di qualcosa che non è mai partito.",
-          "page": 13
-        },
-        {
-          "id": "ch-02-c07",
-          "type": "concept",
-          "title": "La letteratura non è l'unica fonte",
-          "body": "Questo desiderio prende spesso la forma di un programma di letture. Ma la letteratura non copre tutto il sapere: la sete di migliorarsi si può soddisfare anche del tutto al di fuori dei libri di letteratura.",
-          "page": 13
-        },
-        {
-          "id": "ch-02-c08",
           "type": "takeaway",
-          "body": "Il disagio non si spegne rinunciando né aspettando. Si attenua solo facendo un primo passo verso ciò che desideri, anche se non arriverai mai fino in fondo."
+          "body": "Il bisogno di fare di più non è una questione di ore libere: è l'idea fissa di superare i propri obblighi, che non si spegne quando li hai assolti. Non serve arrivare alla Mecca: basta lasciare Brixton. E il desiderio di conoscenza non coincide con la letteratura."
         }
       ],
-      "mindmap": "# Il desiderio di superare il programma\n## Il disagio\n- Gli anni scorrono\n- Lo scheletro alla festa\n- Attesa e aspirazione\n## Mecca e Brixton\n- Non arrivare è sopportabile\n- Non partire tormenta\n- La scusa delle 24 ore\n## L'origine\n- Fare più del dovuto\n- Sete di conoscenza\n- Non solo letteratura",
+      "mindmap": "# Il desiderio di superare il proprio programma\n## L'inquietudine\n- Idea fissa di fare di più\n- Non è mancanza di tempo\n- Resta dopo gli obblighi assolti\n- Lo scheletro al banchetto\n## Gli obblighi\n- Mantenersi e mantenere la famiglia\n- Debiti, risparmio, prosperità, efficienza\n- Compito quasi al di sopra delle forze\n## Brixton e la Mecca\n- Chi parte non è tormentato\n- Aver lasciato Brixton è già qualcosa\n- Restare immobili, divorati dal desiderio\n- La scusa delle ventiquattro ore\n## La sete di conoscenza\n- Desiderio universale\n- Non si placa con la sola letteratura\n- Herbert Spencer e le sue insenature\n- La letteratura non è l'unico pozzo",
       "flashcards": [
         {
           "id": "ch-02-f01",
-          "q": "Che differenza c'è tra chi parte per la Mecca senza arrivare e chi non lascia Brixton?",
-          "a": "Il primo resta insoddisfatto, il secondo è tormentato: pesa di più non essere mai partiti.",
-          "page": 12
+          "q": "Da dove nasce l'inquietudine che spinge a fare di più, e perché non si placa quando gli obblighi sono assolti?",
+          "a": "Nasce dall'idea fissa di dover fare qualcosa in più rispetto agli obblighi morali e sociali. Questi obblighi sono già difficilissimi, ma assolverli non basta: il sentimento resta e chiede conto di ciò che si è fatto della propria giovinezza e della propria età.",
+          "page": 11
         },
         {
           "id": "ch-02-f02",
-          "q": "Da quale idea nasce il disagio descritto?",
-          "a": "Dall'idea fissa di dover fare qualcosa oltre agli obblighi morali e materiali.",
+          "q": "Perché chi parte per la Mecca è tormentato in modo diverso da chi resta a Brixton?",
+          "a": "Perché aver lasciato Brixton è già qualcosa: l'aspirazione può restare frustrata, ma non è la stessa cosa che essere divorati dal desiderio di partire senza muoversi. La maggior parte di noi non parte nemmeno e si giustifica con le sole ventiquattro ore del giorno.",
           "page": 12
         },
         {
           "id": "ch-02-f03",
-          "q": "Quando smette di disturbare quel desiderio?",
-          "a": "Solo quando si fa uno sforzo concreto per soddisfarlo.",
+          "q": "Che cosa dimostra il caso di Herbert Spencer sul rapporto tra desiderio di conoscenza e programma di studio?",
+          "a": "Che il desiderio di superare il proprio programma è così forte da spingere oltre i limiti anche chi dedica tutta la vita all'acquisizione sistematica di conoscenza. Spencer stesso fu spesso trascinato in piacevoli piccole insenature di indagine.",
+          "page": 13
+        },
+        {
+          "id": "ch-02-f04",
+          "q": "Se qualcuno pensa che l'unico modo di superare il proprio programma sia intraprendere un corso di lettura, che cosa gli sfugge secondo il capitolo?",
+          "a": "Che la letteratura non esaurisce il campo della conoscenza: il desiderio di conoscenza è universale e non si placa solo con la letteratura, che non è l'unico pozzo.",
           "page": 13
         }
       ]

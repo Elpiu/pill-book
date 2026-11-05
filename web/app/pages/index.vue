@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { items, resume, loaded, error } = useLibrary()
+const { items, resume, dueCount, loaded, error } = useLibrary()
 const { app } = useRuntimeConfig()
 const sampleUrl = `${app.baseURL}samples/how-to-live-on-24-hours-a-day.bookpack.json`
 </script>
@@ -25,6 +25,8 @@ const sampleUrl = `${app.baseURL}samples/how-to-live-on-24-hours-a-day.bookpack.
         description="Il browser non permette di accedere ai dati locali. Controlla che non sia attiva la navigazione privata."
       />
 
+      <CommonInstallBanner />
+
       <NuxtLink
         v-if="resume"
         :to="`/book/${resume.item.record.id}/ch/${resume.chapter.id}`"
@@ -47,6 +49,27 @@ const sampleUrl = `${app.baseURL}samples/how-to-live-on-24-hours-a-day.bookpack.
         <p class="text-sm opacity-90">
           {{ resume.label }}
         </p>
+      </NuxtLink>
+
+      <NuxtLink
+        v-if="dueCount"
+        to="/review"
+        class="flex items-center gap-3 rounded-2xl border border-primary/40 bg-primary/10 p-4 transition hover:bg-primary/15 focus-visible:outline-2 focus-visible:outline-primary"
+      >
+        <UIcon
+          name="i-lucide-repeat"
+          class="size-6 shrink-0 text-primary"
+          aria-hidden="true"
+        />
+        <span class="min-w-0 flex-1">
+          <span class="block font-semibold">Ripasso di oggi</span>
+          <span class="block text-sm text-muted">{{ dueCount === 1 ? '1 domanda' : `${dueCount} domande` }} da ripassare</span>
+        </span>
+        <UIcon
+          name="i-lucide-arrow-right"
+          class="size-5 shrink-0 text-primary"
+          aria-hidden="true"
+        />
       </NuxtLink>
 
       <div

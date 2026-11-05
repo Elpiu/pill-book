@@ -44,7 +44,7 @@ Copia `.env.example` in `.env`, che è in gitignore.
 |---|---|---|
 | `OPENROUTER_API_KEY` | | da [openrouter.ai/keys](https://openrouter.ai/keys) |
 | `BOOKPACK_MODEL` | `anthropic/claude-sonnet-5.5` | qualsiasi id del catalogo; `--model` ha la precedenza |
-| `BOOKPACK_CONTEXT_TOKENS` | `40000` | sopra questa soglia un capitolo passa dal map-reduce; per i modelli piccoli vale al massimo il 60% del loro contesto |
+| `BOOKPACK_CONTEXT_TOKENS` | `40000` | limite alla grandezza delle parti, oltre ai 5.000 token normali; per i modelli piccoli vale al massimo il 60% del loro contesto |
 | `BOOKPACK_CACHE_DIR` | `generator/.bookpack-cache` | contiene risposte e catalogo |
 
 Un id sconosciuto viene rifiutato prima di spendere, con i suggerimenti più vicini.
@@ -62,7 +62,8 @@ L'opzione `--fake` non usa né rete né chiave e compone l'output con frasi estr
 
    Copertina, copyright, indici, ringraziamenti e bibliografia sono esclusi, salvo `--include-all`.
 3. **Pulizia** (`extract/clean.py`): header e footer ripetuti, numeri di pagina, sillabazione anche tra due pagine, spazi.
-4. **Capitolo** (`condense/chapter.py`): una chiamata se entra nel budget, altrimenti note per chunk da circa 3.500 token con overlap e una chiamata finale sulle note.
+4. **Card, parte per parte** (`condense/chapter.py`): il capitolo viene diviso in parti da circa 5.000 token, e ognuna riceve le sue card in proporzione, circa una ogni 500 parole. Così nessuna sezione sparisce e i capitoli lunghi hanno più spazio di quelli brevi. Il modello sceglie la forma in base al contenuto: `procedure` con passi e comandi dove il testo insegna a fare qualcosa, `concept` ed `example` dove argomenta. Aggiunge una domanda ogni 3-4 card.
+4b. **Chiusura del capitolo**: una chiamata separata scrive riassunto, takeaway, mindmap e flashcard **a partire dalle card**, non dal testo originale. Così le flashcard chiedono solo cose che il lettore ha visto.
 5. **Retry** (`llm/structured.py`): se l'output viola schema o vincoli si ritenta fino a 2 volte, passando gli errori al modello. Le risposte vuote e gli errori del provider con stato 200 si ritentano a parte (`llm/openrouter.py`).
 6. **Libro** (`condense/book.py`): panoramica, idee, mindmap e glossario, ricavati solo dalle sintesi dei capitoli.
 7. **Validazione finale**: se fallisce il file non viene scritto.
@@ -90,18 +91,36 @@ Ogni risposta viene salvata appena arriva, con chiave `sha256(provider, modello,
 
 ## Costi
 
-La stima usa caratteri/4 per l'input e un valore forfettario per l'output, ragionamento del modello incluso: è un ordine di grandezza. I prezzi arrivano dal catalogo pubblico di OpenRouter, tenuto in cache per 24 ore (`--refresh` per riscaricarlo). Senza rete si usa l'ultima copia; se non c'è, il costo appare come `n/d`. Alla fine di ogni generazione viene mostrato il costo effettivo comunicato da OpenRouter.
+La stima usa caratteri/4 per l'input e, per l'output, valori misurati su generazioni reali con `~deepseek/deepseek-flash-latest`, ragionamento compreso: è un ordine di grandezza, e con altri modelli può scostarsi. I prezzi arrivano dal catalogo pubblico di OpenRouter, tenuto in cache per 24 ore (`--refresh` per riscaricarlo). Senza rete si usa l'ultima copia; se non c'è, il costo appare come `n/d`. Alla fine di ogni generazione viene mostrato il costo effettivo comunicato da OpenRouter.
 
 Stime di novembre 2026:
 
-| Modello | Prezzo per milione di token | *How to Live on 24 Hours a Day* (48 pagine, 12 capitoli) | `AgenticSE_Book.pdf` (417 pagine, 16 capitoli) |
+| Modello | Prezzo per milione di token | *How to Live on 24 Hours a Day* (48 pagine, 12 capitoli) | Manuale di 417 pagine, 16 capitoli |
 |---|---|---|---|
-| `anthropic/claude-opus-5.5` | $4 / $20 | $1,14 | $1,96 |
-| `anthropic/claude-sonnet-5.5` | $2 / $10 | $0,57 | $0,98 |
-| `openai/gpt-5.6-luna` | $0,20 / $1,20 | $0,07 | $0,11 |
-| `anthropic/claude-haiku-5.5` | $0,10 / $0,50 | $0,03 | $0,05 |
+| `anthropic/claude-opus-5.5` | $4 / $20 | $2,12 | $5,55 |
+| `anthropic/claude-sonnet-5.5` | $2 / $10 | $1,06 | $2,78 |
+| `openai/gpt-5.6-luna` | $0,20 / $1,20 | $0,13 | $0,32 |
+| `anthropic/claude-haiku-5.5` | $0,10 / $0,50 | $0,05 | $0,14 |
 
-La qualità della condensazione con i diversi modelli non è stata misurata.
+Riscontri reali con `~deepseek/deepseek-flash-latest`:
+
+| Generazione | Chiamate | Token di output | Costo effettivo |
+|---|---|---|---|
+| Capitolo di 76 pagine di un manuale | 8 | 40.854 | $0,03 |
+| *How to Live on 24 Hours a Day*, intero | 29 | 65.716 (stimati 95.400) | $0,05 |
+
+La qualità della condensazione con i diversi modelli non è stata confrontata.
+
+## Densità e tempo di lettura
+
+La quantità di card dipende da `WORDS_PER_CARD` in `condense/chunking.py`, oggi una card ogni 500 parole. Misure reali:
+
+| Capitolo | Parole del libro | Parole prodotte, con il riassunto | Sessione | Lettura del libro |
+|---|---|---|---|---|
+| 76 pagine di un manuale | 15.114 | circa 6.000 | 39 minuti | circa 66 minuti |
+| Capitolo di 3 pagine del saggio breve | 910 | circa 560 | 5 minuti | circa 4 minuti |
+
+Sui capitoli lunghi si risparmia tempo. Su quelli molto brevi no: la sessione dura quanto la lettura, perché oltre al testo ci sono domande e flashcard. Alzare `WORDS_PER_CARD` accorcia le sessioni, a scapito della profondità.
 
 ## Test
 

@@ -1,7 +1,7 @@
 """Vincoli del pack oltre lo schema: lunghezze, unicità, coerenza di id e pagine.
 
-Il piano indica alcuni limiti come "circa": oltre il limite nominale si produce un avviso,
-oltre la tolleranza un errore. Per le citazioni il limite è rigido.
+Alcuni limiti sono indicativi: oltre quello nominale si produce un avviso, oltre la tolleranza un
+errore. Per le citazioni il limite è rigido.
 """
 
 import re
@@ -9,17 +9,27 @@ from dataclasses import dataclass, field
 
 from pydantic import ValidationError
 
-from .models import MAX_CARDS, BookPack, Card, CardType, Chapter, Flashcard
+from .models import BookPack, Card, CardType, Chapter, Flashcard
 
 BODY_WORDS_SOFT = 60
-BODY_WORDS_HARD = 75
+BODY_WORDS_HARD = 80
+DETAILS_WORDS_SOFT = 130
+DETAILS_WORDS_HARD = 180
 TITLE_WORDS_SOFT = 8
 TITLE_WORDS_HARD = 12
 QUOTE_WORDS_MAX = 25
-MAX_QUOTES_PER_CHAPTER = 1
+ANSWER_WORDS_HARD = 90
+STEP_WORDS_HARD = 40
+MIN_STEPS = 2
+MAX_STEPS = 12
+CODE_LINES_HARD = 30
+# Una citazione ogni quattro card al massimo, e sempre almeno una ammessa
+CARDS_PER_QUOTE = 4
+SUMMARY_WORDS_MIN = 40
+SUMMARY_WORDS_MAX = 900
 MINDMAP_MAX_DEPTH = 4
-MINDMAP_NODES_SOFT = 25
-MINDMAP_NODES_HARD = 45
+MINDMAP_NODES_SOFT = 40
+MINDMAP_NODES_HARD = 90
 BOOK_MINDMAP_NODES_HARD = 150
 
 _HEADING = re.compile(r"^(#{1,6})\s+\S")
@@ -65,38 +75,70 @@ def mindmap_stats(markdown: str) -> tuple[int, int]:
     return depth, nodes
 
 
-def _check_card(card: Card, chapter: Chapter, report: Report) -> None:
-    where = f"{card.id}"
-    words = word_count(card.body)
+def _check_length(text: str, label: str, soft: int, hard: int, where: str, report: Report) -> None:
+    words = word_count(text)
+    if words > hard:
+        report.errors.append(f"{where}: {label} di {words} parole (massimo circa {soft})")
+    elif words > soft:
+        report.warnings.append(f"{where}: {label} di {words} parole (consigliate {soft})")
+
+
+def check_card(card: Card, page_start: int, page_end: int) -> Report:
+    report = Report()
+    where = card.id
+
     if card.type == CardType.QUOTE:
+        words = word_count(card.body)
         if words > QUOTE_WORDS_MAX:
             report.errors.append(
                 f"{where}: citazione di {words} parole (massimo {QUOTE_WORDS_MAX})"
             )
-    elif words > BODY_WORDS_HARD:
-        report.errors.append(f"{where}: body di {words} parole (massimo circa {BODY_WORDS_SOFT})")
-    elif words > BODY_WORDS_SOFT:
-        report.warnings.append(f"{where}: body di {words} parole (consigliate {BODY_WORDS_SOFT})")
+    else:
+        _check_length(card.body, "body", BODY_WORDS_SOFT, BODY_WORDS_HARD, where, report)
 
     if card.title:
-        title_words = word_count(card.title)
-        if title_words > TITLE_WORDS_HARD:
+        _check_length(card.title, "title", TITLE_WORDS_SOFT, TITLE_WORDS_HARD, where, report)
+    if card.details:
+        _check_length(
+            card.details, "details", DETAILS_WORDS_SOFT, DETAILS_WORDS_HARD, where, report
+        )
+
+    if card.type == CardType.CHECK:
+        if not card.answer:
+            report.errors.append(f"{where}: una domanda deve avere la risposta in answer")
+        elif word_count(card.answer) > ANSWER_WORDS_HARD:
+            report.errors.append(f"{where}: risposta troppo lunga (massimo {ANSWER_WORDS_HARD})")
+    elif card.answer:
+        report.errors.append(f"{where}: answer è ammesso solo sulle card di tipo check")
+
+    if card.type == CardType.PROCEDURE:
+        steps = card.steps or []
+        if not MIN_STEPS <= len(steps) <= MAX_STEPS:
             report.errors.append(
-                f"{where}: title di {title_words} parole (massimo circa {TITLE_WORDS_SOFT})"
+                f"{where}: una procedura ha da {MIN_STEPS} a {MAX_STEPS} passi, non {len(steps)}"
             )
-        elif title_words > TITLE_WORDS_SOFT:
-            report.warnings.append(
-                f"{where}: title di {title_words} parole (consigliate {TITLE_WORDS_SOFT})"
-            )
+        for number, step in enumerate(steps, start=1):
+            if word_count(step) > STEP_WORDS_HARD:
+                report.errors.append(
+                    f"{where}: passo {number} troppo lungo (massimo {STEP_WORDS_HARD} parole)"
+                )
+    elif card.steps:
+        report.errors.append(f"{where}: steps è ammesso solo sulle card di tipo procedure")
+
+    if card.code and card.code.count("\n") + 1 > CODE_LINES_HARD:
+        report.errors.append(f"{where}: codice troppo lungo (massimo {CODE_LINES_HARD} righe)")
+
+    if card.type == CardType.SECTION and not card.title:
+        report.errors.append(f"{where}: una sezione deve avere un titolo")
 
     if card.page is None:
-        if card.type != CardType.TAKEAWAY:
+        if card.type not in (CardType.TAKEAWAY, CardType.SECTION):
             report.errors.append(f"{where}: manca la pagina di origine")
-    elif not chapter.pageStart <= card.page <= chapter.pageEnd:
+    elif not page_start <= card.page <= page_end:
         report.errors.append(
-            f"{where}: pagina {card.page} fuori dal capitolo "
-            f"({chapter.pageStart}-{chapter.pageEnd})"
+            f"{where}: pagina {card.page} fuori dal capitolo ({page_start}-{page_end})"
         )
+    return report
 
 
 def _check_flashcard(card: Flashcard, chapter: Chapter, report: Report) -> None:
@@ -136,13 +178,21 @@ def check_chapter(chapter: Chapter) -> Report:
     if takeaways > 1:
         report.warnings.append(f"{where}: {takeaways} card takeaway (attesa una)")
     quotes = sum(card.type == CardType.QUOTE for card in chapter.cards)
-    if quotes > MAX_QUOTES_PER_CHAPTER:
-        report.errors.append(f"{where}: {quotes} citazioni (massimo {MAX_QUOTES_PER_CHAPTER})")
+    allowed_quotes = max(1, len(chapter.cards) // CARDS_PER_QUOTE)
+    if quotes > allowed_quotes:
+        report.errors.append(f"{where}: {quotes} citazioni (massimo {allowed_quotes})")
+
+    summary_words = word_count(chapter.summary)
+    if not SUMMARY_WORDS_MIN <= summary_words <= SUMMARY_WORDS_MAX:
+        report.errors.append(
+            f"{where}: riassunto di {summary_words} parole "
+            f"(da {SUMMARY_WORDS_MIN} a {SUMMARY_WORDS_MAX})"
+        )
 
     for card in chapter.cards:
         if not card.id.startswith(f"{chapter.id}-"):
             report.errors.append(f"{card.id}: id non appartiene al capitolo {chapter.id}")
-        _check_card(card, chapter, report)
+        report.extend(check_card(card, chapter.pageStart, chapter.pageEnd))
     for flashcard in chapter.flashcards:
         if not flashcard.id.startswith(f"{chapter.id}-"):
             report.errors.append(f"{flashcard.id}: id non appartiene al capitolo {chapter.id}")
@@ -200,4 +250,4 @@ def validate_data(data: object) -> tuple[BookPack | None, Report]:
     return pack, report
 
 
-__all__ = ["MAX_CARDS", "Report", "check_chapter", "check_pack", "mindmap_stats", "validate_data"]
+__all__ = ["Report", "check_card", "check_chapter", "check_pack", "mindmap_stats", "validate_data"]

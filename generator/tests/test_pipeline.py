@@ -6,7 +6,9 @@ from typer.testing import CliRunner
 
 from bookpack.cache import ResponseCache
 from bookpack.cli import app
+from bookpack.condense.chapter import condense_chapter
 from bookpack.condense.chunking import chunk_section, estimate_tokens
+from bookpack.condense.estimate import estimate_section
 from bookpack.condense.pipeline import build_pack
 from bookpack.extract.clean import clean_pages
 from bookpack.extract.pdf import open_pdf
@@ -79,7 +81,7 @@ def test_interrupted_build_resumes_from_cache(pdf_with_outline, tmp_path):
     result, llm = _build(pdf_with_outline, resumed, cache)
     assert result.report.ok
     assert llm.usage.cached == 2
-    assert resumed.calls == 3  # due capitoli restanti e il livello libro
+    assert resumed.calls == 7  # 4 capitoli da 2 chiamate e il libro, meno le 2 già fatte
 
 
 def test_invalid_output_is_retried_with_the_error(tmp_path):
@@ -121,7 +123,7 @@ def test_constraint_failures_trigger_retry(pdf_with_outline, tmp_path):
     class TooLong(FakeProvider):
         def complete(self, system: str, user: str, schema: dict) -> LLMResponse:
             response = super().complete(system, user, schema)
-            if "cards" in schema["properties"] and "rejected" not in user:
+            if "intro" in schema["properties"] and "rejected" not in user:
                 data = json.loads(response.text)
                 data["cards"][0]["body"] = "parola " * 200
                 response.text = json.dumps(data)
@@ -132,16 +134,186 @@ def test_constraint_failures_trigger_retry(pdf_with_outline, tmp_path):
     assert llm.usage.retries == 1
 
 
-def test_long_chapter_uses_map_reduce(pdf_with_outline, tmp_path):
-    provider = FakeProvider()
-    result, _ = _build(
-        pdf_with_outline, provider, tmp_path / "cache", context_tokens=100, selected={1}
-    )
-    assert result.report.ok, result.report.errors
-    # Almeno una chiamata per le note, una per il capitolo e una per il libro
-    assert provider.calls >= 3
-    chapter = result.pack.chapters[0]
-    assert all(chapter.pageStart <= c.page <= chapter.pageEnd for c in chapter.flashcards)
+class RecordingProvider(FakeProvider):
+    def __init__(self) -> None:
+        super().__init__()
+        self.prompts: list[tuple[dict, str]] = []
+
+    def complete(self, system: str, user: str, schema: dict) -> LLMResponse:
+        self.prompts.append((schema, user))
+        return super().complete(system, user, schema)
+
+
+def _chapter_from_text(words: int, tmp_path, provider=None, context_tokens=40_000):
+    """Un capitolo con il numero di parole voluto, su pagine da 300 parole."""
+    phrase = "Il metodo separa le decisioni dalla esecuzione in modo chiaro e verificabile. "
+    per_page = 300
+    count = max(words // per_page, 1)
+    pages = {n: phrase * (per_page // 12) for n in range(1, count + 1)}
+    llm = StructuredLLM(provider or FakeProvider(), ResponseCache(tmp_path / "cache"))
+    section = Section("Capitolo lungo", 1, count)
+    return condense_chapter(llm, section, 1, pages, "Libro", "it", context_tokens)
+
+
+def _content_cards(chapter) -> list:
+    skip = {"check", "section", "takeaway"}
+    return [card for card in chapter.cards if card.type not in skip]
+
+
+def test_cards_grow_with_chapter_length(tmp_path):
+    short = _chapter_from_text(1_200, tmp_path / "a")
+    long = _chapter_from_text(15_000, tmp_path / "b")
+    assert len(_content_cards(short)) == 3
+    assert 25 <= len(_content_cards(long)) <= 35
+    assert long.estMinutes > short.estMinutes * 2
+
+
+def test_long_chapter_is_split_in_parts_with_section_cards(tmp_path):
+    chapter = _chapter_from_text(15_000, tmp_path)
+    sections = [card for card in chapter.cards if card.type == "section"]
+    assert len(sections) >= 3
+    assert chapter.cards[0].type == "section"
+    assert chapter.cards[-1].type == "takeaway"
+    assert all(card.title and card.body for card in sections)
+    ids = [card.id for card in chapter.cards]
+    assert len(ids) == len(set(ids))
+
+
+def test_short_chapter_has_no_section_cards(tmp_path):
+    chapter = _chapter_from_text(1_200, tmp_path)
+    assert not [card for card in chapter.cards if card.type == "section"]
+
+
+def test_parts_cover_the_whole_chapter(tmp_path):
+    provider = RecordingProvider()
+    chapter = _chapter_from_text(15_000, tmp_path, provider)
+    pages = {card.page for card in chapter.cards if card.page}
+    assert max(pages) > chapter.pageEnd * 0.8
+    assert min(pages) <= 2
+
+
+def test_small_models_get_smaller_parts(tmp_path):
+    provider = RecordingProvider()
+    _chapter_from_text(6_000, tmp_path, provider, context_tokens=1_000)
+    parts = [user for schema, user in provider.prompts if "intro" in schema["properties"]]
+    assert len(parts) >= 6
+
+
+def test_checks_are_placed_among_the_cards(tmp_path):
+    chapter = _chapter_from_text(5_000, tmp_path)
+    checks = [i for i, card in enumerate(chapter.cards) if card.type == "check"]
+    assert checks
+    assert all(chapter.cards[i].answer for i in checks)
+    assert checks[0] > 0
+
+
+def test_flashcards_and_summary_are_written_from_the_cards_not_the_source(tmp_path):
+    provider = RecordingProvider()
+    chapter = _chapter_from_text(5_000, tmp_path, provider)
+    wraps = [user for schema, user in provider.prompts if "takeaway" in schema["properties"]]
+    assert len(wraps) == 1
+    assert "<chapter_part>" not in wraps[0]
+    assert "[p. " not in wraps[0]
+    assert "[concept] Idea 1" in wraps[0]
+    assert "[check]" not in wraps[0]
+    assert chapter.summary
+
+
+def test_summary_length_is_enforced_with_a_retry(tmp_path):
+    class ShortSummary(FakeProvider):
+        def complete(self, system: str, user: str, schema: dict) -> LLMResponse:
+            response = super().complete(system, user, schema)
+            if "takeaway" in schema["properties"] and "rejected" not in user:
+                data = json.loads(response.text)
+                data["summary"] = "Troppo breve."
+                response.text = json.dumps(data)
+            return response
+
+    chapter = _chapter_from_text(2_000, tmp_path, ShortSummary())
+    assert len(chapter.summary.split()) > 40
+
+
+def _wrong_part(provider_class_changes):
+    class Wrong(FakeProvider):
+        def complete(self, system: str, user: str, schema: dict) -> LLMResponse:
+            response = super().complete(system, user, schema)
+            if "intro" in schema["properties"] and "rejected" not in user:
+                data = json.loads(response.text)
+                provider_class_changes(data)
+                response.text = json.dumps(data)
+            return response
+
+    return Wrong()
+
+
+def test_too_few_cards_are_rejected_and_regenerated(tmp_path):
+    def keep_one(data):
+        data["cards"] = data["cards"][:1]
+
+    provider = _wrong_part(keep_one)
+    chapter = _chapter_from_text(10_000, tmp_path, provider)
+    assert len(_content_cards(chapter)) >= 14
+    assert provider.calls > 3
+
+
+def test_missing_checks_are_rejected(tmp_path):
+    def no_checks(data):
+        data["cards"] = [card for card in data["cards"] if card["type"] != "check"]
+
+    provider = RecordingProvider()
+    llm = StructuredLLM(_wrong_part(no_checks), ResponseCache(tmp_path / "cache"))
+    pages = {n: "Il metodo separa le decisioni dalla esecuzione. " * 40 for n in range(1, 8)}
+    chapter = condense_chapter(llm, Section("C", 1, 7), 1, pages, "Libro", "it", 40_000)
+    assert [card for card in chapter.cards if card.type == "check"]
+    assert provider.calls == 0
+
+
+def test_invented_quote_is_dropped_and_real_one_kept(tmp_path):
+    real = "separa le decisioni dalla esecuzione"
+
+    def add_quotes(data):
+        page = data["cards"][0]["page"]
+        quote = {
+            "type": "quote", "title": None, "details": None, "steps": None, "code": None,
+            "answer": None, "page": page,
+        }  # fmt: skip
+        data["cards"].append({**quote, "body": INVENTED if "invent" in MODE else real})
+
+    INVENTED = "Una frase che nel libro non esiste affatto."
+    MODE = ["invent"]
+    notes: list[str] = []
+    pages = {n: "Il metodo separa le decisioni dalla esecuzione. " * 40 for n in range(1, 8)}
+    section = Section("C", 1, 7)
+
+    class Quoting(FakeProvider):
+        def complete(self, system: str, user: str, schema: dict) -> LLMResponse:
+            response = super().complete(system, user, schema)
+            if "intro" in schema["properties"]:
+                data = json.loads(response.text)
+                add_quotes(data)
+                response.text = json.dumps(data)
+            return response
+
+    llm = StructuredLLM(Quoting(), ResponseCache(tmp_path / "a"))
+    chapter = condense_chapter(llm, section, 1, pages, "Libro", "it", 40_000, notes)
+    assert not [card for card in chapter.cards if card.type == "quote"]
+    assert "citazione non trovata" in notes[0]
+
+    MODE.clear()
+    llm = StructuredLLM(Quoting(), ResponseCache(tmp_path / "b"))
+    chapter = condense_chapter(llm, section, 1, pages, "Libro", "it", 40_000)
+    assert [card.body for card in chapter.cards if card.type == "quote"] == [real]
+
+
+def test_estimate_grows_with_cards():
+    phrase = "parola " * 300
+    short = {n: phrase for n in range(1, 4)}
+    long = {n: phrase for n in range(1, 51)}
+    a = estimate_section(Section("A", 1, 3), short, 40_000)
+    b = estimate_section(Section("B", 1, 50), long, 40_000)
+    assert a.calls == 2
+    assert b.calls > 3
+    assert b.output_tokens > a.output_tokens * 3
 
 
 def test_chunks_respect_size_and_keep_page_markers():

@@ -37,6 +37,7 @@ class BuildResult:
     pack: BookPack
     report: Report
     skipped: list[str] = field(default_factory=list)
+    notes: list[str] = field(default_factory=list)
 
 
 def slugify(text: str) -> str:
@@ -100,6 +101,7 @@ def build_pack(
 
     chapters: list[Chapter] = []
     skipped: list[str] = []
+    notes: list[str] = []
     for index, section in numbered_chapters(detection):
         if selected is not None and index not in selected:
             continue
@@ -108,7 +110,7 @@ def build_pack(
             continue
         on_step(f"Capitolo {index}: {section.title}")
         chapters.append(
-            condense_chapter(llm, section, index, pages, title, output_lang, context_tokens)
+            condense_chapter(llm, section, index, pages, title, output_lang, context_tokens, notes)
         )
     if not chapters:
         raise PackError("Nessun capitolo da condensare: controlla --chapters e la divisione.")
@@ -135,4 +137,4 @@ def build_pack(
         chapters=chapters,
         glossary=glossary,
     )
-    return BuildResult(pack, check_pack(pack), skipped)
+    return BuildResult(pack, check_pack(pack), skipped, notes)

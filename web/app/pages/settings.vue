@@ -3,6 +3,7 @@ import { db, deleteBook, exportProgress, importProgress, resetProgress } from '~
 import { parseProgressExport, type ProgressExport } from '~/utils/progress'
 
 const toast = useToast()
+const { $pwa } = useNuxtApp()
 const { fontScale, theme, restore, setFontScale, setTheme } = useSettings()
 const { data: books } = useLiveQuery(() => db.books.toArray())
 
@@ -84,7 +85,7 @@ function askDelete(id: string, title: string) {
 function askReset(id: string, title: string) {
   confirmation.value = {
     title: `Azzerare il progresso di "${title}"?`,
-    description: 'Posizioni ed esiti delle flashcard di questo libro verranno cancellati.',
+    description: 'Posizioni, esiti delle flashcard e ripassi di questo libro verranno cancellati.',
     action: 'Azzera',
     run: () => resetProgress(id),
   }
@@ -93,7 +94,7 @@ function askReset(id: string, title: string) {
 function askResetAll() {
   confirmation.value = {
     title: 'Azzerare tutto il progresso?',
-    description: 'Posizioni ed esiti delle flashcard di tutti i libri verranno cancellati. Se vuoi conservarli, esportali prima.',
+    description: 'Posizioni, esiti delle flashcard e ripassi di tutti i libri verranno cancellati. Se vuoi conservarli, esportali prima.',
     action: 'Azzera tutto',
     run: () => resetProgress(),
   }
@@ -108,6 +109,24 @@ function askResetAll() {
     />
 
     <main class="space-y-8 px-4 pt-2">
+      <section
+        v-if="!$pwa?.isPWAInstalled"
+        class="space-y-3"
+      >
+        <h2 class="font-semibold">
+          Installa l'app
+        </h2>
+        <UButton
+          v-if="$pwa?.showInstallPrompt"
+          icon="i-lucide-smartphone"
+          label="Installa Bookpack"
+          @click="$pwa.install()"
+        />
+        <p class="text-sm text-muted">
+          Così si apre come un'app e funziona offline. Su iPhone: in Safari tocca Condividi, poi Aggiungi alla schermata Home. Su Android: dal menu di Chrome, Installa app o Aggiungi a schermata Home.
+        </p>
+      </section>
+
       <section class="space-y-3">
         <h2 class="font-semibold">
           Tema
@@ -145,7 +164,7 @@ function askResetAll() {
           Progresso
         </h2>
         <p class="text-sm text-muted">
-          Il file contiene posizioni, esiti e impostazioni. I libri si reimportano dai loro pack.
+          Il file contiene posizioni, esiti, ripassi e impostazioni. I libri si reimportano dai loro pack.
         </p>
         <div class="flex flex-wrap gap-2">
           <UButton

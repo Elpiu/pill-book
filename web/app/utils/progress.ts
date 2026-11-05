@@ -1,6 +1,7 @@
 import type { BookPack, Chapter } from '~/types/bookpack'
+import type { ReviewRecord } from '~/utils/review'
 
-export type Phase = 'cards' | 'mindmap' | 'flashcards' | 'done'
+export type Phase = 'cards' | 'summary' | 'mindmap' | 'flashcards' | 'done'
 
 export interface FlashResult {
   known: boolean
@@ -28,10 +29,25 @@ export interface SettingRecord {
 
 export type ChapterState = 'todo' | 'doing' | 'done'
 
-const PHASE_ORDER: Phase[] = ['cards', 'mindmap', 'flashcards', 'done']
+const PHASE_ORDER: Phase[] = ['cards', 'summary', 'mindmap', 'flashcards', 'done']
 
 export function emptyChapterProgress(): ChapterProgress {
   return { phase: 'cards', lastCardIndex: 0, flashResults: {} }
+}
+
+/** Le fasi di una sessione. I pack v1 già importati non hanno il riassunto. */
+export function sessionPhases(chapter: Chapter): Phase[] {
+  return chapter.summary
+    ? ['cards', 'summary', 'mindmap', 'flashcards']
+    : ['cards', 'mindmap', 'flashcards']
+}
+
+/** In quale parte di un capitolo lungo cade una card. Undefined se il capitolo non ha parti. */
+export function sectionPosition(chapter: Chapter, cardIndex: number): { current: number, total: number } | undefined {
+  const sections = chapter.cards.flatMap((card, index) => (card.type === 'section' ? [index] : []))
+  if (sections.length < 2) return undefined
+  const current = sections.filter(index => index <= cardIndex).length
+  return { current: Math.max(current, 1), total: sections.length }
 }
 
 /** Indice di card utilizzabile: un pack aggiornato può avere meno card di quelle salvate. */
@@ -51,6 +67,7 @@ export function chapterStatusLabel(chapter: Chapter, progress?: ProgressRecord):
   if (state === 'todo') return 'Da iniziare'
   if (state === 'done') return 'Completato'
   const saved = progress!.chapters[chapter.id]!
+  if (saved.phase === 'summary') return 'In corso: riassunto'
   if (saved.phase === 'mindmap') return 'In corso: mindmap'
   if (saved.phase === 'flashcards') return 'In corso: flashcard'
   return `In corso: card ${clampCardIndex(chapter, saved.lastCardIndex) + 1}/${chapter.cards.length}`
@@ -61,7 +78,8 @@ function chapterFraction(chapter: Chapter, progress?: ProgressRecord): number {
   if (state === 'todo') return 0
   if (state === 'done') return 1
   const saved = progress!.chapters[chapter.id]!
-  if (saved.phase === 'mindmap') return 0.7
+  if (saved.phase === 'summary') return 0.7
+  if (saved.phase === 'mindmap') return 0.75
   if (saved.phase === 'flashcards') return 0.8
   return (clampCardIndex(chapter, saved.lastCardIndex) / chapter.cards.length) * 0.7
 }
@@ -93,10 +111,11 @@ export const PROGRESS_EXPORT_TYPE = 'bookpack-progress'
 
 export interface ProgressExport {
   type: typeof PROGRESS_EXPORT_TYPE
-  version: 1
+  version: 1 | 2
   exportedAt: string
   progress: ProgressRecord[]
   settings: SettingRecord[]
+  reviews?: ReviewRecord[]  // assente negli export della versione 1
 }
 
 export function parseProgressExport(text: string): ProgressExport {
@@ -107,7 +126,7 @@ export function parseProgressExport(text: string): ProgressExport {
   catch {
     throw new Error('Il file non è un JSON valido.')
   }
-  if (data?.type !== PROGRESS_EXPORT_TYPE || data.version !== 1) {
+  if (data?.type !== PROGRESS_EXPORT_TYPE || (data.version !== 1 && data.version !== 2)) {
     throw new Error('Il file non è un export del progresso di Bookpack.')
   }
   if (!Array.isArray(data.progress) || !Array.isArray(data.settings)) {

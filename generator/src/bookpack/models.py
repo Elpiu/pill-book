@@ -9,12 +9,12 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
-MIN_CARDS = 5
-MAX_CARDS = 12
+MIN_CARDS = 3
+MAX_CARDS = 200
 MIN_FLASHCARDS = 3
-MAX_FLASHCARDS = 5
+MAX_FLASHCARDS = 20
 MIN_KEY_IDEAS = 3
 MAX_KEY_IDEAS = 7
 
@@ -32,6 +32,9 @@ class CardType(StrEnum):
     DEFINITION = "definition"
     EXAMPLE = "example"
     QUOTE = "quote"
+    PROCEDURE = "procedure"  # come si fa: passi ed eventuale codice
+    CHECK = "check"  # domanda durante la lettura: body è la domanda, answer la risposta
+    SECTION = "section"  # apre una parte di un capitolo lungo: un buon punto per fermarsi
     TAKEAWAY = "takeaway"
 
 
@@ -60,7 +63,11 @@ class Card(_Strict):
     id: str = Field(pattern=CARD_ID_PATTERN)
     type: CardType
     title: str | None = None
-    body: str = Field(min_length=1)
+    body: str = Field(min_length=1, description="L'idea in breve, o la domanda per `check`")
+    details: str | None = Field(default=None, description="Perché, come ed esempio concreto")
+    steps: list[str] | None = Field(default=None, description="Passi di una `procedure`")
+    code: str | None = Field(default=None, description="Comandi o codice, letterali dal libro")
+    answer: str | None = Field(default=None, description="Risposta di una `check`")
     page: int | None = Field(default=None, ge=1, description="Pagina del PDF, a partire da 1")
 
 
@@ -79,6 +86,7 @@ class Chapter(_Strict):
     pageEnd: int = Field(ge=1)
     estMinutes: int = Field(ge=1)
     tldr: str = Field(min_length=1)
+    summary: str = Field(min_length=1, description="Riassunto di fine capitolo, a paragrafi")
     cards: list[Card] = Field(min_length=MIN_CARDS, max_length=MAX_CARDS)
     mindmap: str = Field(min_length=1)
     flashcards: list[Flashcard] = Field(min_length=MIN_FLASHCARDS, max_length=MAX_FLASHCARDS)
@@ -91,7 +99,7 @@ class GlossaryEntry(_Strict):
 
 
 class BookPack(_Strict):
-    schemaVersion: Literal[1]
+    schemaVersion: Literal[2]
     generator: GeneratorInfo
     book: Book
     overview: Overview

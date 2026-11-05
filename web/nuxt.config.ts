@@ -15,6 +15,10 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'description', content: 'Libri condensati in pillole: card, mindmap e flashcard.' },
         { name: 'theme-color', content: '#0f766e' },
+        // Su iOS l'icona in Home apre l'app a schermo intero solo con questi
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-title', content: 'Bookpack' },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: `${baseURL}icon.svg` },
@@ -50,6 +54,7 @@ export default defineNuxtConfig({
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
+      id: baseURL,
       name: 'Bookpack',
       short_name: 'Bookpack',
       description: 'Libri condensati in pillole: card, mindmap e flashcard.',
@@ -74,11 +79,11 @@ export default defineNuxtConfig({
         '**/*cyrillic*', '**/*greek*', '**/*vietnamese*',
         // Copie della stessa shell: basta index.html con navigateFallback. Precaricarle farebbe
         // fallire l'installazione sugli host che non servono URL come /404 o /import.
-        '200.html', '404.html', 'import/**', 'settings/**',
+        '200.html', '404.html', 'import/**', 'settings/**', 'review/**',
       ],
       maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
     },
-    client: { installPrompt: false },
+    client: { installPrompt: true },
     devOptions: { enabled: false },
   },
 })

@@ -37,7 +37,8 @@ const takeaway = computed(() => props.chapter.cards.at(-1)?.body)
         v-if="known.length + toReview.length"
         class="mt-4 text-sm text-muted"
       >
-        Sapevi {{ known.length }} flashcard su {{ chapter.flashcards.length }}
+        Sapevi {{ known.length }} flashcard su {{ chapter.flashcards.length }}.
+        Le domande torneranno nel ripasso nei prossimi giorni.
       </p>
 
       <div

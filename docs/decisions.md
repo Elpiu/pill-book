@@ -21,7 +21,7 @@ Scelte non coperte dal piano, o che lo adattano.
 | Prezzi e limiti letti dal catalogo di OpenRouter, in cache per 24 ore | Una tabella nel codice non potrebbe coprire centinaia di modelli. Senza rete il costo è `n/d`, il resto funziona |
 | Output strutturato con `require_parameters`; se nessun provider lo supporta, schema nel prompt | Funziona con qualsiasi modello. In ogni caso la validazione locale e i ritentativi garantiscono il risultato |
 | Schema inviato senza `$ref` | Non tutti i modelli li gestiscono |
-| Budget per capitolo limitato al 60% del contesto del modello | I modelli piccoli passano da soli al map-reduce |
+| Budget per capitolo limitato al 60% del contesto del modello | I modelli piccoli ricevono da soli parti più piccole |
 | Ragionamento `low` sui modelli che lo dichiarano nel catalogo | Il testo di un capitolo sta in circa 2.000 token, ma con il livello `high` un modello ne ha spesi fino a 7.000 e in un caso ha esaurito il limite di 16.000. Il ragionamento si paga come output. Dove `low` non c'è resta il default: `none` spegnerebbe tutto e il suo effetto sulla qualità non è stato misurato |
 | Limite di 32.000 token di output per chiamata, e un nuovo tentativo a 64.000 se la risposta viene troncata | Il ragionamento conta nello stesso limite. Entrambi i valori si riducono se il modello ha un limite più basso. Il tentativo troncato si paga e viene sommato al costo effettivo |
 | Livello di ragionamento e limiti fuori dalla chiave della cache | Cambiarli non deve far ripagare le risposte già valide. Per rigenerare con le nuove impostazioni c'è `--no-cache` |
@@ -35,6 +35,23 @@ Scelte non coperte dal piano, o che lo adattano.
 | Chiave salvata in chiaro nel `.env`, solo su richiesta | Il `.env` è già il posto previsto ed è in gitignore |
 | Interrompere ferma la generazione tra un capitolo e l'altro | La chiamata in corso non si può annullare senza perderla; tutto ciò che è pronto resta in cache |
 | Chiamate in sequenza | Più semplice, e la cache rende la ripresa sicura. Da rivedere solo se i tempi sui libri lunghi pesano |
+
+## Formato v2: più spazio per capire
+
+Il primo formato dava lo stesso spazio a ogni capitolo: 12 card sia per 76 pagine, compresse 29 volte, sia per 4, quasi riscritte. Le card erano elenchi con pochi esempi, e alcune flashcard chiedevano cose mai spiegate. La v2 cambia il piano originale in questi punti, su richiesta:
+
+| Scelta | Motivo |
+|---|---|
+| Circa una card ogni 500 parole, generate per parti da 5.000 token | Lo spazio segue il testo. Generare a parti copre tutto il capitolo: con una chiamata unica le parti finali restavano sacrificate |
+| Card con `body` e `details`, tutto visibile | Serve il perché, non solo il cosa. Nascondere i dettagli dietro un tocco li avrebbe resi facoltativi e si sarebbe scontrato con i tap di navigazione |
+| Forma scelta dal modello in base al contenuto, con il tipo `procedure` e `code` | Vale per qualsiasi libro senza doverlo classificare, e rende bene i manuali tecnici |
+| Domande `check` mescolate alle card, facoltative | Sforzarsi di ricordare subito fissa di più che rileggere. Bloccare l'avanzamento sarebbe un fastidio sul telefono |
+| Riassunto di fine capitolo come fase propria | Ripete il capitolo con parole e ordine diversi, come fanno molti manuali |
+| Flashcard scritte dalle card | Non possono chiedere ciò che non è stato spiegato |
+| Citazioni confrontate col testo, scartate se assenti | Fedeltà alla fonte, senza bloccare la generazione per una frase |
+| Ripasso con scatole di Leitner invece di FSRS | Bastano due pulsanti e nessuna dipendenza. Il formato dei dati permette di passare a FSRS più avanti |
+| Niente tipo di libro nel formato | Una classificazione sbaglierebbe sui libri misti: conta il contenuto di ogni parte |
+| Pack v1 rifiutati all'import ma leggibili se già importati | Rigenerare è la strada giusta, ma non si perde ciò che si sta leggendo |
 
 ## Lettore
 
@@ -52,5 +69,5 @@ Scelte non coperte dal piano, o che lo adattano.
 
 | Scelta | Motivo |
 |---|---|
-| `books/` in gitignore | Il piano ammette nel repo solo materiale di pubblico dominio, e il copyright di `AgenticSE_Book.pdf` non è verificato |
+| `books/` in gitignore | Il piano ammette nel repo solo materiale di pubblico dominio, e i libri personali non vanno pubblicati |
 | PDF d'esempio impaginato da noi | Project Gutenberg offre di rado PDF. Lo script è in `samples/make_sample_pdf.py` |

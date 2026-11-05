@@ -5,7 +5,7 @@ import re
 from pydantic import BaseModel
 
 from ..llm.structured import StructuredLLM
-from ..models import MAX_KEY_IDEAS, MIN_KEY_IDEAS, CardType, Chapter, GlossaryEntry, Overview
+from ..models import MAX_KEY_IDEAS, MIN_KEY_IDEAS, Chapter, GlossaryEntry, Overview
 from .prompts import render
 
 
@@ -23,13 +23,9 @@ class BookDraft(BaseModel):
 
 
 def chapter_digest(chapter: Chapter) -> str:
-    lines = [f"### {chapter.id} | {chapter.title}", f"In brief: {chapter.tldr}"]
-    for card in chapter.cards:
-        if card.type == CardType.QUOTE:
-            continue
-        label = f"{card.title}: " if card.title else ""
-        lines.append(f"- [{card.type.value}] {label}{card.body}")
-    return "\n".join(lines)
+    return "\n".join(
+        [f"### {chapter.id} | {chapter.title}", f"In brief: {chapter.tldr}", chapter.summary]
+    )
 
 
 def _check(draft: BookDraft, chapters: list[Chapter]) -> None:

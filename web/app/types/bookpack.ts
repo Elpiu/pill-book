@@ -1,6 +1,6 @@
 /* Generato da scripts/gen-types.mjs: non modificare. Rigenera con `pnpm gen:types`. */
 
-export type Schemaversion = 1
+export type Schemaversion = 2
 export type Version = string
 export type Model = string
 /**
@@ -44,14 +44,37 @@ export type Pageend = number
 export type Estminutes = number
 export type Tldr = string
 /**
- * @minItems 5
- * @maxItems 12
+ * Riassunto di fine capitolo, a paragrafi
  */
-export type Cards = [Card, Card, Card, Card, Card, ...Card[]]
+export type Summary1 = string
+/**
+ * @minItems 3
+ * @maxItems 200
+ */
+export type Cards = [Card, Card, Card, ...Card[]]
 export type Id2 = string
-export type CardType = 'concept' | 'definition' | 'example' | 'quote' | 'takeaway'
+export type CardType = 'concept' | 'definition' | 'example' | 'quote' | 'procedure' | 'check' | 'section' | 'takeaway'
 export type Title2 = string | null
+/**
+ * L'idea in breve, o la domanda per `check`
+ */
 export type Body = string
+/**
+ * Perché, come ed esempio concreto
+ */
+export type Details = string | null
+/**
+ * Passi di una `procedure`
+ */
+export type Steps = string[] | null
+/**
+ * Comandi o codice, letterali dal libro
+ */
+export type Code = string | null
+/**
+ * Risposta di una `check`
+ */
+export type Answer = string | null
 /**
  * Pagina del PDF, a partire da 1
  */
@@ -59,7 +82,7 @@ export type Page = number | null
 export type Mindmap1 = string
 /**
  * @minItems 3
- * @maxItems 5
+ * @maxItems 20
  */
 export type Flashcards = [Flashcard, Flashcard, Flashcard, ...Flashcard[]]
 export type Id3 = string
@@ -105,6 +128,7 @@ export interface Chapter {
   pageEnd: Pageend
   estMinutes: Estminutes
   tldr: Tldr
+  summary: Summary1
   cards: Cards
   mindmap: Mindmap1
   flashcards: Flashcards
@@ -114,6 +138,10 @@ export interface Card {
   type: CardType
   title?: Title2
   body: Body
+  details?: Details
+  steps?: Steps
+  code?: Code
+  answer?: Answer
   page?: Page
 }
 export interface Flashcard {

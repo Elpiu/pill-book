@@ -3,12 +3,15 @@
 from dataclasses import dataclass
 
 from ..extract.toc import Section
-from .chunking import chunk_section, estimate_tokens, section_text
+from .chunking import card_target, estimate_tokens, split_parts
 
-PROMPT_OVERHEAD_TOKENS = 700
-# Output per chiamata, compreso il ragionamento del modello
-CHAPTER_OUTPUT_TOKENS = 4_000
-NOTES_OUTPUT_TOKENS = 1_200
+PROMPT_OVERHEAD_TOKENS = 1_000
+# Output per card e per il riassunto del capitolo, compreso il ragionamento del modello.
+# Misurati su un capitolo reale di 76 pagine: il ragionamento vale più del testo della risposta.
+CARD_OUTPUT_TOKENS = 900
+WRAP_OUTPUT_TOKENS = 5_000
+# Le card di un capitolo tornano in input per scrivere riassunto e flashcard
+CARD_INPUT_TOKENS = 180
 BOOK_INPUT_TOKENS_PER_CHAPTER = 500
 BOOK_OUTPUT_TOKENS = 3_000
 
@@ -22,17 +25,15 @@ class Estimate:
 
 
 def estimate_section(section: Section, pages: dict[int, str], context_tokens: int) -> Estimate:
-    tokens = estimate_tokens(section_text(section, pages))
-    if tokens <= context_tokens:
-        return Estimate(1, tokens + PROMPT_OVERHEAD_TOKENS, CHAPTER_OUTPUT_TOKENS)
-    chunks = chunk_section(section, pages)
-    notes_output = NOTES_OUTPUT_TOKENS * len(chunks)
+    parts = split_parts(section, pages, context_tokens)
+    cards = sum(card_target(part, len(parts) > 1) for part in parts)
     input_tokens = (
-        sum(estimate_tokens(chunk) for chunk in chunks)
-        + PROMPT_OVERHEAD_TOKENS * (len(chunks) + 1)
-        + notes_output
+        sum(estimate_tokens(part) for part in parts)
+        + PROMPT_OVERHEAD_TOKENS * (len(parts) + 1)
+        + cards * CARD_INPUT_TOKENS
     )
-    return Estimate(len(chunks) + 1, input_tokens, notes_output + CHAPTER_OUTPUT_TOKENS)
+    output_tokens = cards * CARD_OUTPUT_TOKENS + WRAP_OUTPUT_TOKENS
+    return Estimate(len(parts) + 1, input_tokens, output_tokens)
 
 
 def estimate_build(

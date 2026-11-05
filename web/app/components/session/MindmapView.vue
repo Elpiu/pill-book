@@ -1,16 +1,25 @@
 <script setup lang="ts">
 import type { Markmap } from 'markmap-view'
 
-const props = withDefaults(defineProps<{
+const props = defineProps<{
   markdown: string
   expandLevel?: number
-}>(), { expandLevel: 3 })
+}>()
 const emit = defineEmits<{ nodeTap: [text: string] }>()
 
 const svg = useTemplateRef<SVGSVGElement>('svg')
 const failed = ref(false)
 let map: Markmap | undefined
 let resizeObserver: ResizeObserver | undefined
+
+/** Una mappa grande aperta tutta diventa illeggibile su telefono: parte dai rami principali. */
+const MAX_NODES_FULLY_OPEN = 25
+
+function initialLevel(): number {
+  if (props.expandLevel) return props.expandLevel
+  const nodes = props.markdown.split('\n').filter(line => /^\s*(#|[-*+]\s|\d+\.\s)/.test(line)).length
+  return nodes > MAX_NODES_FULLY_OPEN ? 2 : 3
+}
 
 onMounted(async () => {
   try {
@@ -22,7 +31,7 @@ onMounted(async () => {
     if (!svg.value) return
     const { root } = new Transformer([]).transform(props.markdown)
     map = MarkmapView.create(svg.value, {
-      initialExpandLevel: props.expandLevel,
+      initialExpandLevel: initialLevel(),
       autoFit: true,
       duration: 250,
       // Etichette a capo e rami stretti: su telefono il testo resta leggibile anche adattato

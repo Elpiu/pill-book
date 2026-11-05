@@ -10,6 +10,8 @@ import {
   mergeProgress,
   nextChapter,
   parseProgressExport,
+  sectionPosition,
+  sessionPhases,
   type ProgressRecord,
 } from '~/utils/progress'
 
@@ -124,5 +126,34 @@ describe('parseProgressExport', () => {
     [JSON.stringify({ ...good, progress: [{ foo: 1 }] }), 'non valide'],
   ])('rifiuta %s', (text, message) => {
     expect(() => parseProgressExport(text)).toThrow(message)
+  })
+})
+
+describe('fasi e parti', () => {
+  it('inserisce il riassunto dopo le card, se c\'è', () => {
+    expect(sessionPhases(first!)).toEqual(['cards', 'summary', 'mindmap', 'flashcards'])
+    expect(sessionPhases({ ...first!, summary: undefined as unknown as string })).toEqual(['cards', 'mindmap', 'flashcards'])
+  })
+
+  it('mostra la fase del riassunto nello stato', () => {
+    const saved = progress({ [first!.id]: { phase: 'summary', lastCardIndex: 0, flashResults: {} } })
+    expect(chapterStatusLabel(first!, saved)).toBe('In corso: riassunto')
+  })
+
+  it('conta le parti di un capitolo lungo', () => {
+    const card = (id: string, type: 'section' | 'concept') => ({ id, type, body: 'x', page: 1 })
+    const chapter = {
+      ...first!,
+      cards: [card('a', 'section'), card('b', 'concept'), card('c', 'section'), card('d', 'concept')],
+    }
+    expect(sectionPosition(chapter, 0)).toEqual({ current: 1, total: 2 })
+    expect(sectionPosition(chapter, 1)).toEqual({ current: 1, total: 2 })
+    expect(sectionPosition(chapter, 3)).toEqual({ current: 2, total: 2 })
+    expect(sectionPosition({ ...first!, cards: [card('b', 'concept')] }, 0)).toBeUndefined()
+  })
+
+  it('accetta gli export della versione precedente, senza ripassi', () => {
+    const old = { type: 'bookpack-progress', version: 1, exportedAt: 'x', progress: [], settings: [] }
+    expect(parseProgressExport(JSON.stringify(old)).reviews).toBeUndefined()
   })
 })

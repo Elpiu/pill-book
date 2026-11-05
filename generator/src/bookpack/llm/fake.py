@@ -12,6 +12,8 @@ from .base import LLMProvider, LLMResponse
 _PAGE_MARK = re.compile(r"\[p\. (\d+)\]")
 _CHAPTER_LINE = re.compile(r"^### (ch-\d+) \| (.+)$", re.M)
 _SENTENCE = re.compile(r"[^.!?\n][^.!?]{30,}[.!?]")
+_TARGET_CARDS = re.compile(r"Target: (\d+) content cards")
+_SUMMARY_WORDS = re.compile(r"About (\d+) words")
 
 
 def _sentences(text: str) -> list[tuple[str, int]]:
@@ -43,10 +45,10 @@ class FakeProvider(LLMProvider):
             return LLMResponse(text='{"non": "valido"}', input_tokens=10, output_tokens=5)
 
         properties = schema.get("properties", {})
-        if "notes" in properties:
-            output = self._notes(user)
-        elif "cards" in properties:
-            output = self._chapter(user)
+        if "intro" in properties:
+            output = self._part(user)
+        elif "takeaway" in properties:
+            output = self._wrap(user)
         elif "keyIdeas" in properties:
             output = self._book(user)
         elif "chapters" in properties:
@@ -56,41 +58,56 @@ class FakeProvider(LLMProvider):
         text = json.dumps(output, ensure_ascii=False)
         return LLMResponse(text=text, input_tokens=len(user) // 4, output_tokens=len(text) // 4)
 
-    def _notes(self, user: str) -> dict:
-        notes = [{"text": text, "page": page} for text, page in _sentences(user)[:12]]
-        return {"notes": notes}
+    def _part(self, user: str) -> dict:
+        target = int(_TARGET_CARDS.search(user).group(1))
+        found = _sentences(user) or [("Contenuto non disponibile per questa parte.", 1)]
+        cards = []
+        for i in range(target):
+            text, page = found[i * len(found) // target]
+            cards.append(
+                {
+                    "type": "concept",
+                    "title": f"Idea {i + 1}",
+                    "body": text,
+                    "details": f"Spiegazione di prova: {text}",
+                    "steps": None,
+                    "code": None,
+                    "answer": None,
+                    "page": page,
+                }
+            )
+            if (i + 1) % 4 == 3:
+                cards.append(
+                    {
+                        "type": "check",
+                        "title": None,
+                        "body": f"Come spiegheresti l'idea {i + 1}?",
+                        "details": None,
+                        "steps": None,
+                        "code": None,
+                        "answer": text,
+                        "page": page,
+                    }
+                )
+        return {"title": "Parte di prova", "intro": "Introduzione di prova.", "cards": cards}
 
-    def _chapter(self, user: str) -> dict:
-        found = _sentences(user)
-        if not found:  # note già condensate: "- (p. 12) testo"
-            found = [
-                (text, int(page))
-                for page, text in re.findall(r"^- \(p\. (\d+)\) (.+)$", user, re.M)
-            ]
-        picked = found[:: max(len(found) // 6, 1)][:6] or [("Contenuto non disponibile.", 1)]
-        while len(picked) < 6:
-            picked.append(picked[-1])
-        cards = [
-            {"type": "concept", "title": f"Idea {i}", "body": text, "page": page}
-            for i, (text, page) in enumerate(picked, start=1)
+    def _wrap(self, user: str) -> dict:
+        found = [
+            (text, int(page))
+            for page, text in re.findall(r"^- \(p\. (\d+)\) \[\w+\] (.+)$", user, re.M)
         ]
-        cards.append(
-            {
-                "type": "takeaway",
-                "title": None,
-                "body": "Sintesi di prova del capitolo.",
-                "page": None,
-            }
-        )
+        target = int(_SUMMARY_WORDS.search(user).group(1))
         flashcards = [
-            {"q": f"Qual è il punto {i}?", "a": text, "page": page}
-            for i, (text, page) in enumerate(picked[:3], start=1)
+            {"q": f"Qual è il punto {i}?", "a": " ".join(text.split()[:30]), "page": page}
+            for i, (text, page) in enumerate(found[:5], start=1)
         ]
-        mindmap = "# Capitolo\n" + "\n".join(f"## Idea {i}" for i in range(1, 4))
+        while len(flashcards) < 3:
+            flashcards.append(dict(flashcards[-1]))
         return {
-            "tldr": picked[0][0],
-            "cards": cards,
-            "mindmap": mindmap,
+            "tldr": "Sintesi di prova del capitolo.",
+            "summary": " ".join(["Riassunto di prova del capitolo."] * (target // 5)),
+            "takeaway": "Cosa portare via, di prova.",
+            "mindmap": "# Capitolo\n" + "\n".join(f"## Idea {i}" for i in range(1, 4)),
             "flashcards": flashcards,
         }
 

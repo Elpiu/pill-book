@@ -7,6 +7,14 @@ from ..extract.toc import Section
 CHUNK_TOKENS = 3_500
 OVERLAP_TOKENS = 200
 CHARS_PER_TOKEN = 4
+# Una parte di capitolo: abbastanza piccola da essere coperta tutta, senza saltare sezioni
+PART_TOKENS = 5_000
+# Un'ultima parte più piccola di così si unisce alla precedente
+MIN_LAST_PART_SHARE = 0.25
+# Spazio proporzionale: una card densa ogni tot parole del libro
+WORDS_PER_CARD = 500
+MIN_CARDS_PER_CHAPTER = 3
+MIN_CARDS_PER_PART = 2
 
 
 def estimate_tokens(text: str) -> int:
@@ -99,3 +107,20 @@ def _render(items: list[tuple[int, str]]) -> str:
             page = number
         parts.append(piece)
     return "\n\n".join(parts)
+
+
+def split_parts(section: Section, pages: dict[int, str], context_tokens: int) -> list[str]:
+    """Divide un capitolo nelle parti da condensare una alla volta."""
+    size = min(PART_TOKENS, context_tokens)
+    parts = chunk_section(section, pages, chunk_tokens=size, overlap_tokens=0)
+    if len(parts) > 1 and estimate_tokens(parts[-1]) < size * MIN_LAST_PART_SHARE:
+        last = parts.pop()
+        parts[-1] = f"{parts[-1]}\n\n{last}"
+    return parts
+
+
+def card_target(text: str, multiple_parts: bool) -> int:
+    """Quante card merita una parte, in proporzione alla sua lunghezza."""
+    words = len(text.split())
+    minimum = MIN_CARDS_PER_PART if multiple_parts else MIN_CARDS_PER_CHAPTER
+    return max(minimum, round(words / WORDS_PER_CARD))

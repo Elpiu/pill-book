@@ -23,11 +23,21 @@ def test_valid_pack_passes(valid_pack):
 def test_too_many_cards_fails(valid_pack):
     cards = valid_pack["chapters"][0]["cards"]
     takeaway = cards.pop()
-    for i in range(5, 13):
+    for i in range(5, 201):
         cards.append({"id": f"ch-01-c{i:02d}", "type": "concept", "body": "Idea.", "page": 2})
-    takeaway["id"] = "ch-01-c13"
+    takeaway["id"] = "ch-01-c201"
     cards.append(takeaway)
     assert errors_of(valid_pack)
+
+
+def test_long_chapters_can_have_many_cards(valid_pack):
+    cards = valid_pack["chapters"][0]["cards"]
+    takeaway = cards.pop()
+    for i in range(5, 40):
+        cards.append({"id": f"ch-01-c{i:02d}", "type": "concept", "body": "Idea.", "page": 2})
+    takeaway["id"] = "ch-01-c40"
+    cards.append(takeaway)
+    assert errors_of(valid_pack) == []
 
 
 def test_too_few_flashcards_fails(valid_pack):
@@ -67,6 +77,62 @@ def test_quote_limits(valid_pack):
     assert any("citazioni" in error for error in errors_of(valid_pack))
 
 
+def test_details_limit(valid_pack):
+    card = valid_pack["chapters"][0]["cards"][0]
+    card["details"] = "parola " * 120
+    assert errors_of(valid_pack) == []
+    card["details"] = "parola " * 200
+    assert any("details" in error for error in errors_of(valid_pack))
+
+
+def test_check_needs_an_answer_and_answer_needs_a_check(valid_pack):
+    cards = valid_pack["chapters"][0]["cards"]
+    cards[0].update(type="check", body="Perché?")
+    assert any("risposta" in error for error in errors_of(valid_pack))
+    cards[0]["answer"] = "Perché sì."
+    assert errors_of(valid_pack) == []
+    cards[1]["answer"] = "Non c'entra."
+    assert any("answer" in error for error in errors_of(valid_pack))
+
+
+def test_procedure_needs_steps(valid_pack):
+    cards = valid_pack["chapters"][0]["cards"]
+    cards[0].update(type="procedure", title="Come si fa")
+    assert any("passi" in error for error in errors_of(valid_pack))
+    cards[0]["steps"] = ["Primo passo", "Secondo passo"]
+    cards[0]["code"] = "ls -la"
+    assert errors_of(valid_pack) == []
+    cards[0]["code"] = "riga\n" * 40
+    assert any("codice" in error for error in errors_of(valid_pack))
+    del cards[0]["code"]
+    cards[1]["steps"] = ["Fuori posto", "Anche questo"]
+    assert any("steps" in error for error in errors_of(valid_pack))
+
+
+def test_section_card_needs_title_but_no_page(valid_pack):
+    card = valid_pack["chapters"][0]["cards"][0]
+    del card["page"]
+    card.update(type="section", body="Cosa vedremo.")
+    assert any("titolo" in error for error in errors_of(valid_pack))
+    card["title"] = "Prima parte"
+    assert errors_of(valid_pack) == []
+
+
+def test_summary_is_required_and_bounded(valid_pack):
+    chapter = valid_pack["chapters"][0]
+    chapter["summary"] = "troppo breve"
+    assert any("riassunto" in error for error in errors_of(valid_pack))
+    chapter["summary"] = "parola " * 1000
+    assert any("riassunto" in error for error in errors_of(valid_pack))
+    del chapter["summary"]
+    assert errors_of(valid_pack)
+
+
+def test_v1_packs_are_rejected(valid_pack):
+    valid_pack["schemaVersion"] = 1
+    assert errors_of(valid_pack)
+
+
 def test_page_outside_chapter_fails(valid_pack):
     valid_pack["chapters"][0]["cards"][0]["page"] = 9
     assert any("fuori dal capitolo" in error for error in errors_of(valid_pack))
@@ -88,7 +154,7 @@ def test_deep_mindmap_fails(valid_pack):
 
 
 def test_wrong_schema_version_fails(valid_pack):
-    valid_pack["schemaVersion"] = 2
+    valid_pack["schemaVersion"] = 3
     assert errors_of(valid_pack)
 
 

@@ -1,9 +1,9 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "generator": {
     "version": "0.1.0",
-    "model": "manual-condensation-no-api-call",
-    "generatedAt": "2026-11-04T00:00:00+00:00"
+    "model": "~deepseek/deepseek-flash-latest",
+    "generatedAt": "2026-11-05T10:33:04+00:00"
   },
   "book": {
     "id": "how-to-live-on-24-hours-a-day",
@@ -14,17 +14,17 @@
     "coverColor": "#6d28d9"
   },
   "overview": {
-    "summary": "Il tempo è l'unica ricchezza distribuita a tutti in parti uguali, e nessuno ne avrà mai di più: ventiquattro ore al giorno sono tutto ciò che c'è. Il disagio di chi sente gli anni scorrere nasce dal desiderio di fare qualcosa oltre ai propri obblighi. L'errore di fondo è trattare le ore d'ufficio come \"il giorno\" e tutto il resto come margine. Le sedici ore fuori dal lavoro vanno viste come un giorno a sé, da usare per coltivare corpo e mente. Bastano sette ore e mezza a settimana, purché difese e iniziate con grande modestia: mezz'ora al mattino per allenare la concentrazione, il rientro serale per riflettere, tre sere per uno studio serio. Lo studio può riguardare arti, causa ed effetto nella vita quotidiana o letteratura, scelti secondo il proprio gusto. I rischi sono diventare saccenti, schiavi del programma o vittime della fretta, e soprattutto fallire all'inizio per aver preteso troppo.",
+    "summary": "Le ventiquattro ore sono una fornitura uguale per tutti, inalienabile e limitata: non si aumentano come il denaro e vanno gestite subito, senza aspettare un tempo futuro che non arriverà. L'inquietudine di fare di più non nasce dalla mancanza di tempo ma dall'idea fissa di superare i propri obblighi, e il desiderio di conoscenza va oltre qualunque programma. Il compito è durissimo e senza metodo magico: si comincia subito, senza fidarsi dell'ardore iniziale, e un budget mostra otto ore di cui non si saprebbe rendere conto. Il guaio è l'atteggiamento che riduce la giornata alle ore d'ufficio: le altre sedici vanno vissute come una giornata dentro la giornata. La stanchezza serale è fabbricata, e si possono recuperare novanta minuti a sere alterne per un lavoro mentale serio; il programma va però costruito su sei giorni, con poche ore sottratte alle abitudini e un inizio dimesso. La concentrazione si allena e rende possibile l'esame di sé; l'interesse per le arti si costruisce con un buon manuale e un metodo costante, mentre la percezione di causa ed effetto rende interessante il quotidiano. La lettura seria deve costare fatica, e chi organizza il proprio tempo deve evitare pedanteria, adorazione del programma, fretta e fallimento iniziale.",
     "keyIdeas": [
-      "Non avrai mai più tempo: hai già tutto il tempo che esiste.",
-      "Le sedici ore fuori dal lavoro sono un giorno a sé, non un margine.",
-      "Una piccola quantità di tempo ben difesa ravviva l'intera settimana.",
-      "La mente si allena: la concentrazione viene prima di ogni studio.",
-      "Felicità significa accordare la condotta ai propri principi, con un esame quotidiano.",
-      "Niente è banale per chi osserva causa ed effetto.",
-      "Inizia con poco: un fallimento precoce può uccidere l'impresa."
+      "Le ventiquattro ore sono una fornitura uguale, inalienabile e limitata: vanno gestite subito, non aumentate.",
+      "L'inquietudine di fare di più nasce dall'idea fissa di superare i propri obblighi, non dalla mancanza di tempo.",
+      "Il problema è trattare le ore d'ufficio come tutta la giornata; le altre sedici vanno vissute come una giornata dentro la giornata.",
+      "La stanchezza serale è fabbricata e si possono recuperare novanta minuti a sere alterne per un lavoro mentale serio.",
+      "Il programma va costruito su sei giorni, con poche ore sottratte alle abitudini e un inizio dimesso.",
+      "La concentrazione si allena e rende possibile l'esame di sé; la lettura seria deve costare fatica.",
+      "Coltivare la percezione di causa ed effetto rende interessante il quotidiano; vanno evitati pedanteria, adorazione del programma, fretta e fallimento iniziale."
     ],
-    "mindmap": "# How to Live on Twenty-Four Hours a Day\n## The Daily Miracle\n- Il tempo vale più del denaro\n- Nessuno ne ha di più\n## The Desire To Exceed One's Programme\n- Il disagio di chi rimanda\n- Lasciare Brixton\n## Precautions Before Beginning\n- Nessun metodo magico\n- Attenti all'entusiasmo\n## The Cause Of The Troubles\n- Il giorno dentro il giorno\n- La mente vuole cambiamento\n## Tennis And The Immortal Soul\n- Niente giornale in treno\n- Novanta minuti sacri\n## Remember Human Nature\n- Sette ore e mezza\n- Inizio umile\n## Controlling The Mind\n- Riportare indietro la mente\n- Meno preoccupazioni\n## The Reflective Mood\n- Conosci te stesso\n- Condotta e principi\n## Interest In The Arts\n- Non serve la letteratura\n- Imparare ad ascoltare\n## Nothing In Life Is Humdrum\n- Causa ed effetto\n- Il tuo lavoro è un campo di studio\n## Serious Reading\n- Poesia prima di tutto\n- Pensare quanto si legge\n## Dangers To Avoid\n- Saccenteria e rigidità\n- La fretta\n- Il fallimento iniziale"
+    "mindmap": "# How to Live on Twenty-Four Hours a Day\n## The Daily Miracle\n- Le 24 ore sono uguali, inalienabili e limitate.\n- Il denaro non aggiunge minuti; il tempo può ottenere denaro.\n- Rimandare a quando avremo più tempo è illusorio.\n## The Desire To Exceed One's Programme\n- L'inquietudine nasce dall'idea di superare gli obblighi.\n- Il desiderio di conoscenza va oltre ogni programma.\n- Chi parte ha già fatto qualcosa; chi resta è divorato dal desiderio.\n## Precautions Before Beginning\n- Il compito è durissimo e non ha metodo magico.\n- Si comincia subito, senza fidarsi dell'ardore iniziale.\n- Il budget prevede sette ore di lavoro, sette di sonno, due di generosità e otto non rendicontate.\n## The Cause Of The Troubles\n- Errore: ridurre la giornata alle ore d'ufficio.\n- Le altre sedici ore vanno vissute come una giornata dentro la giornata.\n- Le facoltà mentali chiedono cambiamento, non riposo.\n## Tennis And The Immortal Soul\n- La stanchezza serale è un'abitudine fabbricata.\n- Si ricava un blocco di tre ore e se ne dedicano novanta minuti a sere alterne.\n- Il lavoro mentale va difeso come impegno sacro.\n## Remember Human Nature\n- Il programma va distribuito su sei giorni, non sette.\n- Le sette ore e mezza settimanali agiscono sull'intera settimana.\n- Inizio dimesso e valutazione dopo tre mesi.\n## Controlling The Mind\n- La concentrazione è una facoltà acquisibile.\n- Si allena scegliendo un argomento e riportando indietro la mente.\n- Un contenuto utile: un capitolo breve di Marco Aurelio o Epitteto.\n## The Reflective Mood\n- Concentrarsi serve allo studio di sé.\n- La felicità nasce dall'accordo tra condotta e principi.\n- Serve un esame quotidiano e onesto, non la sola lettura.\n## Interest In The Arts\n- Non serve amare la letteratura per uscire dall'ozio.\n- Un buon manuale e il metodo rendono leggibile un'arte.\n- Libro introduttivo, dettagli, specializzazione, ritmo settimanale.\n## Nothing In Life Is Humdrum\n- Conta la percezione di causa ed effetto.\n- Basta la curiosità per la scena quotidiana.\n- La continua coltivazione dell'apprezzamento è il fine della scienza.\n## Serious Reading\n- La lettura seria deve costare fatica.\n- I romanzi scorrono senza applicazione mentale.\n- Poesia per gradi e ambito ristretto; metà tempo a pensare.\n## Dangers To Avoid\n- Evitare la pedanteria.\n- Non adorare il programma e ridurlo se produce fretta.\n- Il fallimento iniziale spegne l'impulso."
   },
   "chapters": [
     {
@@ -33,82 +33,72 @@
       "title": "The Daily Miracle",
       "pageStart": 8,
       "pageEnd": 10,
-      "estMinutes": 3,
-      "tldr": "Il tempo è l'unica ricchezza uguale per tutti: non ne avrai mai di più, quindi conta come lo spendi.",
+      "estMinutes": 5,
+      "tldr": "Le ventiquattro ore sono una fornitura di tempo uguale per tutti, inalienabile e non aumentabile come il denaro, perciò vanno gestite subito, senza aspettare un tempo futuro che non arriverà.",
+      "summary": "Nessuna somma di denaro, nemmeno la ricchezza di un guardaroba del Carlton Hotel, aggiunge un minuto alla nostra giornata, mentre con il tempo il denaro si può ottenere. Eppure i giornali spiegano come vivere con una rendita di denaro, mai con ventiquattro ore al giorno. Queste ventiquattro ore formano una democrazia perfetta: uguali per tutti, inalienabili, senza debiti verso il futuro, e nessun potere misterioso ce le ridurrà per punirci dello spreco.\n\nLa differenza decisiva è che una rendita di denaro insufficiente si aumenta lavorando, mentre la fornitura di tempo è regolare ma crudelmente limitata. Chi non la sa gestire vive lo stesso squilibrio di chi non sa gestire il denaro. Dire «cambierò quando avrò un po' più di tempo» è perciò un'illusione: abbiamo sempre avuto tutto il tempo che esiste.",
       "cards": [
         {
           "id": "ch-01-c01",
           "type": "concept",
           "title": "Il tempo vale più del denaro",
-          "body": "Con il tempo di solito si ottiene denaro, ma nessuna ricchezza compra un minuto in più. Eppure si discute ovunque di come vivere con un certo reddito, e mai di come vivere con ventiquattro ore al giorno.",
+          "body": "I giornali spiegano come vivere con una data rendita di denaro, mai con una data rendita di tempo. Eppure il tempo è molto più del denaro: con il tempo si può ottenere denaro, ma nessuna somma compra un minuto in più, né per noi né per il gatto davanti al fuoco.",
+          "details": "Il testo cita gli articoli su una donna che vive in campagna con 85 sterline l'anno e un saggio «Come vivere con otto scellini a settimana»: la violenza della corrispondenza che suscitano dimostra quanto l'argomento interessi. Ma nessuno scrive «Come vivere con ventiquattro ore al giorno». Anche possedendo la ricchezza di un guardaroba del Carlton Hotel, non ci si può comprare un minuto di tempo in più.",
           "page": 8
         },
         {
           "id": "ch-01-c02",
-          "type": "example",
-          "title": "Abito nuovo, cappello vecchio",
-          "body": "Chi guadagna bene e ha sempre problemi di soldi disperde il reddito senza goderselo: bella cravatta e pantaloni sformati, cristalli e carne cattiva. Con il proprio tempo quasi tutti fanno lo stesso errore che criticano negli altri.",
-          "page": 8
+          "type": "concept",
+          "title": "La democrazia delle ventiquattro ore",
+          "body": "Le ventiquattro ore quotidiane formano una democrazia perfetta: nessuno può portarcele via, nessuno ne riceve più o meno, il genio non ottiene un'ora in più e chi spreca non viene punito con una fornitura ridotta.",
+          "details": "Il tempo è inalienabile e non si può prelevare dal futuro: non esistono debiti di tempo. Si può sprecare solo il momento che passa; domani e la prossima ora sono già tenuti da parte per noi. La fornitura è più sicura delle consols e il pagamento non si ferma nemmeno la domenica. Nessun potere misterioso dirà: «Quest'uomo è uno sciocco, non merita tempo, gli si tagli il contatore».",
+          "page": 9
         },
         {
           "id": "ch-01-c03",
           "type": "concept",
-          "title": "Un miracolo quotidiano",
-          "body": "Ogni mattina ti ritrovi con ventiquattro ore nuove. Sono la materia grezza di tutto: con il tempo ogni cosa è possibile, senza non si fa nulla. Sono tue e nessuno può rubartele.",
-          "page": 9
+          "title": "Il denaro si aumenta, il tempo no",
+          "body": "Se una rendita di denaro non basta, si guadagna di più e si pareggia il bilancio; se non si fa bastare la rendita di ventiquattro ore, la vita si ingarbuglia davvero, perché la fornitura di tempo è regolare ma crudelmente limitata.",
+          "details": "L'uomo che non sa gestire il denaro ha l'appartamento mezzo vuoto, il vestito nuovo con il cappello vecchio, il bicchiere di cristallo con la carne cattiva: chi non gestisce il tempo vive lo stesso squilibrio. La frase che tutti ci ripetiamo, «cambierò quando avrò un po' più di tempo», è un'illusione: non avremo mai più tempo, abbiamo sempre avuto tutto il tempo che esiste.",
+          "page": 10
         },
         {
           "id": "ch-01-c04",
-          "type": "concept",
-          "title": "La democrazia perfetta del tempo",
-          "body": "Nessuno riceve più o meno di te: né la ricchezza né il genio danno un'ora in più. Nemmeno chi spreca viene punito, perché la fornitura non si interrompe mai.",
-          "page": 9
+          "type": "check",
+          "body": "Perché il tempo, a differenza del denaro, non permette di rimandare il problema a domani?",
+          "answer": "Perché non si può andare in debito con il tempo né prelevarlo dal futuro: si può sprecare solo il momento presente, mentre le ore future sono già tenute da parte per noi. Inoltre la fornitura non aumenta mai, quindi l'unica via è esaminare subito come spendiamo le giornate.",
+          "page": 10
         },
         {
           "id": "ch-01-c05",
-          "type": "concept",
-          "title": "Non si spreca il futuro",
-          "body": "Non puoi indebitarti con il tempo. Puoi sprecare solo il momento che passa: l'ora dopo e il domani restano intatti, tenuti da parte per te.",
-          "page": 9
-        },
-        {
-          "id": "ch-01-c06",
-          "type": "concept",
-          "title": "Perché qui l'errore pesa di più",
-          "body": "Se il denaro non basta, puoi guadagnarne un po' di più. Se ventiquattro ore non coprono le spese che contano, la vita si ingarbuglia davvero: la fornitura è regolare, ma crudelmente limitata.",
-          "page": 10
-        },
-        {
-          "id": "ch-01-c07",
-          "type": "quote",
-          "body": "We never shall have any more time. We have, and we have always had, all the time there is.",
-          "page": 10
-        },
-        {
-          "id": "ch-01-c08",
           "type": "takeaway",
-          "body": "Smetti di dire \"lo farò quando avrò più tempo\". Quel momento non arriverà: la domanda utile è come spendi le ventiquattro ore che hai già."
+          "body": "Il tempo è l'unica risorsa che nessuna somma può aumentare: le ventiquattro ore sono uguali per tutti e non si ricaricano dal futuro. Non ha senso rimandare a un tempo più libero che non arriverà: la gestione va fatta sulle ore che già abbiamo."
         }
       ],
-      "mindmap": "# Il miracolo quotidiano\n## Il tempo come reddito\n- Più prezioso del denaro\n- Non si compra\n- Materia grezza di tutto\n## Le sue regole\n- Uguale per tutti\n- Non si può rubare\n- Nessun debito\n- Nessuna punizione\n## Il problema\n- Si spreca solo il presente\n- Sbagliare ingarbuglia la vita\n- Non avrai mai più tempo",
+      "mindmap": "# Vivere con ventiquattro ore al giorno\n## Tempo contro denaro\n- Si scrive di rendite di denaro\n- Mai di rendite di tempo\n- Nessuna somma compra un minuto\n## Democrazia delle ventiquattro ore\n- Nessuno ce le può togliere\n- Nessuno ne ha di più\n- Nessun debito di tempo\n- Lo spreco non è punito\n## Denaro e tempo a confronto\n- Il denaro si può aumentare\n- Il tempo è fisso e limitato\n- Cattiva gestione, stesso squilibrio\n## L'illusione del tempo futuro\n- «Cambierò quando avrò più tempo»\n- Non arriverà mai più tempo\n",
       "flashcards": [
         {
           "id": "ch-01-f01",
-          "q": "Perché il tempo vale più del denaro?",
-          "a": "Con il tempo di solito si può ottenere denaro, ma nessuna ricchezza compra un minuto in più.",
+          "q": "Perché il tempo è considerato più prezioso del denaro?",
+          "a": "Perché con il tempo si può ottenere del denaro, ma nessuna somma di denaro compra un minuto di tempo in più, né per noi né per chi ci sta accanto.",
           "page": 8
         },
         {
           "id": "ch-01-f02",
-          "q": "Cosa rende il tempo una \"democrazia ideale\"?",
-          "a": "Tutti ricevono la stessa quantità: né ricchezza né genio danno un'ora in più, e chi spreca non viene punito.",
+          "q": "Che cosa rende le ventiquattro ore quotidiane una «democrazia perfetta»?",
+          "a": "Perché è uguale per tutti e inalienabile: nessuno può portarcela via, il genio non ha un'ora in più e chi spreca non riceve una fornitura ridotta. Inoltre non si può prelevare tempo dal futuro, quindi non esistono debiti di tempo.",
           "page": 9
         },
         {
           "id": "ch-01-f03",
-          "q": "Quale tempo si può sprecare davvero?",
-          "a": "Solo il momento che passa: il futuro resta intatto.",
-          "page": 9
+          "q": "Che cosa accade a chi non riesce a far bastare le proprie ventiquattro ore?",
+          "a": "Vive lo stesso squilibrio di chi non sa gestire il denaro: l'appartamento mezzo vuoto, il vestito nuovo con il cappello vecchio, il bicchiere di cristallo con la carne cattiva. La fornitura di tempo è regolare ma limitata, e non si può semplicemente aumentarla.",
+          "page": 10
+        },
+        {
+          "id": "ch-01-f04",
+          "q": "Perché la frase «cambierò quando avrò un po' più di tempo» è un'illusione?",
+          "a": "È un'illusione: non avremo mai più tempo di quello che abbiamo sempre avuto, perché abbiamo sempre avuto tutto il tempo che esiste. La fornitura non cresce, quindi rimandare la cura del tempo a un futuro più libero non ha senso.",
+          "page": 10
         }
       ]
     },
@@ -118,81 +108,71 @@
       "title": "The Desire To Exceed One's Programme",
       "pageStart": 11,
       "pageEnd": 13,
-      "estMinutes": 3,
-      "tldr": "Il disagio di chi sente passare gli anni nasce dal desiderio di fare più del dovuto, e resta finché non si prova a soddisfarlo.",
+      "estMinutes": 6,
+      "tldr": "L'inquietudine di fare di più non nasce dalla mancanza di tempo ma dall'idea fissa di superare i propri obblighi, e non si placa restando fermi, perché il desiderio di conoscenza va oltre qualunque programma, letterario o no.",
+      "summary": "L'aspirazione che ci inquieta non nasce dalla mancanza di tempo, ma dall'idea fissa che si debba fare qualcosa in più rispetto agli obblighi morali e sociali; quegli obblighi — mantenere sé e la famiglia, pagare i debiti, risparmiare, accrescere la prosperità con l'efficienza — sono già un compito difficilissimo, eppure assolverli non basta a mettere a tacere il senso di incompletezza.\n\nChi desidera la Mecca e si mette in cammino si trova in una condizione diversa da chi resta a Brixton: anche se non arriverà mai, ha già fatto qualcosa, mentre chi non parte è divorato dal desiderio. La maggior parte di noi non parte nemmeno e si giustifica con le ventiquattro ore del giorno. Quel desiderio è una forma del bisogno universale di conoscenza: non si esaurisce nella letteratura e spinge oltre il proprio programma anche chi vive di studio sistematico, come Herbert Spencer.",
       "cards": [
         {
           "id": "ch-02-c01",
           "type": "concept",
-          "title": "Il disagio che accompagna gli anni",
-          "body": "Molti sono perseguitati dalla sensazione che gli anni scorrano senza che la loro vita sia in ordine. È un misto di attesa e aspirazione: uno scheletro alla festa, che si fa vivo anche nei momenti di svago.",
+          "title": "L'inquietudine nasce da un'idea fissa",
+          "body": "L'aspirazione che disturba non è mancanza di tempo: nasce dall'idea fissa che si debba fare qualcosa in più rispetto agli obblighi morali e sociali, e resta anche quando quegli obblighi sono assolti.",
+          "details": "Gli obblighi — mantenersi e mantenere la famiglia, pagare i debiti, risparmiare, aumentare la prosperità accrescendo l'efficienza — sono già un compito difficilissimo, che pochi raggiungono e spesso supera le nostre capacità. Eppure, anche riuscendoci, non si è soddisfatti: il sentimento si comporta come uno scheletro al banchetto, che tra un atto e l'altro alza un dito ossuto e chiede che cosa si è fatto della propria giovinezza e della propria età.",
           "page": 11
         },
         {
           "id": "ch-02-c02",
           "type": "example",
-          "title": "La Mecca e Brixton",
-          "body": "Chi parte per la Mecca e muore per strada resta insoddisfatto, ma non soffre come chi desidera arrivarci e non lascia mai Brixton. Non è la meta mancata a tormentare: è non essere mai partiti.",
+          "title": "Mecca: chi parte e chi resta a Brixton",
+          "body": "Chi desidera la Mecca e si mette in viaggio, anche se non arriverà mai, non è tormentato come chi resta a Brixton senza muoversi: aver lasciato Brixton è già qualcosa.",
+          "details": "Il pellegrino può annegare prima di Port Said o perire sulla costa del Mar Rosso: la sua aspirazione resta frustrata e può turbarlo sempre, ma in modo diverso da chi è divorato dal desiderio di partire e non parte. La maggior parte di noi non ha lasciato Brixton, non ha nemmeno preso una carrozza fino a Ludgate Circus per chiedere da Cook's il prezzo di un viaggio organizzato, e si giustifica dicendo che ci sono solo ventiquattro ore nel giorno.",
           "page": 12
         },
         {
           "id": "ch-02-c03",
-          "type": "quote",
-          "body": "It is something to have left Brixton.",
-          "page": 12
+          "type": "concept",
+          "title": "Sete di conoscenza, non solo letteratura",
+          "body": "Il desiderio di superare il programma formale è una forma del desiderio universale di conoscenza, comune a tutti gli uomini che nell'evoluzione sono saliti oltre un certo livello, e non si placa solo con la letteratura.",
+          "details": "È così forte che uomini dediti per tutta la vita all'acquisizione sistematica di conoscenza ne sono stati spinti oltre i limiti del loro programma: anche Herbert Spencer, secondo il testo la più grande mente mai esistita, fu spesso costretto in piacevoli piccole insenature di indagine. In molti curiosi intellettuali l'aspirazione prende forma letteraria — vorrebbero intraprendere un corso di lettura — ma la letteratura non esaurisce il campo della conoscenza: la letteratura non è l'unico pozzo.",
+          "page": 13
         },
         {
           "id": "ch-02-c04",
-          "type": "concept",
-          "title": "La scusa delle ventiquattro ore",
-          "body": "Quasi nessuno ha fatto nemmeno il primo passo, neanche chiedere il prezzo di un viaggio organizzato. E la giustificazione che ci diamo è sempre la stessa: nella giornata ci sono solo ventiquattro ore.",
+          "type": "check",
+          "body": "Perché chi parte verso la Mecca e non arriva soffre meno di chi resta a Brixton?",
+          "answer": "Perché il primo ha trasformato il desiderio in tentativo: la sua aspirazione può restare frustrata, ma aver lasciato Brixton è già qualcosa. Il secondo è tormentato da un desiderio che non ha mai messo alla prova, e maschera l'inerzia con la scusa delle sole ventiquattro ore.",
           "page": 12
         },
         {
           "id": "ch-02-c05",
-          "type": "concept",
-          "title": "Fare qualcosa oltre il dovuto",
-          "body": "Alla radice c'è l'idea fissa di dover fare qualcosa in più degli obblighi: mantenersi, pagare i debiti, risparmiare, migliorare. Anche chi ci riesce non è soddisfatto: lo scheletro resta.",
-          "page": 12
-        },
-        {
-          "id": "ch-02-c06",
-          "type": "concept",
-          "title": "Finché non si comincia",
-          "body": "Il desiderio di superare il proprio programma è comune e si manifesta come sete di conoscenza. Finché non si fa uno sforzo per soddisfarlo, resta l'attesa inquieta di qualcosa che non è mai partito.",
-          "page": 13
-        },
-        {
-          "id": "ch-02-c07",
-          "type": "concept",
-          "title": "La letteratura non è l'unica fonte",
-          "body": "Questo desiderio prende spesso la forma di un programma di letture. Ma la letteratura non copre tutto il sapere: la sete di migliorarsi si può soddisfare anche del tutto al di fuori dei libri di letteratura.",
-          "page": 13
-        },
-        {
-          "id": "ch-02-c08",
           "type": "takeaway",
-          "body": "Il disagio non si spegne rinunciando né aspettando. Si attenua solo facendo un primo passo verso ciò che desideri, anche se non arriverai mai fino in fondo."
+          "body": "Il bisogno di fare di più non è una questione di ore libere: è l'idea fissa di superare i propri obblighi, che non si spegne quando li hai assolti. Non serve arrivare alla Mecca: basta lasciare Brixton. E il desiderio di conoscenza non coincide con la letteratura."
         }
       ],
-      "mindmap": "# Il desiderio di superare il programma\n## Il disagio\n- Gli anni scorrono\n- Lo scheletro alla festa\n- Attesa e aspirazione\n## Mecca e Brixton\n- Non arrivare è sopportabile\n- Non partire tormenta\n- La scusa delle 24 ore\n## L'origine\n- Fare più del dovuto\n- Sete di conoscenza\n- Non solo letteratura",
+      "mindmap": "# Il desiderio di superare il proprio programma\n## L'inquietudine\n- Idea fissa di fare di più\n- Non è mancanza di tempo\n- Resta dopo gli obblighi assolti\n- Lo scheletro al banchetto\n## Gli obblighi\n- Mantenersi e mantenere la famiglia\n- Debiti, risparmio, prosperità, efficienza\n- Compito quasi al di sopra delle forze\n## Brixton e la Mecca\n- Chi parte non è tormentato\n- Aver lasciato Brixton è già qualcosa\n- Restare immobili, divorati dal desiderio\n- La scusa delle ventiquattro ore\n## La sete di conoscenza\n- Desiderio universale\n- Non si placa con la sola letteratura\n- Herbert Spencer e le sue insenature\n- La letteratura non è l'unico pozzo",
       "flashcards": [
         {
           "id": "ch-02-f01",
-          "q": "Che differenza c'è tra chi parte per la Mecca senza arrivare e chi non lascia Brixton?",
-          "a": "Il primo resta insoddisfatto, il secondo è tormentato: pesa di più non essere mai partiti.",
-          "page": 12
+          "q": "Da dove nasce l'inquietudine che spinge a fare di più, e perché non si placa quando gli obblighi sono assolti?",
+          "a": "Nasce dall'idea fissa di dover fare qualcosa in più rispetto agli obblighi morali e sociali. Questi obblighi sono già difficilissimi, ma assolverli non basta: il sentimento resta e chiede conto di ciò che si è fatto della propria giovinezza e della propria età.",
+          "page": 11
         },
         {
           "id": "ch-02-f02",
-          "q": "Da quale idea nasce il disagio descritto?",
-          "a": "Dall'idea fissa di dover fare qualcosa oltre agli obblighi morali e materiali.",
+          "q": "Perché chi parte per la Mecca è tormentato in modo diverso da chi resta a Brixton?",
+          "a": "Perché aver lasciato Brixton è già qualcosa: l'aspirazione può restare frustrata, ma non è la stessa cosa che essere divorati dal desiderio di partire senza muoversi. La maggior parte di noi non parte nemmeno e si giustifica con le sole ventiquattro ore del giorno.",
           "page": 12
         },
         {
           "id": "ch-02-f03",
-          "q": "Quando smette di disturbare quel desiderio?",
-          "a": "Solo quando si fa uno sforzo concreto per soddisfarlo.",
+          "q": "Che cosa dimostra il caso di Herbert Spencer sul rapporto tra desiderio di conoscenza e programma di studio?",
+          "a": "Che il desiderio di superare il proprio programma è così forte da spingere oltre i limiti anche chi dedica tutta la vita all'acquisizione sistematica di conoscenza. Spencer stesso fu spesso trascinato in piacevoli piccole insenature di indagine.",
+          "page": 13
+        },
+        {
+          "id": "ch-02-f04",
+          "q": "Se qualcuno pensa che l'unico modo di superare il proprio programma sia intraprendere un corso di lettura, che cosa gli sfugge secondo il capitolo?",
+          "a": "Che la letteratura non esaurisce il campo della conoscenza: il desiderio di conoscenza è universale e non si placa solo con la letteratura, che non è l'unico pozzo.",
           "page": 13
         }
       ]
@@ -203,87 +183,79 @@
       "title": "Precautions Before Beginning",
       "pageStart": 14,
       "pageEnd": 16,
-      "estMinutes": 3,
-      "tldr": "Non esiste un metodo facile: accetta la difficoltà, comincia subito e con pochissimo, perché un piccolo successo vale più di un grande fallimento.",
+      "estMinutes": 6,
+      "tldr": "Sistemare le proprie ventiquattro ore è un compito durissimo che non ha metodo magico: si comincia subito, senza fidarsi dell'ardore iniziale, e si parte dal guardare dove finiscono le ore di cui non si sa rendere conto.",
+      "summary": "Anzitutto va messo in chiaro che il compito è estremamente difficile: nessun orario tracciato con la penna realizza un ideale, e chi non accetta scoraggiamenti e disillusioni, né si accontenta di un piccolo risultato per un grande sforzo, farà meglio a non cominciare affatto. Neppure l'inizio ha una tecnica: come davanti all'acqua fredda, si salta e basta, senza rimandare a domani, perché l'ora successiva è intatta e l'acqua non si scalderà, diventerà più fredda. L'ardore iniziale, poi, è un traditore: pretende molto subito e si spegne appena sente il sudore, perciò conviene partire dal poco, lasciando margine agli imprevisti e alla propria natura umana, dato che un fallimento costa fiducia in sé. Il passo pratico è il budget: sette ore di lavoro, sette di sonno, due di generosità, e restano otto ore di cui non si saprebbe rendere conto.",
       "cards": [
         {
           "id": "ch-03-c01",
           "type": "concept",
-          "title": "Nessun segreto",
-          "body": "Non esiste un modo facile e indolore per organizzare la propria vita: nessuna strada regia. Il cammino è duro e sassoso, e la meta non si raggiunge mai del tutto.",
+          "title": "La via maestra non esiste",
+          "body": "Il preliminare più importante per sistemare la propria vita dentro le ventiquattro ore non è un metodo, ma la calma consapevolezza che il compito è estremamente difficile e richiede sacrifici e sforzo senza fine. Un orario tracciato con la penna su un foglio non basta.",
+          "details": "Chi immagina di raggiungere il proprio ideale con un semplice orario disegnato su carta farà meglio a rinunciare subito. Se non si è pronti agli scoraggiamenti e alle disillusioni, e non ci si accontenta di un piccolo risultato per un grande sforzo, è meglio non cominciare affatto e tornare al sonno inquieto che si chiama esistenza. Il cammino verso La Mecca è durissimo e sassoso, e la cosa peggiore è che non si arriva mai del tutto.",
           "page": 14
         },
         {
           "id": "ch-03-c02",
           "type": "concept",
-          "title": "Prima accetta la difficoltà",
-          "body": "Il passo preliminare è rendersi conto con calma di quanto il compito sia difficile. Un orario scritto a tavolino non basta: se non accetti delusioni e un piccolo risultato per un grande sforzo, meglio non iniziare.",
+          "title": "Si comincia e basta: saltare",
+          "body": "Non esiste un metodo magico per iniziare: si comincia e basta. Come a chi, sul bordo della vasca, chiede come si fa a saltare nell'acqua fredda, si risponde «salta»: prendere in mano i nervi e saltare.",
+          "details": "Rimandare a domani o alla settimana prossima non ha senso, perché il tempo non si può sprecare in anticipo: l'ora successiva è intatta, come se non si fosse mai sciupato un istante, e si può girare pagina ogni ora. Se si spera che l'acqua sia più calda la settimana dopo, non lo sarà: sarà più fredda.",
           "page": 15
         },
         {
           "id": "ch-03-c03",
-          "type": "example",
-          "title": "Come si comincia a saltare",
-          "body": "A chi, sul bordo della piscina, chiede come si inizia a tuffarsi, si risponde: tuffati. Non c'è un metodo magico per iniziare. Si comincia e basta, facendosi forza.",
-          "page": 15
+          "type": "concept",
+          "title": "Diffida del tuo ardore",
+          "body": "L'ardore nel fare bene è ingannevole e traditore: chiede subito di essere impiegato, vuole spostare le montagne e deviare i fiumi, e poi, appena sente il sudore sulla fronte, si stanca di colpo e muore. All'inizio bisogna accontentarsi di poco.",
+          "details": "Occorre lasciare margine per gli imprevisti e per la natura umana, soprattutto la propria. Un fallimento in sé non sarebbe grave, se non costasse stima di sé e fiducia nelle proprie forze: niente fallisce come un fallimento, e la maggior parte delle persone rovinate lo è per aver tentato troppo. Meglio un successo meschino di un fallimento glorioso, perché un successo meschino può portare a un successo che meschino non è.",
+          "page": 16
         },
         {
           "id": "ch-03-c04",
-          "type": "concept",
-          "title": "Puoi ricominciare ogni ora",
-          "body": "Il tempo non si spreca in anticipo: la prossima ora è perfetta come se non avessi mai sbagliato. Aspettare la settimana prossima non serve, perché l'acqua non sarà più calda. Sarà più fredda.",
-          "page": 15
+          "type": "example",
+          "title": "Le otto ore non giustificate",
+          "body": "Il primo esame del budget della giornata parte dai conti: sette ore per guadagnarsi da vivere, sette di sonno, più due concesse per generosità. Restano otto ore di cui, messi alle strette, non si saprebbe rendere conto.",
+          "details": "È il passaggio pratico che segue agli avvertimenti: prima di riorganizzare, guardare dove finisce davvero il tempo. La giornata sembra piena fino all'orlo, ma la somma non torna, e la sfida è rendere conto su due piedi di quelle otto ore rimaste scoperte.",
+          "page": 16
         },
         {
           "id": "ch-03-c05",
-          "type": "concept",
-          "title": "Diffida del tuo entusiasmo",
-          "body": "L'ardore è ingannevole: chiede sempre di più, vuole spostare montagne e poi, appena suda, si stanca all'improvviso e muore. All'inizio accontentati di pochissimo e metti in conto gli imprevisti.",
+          "type": "check",
+          "body": "Perché conviene puntare a un piccolo successo invece di tentare subito qualcosa di ambizioso?",
+          "answer": "Perché un fallimento, anche piccolo, costa stima di sé e fiducia, e niente fallisce come un fallimento: la maggior parte delle persone rovinate lo è per aver tentato troppo. Un successo meschino, invece, può portare a un successo che meschino non è.",
           "page": 16
         },
         {
           "id": "ch-03-c06",
-          "type": "quote",
-          "body": "A glorious failure leads to nothing; a petty success may lead to a success that is not petty.",
-          "page": 16
-        },
-        {
-          "id": "ch-03-c07",
-          "type": "concept",
-          "title": "Fai i conti delle tue ore",
-          "body": "Lavoro: circa sette ore. Sonno: sette. Aggiungine due per generosità. Restano otto ore di cui nessuno sa rendere conto su due piedi. Da qui parte l'esame del bilancio della giornata.",
-          "page": 16
-        },
-        {
-          "id": "ch-03-c08",
           "type": "takeaway",
-          "body": "Comincia oggi, con un impegno quasi ridicolo. Un fallimento costa autostima e fiducia; un piccolo successo apre la strada a quello successivo."
+          "body": "Il riordino della giornata non comincia con un metodo, ma con tre avvertenze: il compito è difficilissimo e non si completa mai; si inizia saltando, senza rimandare; l'ardore iniziale va frenato, accontentandosi di poco. Poi si guarda dove finiscono le otto ore di cui non si sa rendere conto."
         }
       ],
-      "mindmap": "# Precauzioni prima di iniziare\n## Accettare la realtà\n- Nessun segreto\n- Sacrifici e sforzo continuo\n- Un orario non basta\n## Iniziare\n- Basta tuffarsi\n- Ogni ora è nuova\n- Domani l'acqua è più fredda\n## Evitare il fallimento\n- Attenti all'entusiasmo\n- Poco all'inizio\n- Meglio il piccolo successo\n## Il bilancio\n- Otto ore senza conto",
+      "mindmap": "# Precauzioni prima di cominciare\n\n## La difficoltà del compito\n- Nessun metodo magico\n- Servono sacrifici senza fine\n- Non si arriva mai del tutto\n\n## Si comincia e basta\n- Saltare, non ragionare\n- Rimandare è inutile\n- L'acqua dopo sarà più fredda\n\n## Diffidare dell'ardore\n- Vuole subito molto\n- Si spegne al primo sudore\n- Accontentarsi di poco\n- Lasciare margine agli imprevisti\n- Meglio un successo meschino\n\n## Il budget delle ore\n- Sette lavoro, sette sonno, due generosità\n- Otto ore non giustificate\n- Guardare dove finisce il tempo",
       "flashcards": [
         {
           "id": "ch-03-f01",
-          "q": "Qual è il passo preliminare più importante?",
-          "a": "Rendersi conto con calma dell'estrema difficoltà del compito.",
-          "page": 15
+          "q": "Perché l'ardore nel fare bene è definito ingannevole e traditore? (p. 16)",
+          "a": "Perché pretende di essere impiegato subito, vuole spostare le montagne, e poi si stanca di colpo appena sente il sudore sulla fronte e muore.",
+          "page": 16
         },
         {
           "id": "ch-03-f02",
-          "q": "Perché non conviene rimandare l'inizio?",
-          "a": "Perché il tempo futuro è comunque intatto e aspettare non rende nulla più facile: l'acqua sarà più fredda.",
+          "q": "Cosa si risponde a chi, sul bordo della vasca, chiede come si fa a saltare nell'acqua fredda, e perché aspettare la settimana dopo non ha senso?",
+          "a": "Si risponde «salta»: si prendono in mano i nervi e si salta. Rimandare è inutile perché l'ora successiva è intatta e l'acqua non sarà più calda, sarà più fredda.",
           "page": 15
         },
         {
           "id": "ch-03-f03",
-          "q": "Perché un piccolo successo è meglio di un fallimento glorioso?",
-          "a": "Il fallimento non porta a nulla e intacca la fiducia; il piccolo successo può portare a uno più grande.",
+          "q": "Perché un fallimento non è grave solo in sé, ma per quello che porta via?",
+          "a": "Perché costa stima di sé e fiducia nelle proprie forze: niente fallisce come un fallimento, e la maggior parte delle persone rovinate lo è per aver tentato troppo.",
           "page": 16
         },
         {
           "id": "ch-03-f04",
-          "q": "Come si comporta l'ardore iniziale?",
-          "a": "Chiede sempre di più e poi si spegne di colpo appena arriva la fatica.",
+          "q": "Nel primo esame del budget della giornata, quante ore restano non giustificate e perché questo è il passo pratico che segue agli avvertimenti?",
+          "a": "Restano otto ore: sette di lavoro, sette di sonno e due concesse per generosità non le esauriscono. È il primo passo pratico perché prima di riorganizzare bisogna vedere dove finisce davvero il tempo.",
           "page": 16
         }
       ]
@@ -294,81 +266,71 @@
       "title": "The Cause Of The Troubles",
       "pageStart": 17,
       "pageEnd": 20,
-      "estMinutes": 3,
-      "tldr": "L'errore è considerare le ore di lavoro come \"il giorno\": le sedici ore restanti vanno viste come un giorno a sé, tutto da vivere.",
+      "estMinutes": 6,
+      "tldr": "Il guaio non è come organizziamo il tempo, ma l'atteggiamento che riduce «la giornata» alle ore d'ufficio e tratta le altre sedici come semplice margine: vanno invece vissute come una giornata dentro la giornata.",
+      "summary": "Il capitolo sposta l'attenzione dall'organizzazione del tempo all'atteggiamento. L'errore è credere che «la giornata» coincida con le ore d'ufficio, dalle dieci alle sei, e ridurre le altre sedici a prologo ed epilogo. Il londinese preso a modello, che detesta il lavoro e lo apre e chiude controvoglia, mostra l'illogicità di subordinare due terzi dell'esistenza a un terzo che si vuole solo finire. La soluzione è una giornata dentro la giornata: dalle 18 alle 10 si è liberi, non salariati, e si coltivano corpo, animo e altri, con l'atteggiamento di chi ha una rendita. Le facoltà mentali non si stancano come le membra: chiedono cambiamento, non riposo, e l'energia spesa le rafforza. Resta il monito del sovrano di tempo cambiato perdendo cinque minuti due volte al giorno: minuzie che nessuno protesta, ma che pesano.",
       "cards": [
         {
           "id": "ch-04-c01",
-          "type": "example",
-          "title": "L'impiegato tipo",
-          "body": "Il caso d'esame è un londinese che lavora in ufficio dalle dieci alle sei e impiega cinquanta minuti per ogni tragitto. Non esiste un caso medio, ma questo gli si avvicina. Il reddito qui non conta: il tempo è uguale per tutti.",
+          "type": "concept",
+          "title": "Trattare le ore d'ufficio come «la giornata»",
+          "body": "L'errore non è nel modo di gestire il tempo ma nell'atteggiamento: considerare «la giornata» solo le ore d'ufficio, dalle dieci alle sei, e le altre sedici ore nient'altro che prologo ed epilogo.",
+          "details": "Il caso preso a modello è un londinese che lavora in ufficio dalle dieci alle sei e passa cinquanta minuti al mattino e altrettanti alla sera tra casa e ufficio: non esiste un caso medio, ma questo ci si avvicina. Costui non ama il suo lavoro: lo comincia controvoglia, il più tardi possibile, lo chiude con gioia, il prima possibile, e nel mezzo i suoi motori raramente girano a piena potenza. Proprio per questo è illogico dare centralità a un blocco di tempo che si vuole solo «finire»: si subordinano due terzi dell'esistenza a un terzo per cui non si ha alcun entusiasmo. Le sedici ore restanti diventano margine: anche quando non vengono sprecate, non vengono contate.",
           "page": 17
         },
         {
           "id": "ch-04-c02",
           "type": "concept",
-          "title": "Un errore di atteggiamento",
-          "body": "Pur senza passione per il lavoro, considera le ore dalle dieci alle sei come \"il giorno\" e tutto il resto come prologo ed epilogo. Così smette di contare le altre sedici ore: le tratta come margine.",
-          "page": 18
+          "title": "Una giornata dentro la giornata",
+          "body": "Per vivere davvero bisogna disporre nella mente una giornata dentro la giornata, una scatola cinese dentro una più grande: dalle 18 alle 10, sedici ore in cui non si è salariati ma liberi.",
+          "details": "In quelle sedici ore non c'è altro da fare che coltivare il corpo, l'animo e gli altri uomini; si è pari a chi ha una rendita privata, e conta l'atteggiamento, non l'ammontare del patrimonio. Al timore che l'energia spesa lì tolga valore alle otto ore di lavoro si risponde col contrario: le aumenta. Le facoltà mentali, infatti, sono capaci di un'attività dura e continua; non si stancano come un braccio o una gamba. Tutto ciò che chiedono è il cambiamento, non il riposo, tranne che nel sonno.",
+          "page": 19
         },
         {
           "id": "ch-04-c03",
-          "type": "concept",
-          "title": "Due terzi al servizio di un terzo",
-          "body": "L'atteggiamento è illogico: mette al centro un blocco di ore che si vuole solo sbrigare. Chi subordina due terzi dell'esistenza a un terzo per cui non ha entusiasmo non può vivere pienamente.",
-          "page": 18
+          "type": "example",
+          "title": "Il sovrano cambiato perdendo gli spiccioli",
+          "body": "Ogni giorno si ha una moneta solida di tempo, un sovrano, da cambiare; e nel cambiarla l'impiegato accetta di perdere molto: cinque minuti due volte al giorno.",
+          "details": "Appena sbattuta la porta di casa le facoltà mentali, pure instancabili, restano inattive: si va alla stazione in stato di coma mentale e poi si aspetta il treno. Su centinaia di stazioni di periferia gli uomini passeggiano lungo i binari mentre le compagnie ferroviarie li derubano di tempo, che è più del denaro: centinaia di migliaia di ore perse ogni giorno solo perché non è mai venuto in mente di prendere elementari precauzioni. Se la compagnia, nel cambiare il sovrano, trattenesse tre mezze pence, l'uomo protestebbe: eppure è l'equivalente di quei cinque minuti. Sono minuzie, ma saranno giustificate più avanti.",
+          "page": 19
         },
         {
           "id": "ch-04-c04",
-          "type": "concept",
-          "title": "Un giorno dentro il giorno",
-          "body": "La soluzione è mentale: creare un giorno interno, dalle 18 alle 10. In queste sedici ore non sei un salariato: sei libero come chi ha una rendita, e pensi solo a coltivare corpo, mente e relazioni.",
-          "page": 18
+          "type": "check",
+          "body": "Perché dedicare piena energia alle sedici ore libere non danneggia le otto ore di lavoro?",
+          "answer": "Perché le facoltà mentali non si stancano come un braccio o una gamba: sono capaci di attività dura e continua e ciò che chiedono è il cambiamento, non il riposo, salvo nel sonno. L'energia spesa nelle ore libere aumenta quindi, invece di ridurlo, il valore del lavoro d'ufficio.",
+          "page": 19
         },
         {
           "id": "ch-04-c05",
-          "type": "quote",
-          "body": "All they want is change--not rest, except in sleep.",
-          "page": 19
-        },
-        {
-          "id": "ch-04-c06",
-          "type": "concept",
-          "title": "La mente non si stanca come un braccio",
-          "body": "Dare piena energia alle sedici ore non toglie valore alle otto di lavoro: lo aumenta. Le facoltà mentali reggono un'attività continua e intensa: non si stancano come un braccio o una gamba.",
-          "page": 19
-        },
-        {
-          "id": "ch-04-c07",
-          "type": "example",
-          "title": "Il cambio della moneta",
-          "body": "Il tempo della giornata è una moneta da cambiare, e nel cambio si perde molto. Cinque minuti sul binario due volte al giorno sono una commissione che nessuno pagherebbe sui soldi. Eppure il treno la riscuote ogni giorno.",
-          "page": 19
-        },
-        {
-          "id": "ch-04-c08",
           "type": "takeaway",
-          "body": "Cambia il modo in cui conti la giornata. Le ore fuori dal lavoro non sono ciò che avanza: sono il tuo vero giorno, e dargli energia migliora anche il lavoro."
+          "body": "Smetti di considerare la giornata solo l'orario d'ufficio: le sedici ore libere sono la tua vera giornata. Coltivale con l'atteggiamento di chi è padrone del proprio tempo, sapendo che l'attività mentale si rigenera cambiando, non riposando, e che anche cinque minuti sprecati due volte al giorno contano."
         }
       ],
-      "mindmap": "# La causa dei problemi\n## L'errore\n- L'ufficio è \"il giorno\"\n- Il resto è margine\n- Due terzi per un terzo\n## La soluzione\n- Un giorno dentro il giorno\n- Dalle 18 alle 10\n- Liberi come con una rendita\n## La mente\n- Non si stanca\n- Vuole cambiamento\n- Il lavoro ci guadagna\n## Le piccole perdite\n- Coma mentale verso la stazione\n- La commissione sul tempo",
+      "mindmap": "# La causa dei guai: la giornata ridotta all'ufficio\n## Errore di prospettiva\n- «La giornata» = solo ufficio\n- Altre 16 ore come margine\n- Londinese modello\n- Lavoro sgradito e controvoglia\n- Due terzi subordinati a un terzo\n## Giornata dentro la giornata\n- 18–10: sedici ore libere\n- Non salariati ma liberi\n- Coltivare corpo, animo, altri\n- Atteggiamento da rendita\n## Facoltà mentali\n- Non si stancano come le membra\n- Chiedono cambiamento, non riposo\n- Energia spesa aumenta il lavoro\n## Il sovrano di tempo\n- Moneta da cambiare ogni giorno\n- Cinque minuti persi due volte\n- Coma mentale in stazione\n- Protesta per tre mezze pence",
       "flashcards": [
         {
           "id": "ch-04-f01",
-          "q": "Qual è il grande errore dell'impiegato tipo?",
-          "a": "Considerare le ore d'ufficio come \"il giorno\" e le altre sedici come semplice margine.",
-          "page": 18
+          "q": "Qual è l'errore di atteggiamento descritto all'inizio del capitolo?",
+          "a": "Considerare «la giornata» solo le ore d'ufficio e le altre sedici come prologo ed epilogo, subordinando così due terzi dell'esistenza a un terzo che si vuole solo finire.",
+          "page": 17
         },
         {
           "id": "ch-04-f02",
-          "q": "Che cos'è il giorno interno?",
-          "a": "Le sedici ore dalle 18 alle 10, viste come un giorno a sé dedicato a corpo, mente e relazioni.",
-          "page": 18
+          "q": "Che cos'è la «giornata dentro la giornata» e a cosa serve?",
+          "a": "È una giornata disposta nella mente dentro quella più grande: dalle 18 alle 10, sedici ore in cui non si è salariati ma liberi, da dedicare a corpo, animo e altri uomini con l'atteggiamento di chi ha una rendita.",
+          "page": 19
         },
         {
           "id": "ch-04-f03",
-          "q": "Di cosa ha bisogno la mente, oltre al sonno?",
-          "a": "Di cambiamento, non di riposo.",
+          "q": "Perché spendere energia nelle sedici ore libere non danneggia il lavoro d'ufficio?",
+          "a": "Perché le facoltà mentali non si stancano come un braccio o una gamba: chiedono cambiamento, non riposo, e l'energia spesa lì aumenta il valore delle otto ore di lavoro.",
+          "page": 19
+        },
+        {
+          "id": "ch-04-f04",
+          "q": "Qual è il senso dell'esempio del sovrano cambiato perdendo gli spiccioli?",
+          "a": "Ogni giorno abbiamo una moneta di tempo da cambiare, ma perdiamo cinque minuti due volte al giorno in stato di coma mentale e in attesa in stazione senza protestare, come se non valessero più di tre mezze pence.",
           "page": 19
         }
       ]
@@ -379,81 +341,73 @@
       "title": "Tennis And The Immortal Soul",
       "pageStart": 21,
       "pageEnd": 24,
-      "estMinutes": 3,
-      "tldr": "Il treno del mattino e le sere vanno recuperati: novanta minuti a sere alterne, difesi come un appuntamento, cambiano tutto.",
+      "estMinutes": 6,
+      "tldr": "La stanchezza serale è un'abitudine fabbricata, e chi la smaschera può recuperare novanta minuti a sere alterne per un lavoro mentale importante, difendendoli come un impegno sacro.",
+      "summary": "Il treno offre una delle poche occasioni di solitudine consecutiva della giornata, e consumarla sui giornali — lettura da momenti persi — significa bruciare tre quarti d'ora che nessuno ci restituisce. La stessa illusione si ripete la sera: la stanchezza che sentiamo non è reale, la fabbrichiamo durante il ritorno e la alimentiamo finché a mezzanotte ci sembra esaustione. Chi invece ha un impegno preciso, una donna graziosa a teatro o le prove di un coro, trova energia e vive giornate più lunghe.\n\nPerciò alle sei si guardano i fatti: la stanchezza non c'è. Si sistema la cena perché non spezzi la serata, si ricava un blocco continuo di tre ore e se ne dedicano novanta minuti, a sere alterne, a un lavoro mentale serio, difendendoli con la frase «devo lavorare» invece di «devo correre al circolo».",
       "cards": [
         {
           "id": "ch-05-c01",
           "type": "concept",
-          "title": "Niente giornale in treno",
-          "body": "I giornali sono fatti per essere letti in fretta, nei ritagli. Dedicare loro trenta o quaranta minuti di solitudine è uno spreco. Vietandoli sui treni si recuperano già circa tre quarti d'ora.",
+          "title": "Il giornale non merita il treno",
+          "body": "Il tragitto in treno offre una mezz'ora rara di solitudine consecutiva: spenderla sul giornale è uno spreco, perché i giornali sono fatti per essere letti in fretta e non hanno posto in un programma quotidiano.",
+          "details": "Chi parla legge cinque quotidiani inglesi e due francesi, più un numero imprecisato di settimanali: non è dunque un pregiudizio contro la carta stampata, ma la constatazione che i giornali si leggono «a momenti persi». Lo scompartimento pieno di uomini silenziosi e fumatori è invece il luogo dove ci si immerge meglio in se stessi, e trenta o quaranta minuti consecutivi di quella solitudine non si regalano. Si ricordi che nessuno è lo Scià del tempo: si hanno ventiquattro ore come tutti. Così l'autore mette da parte circa tre quarti d'ora.",
           "page": 21
         },
         {
           "id": "ch-05-c02",
           "type": "example",
-          "title": "La serata che svanisce",
-          "body": "Torni stanco, mangi tardi, fumi, vedi amici, giochi a carte, sfogli un libro, e sono già le 23.15. Poi quaranta minuti a pensare di andare a letto. Sei ore sono sparite come per magia.",
+          "title": "La stanchezza della sera è fabbricata",
+          "body": "La stanchezza serale non è reale: la si «lavora su» durante il viaggio di ritorno e poi la si diluisce tra fumo, amici, carte e piano, finché a mezzanotte si passa a letto sentendosi esausti.",
+          "details": "La prova è il contrasto con le sere in cui qualcosa di definito ci attende. Per andare a teatro con una donna graziosa si corre in periferia, ci si veste con cura, si torna in città, si resta tesi per quattro o cinque ore: nessuno spreca tre quarti d'ora a «pensare» di andare a letto, e la serata sembra lunghissima. Lo stesso vale per tre mesi di prove nel coro di una società operistica, due ore a sere alterne: l'attesa dà un bagliore e una vitalità più intensa a tutta la giornata. Chi comincia ad andare a letto quaranta minuti prima di aprire la porta della camera è annoiato, cioè non vive.",
           "page": 22
         },
         {
           "id": "ch-05-c03",
-          "type": "example",
-          "title": "La prova del teatro",
-          "body": "Se la sera hai il teatro con una bella compagnia, corri, ti vesti e resti in piedi quattro o cinque ore senza fatica. La stanchezza sparisce appena hai qualcosa di preciso da fare.",
-          "page": 22
+          "type": "procedure",
+          "title": "Novanta minuti sacri a sere alterne",
+          "body": "Alle sei di sera si guardino i fatti in faccia: non si è stanchi. Si organizzi poi la serata in modo che il pasto non la spezzi, ricavando almeno tre ore libere, e se ne dedichino per cominciare novanta minuti a sere alterne.",
+          "details": "Le tre ore libere restano tre sere alla settimana per amici, bridge, tennis, letture sparse, giardinaggio, e resta intatta la ricchezza di quarantacinque ore tra le due del pomeriggio del sabato e le dieci del lunedì. Con la perseveranza si vorrà passare a quattro, forse a cinque sere. I novanta minuti notturni devono essere i più importanti dei diecimila e ottanta minuti settimanali, sacri quanto una prova teatrale o una partita: invece di «devo correre al circolo» bisogna dire «devo lavorare», frase difficilissima, perché il tennis sembra più urgente dell'anima immortale.",
+          "steps": [
+            "Alle sei, ammettere che la stanchezza non c'è e che il sentirsi esausti è un'abitudine.",
+            "Sistemare la cena in modo che non interrompa la serata a metà.",
+            "Ricavare così un blocco continuo di almeno tre ore.",
+            "Riservare, per iniziare, un'ora e mezza a sere alterne a un lavoro mentale importante e consecutivo.",
+            "Lasciare le altre tre sere ad amici, bridge, tennis e passatempi.",
+            "Difendere i novanta minuti come un impegno sacro, dicendo «devo lavorare» invece di «devo andare al circolo»."
+          ],
+          "page": 23
         },
         {
           "id": "ch-05-c04",
-          "type": "concept",
-          "title": "Un impegno accende la giornata",
-          "body": "Avere la sera qualcosa di definito che impegna tutte le energie dà a tutta la giornata più vitalità. Lo dimostra chi ha provato per mesi nel coro di una società operistica amatoriale.",
+          "type": "check",
+          "body": "Perché, secondo questo testo, la stanchezza dichiarata alle sei di sera non è una ragione valida per rinunciare ai novanta minuti di lavoro mentale?",
+          "answer": "Perché quella stanchezza è in larga parte fabbricata: la si alimenta nel viaggio di ritorno e la si diluisce nella serata. Quando c'è un impegno definito e atteso — teatro, prove di canto — la stanchezza sparisce e la serata sembra persino lunga, segno che l'energia c'è e che chi rimanda il letto di quaranta minuti è semplicemente annoiato, cioè non vive.",
           "page": 23
         },
         {
           "id": "ch-05-c05",
-          "type": "concept",
-          "title": "Novanta minuti, a sere alterne",
-          "body": "Alle sei ammetti che non sei stanco e organizza la sera senza tagliarla con la cena: avrai tre ore libere. All'inizio basta un'ora e mezza a sere alterne per coltivare la mente. Restano tre sere libere e il weekend.",
-          "page": 23
-        },
-        {
-          "id": "ch-05-c06",
-          "type": "concept",
-          "title": "Minuti sacri",
-          "body": "Quei novanta minuti tre volte a settimana devono essere i più importanti dei 10.080 settimanali, sacri come una prova teatrale o una partita. Agli amici devi saper dire: devo lavorare. È molto difficile.",
-          "page": 23
-        },
-        {
-          "id": "ch-05-c07",
-          "type": "quote",
-          "body": "Tennis is so much more urgent than the immortal soul.",
-          "page": 23
-        },
-        {
-          "id": "ch-05-c08",
           "type": "takeaway",
-          "body": "La stanchezza serale è in gran parte un'abitudine. Scegli novanta minuti, tre sere a settimana, e difendili come faresti con un appuntamento che ti sta a cuore."
+          "body": "La stanchezza della sera la produci tu: non rimandare a un'ora in cui sarai esausto. Guarda l'orologio alle sei, libera un blocco continuo di tre ore e prenota novanta minuti a sere alterne per il lavoro che conta, trattandoli come una partita o una prova di teatro."
         }
       ],
-      "mindmap": "# Il tennis e l'anima immortale\n## Il mattino\n- Giornale solo nei ritagli\n- Tre quarti d'ora recuperati\n## La sera\n- Sei ore svanite\n- La stanchezza è un'abitudine\n- A teatro non c'è stanchezza\n## La proposta\n- Sera senza tagli\n- 90 minuti a sere alterne\n- Tre sere libere\n- Weekend intatto\n## La difesa\n- Minuti sacri\n- Saper dire di no",
+      "mindmap": "# Ritagliarsi il tempo per la vita interiore\n## Il treno\n- Solitudine consecutiva rara\n- Giornali: lettura a momenti persi\n- Scompartimento silenzioso e immersione\n- Nessuno è lo Scià del tempo\n## La stanchezza serale\n- È fabbricata, non reale\n- Si alimenta tra fumo, amici e carte\n- Prova: le sere con un impegno definito\n- Chi va a letto in anticipo è annoiato\n## Il piano\n- Alle sei: guardare i fatti\n- Cena che non spezza la serata\n- Blocco continuo di tre ore\n- Novanta minuti a sere alterne\n- Le altre sere ai passatempi\n## La difesa\n- «Devo lavorare», non «devo andare al circolo»\n- Sacri come una prova o una partita",
       "flashcards": [
         {
           "id": "ch-05-f01",
-          "q": "Perché non leggere il giornale sul treno del mattino?",
-          "a": "I giornali sono fatti per i ritagli di tempo: non meritano una mezz'ora abbondante di solitudine.",
+          "q": "Perché l'autore, che legge cinque quotidiani inglesi e due francesi, rifiuta di leggere i giornali in treno?",
+          "a": "Perché il tragitto in treno offre mezz'ora rara di solitudine consecutiva, mentre i giornali sono fatti per essere letti a momenti persi: spenderli lì è uno spreco che nessuno ci restituisce.",
           "page": 21
         },
         {
           "id": "ch-05-f02",
-          "q": "Cosa dimostra la serata a teatro?",
-          "a": "Che la stanchezza scompare quando c'è qualcosa di preciso e interessante da fare.",
+          "q": "Come si dimostra che la stanchezza della sera è fabbricata e non reale?",
+          "a": "Per contrasto: quando una serata ha un impegno preciso — teatro con una donna graziosa, tre mesi di prove nel coro — si corre, ci si veste, si resta tesi per ore e la serata sembra lunghissima. Dunque l'energia c'è, e la stanchezza la fabbrichiamo noi.",
           "page": 22
         },
         {
           "id": "ch-05-f03",
-          "q": "Qual è l'impegno serale proposto per iniziare?",
-          "a": "Un'ora e mezza a sere alterne, tre volte a settimana, per coltivare la mente.",
+          "q": "Qual è la procedura pratica per ricavare novanta minuti di lavoro mentale nelle sere feriali?",
+          "a": "Guardare i fatti in faccia e ammettere che alle sei non si è stanchi, sistemare la cena perché non spezzi la serata, ricavare un blocco continuo di almeno tre ore e riservarne novanta minuti a sere alterne a un lavoro mentale serio, dicendo «devo lavorare» e non «devo correre al circolo».",
           "page": 23
         }
       ]
@@ -464,81 +418,83 @@
       "title": "Remember Human Nature",
       "pageStart": 25,
       "pageEnd": 27,
-      "estMinutes": 3,
-      "tldr": "Bastano sette ore e mezza a settimana, purché si parta con modestia e lasciando margine agli imprevisti.",
+      "estMinutes": 7,
+      "tldr": "Il programma di sviluppo personale va costruito su sei giorni alla settimana, con sette ore e mezza sottratte alle abitudini esistenti e prese con umiltà, perché è il fallimento di un piano ambizioso a ferire l'autostima.",
+      "summary": "Il programma formale di miglioramento va distribuito su sei giorni, non sette: un giorno resta senza alcun piano, e tutto ciò che si aggiunge oltre i sei giorni è un guadagno imprevisto, non una rendita fissa. Chi ha molta gioventù ed energia eccezionale può continuare tutti i giorni, ma la persona media no.\n\nLe sette ore e mezza settimanali sembrano irrisorie su centosessantotto, eppure, usate fino in fondo, agiscono sull'intera settimana: danno sapore anche alle occupazioni più banali. L'obiezione che con così poco non si faccia un miracolo si scioglie guardando il corpo: dieci minuti di esercizio mattina e sera cambiano la salute e l'umore di ogni ora, e nessuno se ne stupisce; allo stesso modo poco più di un'ora al giorno dedicata alla mente dovrebbe ravvivare tutta l'attività mentale.\n\nQuelle ore vanno però ritagliate da abitudini già in corso, quindi l'inizio deve essere dimesso e la serata generosamente largheggiata. Ciò che danneggia davvero è fallire in un'impresa deliberatamente progettata: per questo si comincia in silenzio, senza ostentazione, e ci si valuta solo dopo tre mesi di pratica coscienziosa. Servono sacrificio e molta volontà, perché la vita vecchia non sopravvive all'aggiunta di sette ore e mezza di sforzo serio.",
       "cards": [
         {
           "id": "ch-06-c01",
           "type": "concept",
-          "title": "Sei giorni, non sette",
-          "body": "Nel caso medio conviene limitare il programma a sei giorni. Se vuoi fare di più, fallo, ma considera il tempo extra un colpo di fortuna, non un'entrata fissa: così tornare a sei non ti sembrerà un passo indietro.",
+          "title": "A six-day programme, not seven",
+          "body": "The formal super-programme should cover six days a week, with one day following no plan at all. Any extension beyond that is a windfall, not regular income, so you can drop back to six days without feeling poorer.",
+          "details": "The author ran a seven-day week until nearly forty, repeatedly told that six days yield more genuine living than seven. Having tasted a day of pure caprice, he values the moral value of a weekly rest, yet would do the same again: only someone who has lived at full stretch seven days a week can appreciate recurring idleness. Age decides it — abundant youth and exceptional energy should keep going day in, day out; the average person should not.",
           "page": 25
         },
         {
           "id": "ch-06-c02",
           "type": "concept",
-          "title": "Sette ore e mezza",
-          "body": "Il bilancio è semplice: almeno mezz'ora in sei mattine e un'ora e mezza in tre sere. Sono sette ore e mezza su centosessantotto.",
+          "title": "Seven and a half hours quicken the week",
+          "body": "Seven and a half hours out of a hundred and sixty-eight look ridiculous, but used fully they act on the whole week: they add zest and make even the most banal occupations interesting.",
+          "details": "The saving so far is half an hour on six mornings plus an hour and a half on three evenings. The objection — are you going to perform a miracle with seven and a half hours? — is answered by the body: ten minutes of physical exercise morning and evening change your physical health and outlook every hour of the day, and nobody finds that astonishing. An average of over an hour a day given to the mind should likewise enliven the whole activity of the mind. More time would yield more, but he prefers to begin with what looks trifling.",
           "page": 26
         },
         {
           "id": "ch-06-c03",
-          "type": "concept",
-          "title": "Poco tempo, effetto su tutto",
-          "body": "Usare bene quelle ore ravviva l'intera settimana e accresce l'interesse anche per le occupazioni più banali. Succede come con dieci minuti di ginnastica, mattina e sera, che cambiano la forma fisica a ogni ora del giorno.",
-          "page": 26
+          "type": "procedure",
+          "title": "Clear the hours without wounding self-respect",
+          "body": "The hours must be taken from habits you already have, so the start has to be humble and the evening generously padded. A failure in a deliberately planned enterprise is what does the real damage.",
+          "details": "Clearing even seven and a half hours from the jungle is passably difficult. You did spend that time, however ill-advisedly, and doing something else means changing habits — and habits are the very dickens to change. Any change, even for the better, brings drawbacks and discomforts; you cannot add seven and a half hours of serious effort and still live your old life. Self-respect is at the root of all purposefulness, so start quietly, unostentatiously, and only after three months of conscientious practice may you tell yourself what wondrous things you are capable of.",
+          "steps": [
+            "Accept that some sacrifice and an immense deal of volition are required: the hours come out of something you already do.",
+            "Begin humbly and unostentatiously rather than with an ambitious scheme, so that a setback does not wound self-respect.",
+            "Judge yourself only after three months of conscientiously giving the seven and a half hours to your vitality.",
+            "For the evening task, block out more clock time than the work needs — from 9 to 11.30 for ninety minutes — to absorb accidents."
+          ],
+          "page": 27
         },
         {
           "id": "ch-06-c04",
-          "type": "concept",
-          "title": "Cambiare abitudini costa",
-          "body": "Anche solo sette ore non sono uno sforzo da poco. Comunque tu spendessi quel tempo, stavi facendo qualcosa, e cambiarlo richiede sacrificio e molta volontà. Non puoi aggiungere uno sforzo serio e continuare la vita di prima.",
+          "type": "check",
+          "body": "Why does a failed ambitious programme damage more than the lost hours, and what does that imply for how you should begin?",
+          "answer": "Failure in an enterprise you deliberately planned deals a desperate wound to self-respect, and self-respect is at the root of all purposefulness — so the cost is your capacity to plan at all. Hence the advice to start quietly, unostentatiously, and only extend the programme in proportion to your actual wish.",
           "page": 27
         },
         {
           "id": "ch-06-c05",
-          "type": "concept",
-          "title": "Proteggi il rispetto di te",
-          "body": "Il rispetto di sé sta alla radice di ogni determinazione, e un fallimento in un'impresa pianificata lo ferisce gravemente. Comincia in silenzio, senza proclami. Dopo tre mesi costanti potrai cantare più forte.",
-          "page": 27
-        },
-        {
-          "id": "ch-06-c06",
-          "type": "concept",
-          "title": "Lascia margine",
-          "body": "Per novanta minuti di lavoro serale riserva molto più tempo, per esempio dalle 9 alle 11.30. Mettere in conto gli imprevisti protegge l'impegno dalle serate storte.",
-          "page": 27
-        },
-        {
-          "id": "ch-06-c07",
-          "type": "quote",
-          "body": "Remember the chance of accidents. Remember human nature.",
-          "page": 27
-        },
-        {
-          "id": "ch-06-c08",
           "type": "takeaway",
-          "body": "Un impegno piccolo e realistico, con tanto margine, regge più di un piano ambizioso. Il vero obiettivo dei primi tre mesi è non fallire."
+          "body": "Parti da sei giorni e da sette ore e mezza, non da un piano grandioso. Ritaglia quelle ore dalle abitudini che già hai, in modo dimesso e con la serata largheggiata, così un intoppo non intacca l'autostima da cui dipende ogni proposito. Valutati solo dopo tre mesi."
         }
       ],
-      "mindmap": "# Ricorda la natura umana\n## Il ritmo\n- Sei giorni di programma\n- L'extra è una fortuna\n## La quantità\n- 30 minuti per sei mattine\n- 90 minuti per tre sere\n- 7,5 ore su 168\n## L'effetto\n- Ravviva la settimana\n- Come la ginnastica\n## La prudenza\n- Cambiare abitudini costa\n- Rispetto di sé\n- Inizio silenzioso\n- Margine per gli imprevisti",
+      "mindmap": "# Vivere con intenzione le ventiquattro ore\n\n## Il programma settimanale\n- Sei giorni, non sette\n- Un giorno di pura capriccio\n- Oltre i sei giorni è guadagno\n- Gioventù ed energia decidono\n\n## Il valore delle sette ore e mezza\n- Poco tempo, effetto su tutta la settimana\n- Mezz'ora su sei mattine\n- Un'ora e mezza su tre sere\n- Paragone con l'esercizio fisico\n\n## Ritagliare le ore\n- Partire dalle abitudini esistenti\n- Inizio umile e senza ostentazione\n- Il fallimento ferisce l'autostima\n- Sacrificio e volontà\n- Valutarsi dopo tre mesi\n\n## La serata\n- Bloccare più tempo del necessario\n- Assorbire gli imprevisti",
       "flashcards": [
         {
           "id": "ch-06-f01",
-          "q": "Come si arriva a sette ore e mezza a settimana?",
-          "a": "Almeno mezz'ora in sei mattine più un'ora e mezza in tre sere.",
-          "page": 26
+          "q": "Perché il programma formale dovrebbe coprire sei giorni e non sette?",
+          "a": "Perché un giorno senza alcun piano resta possibile senza sentirsi più poveri: ciò che si fa oltre i sei giorni è un guadagno imprevisto, non una rendita fissa. Solo chi ha molta gioventù ed energia eccezionale può reggere tutti i giorni.",
+          "page": 25
         },
         {
           "id": "ch-06-f02",
-          "q": "Perché cominciare in modo così modesto?",
-          "a": "Perché un fallimento in un'impresa pianificata ferisce il rispetto di sé, che è la radice della determinazione.",
-          "page": 27
+          "q": "Come si risponde a chi obietta che sette ore e mezza sono troppo poche per produrre un miracolo?",
+          "a": "Guardando il corpo: dieci minuti di esercizio mattina e sera cambiano salute e umore di ogni ora del giorno, e nessuno se ne stupisce. Allo stesso modo poco più di un'ora al giorno per la mente dovrebbe ravvivare tutta l'attività mentale.",
+          "page": 26
         },
         {
           "id": "ch-06-f03",
-          "q": "Quanto tempo riservare ai novanta minuti serali?",
-          "a": "Molto di più, per esempio dalle 9 alle 11.30, per assorbire gli imprevisti.",
+          "q": "Perché conviene iniziare in modo umile e senza ostentazione?",
+          "a": "Perché ciò che fa il vero danno è fallire in un'impresa deliberatamente progettata, e l'autostima è alla radice di ogni proposito. Un inizio dimesso protegge l'autostima dagli intoppi.",
+          "page": 27
+        },
+        {
+          "id": "ch-06-f04",
+          "q": "Perché per il compito serale conviene bloccare più tempo di quanto il lavoro richieda?",
+          "a": "Per assorbire gli imprevisti: se il lavoro richiede novanta minuti, si riserva una fascia più ampia, per esempio dalle 9 alle 11.30.",
+          "page": 27
+        },
+        {
+          "id": "ch-06-f05",
+          "q": "Cosa faresti se dopo poche settimane il tuo piano di sette ore e mezza fosse già saltato più volte?",
+          "a": "Ridurrei l'ambizione e ripartirei in modo più dimesso, ricordando che le ore vanno ritagliate da abitudini già esistenti e che ogni cambiamento porta disagi. La valutazione va rimandata a tre mesi di pratica coscienziosa.",
           "page": 27
         }
       ]
@@ -549,87 +505,83 @@
       "title": "Controlling The Mind",
       "pageStart": 28,
       "pageEnd": 30,
-      "estMinutes": 4,
-      "tldr": "La mente si può comandare: il tragitto del mattino è il momento per allenare la concentrazione, primo elemento di una vita piena.",
+      "estMinutes": 6,
+      "tldr": "La concentrazione non è un talento riservato a pochi ma una facoltà che si può acquisire allenando la mente, ogni giorno e ovunque, a scegliere un argomento e a tornarci ogni volta che ne scappa.",
+      "summary": "Tutto ciò che ci accade passa dal cervello: per questo sapergli dettare un compito e ottenere obbedienza è il primo elemento di un'esistenza piena, e senza di esso la vita vera resta impossibile. Chi si dichiara incapace di concentrarsi ignora che la capacità si acquisisce, se la si vuole davvero: ne è prova la mattina della lettera che esigeva una risposta ben formulata, quando la mente rimase fissa sull'argomento fino all'ufficio.\n\nL'allenamento non richiede attrezzi né libri: si sceglie un argomento e, a ogni fuga, si riporta indietro la mente con la forza, anche una quarantina di volte prima della stazione. L'unico segreto è la perseveranza, e chi insiste non può fallire; in strada o in vagone nessuno vede l'esercizio, quindi nessuno può deriderlo.\n\nConviene poi puntare su un contenuto utile: un capitolo breve di Marco Aurelio o di Epitteto, letto la sera e ripreso la mattina dopo durante il tragitto. È il consiglio degli uomini più pratici e concreti, e promette di guarire metà dei mali della vita, soprattutto l'angoscia.",
       "cards": [
         {
           "id": "ch-07-c01",
           "type": "concept",
-          "title": "I pensieri si possono guidare",
-          "body": "Si dice che i pensieri non si controllano, ma non è vero. Tutto ciò che ci ferisce o ci dà piacere accade nel cervello, quindi saperlo dirigere è decisivo. Chi lamenta di non sapersi concentrare può acquisire questa capacità.",
+          "title": "La mente si può controllare",
+          "body": "Il controllo della macchina del pensiero è perfettamente possibile, e poiché nulla ci accade fuori dal cervello, saper governare ciò che vi avviene è della massima importanza: è il primo elemento di un'esistenza piena.",
+          "details": "Chi si lamenta di non saper concentrarsi non sa che la capacità si può acquisire, se la si vuole. Senza il potere di dettare al cervello il suo compito e di assicurarsi l'obbedienza, la vita vera è impossibile. La prova che la mente sa concentrarsi è la mattina della lettera che esigeva una risposta ben formulata: la mente restò fissa sull'argomento fino all'ufficio, senza un attimo di interruzione, tanto che appena arrivato ti mettesti a scrivere.",
           "page": 28
         },
         {
           "id": "ch-07-c02",
-          "type": "quote",
-          "body": "Mind control is the first element of a full existence.",
-          "page": 28
+          "type": "procedure",
+          "title": "Concentrarsi per strada, senza attrezzi",
+          "body": "L'allenamento si fa nella strada tra casa e ufficio, senza attrezzi e senza nemmeno un libro: si sceglie un argomento, si riporta indietro la mente ogni volta che scappa e si insiste finché obbedisce.",
+          "details": "Non c'è altro segreto che la perseveranza: dover riportare la mente indietro circa quaranta volte prima della stazione è normale, e chi insiste non può fallire. L'esercizio è comodo perché è invisibile: con i manubri in treno o un'enciclopedia in dieci volumi tutti ti noterebbero, ma in strada, dietro la pipa in uno scompartimento o appeso alla metropolitana nessuno sa che stai compiendo l'atto più importante della giornata, e nessun maleducato può deriderti.",
+          "steps": [
+            "Quando esci di casa, concentra la mente su un argomento qualsiasi, per cominciare.",
+            "Appena la mente scappa via con un altro pensiero, riportala indietro con la forza.",
+            "Continua a riportarla: prima di arrivare alla stazione lo avrai fatto circa quaranta volte.",
+            "Non disperare e non fermarti: perseverando non puoi in alcun modo fallire.",
+            "Ripeti l'esercizio ogni giorno, in qualunque luogo: strada, treno, metropolitana."
+          ],
+          "page": 29
         },
         {
           "id": "ch-07-c03",
-          "type": "concept",
-          "title": "Il primo compito della giornata",
-          "body": "Curiamo il corpo con grande impegno, ma trascuriamo la mente, che è molto più delicata. Il primo compito del giorno è metterla alla prova, nel tempo tra l'uscita di casa e l'arrivo in ufficio.",
-          "page": 28
+          "type": "procedure",
+          "title": "Concentrarsi su Marco Aurelio o Epitteto",
+          "body": "Poiché conta solo il disciplinare la macchina del pensiero, tanto vale uccidere due uccelli con una fiammata e concentrarsi su qualcosa di utile: per esempio un capitolo di Marco Aurelio o di Epitteto.",
+          "details": "I loro capitoli sono molto brevi, quindi bastano pochi minuti. L'autore insiste che non è una sua trovata ma il suggerimento degli uomini più sensati, pratici e concreti che abbiano camminato sulla terra, e che rifiutarlo significa buttare via il suggerimento più prezioso ricevuto. L'esito promesso è la guarigione di metà dei mali della vita, soprattutto dell'angoscia, malattia evitabile e vergognosa.",
+          "steps": [
+            "Scegli un capitolo breve di Marco Aurelio o di Epitteto.",
+            "Leggilo la sera.",
+            "La mattina dopo concentra la mente su quel capitolo durante il tragitto."
+          ],
+          "page": 30
         },
         {
           "id": "ch-07-c04",
-          "type": "example",
-          "title": "Riportala indietro",
-          "body": "Uscendo di casa fissa la mente su un argomento. Dopo dieci metri sarà già altrove: riportala indietro di peso. Prima della stazione lo avrai fatto una quarantina di volte. Non scoraggiarti: chi insiste non può fallire.",
+          "type": "check",
+          "body": "Sei uscito di casa, la mente è scappata dopo dieci metri e prima della stazione l'hai riportata indietro quaranta volte. Come interpreti la cosa e che cosa fai?",
+          "answer": "È il funzionamento normale dell'esercizio, non la prova che la tua mente sia incapace: la si riporta indietro ogni volta e si persevera, perché chi insiste non può fallire. Del resto la mente sa già concentrarsi, come mostra la mattina della lettera che esigeva una risposta ben formulata.",
           "page": 29
         },
         {
           "id": "ch-07-c05",
-          "type": "example",
-          "title": "La lettera preoccupante",
-          "body": "Ricevi una lettera delicata e per tutto il tragitto pensi solo alla risposta, poi la scrivi appena arrivi. Questo dimostra che la mente sa concentrarsi: serve solo imparare a dominarla senza aspettare un'emergenza.",
-          "page": 29
-        },
-        {
-          "id": "ch-07-c06",
-          "type": "concept",
-          "title": "L'allenamento invisibile",
-          "body": "Non servono strumenti, nemmeno un libro. Con i manubri in treno attireresti l'attenzione, ma nessuno può sapere che in strada o in carrozza stai facendo l'esercizio più importante della giornata.",
-          "page": 29
-        },
-        {
-          "id": "ch-07-c07",
-          "type": "concept",
-          "title": "Su cosa concentrarsi",
-          "body": "Conta la disciplina, non l'argomento. Ma tanto vale scegliere qualcosa di utile: leggi la sera un breve capitolo di Marco Aurelio o Epitteto, e concentrati su quello la mattina dopo.",
-          "page": 30
-        },
-        {
-          "id": "ch-07-c08",
           "type": "takeaway",
-          "body": "Domani, uscendo di casa, scegli un pensiero e riportaci la mente ogni volta che scappa. Con la pratica si cura gran parte dei mali quotidiani, a partire dalla preoccupazione."
+          "body": "La concentrazione non è un dono ma una facoltà che si allena: basta scegliere un argomento, riportare indietro la mente ogni volta che fugge e non smettere, anche quaranta volte per tragitto. Meglio farlo su un breve capitolo di Marco Aurelio o Epitteto, letto la sera: guarisce metà dei mali, prima fra tutti l'angoscia."
         }
       ],
-      "mindmap": "# Controllare la mente\n## Il principio\n- I pensieri si guidano\n- Tutto accade nel cervello\n- Primo elemento di vita piena\n## La pratica\n- Tra casa e ufficio\n- Scegliere un argomento\n- Riportare indietro la mente\n- Nessuno strumento\n## Il contenuto\n- Conta la disciplina\n- Marco Aurelio\n- Epitteto\n## Il beneficio\n- Meno preoccupazione",
+      "mindmap": "# Controllare la macchina del pensiero\n## Perché conta\n- Tutto accade nel cervello\n- Base di una vita piena\n- La capacità si acquisisce\n## La prova\n- La lettera da formulare\n- Mente fissa fino all'ufficio\n## Allenamento in strada\n- Nessuno strumento\n- Un argomento scelto\n- Riportarla indietro ~40 volte\n- Perseverare: non si fallisce\n- Esercizio invisibile\n## Contenuto utile\n- Capitolo breve di Marco Aurelio o Epitteto\n- Letto la sera, concentrazione al mattino\n- Guarisce metà dei mali\n- Contro l'angoscia",
       "flashcards": [
         {
           "id": "ch-07-f01",
-          "q": "Perché il controllo della mente è così importante?",
-          "a": "Perché tutto ciò che ci ferisce o ci dà piacere accade nel cervello.",
+          "q": "Perché saper controllare la mente è considerato il primo elemento di un'esistenza piena?",
+          "a": "Perché nulla ci accade fuori dal cervello: senza il potere di dettargli il suo compito e di assicurarsene l'obbedienza, la vita vera è impossibile. Chi si lamenta di non sapersi concentrare non sa che la capacità si può acquisire, se la si vuole.",
           "page": 28
         },
         {
           "id": "ch-07-f02",
-          "q": "In quale momento va fatto l'esercizio di concentrazione?",
-          "a": "Nel tragitto tra l'uscita di casa e l'arrivo in ufficio.",
-          "page": 28
+          "q": "Come si allena la concentrazione nel tragitto casa-ufficio e quante volte è normale dover riportare indietro la mente?",
+          "a": "Si sceglie un argomento e, ogni volta che la mente scappa, la si riporta indietro con la forza, ripetendo l'esercizio ogni giorno in strada, in treno o in metropolitana. È normale doverla riportare circa quaranta volte prima della stazione: perseverando non si può fallire.",
+          "page": 29
         },
         {
           "id": "ch-07-f03",
-          "q": "Cosa fare quando la mente si distrae?",
-          "a": "Riportarla sull'argomento, ogni volta, senza scoraggiarsi.",
+          "q": "Perché l'allenamento in strada è preferibile a uno fatto con manubri o con un'enciclopedia in treno?",
+          "a": "Perché è invisibile: con gli attrezzi tutti ti noterebbero, mentre dietro una pipa in uno scompartimento o appeso alla metropolitana nessuno sa che stai compiendo l'atto più importante della giornata. Così nessun maleducato può deriderti.",
           "page": 29
         },
         {
           "id": "ch-07-f04",
-          "q": "Quale male si cura in particolare con questa pratica?",
-          "a": "La preoccupazione.",
+          "q": "Quale contenuto conviene scegliere per concentrarsi e come si organizza la giornata intorno ad esso?",
+          "a": "Conviene un capitolo breve di Marco Aurelio o di Epitteto, perché sono pochi minuti e così si disciplinano insieme la mente e un contenuto utile. Si legge la sera e la mattina dopo, durante il tragitto, si concentra la mente su quel capitolo: l'esito promesso è la guarigione di metà dei mali della vita, soprattutto dell'angoscia.",
           "page": 30
         }
       ]
@@ -640,94 +592,79 @@
       "title": "The Reflective Mood",
       "pageStart": 31,
       "pageEnd": 34,
-      "estMinutes": 4,
-      "tldr": "La mente allenata va usata per conoscere se stessi: esaminare ogni giorno se la condotta è coerente con i propri principi.",
+      "estMinutes": 6,
+      "tldr": "La mente addestrata a concentrarsi deve poi dedicarsi allo studio di sé: la felicità nasce dall'accordo tra condotta e principi, e lo si costruisce con un esame quotidiano e onesto, non con la sola lettura.",
+      "summary": "Concentrarsi è soltanto il primo passo: come le scale al pianoforte, l'allenamento quotidiano della mente non vale per sé, ma rende possibile lo studio di se stessi, quel «conosci te stesso» che tutti riconoscono e quasi nessuno pratica. All'uomo di buona volontà manca proprio l'abitudine di riflettere su ciò che conta davvero: la propria felicità, la direzione che sta prendendo, il peso della ragione nelle azioni.\n\nLa felicità non si ottiene accumulando piaceri, ma sviluppando la ragione e facendo coincidere condotta e principi: senza questo accordo la vita è sciocca, e l'accordo si costruisce con esame e propositi quotidiani. La ragione però pesa meno di quanto crediamo, come mostra la rabbia per una bistecca troppo cotta. Perciò nessun libro, per quanto utile, sostituisce un esame onesto di sé, da collocare in un momento qualsiasi della giornata.",
       "cards": [
         {
           "id": "ch-08-c01",
           "type": "concept",
-          "title": "Dopo la concentrazione",
-          "body": "Concentrarsi è un esercizio preliminare, come le scale al pianoforte: una mente obbediente non serve se non la si usa. Il primo studio non è letteratura, arte, storia o scienza. È lo studio di se stessi.",
+          "title": "Concentrarsi è solo il preliminare",
+          "body": "Allenare la mente a concentrarsi, con almeno mezz'ora al giorno, è solo il preliminare: come le scale al pianoforte. Acquisito il dominio su questa parte ribelle di sé, bisogna metterlo al servizio di qualcosa, altrimenti non serve a nulla.",
+          "details": "La materia di questo studio non è letteratura, né arte, né storia, né scienza: è lo studio di se stessi, il «conosci te stesso» che tutti conoscono e ammettono nel valore ma pochissimi mettono in pratica. Quel che manca all'uomo medio di buona volontà è l'abitudine di riflettere sulle cose che contano davvero: il problema della propria felicità, la direzione principale in cui si sta andando, ciò che la vita dà, quanto peso ha la ragione nel determinare le azioni e il rapporto tra i propri principi e la propria condotta.",
           "page": 31
         },
         {
           "id": "ch-08-c02",
-          "type": "quote",
-          "body": "Man, know thyself.",
-          "page": 31
+          "type": "definition",
+          "title": "Felicità: ragione sviluppata e condotta coerente",
+          "body": "La felicità non nasce dal procurarsi piaceri fisici o mentali, ma dallo sviluppo della ragione e dall'adeguare la condotta ai principi.",
+          "details": "Chi è convinto che la felicità sia irraggiungibile sbaglia: alcuni l'hanno raggiunta, e proprio per questa via. Una vita in cui la condotta non si accorda ai principi è una vita sciocca, e l'accordo si ottiene solo con esame, riflessione e propositi quotidiani. Il testo non impone quali principi siano: anche il ladro, se credesse davvero alla bontà morale del furto, sarebbe felice anche in carcere; i martiri sono felici perché condotta e principi coincidono. Chi ammette tutto questo e non dedica alla riflessione nemmeno una parte della giornata lascia regolarmente non fatta l'unica azione necessaria a ciò che cerca.",
+          "page": 32
         },
         {
           "id": "ch-08-c03",
-          "type": "concept",
-          "title": "Non riflettiamo su ciò che conta",
-          "body": "A chi è pieno di buone intenzioni manca soprattutto l'umore riflessivo. Non pensiamo alla nostra felicità, alla direzione principale della nostra vita, a cosa ci sta dando, al legame tra principi e condotta.",
-          "page": 31
+          "type": "example",
+          "title": "La bistecca bruciata e la ragione",
+          "body": "La ragione conta nella nostra vita molto meno di quanto immaginiamo: siamo più istintivi che razionali, e meno riflettiamo meno siamo ragionevoli.",
+          "details": "L'esempio è l'arrabbiatura con il cameriere perché la bistecca è troppo cotta. Consultando la ragione si scopre che il cameriere non ha cucinato la carne e non aveva alcun controllo sulla cottura; e anche se fosse l'unico colpevole, la rabbia non produce alcun effetto sulla bistecca: si perde solo la dignità, si fa brutta figura davanti alle persone sensate e si guasta il cameriere. Il risultato della consultazione (gratuita) è che alla volta successiva si resta calmi e gentili e si chiede con cortesia una bistecca nuova, con un guadagno ovvio e solido.",
+          "page": 33
         },
         {
           "id": "ch-08-c04",
           "type": "concept",
-          "title": "Da dove viene la felicità",
-          "body": "La felicità non nasce dal procurarsi piacere fisico o mentale, ma dallo sviluppo della ragione e dall'accordo tra condotta e principi. Chi lo ammette e non ci riflette mai trascura l'unico atto necessario.",
-          "page": 32
+          "title": "L'esame quotidiano vale più dei libri",
+          "body": "I libri aiutano a formare o correggere i principi e a orientare la condotta, ma nessuna lettura sostituisce un esame quotidiano, candido e onesto di ciò che si è fatto e di ciò che si sta per fare.",
+          "details": "Molto aiuto può venire da libri economici come Marco Aurelio, Epitteto, Pascal, La Bruyère ed Emerson: sono validi, ma restano un supporto. Ciò che serve è un esame giornaliero, uno sguardo fermo su se stessi, per quanto sconcertante possa essere. Il momento adatto è la solitudine del viaggio serale verso casa, dove il mood riflessivo segue naturalmente la fatica di essersi guadagnati la giornata. Leggere il giornale, che si potrebbe leggere aspettando la cena, è una scelta possibile; ma la riflessione va collocata in qualche momento della giornata.",
+          "page": 33
         },
         {
           "id": "ch-08-c05",
-          "type": "concept",
-          "title": "Condotta e principi",
-          "body": "Quali siano i principi qui non importa. Una vita in cui la condotta non vi corrisponde è sciocca, e l'accordo si ottiene solo con esame, riflessione e proposito quotidiani. I martiri sono felici perché condotta e principi coincidono.",
-          "page": 32
+          "type": "check",
+          "body": "Perché arrabbiarsi con il cameriere per una bistecca troppo cotta è, secondo il testo, un esempio di condotta poco ragionevole, e cosa cambia se si consulta la ragione?",
+          "answer": "Perché la rabbia non agisce sulla causa del problema: il cameriere non ha cotto la bistecca, e comunque non si ottiene alcun effetto sulla carne, si perde dignità e si fa brutta figura. Consultando la ragione si resta calmi e gentili e si chiede con cortesia una bistecca nuova, con un guadagno concreto.",
+          "page": 33
         },
         {
           "id": "ch-08-c06",
-          "type": "example",
-          "title": "La bistecca troppo cotta",
-          "body": "Ti arrabbi con il cameriere? Consulta la ragione: non l'ha cotta lui, e arrabbiarti ti fa solo perdere dignità. La volta dopo resterai calmo, tratterai il cameriere da essere umano e chiederai cortesemente un'altra bistecca.",
-          "page": 33
-        },
-        {
-          "id": "ch-08-c07",
-          "type": "concept",
-          "title": "I libri non bastano",
-          "body": "Marco Aurelio, Epitteto, Pascal, La Bruyère ed Emerson aiutano a formare principi e condotta. Nessuna lettura però sostituisce l'esame quotidiano e onesto di ciò che si è appena fatto e di ciò che si sta per fare.",
-          "page": 33
-        },
-        {
-          "id": "ch-08-c08",
-          "type": "concept",
-          "title": "Quando farlo",
-          "body": "Il tragitto serale verso casa è adatto: la riflessione segue naturalmente la fatica di essersi guadagnati la giornata. Il giornale può aspettare fino a prima di cena. L'importante è farlo, in qualche momento del giorno.",
-          "page": 33
-        },
-        {
-          "id": "ch-08-c09",
           "type": "takeaway",
-          "body": "Sul tragitto di ritorno chiediti con onestà cosa hai fatto oggi e se corrisponde a ciò in cui credi. Questo esame vale più di qualsiasi libro."
+          "body": "La concentrazione è solo il mestiere preliminare: va spesa nell'esame quotidiano di sé. La felicità nasce dall'accordo tra condotta e principi, non dai piaceri, e la ragione pesa meno di quanto crediamo: per questo la riflessione va collocata ogni giorno in qualche momento, senza delegarla ai libri."
         }
       ],
-      "mindmap": "# L'umore riflessivo\n## Lo studio di sé\n- Oltre la concentrazione\n- Conosci te stesso\n## Su cosa riflettere\n- Felicità\n- Direzione della vita\n- Ragione\n- Principi e condotta\n## La felicità\n- Non viene dal piacere\n- Condotta allineata ai principi\n- Martiri felici\n## La ragione\n- La bistecca e il cameriere\n- Più istinto che ragione\n## La pratica\n- Esame quotidiano\n- Sul tragitto serale\n- I libri non bastano",
+      "mindmap": "# Lo stato d'animo riflessivo\n## La concentrazione come preliminare\n- Paragone con le scale al pianoforte\n- Va messa al servizio di uno scopo\n## Lo studio di sé\n- «Conosci te stesso»\n- Felicità e direzione di vita\n- Peso della ragione nelle azioni\n## La felicità\n- Sviluppo della ragione\n- Condotta coerente con i principi\n- Ladro e martiri come prova\n## L'esame quotidiano\n- Più efficace dei libri\n- Marco Aurelio, Epitteto, Pascal\n- Il viaggio serale verso casa\n- L'esempio della bistecca bruciata",
       "flashcards": [
         {
           "id": "ch-08-f01",
-          "q": "Qual è il primo corso di studi da intraprendere?",
-          "a": "Lo studio di se stessi.",
+          "q": "Perché allenare la mente alla concentrazione, da solo, non basta?",
+          "a": "È solo il preliminare, come le scale al pianoforte: una volta acquisito il dominio su quella parte ribelle di sé, va messa al servizio di qualcosa, altrimenti non serve a nulla. La materia è lo studio di se stessi.",
           "page": 31
         },
         {
           "id": "ch-08-f02",
-          "q": "Da cosa nasce la felicità?",
-          "a": "Dallo sviluppo della ragione e dall'accordo tra condotta e principi.",
+          "q": "Secondo il testo, da che cosa nasce la felicità?",
+          "a": "Dallo sviluppo della ragione e dall'adeguare la condotta ai propri principi, non dal procurarsi piaceri fisici o mentali: chi vive in questo accordo è felice anche in carcere o nel martirio.",
           "page": 32
         },
         {
           "id": "ch-08-f03",
-          "q": "Come si accorda la condotta ai principi?",
-          "a": "Con esame, riflessione e proposito quotidiani.",
-          "page": 32
+          "q": "Cosa insegna l'esempio dell'arrabbiatura per la bistecca troppo cotta?",
+          "a": "Che la ragione pesa meno di quanto immaginiamo: consultandola si scopre che il cameriere non ha cucinato la carne e che la rabbia non cambia la bistecca, fa solo brutta figura. Conviene chiedere con cortesia una bistecca nuova.",
+          "page": 33
         },
         {
           "id": "ch-08-f04",
-          "q": "Cosa insegna la bistecca troppo cotta?",
-          "a": "Consultando la ragione si evita una rabbia inutile e si ottiene di più restando calmi.",
+          "q": "Perché nessuna lettura può sostituire l'esame quotidiano di sé?",
+          "a": "Perché i libri formano o correggono i principi ma restano un supporto: serve un esame quotidiano, candido e onesto, di ciò che si è fatto e si sta per fare, da collocare in qualche momento della giornata come il viaggio serale verso casa.",
           "page": 33
         }
       ]
@@ -738,81 +675,79 @@
       "title": "Interest In The Arts",
       "pageStart": 35,
       "pageEnd": 37,
-      "estMinutes": 3,
-      "tldr": "Le sere non vanno sprecate solo perché la letteratura non piace: studiare in modo sistematico un'arte, come la musica, rende vivo ciò che prima si subiva.",
+      "estMinutes": 6,
+      "tldr": "Non serve amare la letteratura per uscire dall'ozio: basta studiare un'arte con un buon manuale e un metodo costante, e l'orchestra confusa diventa un organismo leggibile.",
+      "summary": "Molti si rassegnano all'ozio perché credono che l'unica alternativa sia lo studio della letteratura, che non amano. È un falso dilemma: esistono ottimi libri su argomenti non letterari — il bridge, la vela — e non amare la letteratura non è un crimine né una prova di stupidità.\n\nIl concerto mostra il problema: senza orecchio allenato si sente solo una massa gradevole e confusa, perché nessuno ha mai indicato i dettagli; il gusto c'è già, manca la conoscenza della costruzione dell'orchestra. Un buon manuale illustrato la rende un organismo in cui ogni gruppo ha una funzione indispensabile. Il metodo vale per ogni arte: libro introduttivo, osservazione dei dettagli, specializzazione, ritmo settimanale per quarantotto settimane. Alla fine non saprai praticare l'arte, ma ne saprai davvero qualcosa.",
       "cards": [
         {
           "id": "ch-09-c01",
           "type": "concept",
-          "title": "L'alternativa non è solo la letteratura",
-          "body": "Molti passano le sere nell'ozio perché credono che l'unica alternativa sia studiare letteratura. È un grave errore. Si può approfondire qualunque materia con i libri giusti, anche senza amare la letteratura.",
+          "title": "Distinguere letteratura e libri tecnici",
+          "body": "Molti passano le serate nell'ozio perché credono che all'ozio non ci sia alternativa se non lo studio della letteratura, e non amano la letteratura. È un errore: si possono leggere i migliori libri sul bridge o sulla vela senza alcun interesse letterario.",
+          "details": "È vero che quasi nulla si può studiare bene senza l'aiuto dei libri stampati, ma questo non significa che i libri siano tutti letteratura: le opere che trattano argomenti non letterari sono un'altra cosa. Non amare la letteratura, sostiene il testo, non è un crimine né un segno di imbecillità: i mandarini letterari condannerebbero chi non capisce l'influenza di Wordsworth su Tennyson, ma sarebbero loro in difficoltà se si chiedesse di spiegare le influenze che hanno prodotto la \"Patetica\" di Tschaikowsky.",
           "page": 35
         },
         {
           "id": "ch-09-c02",
-          "type": "quote",
-          "body": "It is not a crime not to love literature.",
-          "page": 35
-        },
-        {
-          "id": "ch-09-c03",
           "type": "concept",
-          "title": "Campi enormi di conoscenza",
-          "body": "Fuori dalla letteratura ci sono campi vastissimi che ripagano chi li coltiva. Uno è la musica: l'esempio vale per chi frequenta i concerti e pensa di non saperne nulla perché non suona alcuno strumento.",
-          "page": 35
-        },
-        {
-          "id": "ch-09-c04",
-          "type": "example",
-          "title": "Ascoltare senza sapere",
-          "body": "Ammiri la sinfonia in do minore di Beethoven, ma non sai quali strumenti suonano il tema iniziale. Per te l'orchestra è una massa confusa di suoni gradevoli: non cogli i dettagli perché non hai mai allenato l'orecchio.",
+          "title": "L'orchestra come organismo, non come massa",
+          "body": "Chi frequenta i concerti senza orecchio allenato sente l'orchestra come una massa eterogenea di strumenti che produce un suono confuso e gradevole: non ascolta i dettagli perché nessuno glieli ha mai fatti ascoltare.",
+          "details": "Il gusto musicale c'è già, dimostrato dal fatto che il direttore deve costruire programmi quasi senza musica cattiva per riempire la sala. Manca la conoscenza della costruzione dell'orchestra. Si ammira la sinfonia in do minore di Beethoven, ma di essa si sa solo che l'ha composta lui ed è «una bella cosa»: non si saprebbero nominare gli strumenti che suonano il tema iniziale. Con un buon manuale illustrato l'orchestra diventa un organismo equilibrato in cui ogni gruppo ha una funzione indispensabile: si distingue il corno francese dal corno inglese e si capisce perché chi suona l'hautboy guadagni più di un violinista.",
           "page": 36
         },
         {
+          "id": "ch-09-c03",
+          "type": "procedure",
+          "title": "Impadronirsi di un'arte in un anno",
+          "body": "Il metodo è sempre lo stesso, per la musica come per le altre arti: partire da un buon libro introduttivo, andare a vedere e ascoltare cercando i dettagli, poi specializzarsi, con costanza settimanale.",
+          "details": "Il lettore di Krehbiel arriva al concerto con un interesse intensificato: riconosce gli strumenti e aspetta i loro suoni, invece di esistere in uno stato di beato torpore come un bambino davanti a un oggetto luminoso. Lo stesso vale per le altre arti, di cui esistono analoghi inizi sistematici (\"How to Look at Pictures\" di Clermont Witt, \"How to Judge Architecture\" di Russell Sturgis), con materiali abbondanti in Londra. Il risultato non è suonare il pianoforte: è sapere davvero qualcosa di musica.",
+          "steps": [
+            "Leggi il miglior libro divulgativo sull'arte che ti interessa, per capire come è fatta (per la musica, quello di Krehbiel con le fotografie degli strumenti e le piante dell'orchestra).",
+            "Vai agli spettacoli con lo scopo di individuare gli elementi studiati, invece di lasciarti sommergere dal conjunto.",
+            "Ascolta cercando i singoli suoni e le singole funzioni, per trasformare la massa confusa in un organismo di parti distinte.",
+            "Scegli i programmi in base alla conoscenza che cresce, settimana dopo settimana.",
+            "Specializza la ricerca su una forma (per esempio la sinfonia) o sulle opere di un solo autore.",
+            "Mantieni il ritmo per quarantotto settimane di tre brevi serate, e alla fine saprai qualcosa dell'arte anche senza saperla praticare."
+          ],
+          "page": 37
+        },
+        {
+          "id": "ch-09-c04",
+          "type": "check",
+          "body": "Perché, secondo il testo, il fatto di non saper suonare il pianoforte non impedisce di impadronirsi della musica?",
+          "answer": "Perché il gusto genuino è già dimostrato dalla frequentazione dei concerti, e ciò che manca non è la capacità di eseguire ma l'orecchio ai dettagli: quella si costruisce con un buon libro sull'orchestra e con l'ascolto ripetuto dei concerti. Alla fine si conosce davvero la musica pur restando lontanissimi dal suonare \"The Maiden's Prayer\".",
+          "page": 37
+        },
+        {
           "id": "ch-09-c05",
-          "type": "example",
-          "title": "Dopo aver letto una guida",
-          "body": "Con un libro come \"How to Listen to Music\" di Krehbiel, l'orchestra diventa un organismo bilanciato in cui ogni gruppo ha la sua funzione. Riconosci gli strumenti e il concerto cambia: prima esistevi, ora vivi.",
-          "page": 37
-        },
-        {
-          "id": "ch-09-c06",
-          "type": "concept",
-          "title": "Non serve saper suonare",
-          "body": "In un anno di quarantotto settimane, tre brevi sere ciascuna, con programmi di sala e concerti scelti, si arriva a sapere davvero qualcosa di musica. Anche restando incapaci di suonare al pianoforte un brano semplice.",
-          "page": 37
-        },
-        {
-          "id": "ch-09-c07",
-          "type": "concept",
-          "title": "Vale per tutte le arti",
-          "body": "Lo stesso metodo funziona per pittura e architettura. \"How to Look at Pictures\" di Witt e \"How to Judge Architecture\" di Sturgis sono punti di partenza per una conoscenza sistematica, e a Londra il materiale abbonda.",
-          "page": 37
-        },
-        {
-          "id": "ch-09-c08",
           "type": "takeaway",
-          "body": "Scegli un'arte che già ti piace da spettatore e studiane la struttura con metodo. Saperla leggere trasforma un piacere confuso in un'esperienza viva."
+          "body": "L'ozio non ha come unica alternativa la letteratura: si può studiare un'arte con un buon manuale divulgativo. Poi si va a vedere e ascoltare cercando i dettagli studiati, ci si specializza e si tiene il ritmo per quarantotto settimane: alla fine si sa qualcosa, senza praticarla."
         }
       ],
-      "mindmap": "# Interesse per le arti\n## L'errore\n- Ozio o letteratura\n- Non amarla non è una colpa\n## La musica\n- L'orchestra come massa confusa\n- Un libro guida\n- L'orchestra come organismo\n- Da esistere a vivere\n## Il percorso\n- 48 settimane\n- Tre brevi sere\n- Programmi e concerti\n## Altre arti\n- Pittura\n- Architettura",
+      "mindmap": "# Studiare un'arte per uscire dall'ozio\n## Letteratura non è tutto\n- Ozio per falso dilemma\n- Libri tecnici su bridge e vela\n- Non amarla non è crimine\n## Orchestra come organismo\n- All'inizio massa confusa\n- Il gusto c'è già\n- Serve un manuale illustrato\n- Ogni gruppo ha una funzione\n## Metodo in un anno\n- Libro introduttivo\n- Cercare i dettagli\n- Specializzarsi su forma o autore\n- Ritmo di quarantotto settimane\n- Sapere, non praticare\n## Le altre arti\n- Pittura: Clermont Witt\n- Architettura: Sturgis\n- Materiali abbondanti a Londra",
       "flashcards": [
         {
           "id": "ch-09-f01",
-          "q": "Quale convinzione porta molti all'ozio serale?",
-          "a": "Credere che l'unica alternativa all'ozio sia lo studio della letteratura.",
+          "q": "Perché molti passano le serate nell'ozio, e in che senso è un errore?",
+          "a": "Perché credono che all'ozio non ci sia altra alternativa che lo studio della letteratura, e la letteratura non piace loro. Ma i libri su argomenti non letterari — bridge, vela — sono un'altra cosa, e non amarli non è un crimine né un segno di imbecillità.",
           "page": 35
         },
         {
           "id": "ch-09-f02",
-          "q": "Cosa cambia al concerto dopo aver studiato l'orchestra?",
-          "a": "Si riconoscono strumenti e funzioni: un insieme confuso diventa un organismo e si vive davvero l'ascolto.",
-          "page": 37
+          "q": "Che cosa trasforma l'orchestra, per chi ascolta, da massa confusa in organismo equilibrato?",
+          "a": "Con un buon manuale illustrato impara a riconoscere i gruppi strumentali e la funzione indispensabile di ciascuno, distingue il corno francese dal corno inglese. Il gusto c'era già: mancava la conoscenza di come è costruita l'orchestra.",
+          "page": 36
         },
         {
           "id": "ch-09-f03",
-          "q": "Quanto impegno serve per sapere qualcosa di musica?",
-          "a": "Circa un anno di quarantotto settimane, con tre brevi sere ciascuna e concerti scelti.",
+          "q": "Come si passa dalla lettura di un manuale all'ascolto di un concerto, e che cosa cambia?",
+          "a": "Legge il miglior libro divulgativo sull'arte che gli interessa (per la musica, Krehbiel con le fotografie degli strumenti e le piante dell'orchestra) per capire come è fatta. Poi va agli spettacoli cercando i singoli suoni e le singole funzioni studiate, invece di lasciarsi sommergere dal conjunto.",
+          "page": 37
+        },
+        {
+          "id": "ch-09-f04",
+          "q": "Dopo il libro introduttivo, come si organizza lo studio di un'arte nell'arco di un anno?",
+          "a": "Sceglie i programmi in base alla conoscenza che cresce, specializza la ricerca su una forma (per esempio la sinfonia) o su un solo autore, e mantiene il ritmo per quarantotto settimane di tre brevi serate. Così alla fine sa qualcosa dell'arte anche senza saperla praticare.",
           "page": 37
         }
       ]
@@ -823,94 +758,79 @@
       "title": "Nothing In Life Is Humdrum",
       "pageStart": 38,
       "pageEnd": 41,
-      "estMinutes": 4,
-      "tldr": "Chi coglie causa ed effetto trova la vita meno dolorosa e più interessante: anche il lavoro più noioso diventa materia di studio.",
+      "estMinutes": 6,
+      "tldr": "La percezione continua di causa ed effetto — non l'arte — rende la vita interessante: chi la coltiva con curiosità costante nel quotidiano diventa di mente e cuore larghi.",
+      "summary": "La percezione che conta non è quella artistica, ma quella di causa ed effetto, cioè del continuo sviluppo dell'universo: assimilarla allarga mente e cuore e toglie lo stupore di chi vive la natura umana come un paese straniero pieno di usanze incomprensibili. Il mare lo dimostra: chi ha in testa solo la parola «evoluzione» vede uno spettacolo grandioso e monotono, chi ne è penetrato sa che un liquido è soltanto qualcosa in via di diventare solido. Lo stesso vale per i fatti minuti: un blocco in Oxford Street sposta i viaggi sotto terra e fa salire gli affitti a Shepherd's Bush, e basta mettere due e due insieme. Non servono le arti: basta la curiosità per la scena quotidiana — la Lombard Street di Bagehot, le falene al lampione — coltivata con costanza, perché questa continua coltivazione dell'apprezzamento è il fine di tutta la scienza.",
       "cards": [
         {
           "id": "ch-10-c01",
           "type": "concept",
-          "title": "La percezione più importante",
-          "body": "L'arte è grande, ma non è la cosa più grande. La percezione più importante è quella continua di causa ed effetto, cioè dello sviluppo dell'universo. Capire che nulla accade senza causa rende la mente e il cuore più larghi.",
+          "title": "La percezione più importante non è l'arte",
+          "body": "La percezione più importante non è quella artistica, ma quella continua di causa ed effetto, cioè del continuo sviluppo dell'universo. Chi si imbeve della verità che nulla accade senza causa diventa non solo di mente larga, ma di cuore largo.",
+          "details": "Chi assimila questa idea perde quell'aria assurda di chi è sempre scioccato e addolorato per la stranezza della vita: costoro vivono in mezzo alla natura umana come in un paese straniero pieno di orribili usanze forestiere, e a maturità compiuta dovrebbe essere vergognoso restare stranieri nella propria terra. Il caso del ladro d'orologio: il furto deriva da cause di eredità e ambiente, interessanti quanto scientificamente comprensibili, così l'orologio si ricompra, se non con gioia, con una filosofia che rende impossibile l'amarezza.",
           "page": 38
         },
         {
           "id": "ch-10-c02",
           "type": "example",
-          "title": "L'orologio rubato",
-          "body": "Essere derubati dell'orologio è duro. Ma il ladro è diventato tale per cause di ereditarietà e ambiente, interessanti e comprensibili. Così ne compri un altro con una filosofia che rende impossibile l'amarezza.",
-          "page": 38
+          "title": "Il mare: un liquido che diventa solido",
+          "body": "Chi ha in testa l'evoluzione vede nel mare un elemento che nel giorno avantieri della geologia era vapore, ieri bolliva e domani sarà inevitabilmente ghiaccio; chi ne fa solo un nome vede uno spettacolo grandioso e monotono.",
+          "details": "L'uomo a cui l'evoluzione è solo una parola può permettersi quel mare in agosto per tre scellini di terza classe andata e ritorno. Chi invece è penetrato dall'idea di sviluppo capisce che un liquido è soltanto qualcosa in via di diventare solido, e ne ricava il senso del tremendo, cangiante pittoresco della vita. Nessuna soddisfazione è più durevole di questa continua coltivazione dell'apprezzamento: è il fine di tutta la scienza.",
+          "page": 39
         },
         {
           "id": "ch-10-c03",
-          "type": "concept",
-          "title": "Non più stranieri",
-          "body": "Lo studio di causa ed effetto toglie l'aria di chi è sempre scioccato dalla vita, come se la natura umana fosse un paese straniero dai costumi terribili. Da adulti, restare stranieri in terra straniera è motivo di vergogna.",
-          "page": 38
+          "type": "example",
+          "title": "Gli affitti salgono a Shepherd's Bush",
+          "body": "Anche un mestiere umile è attraversato da cause ed effetti: un blocco del traffico in Oxford Street spinse la gente a viaggiare sotto cantine e fogne, e il risultato fu un aumento degli affitti a Shepherd's Bush.",
+          "details": "Non serve essere scienziati: nessun impiegato a pranzo da Lyons mancava di mettere due e due insieme e di vedere nella (già) Two-penny Tube la causa di una domanda eccessiva di «wigwams» a Shepherd's Bush, e in quella domanda la causa del prezzo più alto. Tutto il movimento dell'universo è semplice così, quando si riesce a mettere due e due insieme. Studiare la questione immobiliare londinese per un'ora e mezza a sere alterne darebbe gusto al lavoro e trasformerebbe la vita; poi arriverebbero problemi più difficili, come la strada più dritta di Londra lunga un metro e mezzo contro le strade dritte di Parigi lunghe chilometri.",
+          "page": 39
         },
         {
           "id": "ch-10-c04",
-          "type": "example",
-          "title": "Il mare che cambia",
-          "body": "Per alcuni il mare è uno spettacolo monotono. Chi ragiona in termini di sviluppo vede un elemento che ieri era vapore e domani sarà ghiaccio. Un liquido è solo qualcosa in via di diventare solido.",
-          "page": 39
+          "type": "concept",
+          "title": "Non serve amare le arti per vivere",
+          "body": "Per vivere pienamente non occorre essere devoti alle arti né alla letteratura: basta la curiosità per tutto il campo dell'abitudine e della scena quotidiana, e soddisfarla significa avere un cuore che comprende.",
+          "details": "L'impiegato di banca che cominciasse da Lombard Street di Walter Bagehot, seguito per novanta minuti a sere alterne, troverebbe avvincente il proprio mestiere e capirebbe molto più chiaramente la natura umana. Chi è «penned in town» ma ama le gite in campagna può uscire di casa in pantofole, di notte, fino al lampione più vicino con un retino da farfalle, osservare la vita selvatica delle falene comuni e rare che vi volano intorno, coordinare il sapere così raccolto e costruirci sopra, finché non si arriva a sapere qualcosa di qualcosa.",
+          "page": 40
         },
         {
           "id": "ch-10-c05",
-          "type": "example",
-          "title": "Gli affitti di Shepherd's Bush",
-          "body": "Gli affitti salgono a Shepherd's Bush. La causa: la metropolitana aumenta la domanda di case, e la domanda fa salire i prezzi. Ogni movimento del mondo è semplice così, quando si sa mettere insieme due più due.",
-          "page": 39
+          "type": "check",
+          "body": "Perché lo studio di causa ed effetto rende la vita insieme meno dolorosa e più pittoresca?",
+          "answer": "Perché toglie lo stupore offeso davanti alla stranezza della vita — il ladro, gli affitti che salgono — mostrandone cause comprensibili, e perché trasforma ogni cosa, dal mare all'ufficio, in un processo in divenire che si guarda con curiosità invece che con noia.",
+          "page": 38
         },
         {
           "id": "ch-10-c06",
-          "type": "quote",
-          "body": "Nothing is humdrum.",
-          "page": 39
-        },
-        {
-          "id": "ch-10-c07",
-          "type": "example",
-          "title": "Il tuo lavoro come campo di studio",
-          "body": "Un impiegato di agenzia immobiliare può studiare la questione delle proprietà a Londra un'ora e mezza a sere alterne. Un bancario può iniziare da \"Lombard Street\" di Bagehot. Il lavoro diventa avvincente e si capisce meglio la natura umana.",
-          "page": 40
-        },
-        {
-          "id": "ch-10-c08",
-          "type": "example",
-          "title": "Falene sotto il lampione",
-          "body": "Chi ama la natura e vive in città può uscire in pantofole con un retino, osservare le falene attorno al lampione più vicino, ordinare ciò che vede e arrivare a sapere qualcosa di qualcosa.",
-          "page": 40
-        },
-        {
-          "id": "ch-10-c09",
           "type": "takeaway",
-          "body": "Non servono arte o letteratura per vivere pienamente. Basta guardare ciò che hai sotto gli occhi chiedendoti da dove viene, e dedicarci tempo con metodo."
+          "body": "Non serve amare l'arte: basta vedere cause ed effetti ovunque, negli affitti come nelle falene. Coltivare con costanza la curiosità per la scena quotidiana allarga mente e cuore, toglie l'amarezza e dà un gusto durevole alla vita."
         }
       ],
-      "mindmap": "# Niente è banale\n## Causa ed effetto\n- La percezione più importante\n- Mente e cuore più larghi\n## Meno dolore\n- L'orologio rubato\n- Non più stranieri\n## Più fascino\n- Il mare che cambia\n- Liquido verso solido\n## Ovunque\n- Affitti e metropolitana\n- Agenzia immobiliare\n- Banca e Bagehot\n- Falene sotto il lampione",
+      "mindmap": "# Nulla è humdrum: curiosità per il quotidiano\n## Percezione di causa ed effetto\n- Più importante dell'arte\n- Sviluppo continuo dell'universo\n- Mente e cuore larghi\n- Fine dello stupore da straniero\n- Il ladro d'orologio\n## Sguardo evolutivo\n- Il mare: liquido che diventa solido\n- Senso del tremendo pittoresco\n- Continua coltivazione dell'apprezzamento\n## Cause ed effetti in città\n- Blocco in Oxford Street\n- Viaggi sotto cantine e fogne\n- Affitti su a Shepherd's Bush\n- La questione immobiliare londinese\n## Curiosità senza arti\n- Lombard Street di Bagehot\n- Falene al lampione\n- Sapere qualcosa di qualcosa\n- Fine di tutta la scienza",
       "flashcards": [
         {
           "id": "ch-10-f01",
-          "q": "Qual è la percezione più importante di tutte?",
-          "a": "La percezione continua di causa ed effetto, cioè dello sviluppo dell'universo.",
+          "q": "Perché la percezione di causa ed effetto conta più di quella artistica?",
+          "a": "Perché è continua, non limitata all'arte: mostra lo sviluppo dell'universo. Chi la assimila diventa di mente e cuore larghi e perde l'aria di chi è sempre scioccato e addolorato dalla stranezza della vita.",
           "page": 38
         },
         {
           "id": "ch-10-f02",
-          "q": "Quali due effetti ha lo studio di causa ed effetto sulla vita?",
-          "a": "Ne riduce la dolorosità e ne accresce il fascino.",
+          "q": "Che cosa cambia, davanti al mare, tra chi ha solo la parola «evoluzione» e chi ne ha assimilato l'idea?",
+          "a": "Chi tratta l'evoluzione come una parola vede uno spettacolo grandioso e monotono; chi ne è penetrato sa che un liquido è solo qualcosa in via di diventare solido, e ne ricava il senso del tremendo, cangiante pittoresco della vita.",
           "page": 39
         },
         {
           "id": "ch-10-f03",
-          "q": "Perché salirono gli affitti a Shepherd's Bush?",
-          "a": "La metropolitana aumentò la domanda di case, e la domanda fece salire i prezzi.",
+          "q": "Come si collega un blocco del traffico in Oxford Street all'aumento degli affitti a Shepherd's Bush?",
+          "a": "Il blocco spinse la gente a viaggiare sotto cantine e fogne; quella domanda eccessiva di alloggi fece salire gli affitti a Shepherd's Bush. Basta mettere due e due insieme, senza essere scienziati.",
           "page": 39
         },
         {
           "id": "ch-10-f04",
-          "q": "Come può chi odia arte e letteratura soddisfare la curiosità?",
-          "a": "Studiando con metodo le abitudini e gli ambienti quotidiani, compreso il proprio lavoro.",
+          "q": "Che cosa basta per vivere pienamente, se non si è devoti alle arti?",
+          "a": "Basta la curiosità per tutto il campo dell'abitudine e della scena quotidiana: per esempio seguire per novanta minuti a sere alterne la Lombard Street di Bagehot, o osservare di notte le falene al lampione, e costruirci sopra.",
           "page": 40
         }
       ]
@@ -921,94 +841,85 @@
       "title": "Serious Reading",
       "pageStart": 42,
       "pageEnd": 45,
-      "estMinutes": 4,
-      "tldr": "La lettura che forma la mente richiede sforzo: niente romanzi nei novanta minuti, poesia se possibile, un campo delimitato e tanta riflessione.",
+      "estMinutes": 7,
+      "tldr": "La lettura che coltiva la mente deve costare fatica: esclusi i romanzi, che scorrono da soli, restano la poesia — affrontata per gradi — e un ambito ristretto di studio, con metà del tempo speso a pensare a ciò che si legge.",
+      "summary": "La lettura seria deve costare fatica, e questo esclude i romanzi dai novanta minuti dedicati al miglioramento di sé: anche i capolavori narrativi scorrono via senza chiedere applicazione mentale, e non producono quella tensione tra il desiderio del compito e la voglia di evitarlo. La poesia è invece la forma più alta e più severa, e chi la sente come un libro sigillato può entrarci per gradi: il saggio di Hazlitt sulla poesia in generale, poi la poesia narrativa letta solo per la storia, infine un giudizio onesto su di sé. Il metodo conta quanto la scelta: un ambito ristretto, un autore o un periodo decisi in anticipo, e almeno metà del tempo speso a pensare a ciò che si legge invece di accumulare titoli. Il ritmo rallenta, ma è così che il tempo non va sprecato.",
       "cards": [
         {
           "id": "ch-11-c01",
           "type": "concept",
-          "title": "Niente romanzi nei novanta minuti",
-          "body": "I romanzi non sono letture serie in questo senso: quelli brutti non vanno letti e quelli buoni non richiedono applicazione. Un buon romanzo ti trascina senza fatica. Leggili pure, ma non in quel tempo.",
+          "title": "I romanzi non allenano la mente",
+          "body": "I romanzi si leggono, ma non nei novanta minuti dedicati al miglioramento di sé: un buon romanzo scorre via senza sforzo, e proprio lo sforzo è ciò che coltiva la mente.",
+          "details": "La ragione dell'esclusione non è che i romanzi siano frivoli: alcuni dei capolavori della letteratura sono prosa narrativa. È che i romanzi cattivi non vanno letti, e i romanzi buoni non richiedono alcuna applicazione mentale apprezzabile: è solo nelle parti cattive di Meredith che si incontra difficoltà. Un buon romanzo ti trascina come una barca a vela lungo la corrente e arrivi in fondo ansimante ma non esausto; i romanzi migliori sono quelli che comportano il minor sforzo. La sensazione che serve — una parte di te ansiosa di raggiungere il compito e un'altra ansiosa di evitarlo — davanti a un romanzo non arriva: non stringi i denti per leggere Anna Karenina.",
           "page": 42
         },
         {
           "id": "ch-11-c02",
-          "type": "concept",
-          "title": "La fatica è il punto",
-          "body": "Per coltivare la mente è fondamentale la sensazione di sforzo, di un compito che una parte di te vuole portare a termine e un'altra vuole evitare. Un romanzo non può dartela.",
-          "page": 42
-        },
-        {
-          "id": "ch-11-c03",
-          "type": "concept",
-          "title": "La poesia viene prima",
-          "body": "La poesia immaginativa impone probabilmente lo sforzo mentale più severo. È la forma più alta di letteratura: dà il piacere più alto e insegna la saggezza più alta. Eppure la maggioranza delle persone non la legge.",
-          "page": 42
-        },
-        {
-          "id": "ch-11-c04",
-          "type": "example",
-          "title": "Come entrare nella poesia",
-          "body": "Se la poesia ti è estranea, comincia dal saggio di Hazlitt sulla poesia in generale. Poi passa alla poesia narrativa: \"Aurora Leigh\" di E. B. Browning si legge per la storia e le idee sociali. Spesso smentisce chi credeva di odiarla.",
+          "type": "procedure",
+          "title": "Come cominciare a leggere poesia",
+          "body": "La poesia è la forma più alta di letteratura e la più faticosa; chi la sente come un libro sigillato deve entrarci per gradi, con un saggio che la spieghi e poi con poesia narrativa.",
+          "details": "La poesia immaginativa produce uno sforzo mentale molto maggiore del romanzo, forse il più severo di ogni forma letteraria, e in cambio dà il piacere e la sapienza più alti: per questo va letta prima di tutto il resto. Molti, messi davanti alla scelta tra leggere Paradise Lost e attraversare Trafalgar Square in ginocchio e vestiti di sacco, sceglierebbero la vergogna pubblica: non è una ragione per rinunciare. Il punto d'ingresso è il saggio di Hazlitt sulla poesia in generale, il migliore del genere in inglese: dopo averlo letto nessuno può credere che la poesia sia una tortura medievale, un elefante impazzito o un fucile che spara da solo. Se il saggio ti accende, comincia con poesia puramente narrativa.",
+          "steps": [
+            "Leggi il saggio di Hazlitt sulla «poetry in general»: serve a togliere l'idea che la poesia sia una cosa incomprensibile o ostile.",
+            "Passa alla poesia puramente narrativa, che chiede meno di quella lirica.",
+            "Affronta Aurora Leigh di E. B. Browning, leggendola solo per la storia e le idee sociali, dimenticando che è poesia.",
+            "Alla fine chiediti onestamente se la poesia ti dispiace ancora: più di una persona ha scoperto così di essersi sbagliata su di sé.",
+            "Se dopo Hazlitt e questo esperimento l'antagonismo resta, ripiega su storia o filosofia."
+          ],
           "page": 43
         },
         {
-          "id": "ch-11-c05",
-          "type": "concept",
-          "title": "Se proprio non fa per te",
-          "body": "Se dopo la prova la poesia non fa per te, resta la storia o la filosofia. Dopo un anno di letture continue, chiunque abbia un'intelligenza media può affrontare i capolavori, che sono sorprendentemente limpidi.",
+          "id": "ch-11-c03",
+          "type": "procedure",
+          "title": "Delimitare l'ambito e pensare mentre si legge",
+          "body": "Scegli un ambito ristretto e resta dentro per un periodo deciso in anticipo, poi usa almeno metà del tempo per pensare a ciò che leggi invece di correre da un libro all'altro.",
+          "details": "Chi legge e rilegge senza pensarci sopra potrebbe ugualmente tagliare il pane: prende la lettura come altri prendono il bere e attraversa le contee della letteratura in automobile, con il solo obiettivo del movimento, orgoglioso del numero di libri letti in un anno. Senza almeno quarantacinque minuti di riflessione accurata e faticosa — noiosissima all'inizio — sui novanta minuti della sera, il tempo è per lo più sprecato. Il ritmo diventerà lento, e non importa: dimentica la meta, guarda solo il paesaggio circostante e dopo un po', quando meno te lo aspetti, ti ritroverai in una bella città su una collina.",
+          "steps": [
+            "Definisci direzione e portata dello sforzo scegliendo un periodo limitato, un soggetto limitato o un singolo autore.",
+            "Formulati l'obiettivo in una frase: «voglio sapere qualcosa sulla Rivoluzione francese, o sull'ascesa delle ferrovie, o sulle opere di John Keats».",
+            "Fissa in anticipo la durata del periodo e non uscirne, restando fedele alla scelta: c'è piacere nell'essere specialista.",
+            "Riserva almeno 45 minuti dei 90 alla riflessione faticosa su ciò che leggi, accettando la noia iniziale.",
+            "Accetta un passo lento e non contare i libri finiti: guarda il territorio, non la meta."
+          ],
           "page": 44
         },
         {
-          "id": "ch-11-c06",
-          "type": "concept",
-          "title": "Delimita il campo",
-          "body": "Definisci direzione e portata: un periodo, un argomento o un solo autore, come la Rivoluzione francese, la nascita delle ferrovie o le opere di Keats. Per un tempo stabilito limitati a quello. Essere specialisti dà molto piacere.",
-          "page": 44
-        },
-        {
-          "id": "ch-11-c07",
-          "type": "concept",
-          "title": "Pensa oltre a leggere",
-          "body": "C'è chi legge come si beve, contando i libri dell'anno. Senza almeno quarantacinque minuti di riflessione faticosa su ciò che leggi, i novanta minuti sono in gran parte sprecati. Il ritmo sarà lento: non importa.",
-          "page": 44
-        },
-        {
-          "id": "ch-11-c08",
-          "type": "quote",
-          "body": "Forget the goal; think only of the surrounding country",
+          "id": "ch-11-c04",
+          "type": "check",
+          "body": "Perché seguendo questo metodo la lentezza non è un difetto e leggere molti libri in un anno non dimostra nulla?",
+          "answer": "Perché ciò che coltiva la mente è lo sforzo — la difficoltà e la riflessione faticosa sul testo — non il numero di pagine attraversate. Chi legge solo per il movimento, come chi guida attraverso le contee senza guardare, spreca i suoi novanta minuti; chi rallenta per pensare arriva, senza cercarla, a una vera comprensione.",
           "page": 45
         },
         {
-          "id": "ch-11-c09",
+          "id": "ch-11-c05",
           "type": "takeaway",
-          "body": "Scegli un argomento delimitato e un libro che ti costi fatica, e dedica metà del tempo a pensarci. Conta quanto capisci, non quanti libri finisci."
+          "body": "Leggi ciò che costa sforzo: poesia, entrandoci per gradi, oppure un ambito ristretto scelto in anticipo. Dedica almeno metà dei novanta minuti a riflettere su ciò che leggi e accetta un passo lento: così il tempo di lettura diventa crescita mentale, non consumo di libri."
         }
       ],
-      "mindmap": "# Lettura seria\n## Cosa leggere\n- Non i romanzi\n- Poesia prima di tutto\n- Poi storia o filosofia\n## Come iniziare\n- Il saggio di Hazlitt\n- Aurora Leigh\n## Il metodo\n- Limitare il campo\n- Un periodo o un autore\n- 45 minuti di riflessione\n## Il ritmo\n- Lento\n- Dimentica la meta",
+      "mindmap": "# Lettura seria\n## Romanzi esclusi\n- Scorrono senza sforzo\n- Non frivolezza: manca la fatica\n- Nessun conflitto interiore\n## Poesia: la forma più alta\n- Sforzo massimo, piacere massimo\n- Il rifiuto comune (Paradise Lost)\n- Il saggio di Hazlitt\n- Poesia narrativa: Aurora Leigh\n- Verifica onesta; ripiego su storia o filosofia\n## Metodo: ambito ristretto\n- Periodo fissato in anticipo\n- Un soggetto o un autore\n- Obiettivo in una frase\n- 45 minuti su 90 a riflettere\n- Passo lento, non contare i libri",
       "flashcards": [
         {
           "id": "ch-11-f01",
-          "q": "Perché i romanzi sono esclusi dai novanta minuti?",
-          "a": "I buoni romanzi non richiedono sforzo mentale, e per coltivare la mente serve proprio la fatica.",
+          "q": "Perché i romanzi sono esclusi dai novanta minuti dedicati al miglioramento di sé, se non è perché siano frivoli?",
+          "a": "Perché i buoni romanzi non richiedono alcuna applicazione mentale apprezzabile: scorrono via senza sforzo, mentre è proprio lo sforzo a coltivare la mente. Mancano anche della sensazione di tensione tra desiderio del compito e voglia di evitarlo.",
           "page": 42
         },
         {
           "id": "ch-11-f02",
-          "q": "Da quali letture cominciare se la poesia sembra estranea?",
-          "a": "Dal saggio di Hazlitt sulla poesia, poi da poesia narrativa come Aurora Leigh.",
+          "q": "Come si entra nella poesia se la si sente come un libro sigillato, e cosa si fa se l'antagonismo resta?",
+          "a": "Si comincia con il saggio di Hazlitt sulla «poetry in general», poi si passa alla poesia puramente narrativa, come Aurora Leigh letta solo per la storia e le idee sociali. Se dopo questo l'antagonismo resta, si ripiega su storia o filosofia.",
           "page": 43
         },
         {
           "id": "ch-11-f03",
-          "q": "Quali sono i due suggerimenti generali sullo studio?",
-          "a": "Delimitare il campo e riflettere oltre a leggere.",
+          "q": "Quanto tempo dei novanta minuti serali va dedicato a pensare a ciò che si legge, e perché?",
+          "a": "Almeno quarantacinque minuti di riflessione accurata e faticosa, noiosissima all'inizio: senza di essa il tempo è per lo più sprecato, perché leggere e rileggere senza pensarci sopra non coltiva nulla.",
           "page": 44
         },
         {
           "id": "ch-11-f04",
-          "q": "Quanto tempo dedicare alla riflessione su novanta minuti?",
-          "a": "Almeno quarantacinque minuti.",
+          "q": "Come si definisce concretamente l'ambito di lettura, e cosa bisogna evitare di contare?",
+          "a": "Si sceglie un periodo limitato, un soggetto limitato o un singolo autore, formulando l'obiettivo in una frase e fissando in anticipo la durata del periodo. Bisogna evitare di contare i libri finiti: si guarda il territorio, non la meta.",
           "page": 44
         }
       ]
@@ -1019,101 +930,79 @@
       "title": "Dangers To Avoid",
       "pageStart": 46,
       "pageEnd": 48,
-      "estMinutes": 4,
-      "tldr": "Chi vuole usare bene il tempo rischia di diventare saccente, rigido o affannato: ma il pericolo più grande resta fallire all'inizio.",
+      "estMinutes": 6,
+      "tldr": "Chi comincia a organizzare il proprio tempo deve evitare quattro pericoli: la pedanteria, l'adorazione del programma, la fretta che nasce da un piano troppo pieno e, soprattutto, il fallimento iniziale che spegne l'impulso appena nato.",
+      "summary": "Organizzare le proprie ore non è un'operazione innocua: porta con sé quattro pericoli. Il primo è la pedanteria, la tentazione di trasformare una scoperta personale in motivo di superiorità; il rimedio è ricordare che il tempo da amministrare è il proprio, e che il mondo non ha bisogno di essere convertito.\n\nPoi c'è il rapporto con il piano stesso: va rispettato quel tanto che basta perché resti qualcosa, ma non adorato come un feticcio, e l'incapacità di calibrare questa deferenza produce la tragica comicità di vite come quella di Arthur. Il terzo rischio è la fretta, l'ossessione di ciò che viene dopo; qui non serve infrangere ogni tanto la regola, perché il difetto sta nell'aver riempito il programma oltre misura: bisogna ridurlo.\n\nDa ultimo, il pericolo più grave: fallire all'inizio e spegnere l'impulso. Meglio un passo lento ma regolare, compiti scelti secondo l'inclinazione e portati a termine, perché la fiducia in sé che ne viene è immensa.",
       "cards": [
         {
           "id": "ch-12-c01",
           "type": "concept",
-          "title": "Il rischio di diventare saccente",
-          "body": "Il primo pericolo è diventare saccenti: chi si dà arie di saggezza superiore e ha perso il senso dell'umorismo. Fatta una scoperta, si offende perché il mondo non ne resta colpito. Si diventa così senza accorgersene.",
+          "title": "Il primo pericolo: diventare un pedante",
+          "body": "Chi comincia a organizzare il proprio tempo rischia di diventare un pedante: un individuo borioso che, fatta una scoperta, si offende perché il mondo intero non ne è ugualmente impressionato.",
+          "details": "Il pedante ha perso il senso dell'umorismo e dà arie di superiore saggezza. La difesa è ricordare che la materia da trattare è il proprio tempo, non quello altrui: la terra girava comodamente prima che si iniziasse a fare il bilancio delle ore e continuerà a girare comunque. Perciò non chiacchierare troppo di quel che si fa, non ostentare una dolore compiaciuto davanti al mondo che spreca le sue ore, e riconoscere che badare a se stessi è già tutto ciò che si può fare.",
           "page": 46
         },
         {
           "id": "ch-12-c02",
           "type": "concept",
-          "title": "Occupati del tuo tempo",
-          "body": "La materia su cui lavori è il tuo tempo, non quello degli altri. Non parlare troppo di ciò che fai e non mostrare dolore per chi spreca le sue ore. Occuparsi di se stessi basta e avanza.",
-          "page": 46
+          "title": "Il programma: rispetto senza adorazione",
+          "body": "Il programma quotidiano non deve trascinare l'uomo come lo schiavo dietro il carro: va rispettato, ma non adorato come un feticcio, perché un piano di impieghi giornalieri non è una religione.",
+          "details": "Senza un minimo di deferenza, però, il programma smette di essere qualcosa e diventa solo uno scherzo. L'esempio è Arthur, che porta sempre il cane alle otto e comincia a leggere alle nove meno un quarto: la moglie martire conclude che «è del tutto fuori questione» fare altro, e quella voce rassegnata rivela la ridicola tragedia di una vita. Dosare la giusta deferenza, vivere con né troppa né troppo poca elasticità, è meno semplice di quanto paia a chi è inesperto.",
+          "page": 47
         },
         {
           "id": "ch-12-c03",
-          "type": "quote",
-          "body": "A programme of daily employ is not a religion.",
+          "type": "concept",
+          "title": "La fretta e il programma che trabocca",
+          "body": "Un altro pericolo è la politica della fretta: lasciarsi sempre più ossessionare da ciò che si deve fare dopo, finché si esiste come in una prigione e la vita cessa di essere propria.",
+          "details": "Portare il cane alle otto meditando che alle nove meno un quarto si deve leggere non è vivere. Rompere ogni tanto il programma non rimedia: il male non sta nella rigidità con cui si persegue ciò che si è tentato, ma nell'aver tentato troppo, riempiendo il piano fino a farlo traboccare. L'unica cura è ricostituire il programma e tentare meno. Se lo si vuole comunque tenere, un palliativo è passare da una parte all'altra con esagerata lentezza: cinque minuti di quiete mentale tra il cane e il libro, sprecati con piena coscienza di sprecarli.",
           "page": 47
         },
         {
           "id": "ch-12-c04",
-          "type": "example",
-          "title": "Arthur e il cane",
-          "body": "Arthur porta sempre fuori il cane alle otto e comincia a leggere alle otto e quarantacinque, quindi per la moglie ogni altro progetto è fuori discussione. Un programma venerato così diventa un peso per chi lo segue e per chi gli sta intorno.",
-          "page": 47
+          "type": "concept",
+          "title": "Il fallimento iniziale uccide lo slancio",
+          "body": "Il pericolo più grave è fallire all'inizio: un fallimento iniziale può uccidere del tutto l'impulso appena nato verso una vitalità completa, perciò va evitato con ogni precauzione.",
+          "details": "L'impulso non va sovraccaricato: il passo del primo giro può essere assurdamente lento, ma deve essere il più regolare possibile. Deciso un compito, lo si porta a termine a ogni costo di noia e disgusto, perché la fiducia in sé che dà un lavoro noioso compiuto è immensa. Nella scelta delle prime occupazioni serali l'unica guida è il gusto e l'inclinazione naturale: meglio la storia naturale delle grida di strada che una filosofia per cui non si ha alcun trasporto.",
+          "page": 48
         },
         {
           "id": "ch-12-c05",
-          "type": "concept",
-          "title": "Né troppa né poca elasticità",
-          "body": "D'altra parte, un programma trattato senza rispetto diventa uno scherzo. Trovare la giusta deferenza, con né troppa né poca elasticità, è meno semplice di quanto sembri a chi non ha esperienza.",
+          "type": "check",
+          "body": "Perché interrompere ogni tanto il programma non cura la fretta, e che cosa si deve fare invece?",
+          "answer": "Perché il male non nasce dalla rigidità nel perseguire ciò che si è tentato, ma dall'aver tentato troppo, riempiendo il programma fino a farlo traboccare. La cura è ricostituire il programma e tentare meno.",
           "page": 47
         },
         {
           "id": "ch-12-c06",
-          "type": "concept",
-          "title": "La politica della fretta",
-          "body": "Si può finire ossessionati da ciò che viene dopo, vivendo come in prigione. Rompere il programma ogni tanto non aiuta: il male sta nell'aver tentato troppo. L'unica cura è rifare il programma e tentare meno.",
-          "page": 47
-        },
-        {
-          "id": "ch-12-c07",
-          "type": "example",
-          "title": "Cinque minuti sprecati apposta",
-          "body": "Se il programma opprime e non vuoi modificarlo, passa con deliberata lentezza da una parte all'altra. Tra una cosa e l'altra sprecati cinque minuti di perfetta quiete, con la piena coscienza di sprecarli.",
-          "page": 48
-        },
-        {
-          "id": "ch-12-c08",
-          "type": "concept",
-          "title": "Il pericolo più grande",
-          "body": "Un fallimento iniziale può uccidere sul nascere l'impulso a vivere pienamente. Tieni un ritmo anche assurdamente lento, ma regolare. E una volta deciso un compito, portalo a termine: la fiducia guadagnata è enorme.",
-          "page": 48
-        },
-        {
-          "id": "ch-12-c09",
-          "type": "concept",
-          "title": "Segui il tuo gusto",
-          "body": "Per le prime occupazioni serali lasciati guidare solo dal gusto e dall'inclinazione naturale. Se la filosofia non ti piace e ti attirano i richiami degli ambulanti, lascia stare la filosofia e studia quelli.",
-          "page": 48
-        },
-        {
-          "id": "ch-12-c10",
           "type": "takeaway",
-          "body": "Prendi il programma sul serio ma non religiosamente, non predicare, e se ti opprime fai meno. Parti lento, regolare, da ciò che ti piace davvero."
+          "body": "Prima di costruire un programma quotidiano, mettiti in guardia: non diventare pedante, non idolatrare il piano, non riempirlo fino a vivere nella fretta. Soprattutto non fallire all'inizio: scegli ciò che ti piace davvero, avanza lento ma regolare e porta a termine il compito."
         }
       ],
-      "mindmap": "# Pericoli da evitare\n## Saccenteria\n- Perdita dell'umorismo\n- Il tuo tempo, non quello altrui\n## Rigidità\n- Il programma non è una religione\n- Arthur e il cane\n- Giusta elasticità\n## Fretta\n- Ossessione del dopo\n- Tentare meno\n- Cinque minuti di quiete\n## Fallimento iniziale\n- Ritmo lento e regolare\n- Portare a termine\n- Seguire il proprio gusto",
+      "mindmap": "# Pericoli da evitare\n## La pedanteria\n- Perdita del senso dell'umorismo\n- Materia: il proprio tempo\n- Non chiacchierare troppo\n- Badare a se stessi\n## Il programma\n- Rispetto, non adorazione\n- Senza deferenza è uno scherzo\n- Esempio di Arthur\n## La fretta\n- Ossessione per il compito dopo\n- Il piano che trabocca\n- Cura: tentare meno\n- Palliativo: lentezza esagerata\n## Il fallimento iniziale\n- Uccide l'impulso\n- Passo lento ma regolare\n- Compito condotto a termine\n- Gusto e inclinazione",
       "flashcards": [
         {
           "id": "ch-12-f01",
-          "q": "Che cosa ha perso il saccente?",
-          "a": "Il senso dell'umorismo.",
+          "q": "Qual è il primo pericolo che minaccia chi comincia a organizzare il proprio tempo e come si evita?",
+          "a": "Basta la pedanteria: l'individuo che, fatta la scoperta di un'attività che lo soddisfa, si aspetta che il mondo lo invidii, perde il senso dell'umorismo e diventa borioso. La difesa è ricordare che il tempo da organizzare è il proprio, non quello degli altri.",
           "page": 46
         },
         {
           "id": "ch-12-f02",
-          "q": "Qual è l'unica cura per un programma che genera fretta?",
-          "a": "Rifarlo e tentare meno.",
+          "q": "Chi è Arthur e che cosa lascia capire suo marito della sua vita?",
+          "a": "Un uomo che porta il cane alle otto in punto e apre il libro alle nove meno un quarto. La moglie, con voce rassegnata, conclude che fare qualcos'altro è del tutto fuori questione: quella voce rivela la tragicommedia di una vita.",
           "page": 47
         },
         {
           "id": "ch-12-f03",
-          "q": "Come alleviare un programma oppressivo senza cambiarlo?",
-          "a": "Passando con lentezza da una parte all'altra, con cinque minuti di quiete deliberata.",
-          "page": 48
+          "q": "Perché rompere ogni tanto il programma non cura la fretta e che cosa la cura davvero?",
+          "a": "Il male non sta nella rigidità con cui si persegue ciò che si è tentato, ma nell'aver tentato troppo: il piano riempito fino a farlo traboccare va ricostituito tentando meno. Se si vuole tenere il programma, un palliativo è passare da un'occupazione all'altra con lentezza esagerata, sprecando di proposito cinque minuti.",
+          "page": 47
         },
         {
           "id": "ch-12-f04",
-          "q": "Qual è il pericolo più grande?",
-          "a": "Un fallimento all'inizio dell'impresa, per aver preteso troppo.",
+          "q": "Qual è il pericolo più grave fra quelli elencati e con quali precauzioni si affronta?",
+          "a": "È il fallimento iniziale: può uccidere del tutto l'impulso appena nato verso una vitalità completa. Per evitarlo si sceglie per le prime occupazioni serali ciò che piace davvero, si avanza piano ma con passo regolare e si porta comunque a termine il compito, ricavandone una fiducia in sé immensa.",
           "page": 48
         }
       ]
@@ -1121,24 +1010,34 @@
   ],
   "glossary": [
     {
-      "term": "Programma",
-      "definition": "L'insieme degli obblighi quotidiani. Superarlo significa fare qualcosa in più, per desiderio di crescere.",
-      "chapterId": "ch-02"
+      "term": "fornitura di tempo",
+      "definition": "Le ventiquattro ore uguali per tutti, inalienabili e non aumentabili come il denaro.",
+      "chapterId": "ch-01"
     },
     {
-      "term": "Giorno interno",
-      "definition": "Le sedici ore dalle 18 alle 10, considerate un giorno a sé in cui si è liberi di coltivare corpo, mente e relazioni.",
+      "term": "budget",
+      "definition": "Divisione pratica delle ventiquattro ore: sette di lavoro, sette di sonno, due di generosità e otto di cui non si saprebbe rendere conto.",
+      "chapterId": "ch-03"
+    },
+    {
+      "term": "giornata dentro la giornata",
+      "definition": "Vivere le ore libere dalle 18 alle 10 come una giornata propria, non come margine delle ore d'ufficio.",
       "chapterId": "ch-04"
     },
     {
-      "term": "Umore riflessivo",
-      "definition": "L'abitudine a esaminare ogni giorno con onestà ciò che si è fatto e ciò che si sta per fare.",
-      "chapterId": "ch-08"
+      "term": "sette ore e mezza",
+      "definition": "Ore settimanali sottratte alle abitudini per il programma di miglioramento, distribuite su sei giorni.",
+      "chapterId": "ch-06"
     },
     {
-      "term": "Saccente",
-      "definition": "Chi si dà arie di saggezza superiore e ha perso il senso dell'umorismo, offeso perché il mondo non resta colpito dalle sue scoperte.",
-      "chapterId": "ch-12"
+      "term": "percezione di causa ed effetto",
+      "definition": "Percezione del continuo sviluppo dell'universo, che rende interessante il quotidiano.",
+      "chapterId": "ch-10"
+    },
+    {
+      "term": "lettura seria",
+      "definition": "Lettura che costa fatica, esclude i romanzi e si concentra su poesia e un ambito ristretto di studio.",
+      "chapterId": "ch-11"
     }
   ]
 }

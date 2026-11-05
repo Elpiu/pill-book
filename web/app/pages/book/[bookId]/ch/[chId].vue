@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { chapterAfter } from '~/utils/progress'
+import { chapterAfter, sectionPosition, sessionPhases, type Phase } from '~/utils/progress'
 
 const route = useRoute()
 const bookId = route.params.bookId as string
@@ -14,21 +14,40 @@ const next = computed(() => (pack.value ? chapterAfter(pack.value, chapterId) : 
 const position = computed(() => {
   if (!chapter.value) return ''
   switch (phase.value) {
-    case 'cards': return `Card ${cardIndex.value + 1} di ${chapter.value.cards.length}`
+    case 'cards': {
+      const part = sectionPosition(chapter.value, cardIndex.value)
+      const card = `Card ${cardIndex.value + 1} di ${chapter.value.cards.length}`
+      return part ? `${card} · Parte ${part.current} di ${part.total}` : card
+    }
+    case 'summary': return 'Riassunto'
     case 'mindmap': return 'Mindmap'
     case 'flashcards': return 'Flashcard'
     default: return 'Completato'
   }
 })
 
-function onMindmapKey(event: KeyboardEvent) {
-  if (phase.value !== 'mindmap') return
-  if (event.key === 'ArrowRight') session.goToPhase('flashcards')
-  else if (event.key === 'ArrowLeft') session.goToPhase('cards')
+function neighbourPhase(step: 1 | -1): Phase | undefined {
+  if (!chapter.value) return undefined
+  const phases = sessionPhases(chapter.value)
+  return phases[phases.indexOf(phase.value) + step]
 }
 
-onMounted(() => window.addEventListener('keydown', onMindmapKey))
-onBeforeUnmount(() => window.removeEventListener('keydown', onMindmapKey))
+function move(step: 1 | -1) {
+  const target = neighbourPhase(step)
+  if (target) session.goToPhase(target)
+}
+
+/** Le card e le flashcard gestiscono le frecce da sole. */
+function onPhaseKey(event: KeyboardEvent) {
+  // Un evento già gestito dal deck non deve far avanzare anche la fase appena aperta
+  if (event.defaultPrevented) return
+  if (phase.value !== 'mindmap' && phase.value !== 'summary') return
+  if (event.key === 'ArrowRight') move(1)
+  else if (event.key === 'ArrowLeft') move(-1)
+}
+
+onMounted(() => window.addEventListener('keydown', onPhaseKey))
+onBeforeUnmount(() => window.removeEventListener('keydown', onPhaseKey))
 
 useHead({ title: () => chapter.value?.title ?? 'Bookpack' })
 </script>
@@ -80,8 +99,17 @@ useHead({ title: () => chapter.value?.title ?? 'Bookpack' })
         class="safe-bottom"
         :cards="chapter.cards"
         :start-index="cardIndex"
+        :results="flashResults"
         @change="session.setCard"
-        @finished="session.goToPhase('mindmap')"
+        @finished="move(1)"
+        @answer="session.recordFlashcard"
+      />
+
+      <SessionSummaryView
+        v-else-if="phase === 'summary'"
+        :text="chapter.summary"
+        @back="move(-1)"
+        @next="move(1)"
       />
 
       <div
@@ -99,15 +127,15 @@ useHead({ title: () => chapter.value?.title ?? 'Bookpack' })
             color="neutral"
             variant="soft"
             icon="i-lucide-arrow-left"
-            aria-label="Torna alle card"
-            @click="session.goToPhase('cards')"
+            aria-label="Torna indietro"
+            @click="move(-1)"
           />
           <UButton
             size="xl"
             block
             trailing-icon="i-lucide-arrow-right"
             label="Verifica con le flashcard"
-            @click="session.goToPhase('flashcards')"
+            @click="move(1)"
           />
         </div>
       </div>

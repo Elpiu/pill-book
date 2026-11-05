@@ -318,6 +318,8 @@ def build(
 
     for skipped in result.skipped:
         console.print(f"[yellow]saltato[/yellow] {skipped}", highlight=False)
+    for note in result.notes:
+        console.print(f"[yellow]nota[/yellow] {note}", highlight=False)
     for warning in result.report.warnings:
         console.print(f"[yellow]avviso[/yellow] {warning}", highlight=False)
     for error in result.report.errors:

@@ -1,4 +1,4 @@
-import { db, touchBook, updateChapterProgress } from '~/db'
+import { db, recordReview, touchBook, updateChapterProgress } from '~/db'
 import type { BookPack, Chapter } from '~/types/bookpack'
 import { clampCardIndex, emptyChapterProgress, type ChapterProgress, type FlashResult, type Phase } from '~/utils/progress'
 
@@ -35,7 +35,7 @@ export function useSession(bookId: string, chapterId: string) {
       cardIndex.value = clampCardIndex(found, saved.lastCardIndex)
     }
     // Gli esiti di id scomparsi da un pack aggiornato si ignorano senza errori
-    const known = new Set(found.flashcards.map(card => card.id))
+    const known = new Set([...found.flashcards, ...found.cards].map(card => card.id))
     flashResults.value = isReview.value
       ? {}
       : Object.fromEntries(Object.entries(saved.flashResults ?? {}).filter(([id]) => known.has(id)))
@@ -60,6 +60,9 @@ export function useSession(bookId: string, chapterId: string) {
     const result: FlashResult = { known, at: new Date().toISOString() }
     flashResults.value = { ...flashResults.value, [id]: result }
     save(saved => ({ ...saved, flashResults: { ...saved.flashResults, [id]: result } }))
+    recordReview(bookId, id, known).catch((cause) => {
+      console.error('Salvataggio del ripasso non riuscito', cause)
+    })
   }
 
   function complete() {
@@ -74,9 +77,10 @@ export function useSession(bookId: string, chapterId: string) {
     if (!current) return 0
     switch (phase.value) {
       case 'cards': return Math.round(((cardIndex.value + 1) / current.cards.length) * 70)
-      case 'mindmap': return 75
+      case 'summary': return 72
+      case 'mindmap': return 76
       case 'flashcards': {
-        const answered = Object.keys(flashResults.value).length
+        const answered = current.flashcards.filter(card => flashResults.value[card.id]).length
         return 80 + Math.round((answered / current.flashcards.length) * 20)
       }
       default: return 100

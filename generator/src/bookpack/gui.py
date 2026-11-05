@@ -996,6 +996,8 @@ class App:
         self.progress.configure(value=self.progress["maximum"])
         for skipped in result.skipped:
             self._write_log(f"Saltato: {skipped}")
+        for note in result.notes:
+            self._write_log(f"Nota: {note}")
         for warning in result.report.warnings:
             self._write_log(f"Avviso: {warning}")
         spent = "" if usage.cost is None else f", costo effettivo ${usage.cost:.2f}"

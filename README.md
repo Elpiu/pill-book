@@ -1,11 +1,14 @@
 # Bookpack
 
-Trasforma un PDF in un percorso di lettura per il telefono: ogni capitolo diventa una sessione di circa 5 minuti con card a scorrimento, una mindmap e qualche flashcard. Il progresso resta salvato e l'app funziona offline.
+Trasforma un PDF in un percorso di studio per il telefono. Ogni capitolo diventa una serie di card che spiegano il perché e il come, con domande durante la lettura, un riassunto finale, una mindmap e flashcard che tornano nel ripasso nei giorni successivi. Lo spazio cresce con la lunghezza del capitolo, e la forma si adatta al contenuto: i manuali tecnici hanno procedure passo per passo e comandi. Il progresso resta salvato e l'app funziona offline.
 
 <p>
   <img src="docs/screenshots/library.jpg" width="190" alt="Libreria con il pulsante Riprendi">
   <img src="docs/screenshots/path.jpg" width="190" alt="Percorso del libro con i capitoli come tappe">
-  <img src="docs/screenshots/card.jpg" width="190" alt="Card di tipo concetto">
+  <img src="docs/screenshots/card.jpg" width="190" alt="Card con l'idea e la sua spiegazione">
+  <img src="docs/screenshots/procedure.jpg" width="190" alt="Card con una procedura passo per passo">
+  <img src="docs/screenshots/check.jpg" width="190" alt="Domanda durante la lettura con la risposta">
+  <img src="docs/screenshots/summary.jpg" width="190" alt="Riassunto di fine capitolo">
   <img src="docs/screenshots/mindmap.jpg" width="190" alt="Mindmap del capitolo">
   <img src="docs/screenshots/flashcard.jpg" width="190" alt="Flashcard con la risposta">
   <img src="docs/screenshots/complete.jpg" width="190" alt="Schermata di capitolo completato">
@@ -98,12 +101,12 @@ Costi **stimati** con i prezzi attuali del catalogo di OpenRouter:
 
 | Modello | Saggio breve (48 pagine, 12 capitoli) | Manuale lungo (417 pagine, 16 capitoli) |
 |---|---|---|
-| `anthropic/claude-opus-5.5` | $1,14 | $1,96 |
-| `anthropic/claude-sonnet-5.5` (default) | $0,57 | $0,98 |
-| `openai/gpt-5.6-luna` | $0,07 | $0,11 |
-| `anthropic/claude-haiku-5.5` | $0,03 | $0,05 |
+| `anthropic/claude-opus-5.5` | $2,12 | $5,55 |
+| `anthropic/claude-sonnet-5.5` (default) | $1,06 | $2,78 |
+| `openai/gpt-5.6-luna` | $0,13 | $0,32 |
+| `anthropic/claude-haiku-5.5` | $0,05 | $0,14 |
 
-La stima appare prima di ogni generazione e si aggiorna con il modello scelto. Alla fine viene mostrato il costo effettivo comunicato da OpenRouter. Le stime non sono ancora state confrontate con una spesa reale, e la qualità dei modelli più economici non è stata misurata: conviene partire da `--chapters 1-2`.
+La stima appare prima di ogni generazione e si aggiorna con il modello scelto. Alla fine viene mostrato il costo effettivo comunicato da OpenRouter. Il riscontro reale finora è solo su `~deepseek/deepseek-flash-latest`: il saggio breve è costato $0,05, come stimato, con meno output del previsto. La qualità dei vari modelli non è stata confrontata: conviene partire da `--chapters 1-2`.
 
 ## Libri e copyright
 

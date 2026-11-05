@@ -1,5 +1,8 @@
 name: Deploy web
 
+# A ogni push: test del generatore, test e build del lettore, pubblicazione su GitHub Pages.
+# Una sola configurazione a mano sul repository: Settings > Pages > Source: GitHub Actions.
+
 on:
   push:
     branches: [main, master]
@@ -7,8 +10,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -18,9 +19,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@v10.3.3
       - name: Test del generatore
         working-directory: generator
         run: |
@@ -28,34 +29,51 @@ jobs:
           uv run ruff check .
           uv run pytest -q
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
         with:
           package_json_file: web/package.json
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: pnpm
           cache-dependency-path: web/pnpm-lock.yaml
-      - name: Test e build del lettore
+
+      - name: Test del lettore
         working-directory: web
-        env:
-          NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/
         run: |
           pnpm install --frozen-lockfile
           pnpm lint
+          pnpm typecheck
           pnpm test
-          pnpm generate
 
-      - uses: actions/upload-pages-artifact@v3
+      # L'app vive in /nome-repo/, tranne per i repository <utente>.github.io
+      - name: Base URL
+        id: base
+        env:
+          REPO: ${{ github.event.repository.name }}
+        run: |
+          if [[ "$REPO" == *.github.io ]]; then echo "url=/" >> "$GITHUB_OUTPUT"
+          else echo "url=/$REPO/" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Build
+        working-directory: web
+        env:
+          NUXT_APP_BASE_URL: ${{ steps.base.outputs.url }}
+        run: pnpm generate
+
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: web/.output/public
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
