@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/literata";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Literata Variable", ui-serif, Georgia, serif;
+}
+
+:root {
+  --card-scale: 1;
+  --ui-bg: #fafaf9;
+  /* Più scuro del default di Nuxt UI: il testo bianco sui pulsanti resta leggibile */
+  --ui-primary: var(--ui-color-primary-700);
+}
+
+.dark {
+  --ui-bg: #151311;
+  --ui-primary: var(--ui-color-primary-400);
+}
+
+body {
+  overscroll-behavior-y: none;
+}
+
+/* Le card scalano con la dimensione scelta nelle impostazioni */
+.card-title {
+  font-size: calc(1.625rem * var(--card-scale));
+  line-height: 1.2;
+}
+
+.card-body {
+  font-size: calc(1.25rem * var(--card-scale));
+  line-height: 1.55;
+}
+
+.card-quote {
+  font-size: calc(1.5rem * var(--card-scale));
+  line-height: 1.45;
+}
+
+.safe-top {
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+
+.safe-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Mindmap: markmap legge i colori da queste variabili */
+.mindmap svg.markmap {
+  --markmap-text-color: var(--ui-text-highlighted);
+  --markmap-font: 500 15px/20px "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --markmap-circle-open-bg: var(--ui-bg);
+  --markmap-highlight-bg: transparent;
+  --markmap-a-color: var(--ui-primary);
+  --markmap-a-hover-color: var(--ui-primary);
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.flip-scene {
+  perspective: 1400px;
+}
+
+.flip-card {
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.flip-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  backface-visibility: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-card {
+    transition: none;
+  }
+}

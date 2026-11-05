@@ -1,0 +1,20 @@
+# La prefazione dice di sé che va letta alla fine: qui resta fuori dal percorso.
+book:
+  id: how-to-live-on-24-hours-a-day
+  title: How to Live on Twenty-Four Hours a Day
+  author: Arnold Bennett
+chapters:
+- {title: Preface To This Edition, pageStart: 2, pageEnd: 6, exclude: true}
+- {title: Contents, pageStart: 7, pageEnd: 7, exclude: true}
+- {title: The Daily Miracle, pageStart: 8, pageEnd: 10}
+- {title: The Desire To Exceed One's Programme, pageStart: 11, pageEnd: 13}
+- {title: Precautions Before Beginning, pageStart: 14, pageEnd: 16}
+- {title: The Cause Of The Troubles, pageStart: 17, pageEnd: 20}
+- {title: Tennis And The Immortal Soul, pageStart: 21, pageEnd: 24}
+- {title: Remember Human Nature, pageStart: 25, pageEnd: 27}
+- {title: Controlling The Mind, pageStart: 28, pageEnd: 30}
+- {title: The Reflective Mood, pageStart: 31, pageEnd: 34}
+- {title: Interest In The Arts, pageStart: 35, pageEnd: 37}
+- {title: Nothing In Life Is Humdrum, pageStart: 38, pageEnd: 41}
+- {title: Serious Reading, pageStart: 42, pageEnd: 45}
+- {title: Dangers To Avoid, pageStart: 46, pageEnd: 48}

@@ -1,0 +1,35 @@
+# Segreti
+.env
+.env.*
+!.env.example
+
+# Libri e pack personali (nel repo solo materiale di pubblico dominio: vedi samples/)
+books/
+generator/out/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.bookpack-cache/
+
+# Node / Nuxt
+node_modules/
+web/.nuxt/
+web/.output/
+web/.data/
+web/dist/
+web/dev-dist/
+*.log
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.claude/

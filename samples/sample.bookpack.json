@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "generator": {
+    "version": "0.1.0",
+    "model": "manual-condensation-no-api-call",
+    "generatedAt": "2026-11-04T00:00:00+00:00"
+  },
+  "book": {
+    "id": "how-to-live-on-24-hours-a-day",
+    "title": "How to Live on Twenty-Four Hours a Day",
+    "author": "Arnold Bennett",
+    "lang": "it",
+    "sourcePages": 48,
+    "coverColor": "#6d28d9"
+  },
+  "overview": {
+    "summary": "Esempio ridotto a due capitoli del pack completo.",
+    "keyIdeas": [
+      "Non avrai mai più tempo: hai già tutto il tempo che esiste.",
+      "Le sedici ore fuori dal lavoro sono un giorno a sé, non un margine.",
+      "Una piccola quantità di tempo ben difesa ravviva l'intera settimana."
+    ],
+    "mindmap": "# How to Live on Twenty-Four Hours a Day\n## The Daily Miracle\n- Il tempo vale più del denaro\n## The Desire To Exceed One's Programme\n- Il disagio di chi rimanda"
+  },
+  "chapters": [
+    {
+      "id": "ch-01",
+      "index": 1,
+      "title": "The Daily Miracle",
+      "pageStart": 8,
+      "pageEnd": 10,
+      "estMinutes": 3,
+      "tldr": "Il tempo è l'unica ricchezza uguale per tutti: non ne avrai mai di più, quindi conta come lo spendi.",
+      "cards": [
+        {
+          "id": "ch-01-c01",
+          "type": "concept",
+          "title": "Il tempo vale più del denaro",
+          "body": "Con il tempo di solito si ottiene denaro, ma nessuna ricchezza compra un minuto in più. Eppure si discute ovunque di come vivere con un certo reddito, e mai di come vivere con ventiquattro ore al giorno.",
+          "page": 8
+        },
+        {
+          "id": "ch-01-c02",
+          "type": "example",
+          "title": "Abito nuovo, cappello vecchio",
+          "body": "Chi guadagna bene e ha sempre problemi di soldi disperde il reddito senza goderselo: bella cravatta e pantaloni sformati, cristalli e carne cattiva. Con il proprio tempo quasi tutti fanno lo stesso errore che criticano negli altri.",
+          "page": 8
+        },
+        {
+          "id": "ch-01-c03",
+          "type": "concept",
+          "title": "Un miracolo quotidiano",
+          "body": "Ogni mattina ti ritrovi con ventiquattro ore nuove. Sono la materia grezza di tutto: con il tempo ogni cosa è possibile, senza non si fa nulla. Sono tue e nessuno può rubartele.",
+          "page": 9
+        },
+        {
+          "id": "ch-01-c04",
+          "type": "concept",
+          "title": "La democrazia perfetta del tempo",
+          "body": "Nessuno riceve più o meno di te: né la ricchezza né il genio danno un'ora in più. Nemmeno chi spreca viene punito, perché la fornitura non si interrompe mai.",
+          "page": 9
+        },
+        {
+          "id": "ch-01-c05",
+          "type": "concept",
+          "title": "Non si spreca il futuro",
+          "body": "Non puoi indebitarti con il tempo. Puoi sprecare solo il momento che passa: l'ora dopo e il domani restano intatti, tenuti da parte per te.",
+          "page": 9
+        },
+        {
+          "id": "ch-01-c06",
+          "type": "concept",
+          "title": "Perché qui l'errore pesa di più",
+          "body": "Se il denaro non basta, puoi guadagnarne un po' di più. Se ventiquattro ore non coprono le spese che contano, la vita si ingarbuglia davvero: la fornitura è regolare, ma crudelmente limitata.",
+          "page": 10
+        },
+        {
+          "id": "ch-01-c07",
+          "type": "quote",
+          "body": "We never shall have any more time. We have, and we have always had, all the time there is.",
+          "page": 10
+        },
+        {
+          "id": "ch-01-c08",
+          "type": "takeaway",
+          "body": "Smetti di dire \"lo farò quando avrò più tempo\". Quel momento non arriverà: la domanda utile è come spendi le ventiquattro ore che hai già."
+        }
+      ],
+      "mindmap": "# Il miracolo quotidiano\n## Il tempo come reddito\n- Più prezioso del denaro\n- Non si compra\n- Materia grezza di tutto\n## Le sue regole\n- Uguale per tutti\n- Non si può rubare\n- Nessun debito\n- Nessuna punizione\n## Il problema\n- Si spreca solo il presente\n- Sbagliare ingarbuglia la vita\n- Non avrai mai più tempo",
+      "flashcards": [
+        {
+          "id": "ch-01-f01",
+          "q": "Perché il tempo vale più del denaro?",
+          "a": "Con il tempo di solito si può ottenere denaro, ma nessuna ricchezza compra un minuto in più.",
+          "page": 8
+        },
+        {
+          "id": "ch-01-f02",
+          "q": "Cosa rende il tempo una \"democrazia ideale\"?",
+          "a": "Tutti ricevono la stessa quantità: né ricchezza né genio danno un'ora in più, e chi spreca non viene punito.",
+          "page": 9
+        },
+        {
+          "id": "ch-01-f03",
+          "q": "Quale tempo si può sprecare davvero?",
+          "a": "Solo il momento che passa: il futuro resta intatto.",
+          "page": 9
+        }
+      ]
+    },
+    {
+      "id": "ch-02",
+      "index": 2,
+      "title": "The Desire To Exceed One's Programme",
+      "pageStart": 11,
+      "pageEnd": 13,
+      "estMinutes": 3,
+      "tldr": "Il disagio di chi sente passare gli anni nasce dal desiderio di fare più del dovuto, e resta finché non si prova a soddisfarlo.",
+      "cards": [
+        {
+          "id": "ch-02-c01",
+          "type": "concept",
+          "title": "Il disagio che accompagna gli anni",
+          "body": "Molti sono perseguitati dalla sensazione che gli anni scorrano senza che la loro vita sia in ordine. È un misto di attesa e aspirazione: uno scheletro alla festa, che si fa vivo anche nei momenti di svago.",
+          "page": 11
+        },
+        {
+          "id": "ch-02-c02",
+          "type": "example",
+          "title": "La Mecca e Brixton",
+          "body": "Chi parte per la Mecca e muore per strada resta insoddisfatto, ma non soffre come chi desidera arrivarci e non lascia mai Brixton. Non è la meta mancata a tormentare: è non essere mai partiti.",
+          "page": 12
+        },
+        {
+          "id": "ch-02-c03",
+          "type": "quote",
+          "body": "It is something to have left Brixton.",
+          "page": 12
+        },
+        {
+          "id": "ch-02-c04",
+          "type": "concept",
+          "title": "La scusa delle ventiquattro ore",
+          "body": "Quasi nessuno ha fatto nemmeno il primo passo, neanche chiedere il prezzo di un viaggio organizzato. E la giustificazione che ci diamo è sempre la stessa: nella giornata ci sono solo ventiquattro ore.",
+          "page": 12
+        },
+        {
+          "id": "ch-02-c05",
+          "type": "concept",
+          "title": "Fare qualcosa oltre il dovuto",
+          "body": "Alla radice c'è l'idea fissa di dover fare qualcosa in più degli obblighi: mantenersi, pagare i debiti, risparmiare, migliorare. Anche chi ci riesce non è soddisfatto: lo scheletro resta.",
+          "page": 12
+        },
+        {
+          "id": "ch-02-c06",
+          "type": "concept",
+          "title": "Finché non si comincia",
+          "body": "Il desiderio di superare il proprio programma è comune e si manifesta come sete di conoscenza. Finché non si fa uno sforzo per soddisfarlo, resta l'attesa inquieta di qualcosa che non è mai partito.",
+          "page": 13
+        },
+        {
+          "id": "ch-02-c07",
+          "type": "concept",
+          "title": "La letteratura non è l'unica fonte",
+          "body": "Questo desiderio prende spesso la forma di un programma di letture. Ma la letteratura non copre tutto il sapere: la sete di migliorarsi si può soddisfare anche del tutto al di fuori dei libri di letteratura.",
+          "page": 13
+        },
+        {
+          "id": "ch-02-c08",
+          "type": "takeaway",
+          "body": "Il disagio non si spegne rinunciando né aspettando. Si attenua solo facendo un primo passo verso ciò che desideri, anche se non arriverai mai fino in fondo."
+        }
+      ],
+      "mindmap": "# Il desiderio di superare il programma\n## Il disagio\n- Gli anni scorrono\n- Lo scheletro alla festa\n- Attesa e aspirazione\n## Mecca e Brixton\n- Non arrivare è sopportabile\n- Non partire tormenta\n- La scusa delle 24 ore\n## L'origine\n- Fare più del dovuto\n- Sete di conoscenza\n- Non solo letteratura",
+      "flashcards": [
+        {
+          "id": "ch-02-f01",
+          "q": "Che differenza c'è tra chi parte per la Mecca senza arrivare e chi non lascia Brixton?",
+          "a": "Il primo resta insoddisfatto, il secondo è tormentato: pesa di più non essere mai partiti.",
+          "page": 12
+        },
+        {
+          "id": "ch-02-f02",
+          "q": "Da quale idea nasce il disagio descritto?",
+          "a": "Dall'idea fissa di dover fare qualcosa oltre agli obblighi morali e materiali.",
+          "page": 12
+        },
+        {
+          "id": "ch-02-f03",
+          "q": "Quando smette di disturbare quel desiderio?",
+          "a": "Solo quando si fa uno sforzo concreto per soddisfarlo.",
+          "page": 13
+        }
+      ]
+    }
+  ]
+}

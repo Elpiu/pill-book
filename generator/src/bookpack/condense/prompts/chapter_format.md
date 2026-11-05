@@ -1,0 +1,11 @@
+Output format and limits:
+- `tldr`: one sentence with the core of the chapter.
+- `cards`: 5 to 12 cards in reading order. Use fewer cards for thin chapters: a short chapter deserves a short session.
+  - `type`: `concept` (an idea or mechanism), `definition` (a term and its meaning), `example` (a concrete case), `quote` (a short literal quotation worth keeping), `takeaway`.
+  - `title`: at most 8 words, for `concept` and `definition`. It may be null for the other types.
+  - `body`: at most 60 words, readable in 20-40 seconds.
+  - `page`: the page number from the `[p. N]` markers, within pages {{page_start}}-{{page_end}}. It is null only for the takeaway.
+  - At most one `quote` per chapter, at most 25 words, copied literally from the text.
+  - The last card, and only the last, is a `takeaway` answering "what do I take away from this chapter?".
+- `mindmap`: hierarchical markdown for a mind map: one `#` heading with the chapter topic, `##` headings for the main branches, `-` list items below them. At most 4 levels of depth and about 25 nodes. Node labels are a few words, not sentences.
+- `flashcards`: 3 to 5 active-recall questions on what matters most. Not yes/no questions. Answers are short. Each has the `page` it comes from, within pages {{page_start}}-{{page_end}}.

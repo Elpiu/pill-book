@@ -1,0 +1,379 @@
+{
+  "$defs": {
+    "Book": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "Slug stabile del libro",
+          "pattern": "^[a-z0-9][a-z0-9-]*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "author": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Author"
+        },
+        "lang": {
+          "description": "Lingua di output, codice ISO 639-1",
+          "minLength": 2,
+          "title": "Lang",
+          "type": "string"
+        },
+        "sourcePages": {
+          "minimum": 1,
+          "title": "Sourcepages",
+          "type": "integer"
+        },
+        "coverColor": {
+          "anyOf": [
+            {
+              "pattern": "^#[0-9a-fA-F]{6}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Covercolor"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "lang",
+        "sourcePages"
+      ],
+      "title": "Book",
+      "type": "object"
+    },
+    "Card": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^ch-\\d{2,}-c\\d{2,}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/$defs/CardType"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Title"
+        },
+        "body": {
+          "minLength": 1,
+          "title": "Body",
+          "type": "string"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Pagina del PDF, a partire da 1",
+          "title": "Page"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "body"
+      ],
+      "title": "Card",
+      "type": "object"
+    },
+    "CardType": {
+      "enum": [
+        "concept",
+        "definition",
+        "example",
+        "quote",
+        "takeaway"
+      ],
+      "title": "CardType",
+      "type": "string"
+    },
+    "Chapter": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^ch-\\d{2,}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "index": {
+          "minimum": 1,
+          "title": "Index",
+          "type": "integer"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "pageStart": {
+          "minimum": 1,
+          "title": "Pagestart",
+          "type": "integer"
+        },
+        "pageEnd": {
+          "minimum": 1,
+          "title": "Pageend",
+          "type": "integer"
+        },
+        "estMinutes": {
+          "minimum": 1,
+          "title": "Estminutes",
+          "type": "integer"
+        },
+        "tldr": {
+          "minLength": 1,
+          "title": "Tldr",
+          "type": "string"
+        },
+        "cards": {
+          "items": {
+            "$ref": "#/$defs/Card"
+          },
+          "maxItems": 12,
+          "minItems": 5,
+          "title": "Cards",
+          "type": "array"
+        },
+        "mindmap": {
+          "minLength": 1,
+          "title": "Mindmap",
+          "type": "string"
+        },
+        "flashcards": {
+          "items": {
+            "$ref": "#/$defs/Flashcard"
+          },
+          "maxItems": 5,
+          "minItems": 3,
+          "title": "Flashcards",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "index",
+        "title",
+        "pageStart",
+        "pageEnd",
+        "estMinutes",
+        "tldr",
+        "cards",
+        "mindmap",
+        "flashcards"
+      ],
+      "title": "Chapter",
+      "type": "object"
+    },
+    "Flashcard": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^ch-\\d{2,}-f\\d{2,}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "q": {
+          "minLength": 1,
+          "title": "Q",
+          "type": "string"
+        },
+        "a": {
+          "minLength": 1,
+          "title": "A",
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "q",
+        "a",
+        "page"
+      ],
+      "title": "Flashcard",
+      "type": "object"
+    },
+    "GeneratorInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "model": {
+          "title": "Model",
+          "type": "string"
+        },
+        "generatedAt": {
+          "description": "Data di generazione, ISO-8601",
+          "title": "Generatedat",
+          "type": "string"
+        }
+      },
+      "required": [
+        "version",
+        "model",
+        "generatedAt"
+      ],
+      "title": "GeneratorInfo",
+      "type": "object"
+    },
+    "GlossaryEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "term": {
+          "minLength": 1,
+          "title": "Term",
+          "type": "string"
+        },
+        "definition": {
+          "minLength": 1,
+          "title": "Definition",
+          "type": "string"
+        },
+        "chapterId": {
+          "anyOf": [
+            {
+              "pattern": "^ch-\\d{2,}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Chapterid"
+        }
+      },
+      "required": [
+        "term",
+        "definition"
+      ],
+      "title": "GlossaryEntry",
+      "type": "object"
+    },
+    "Overview": {
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "description": "5-8 frasi sul libro intero",
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        },
+        "keyIdeas": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 7,
+          "minItems": 3,
+          "title": "Keyideas",
+          "type": "array"
+        },
+        "mindmap": {
+          "description": "Markdown gerarchico per markmap",
+          "minLength": 1,
+          "title": "Mindmap",
+          "type": "string"
+        }
+      },
+      "required": [
+        "summary",
+        "keyIdeas",
+        "mindmap"
+      ],
+      "title": "Overview",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": 1,
+      "title": "Schemaversion",
+      "type": "integer"
+    },
+    "generator": {
+      "$ref": "#/$defs/GeneratorInfo"
+    },
+    "book": {
+      "$ref": "#/$defs/Book"
+    },
+    "overview": {
+      "$ref": "#/$defs/Overview"
+    },
+    "chapters": {
+      "items": {
+        "$ref": "#/$defs/Chapter"
+      },
+      "minItems": 1,
+      "title": "Chapters",
+      "type": "array"
+    },
+    "glossary": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/GlossaryEntry"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Glossary"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "generator",
+    "book",
+    "overview",
+    "chapters"
+  ],
+  "title": "BookPack",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bookpack.local/schema/v1/bookpack.schema.json"
+}
