@@ -6,6 +6,7 @@ meccanicamente dal capitolo, non una vera condensazione.
 
 import json
 import re
+import threading
 
 from .base import LLMProvider, LLMResponse
 
@@ -38,10 +39,13 @@ class FakeProvider(LLMProvider):
         self.model = model
         self.fail_first = fail_first
         self.calls = 0
+        self._lock = threading.Lock()
 
     def complete(self, system: str, user: str, schema: dict) -> LLMResponse:
-        self.calls += 1
-        if self.calls <= self.fail_first:
+        with self._lock:
+            self.calls += 1
+            failing = self.calls <= self.fail_first
+        if failing:
             return LLMResponse(text='{"non": "valido"}', input_tokens=10, output_tokens=5)
 
         properties = schema.get("properties", {})

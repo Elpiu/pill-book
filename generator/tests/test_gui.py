@@ -11,6 +11,8 @@ tk = pytest.importorskip("tkinter")
 
 from bookpack import gui as gui_module  # noqa: E402
 from bookpack.gui import App  # noqa: E402
+from bookpack.llm.base import LLMError  # noqa: E402
+from bookpack.llm.fake import FakeProvider  # noqa: E402
 from bookpack.validate import validate_data  # noqa: E402
 
 
@@ -223,19 +225,15 @@ def test_stop_interrupts_and_the_rerun_uses_the_cache(
     app.fake_var.set(True)
 
     started = threading.Event()
-    real_build_pack = gui_module.build_pack
 
-    def build_pack(*args, **kwargs):
-        on_step = args[7]
-
-        def step(message):
-            on_step(message)
+    class Slow(FakeProvider):
+        def complete(self, system, user, schema):
             started.set()
             time.sleep(0.05)
+            return super().complete(system, user, schema)
 
-        return real_build_pack(*args[:7], step)
-
-    monkeypatch.setattr(gui_module, "build_pack", build_pack)
+    monkeypatch.setattr(gui_module, "get_provider", lambda *_: Slow())
+    app.workers_var.set("2")
     app._start_build()
     pump(root, started.is_set)
     app._stop()
@@ -244,11 +242,67 @@ def test_stop_interrupts_and_the_rerun_uses_the_cache(
     assert not output.exists()
     assert dialogs["errors"] == []
     assert "Interrotto" in app.log.get("1.0", "end")
+    assert app.resume_button.instate(["!disabled"])
+    assert app.unfinished.counts()["pending"] > 0
 
     app._start_build()
     pump(root, lambda: not app.busy)
     assert output.exists()
     assert "dalla cache" in app.log.get("1.0", "end")
+    assert app.unfinished is None
+    assert app.resume_button.instate(["disabled"])
+
+
+def test_resume_restores_corrected_pages_and_only_does_what_is_missing(
+    app, root, pdf_with_outline, tmp_path, dialogs, monkeypatch
+):
+    load(app, root, pdf_with_outline)
+    output = tmp_path / "pack.bookpack.json"
+    app.output_var.set(str(output))
+    app.fake_var.set(True)
+    app.lang_var.set("fr")
+    app.tree.selection_set("s2")
+    app._on_row_selected()
+    section = app.detection.sections[2]
+    corrected = section.page_end - 1
+    app._change_section("Titolo corretto", section.page_start, corrected)
+    app._toggle(4)  # capitolo 4 non spuntato
+
+    class Failing(FakeProvider):
+        def complete(self, system, user, schema):
+            if "<chapter_part>" in user and "Titolo corretto" in user:
+                raise LLMError("il provider ha sbagliato")
+            return super().complete(system, user, schema)
+
+    monkeypatch.setattr(gui_module, "get_provider", lambda *_: Failing())
+    app._start_build()
+    pump(root, lambda: not app.busy)
+    assert not output.exists()
+    assert "il provider ha sbagliato" in dialogs["errors"][0]
+    assert app.resume_button.instate(["!disabled"])
+
+    # Si riapre lo stesso PDF, perdendo correzioni e spunte: Riprendi le rimette
+    load(app, root, pdf_with_outline)
+    assert app.detection.sections[2].title != "Titolo corretto"
+    assert app.unfinished is None  # l'output era fuori dalla cartella predefinita
+    app.output_var.set(str(output))
+    app._look_for_unfinished()
+    assert "incompleta" in app.log.get("1.0", "end")
+
+    provider = FakeProvider()
+    monkeypatch.setattr(gui_module, "get_provider", lambda *_: provider)
+    app.resume_button.invoke()
+    assert app.detection.sections[2].title == "Titolo corretto"
+    assert app.detection.sections[2].page_end == corrected
+    assert app._selected() == {1, 2, 3}
+    pump(root, lambda: not app.busy)
+
+    pack, report = validate_data(json.loads(output.read_text("utf-8")))
+    assert report.ok, report.errors
+    assert pack.book.lang == "fr"
+    assert [chapter.title for chapter in pack.chapters][1] == "Titolo corretto"
+    assert provider.calls == 3  # la parte fallita, la sua chiusura e il libro
+    assert not (tmp_path / "pack.state.json").exists()
 
 
 def test_save_env_writes_model_and_key(app, tmp_path, monkeypatch):

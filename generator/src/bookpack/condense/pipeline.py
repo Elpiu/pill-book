@@ -7,6 +7,7 @@ import unicodedata
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
+from functools import partial
 from pathlib import Path
 
 from .. import __version__
@@ -15,14 +16,17 @@ from ..extract.lang import detect_lang
 from ..extract.pdf import PdfDocument
 from ..extract.toc import Detection, Section, book_title
 from ..llm.structured import StructuredLLM
-from ..models import SCHEMA_VERSION, Book, BookPack, Chapter, GeneratorInfo
+from ..models import SCHEMA_VERSION, Book, BookPack, GeneratorInfo
 from ..validate import Report, check_pack
 from .book import condense_book
-from .chapter import condense_chapter
-from .chunking import word_count
+from .chapter import chapter_id, condense_part, wrap_chapter
+from .chunking import split_parts, word_count
+from .state import BuildInput, BuildState
+from .tasks import Task, TaskRunner
 
 # Una sezione più corta non regge 5 card senza inventare (es. la pagina di apertura di una parte)
 MIN_CHAPTER_WORDS = 150
+BOOK_TASK = "book"
 COVER_COLORS = [
     "#1f6feb", "#0f766e", "#b45309", "#be123c", "#6d28d9", "#15803d", "#0e7490", "#a21caf",
 ]  # fmt: skip
@@ -30,6 +34,17 @@ COVER_COLORS = [
 
 class PackError(Exception):
     pass
+
+
+class BuildIncomplete(PackError):
+    """Mancano delle attività, perché fallite o interrotte. `failures` è vuoto se interrotta."""
+
+    def __init__(self, failures: dict[str, str], done: int, total: int) -> None:
+        self.failures = failures
+        self.done = done
+        self.total = total
+        reason = f"{len(failures)} non riuscite" if failures else "generazione interrotta"
+        super().__init__(f"{reason}, {done} attività completate su {total}.")
 
 
 @dataclass
@@ -83,6 +98,36 @@ def write_pack(pack: BookPack, output: Path | None = None) -> Path:
     return path
 
 
+def book_id_of(doc: PdfDocument, detection: Detection) -> str:
+    return slugify(detection.book.get("id") or book_title(doc, detection))
+
+
+def make_input(
+    pdf: Path,
+    pdf_sha256: str,
+    model: str,
+    fake: bool,
+    lang: str | None,
+    selected: set[int] | None,
+    output: Path,
+    context_tokens: int,
+    detection: Detection,
+) -> BuildInput:
+    """I parametri da conservare per riprendere: tutto ciò da cui dipendono i prompt."""
+    chosen = range(1, len(detection.chapters) + 1) if selected is None else selected
+    return BuildInput(
+        pdf=str(pdf.resolve()),
+        pdf_sha256=pdf_sha256,
+        model=model,
+        fake=fake,
+        lang=lang,
+        selected=sorted(chosen),
+        output=str(output),
+        context_tokens=context_tokens,
+        detection=detection,
+    )
+
+
 def build_pack(
     llm: StructuredLLM,
     doc: PdfDocument,
@@ -91,32 +136,99 @@ def build_pack(
     selected: set[int] | None = None,
     lang: str | None = None,
     context_tokens: int = 40_000,
-    on_step: Callable[[str], None] = lambda _: None,
+    on_step: Callable[[str, int, int], None] = lambda *_: None,
+    workers: int = 1,
+    should_stop: Callable[[], bool] = lambda: False,
+    state: BuildState | None = None,
 ) -> BuildResult:
+    """Lavora per fasi: tutte le parti, poi la chiusura dei capitoli, infine il libro.
+
+    Dentro una fase le attività non dipendono l'una dall'altra e girano insieme; `on_step` riceve
+    etichetta, attività riuscite e totale. Solleva BuildIncomplete se qualcosa manca: ciò che è
+    pronto resta in cache, quindi rilanciando si rifà solo il resto. `should_stop` viene chiamata
+    da più thread.
+    """
     title = book_title(doc, detection)
     author = detection.book.get("author") or doc.author
-    book_id = slugify(detection.book.get("id") or title)
+    book_id = book_id_of(doc, detection)
     sample = " ".join(list(pages.values())[: min(30, len(pages))])
     output_lang = lang or detection.book.get("lang") or detect_lang(sample)
 
-    chapters: list[Chapter] = []
+    targets: list[tuple[int, Section, list[str]]] = []
     skipped: list[str] = []
-    notes: list[str] = []
     for index, section in numbered_chapters(detection):
         if selected is not None and index not in selected:
             continue
         if is_too_short(section, pages):
             skipped.append(f"{index}. {section.title} (troppo breve)")
             continue
-        on_step(f"Capitolo {index}: {section.title}")
-        chapters.append(
-            condense_chapter(llm, section, index, pages, title, output_lang, context_tokens, notes)
-        )
-    if not chapters:
+        targets.append((index, section, split_parts(section, pages, context_tokens)))
+    if not targets:
         raise PackError("Nessun capitolo da condensare: controlla --chapters e la divisione.")
 
-    on_step("Panoramica del libro")
-    overview, glossary = condense_book(llm, chapters, title, author, output_lang)
+    part_tasks = [
+        Task(
+            f"{chapter_id(index)}/part-{number}",
+            f"Capitolo {index}, parte {number} di {len(texts)}: {section.title}",
+            partial(
+                condense_part, llm, text, number, len(texts), section, index, title, output_lang
+            ),
+        )
+        for index, section, texts in targets
+        for number, text in enumerate(texts, start=1)
+    ]
+    total = len(part_tasks) + len(targets) + 1
+    if state:
+        state.plan(
+            [
+                *(task.name for task in part_tasks),
+                *(f"{chapter_id(index)}/wrap" for index, _, _ in targets),
+                BOOK_TASK,
+            ]
+        )
+
+    finished = 0
+
+    def on_finished(task: Task, error: str | None) -> None:
+        nonlocal finished
+        finished += error is None
+        if state:
+            state.mark(task.name, error, llm.usage)
+        on_step(task.label if error is None else f"Non riuscita: {task.label}", finished, total)
+
+    runner = TaskRunner(max(1, workers), should_stop, on_finished)
+
+    parts = runner.run(part_tasks)
+    notes: list[str] = []
+    wrap_tasks: list[Task] = []
+    for index, section, texts in targets:
+        done = [parts.get(f"{chapter_id(index)}/part-{n}") for n in range(1, len(texts) + 1)]
+        if None in done:
+            continue
+        notes.extend(note for part in done for note in part.notes)
+        wrap_tasks.append(
+            Task(
+                f"{chapter_id(index)}/wrap",
+                f"Capitolo {index}, riassunto e flashcard: {section.title}",
+                partial(wrap_chapter, llm, done, section, index, title, output_lang),
+            )
+        )
+
+    wrapped = runner.run(wrap_tasks)
+    chapters = [wrapped[task.name] for task in wrap_tasks if task.name in wrapped]
+
+    if len(chapters) == len(targets):
+        book_task = Task(
+            BOOK_TASK,
+            "Panoramica del libro",
+            partial(condense_book, llm, chapters, title, author, output_lang),
+        )
+        book = runner.run([book_task]).get(BOOK_TASK)
+    else:
+        book = None
+    if book is None:
+        raise BuildIncomplete(runner.failures, finished, total)
+    overview, glossary = book
 
     pack = BookPack(
         schemaVersion=SCHEMA_VERSION,

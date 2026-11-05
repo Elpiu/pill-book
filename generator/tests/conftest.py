@@ -58,6 +58,7 @@ def isolated_environment(tmp_path, monkeypatch):
     monkeypatch.setenv("BOOKPACK_MODEL", "test/buono")
     monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
     monkeypatch.delenv("BOOKPACK_CONTEXT_TOKENS", raising=False)
+    monkeypatch.delenv("BOOKPACK_WORKERS", raising=False)
 
 
 def _add_body_page(doc: pymupdf.Document, header: str | None = "MANUALE DI PROVA") -> None:

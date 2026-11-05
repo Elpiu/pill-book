@@ -6,6 +6,7 @@
 # Libri e pack personali (nel repo solo materiale di pubblico dominio: vedi samples/)
 books/
 generator/out/
+*.state.json
 
 # Python
 __pycache__/

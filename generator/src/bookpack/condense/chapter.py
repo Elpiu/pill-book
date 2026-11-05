@@ -1,6 +1,7 @@
 """Pipeline per capitolo: card parte per parte, poi riassunto e flashcard ricavati dalle card."""
 
 import re
+from dataclasses import dataclass
 from math import ceil, floor
 
 from pydantic import BaseModel
@@ -68,6 +69,13 @@ class ChapterWrap(BaseModel):
     flashcards: list[FlashcardDraft]
 
 
+@dataclass
+class DonePart:
+    text: str
+    draft: PartDraft
+    notes: list[str]
+
+
 def chapter_id(index: int) -> str:
     return f"ch-{index:02d}"
 
@@ -113,17 +121,19 @@ def _check_part(draft: PartDraft, section: Section, ident: str, low: int, high: 
         raise ValueError("\n".join(f"- {error}" for error in errors))
 
 
-def _condense_part(
+def condense_part(
     llm: StructuredLLM,
-    system: str,
     text: str,
     number: int,
     total: int,
     section: Section,
-    ident: str,
+    index: int,
     book_title: str,
-    notes: list[str],
-) -> PartDraft:
+    lang: str,
+) -> DonePart:
+    """Dipende solo dal testo della parte, quindi si può eseguire insieme alle altre."""
+    ident = chapter_id(index)
+    system = render("rules", lang=lang)
     target = card_target(text, total > 1)
     low = max(1, floor(target * TARGET_LOW_SHARE))
     high = ceil(target * TARGET_HIGH_SHARE) + 1
@@ -147,6 +157,7 @@ def _condense_part(
     )
     # Una citazione non presente nel testo non si conserva: la fedeltà conta più della card
     source = _normalized(text)
+    notes: list[str] = []
     kept = []
     for card in draft.cards:
         if card.type == CardType.QUOTE and _normalized(card.body) not in source:
@@ -154,7 +165,7 @@ def _condense_part(
             continue
         kept.append(card)
     draft.cards = kept
-    return draft
+    return DonePart(text, draft, notes)
 
 
 def _card_digest(card: Card) -> str | None:
@@ -210,38 +221,32 @@ def _first_page(text: str, section: Section) -> int:
     return int(match.group(1)) if match else section.page_start
 
 
-def condense_chapter(
+def wrap_chapter(
     llm: StructuredLLM,
+    parts: list[DonePart],
     section: Section,
     index: int,
-    pages: dict[int, str],
     book_title: str,
     lang: str,
-    context_tokens: int,
-    notes: list[str] | None = None,
 ) -> Chapter:
-    notes = notes if notes is not None else []
+    """Unisce le parti, nell'ordine del libro, e scrive riassunto e flashcard dalle card."""
     system = render("rules", lang=lang)
     ident = chapter_id(index)
-    parts = split_parts(section, pages, context_tokens)
 
     cards: list[Card] = []
 
     def add_card(**fields: object) -> None:
         cards.append(Card(id=f"{ident}-c{len(cards) + 1:02d}", **fields))
 
-    for number, text in enumerate(parts, start=1):
-        draft = _condense_part(
-            llm, system, text, number, len(parts), section, ident, book_title, notes
-        )
+    for part in parts:
         if len(parts) > 1:
             add_card(
                 type=CardType.SECTION,
-                title=draft.title,
-                body=draft.intro,
-                page=_first_page(text, section),
+                title=part.draft.title,
+                body=part.draft.intro,
+                page=_first_page(part.text, section),
             )
-        for card in draft.cards:
+        for card in part.draft.cards:
             add_card(**card.model_dump())
 
     digest = "\n".join(line for line in map(_card_digest, cards) if line)
@@ -272,3 +277,24 @@ def condense_chapter(
     )
     assert isinstance(chapter, Chapter)
     return chapter
+
+
+def condense_chapter(
+    llm: StructuredLLM,
+    section: Section,
+    index: int,
+    pages: dict[int, str],
+    book_title: str,
+    lang: str,
+    context_tokens: int,
+    notes: list[str] | None = None,
+) -> Chapter:
+    """Un capitolo solo, una chiamata alla volta."""
+    texts = split_parts(section, pages, context_tokens)
+    parts = [
+        condense_part(llm, text, number, len(texts), section, index, book_title, lang)
+        for number, text in enumerate(texts, start=1)
+    ]
+    if notes is not None:
+        notes.extend(note for part in parts for note in part.notes)
+    return wrap_chapter(llm, parts, section, index, book_title, lang)

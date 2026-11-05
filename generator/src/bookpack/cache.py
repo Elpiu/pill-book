@@ -3,6 +3,7 @@
 import hashlib
 import json
 import os
+import threading
 from pathlib import Path
 
 
@@ -38,6 +39,11 @@ class ResponseCache:
             return
         path = self._path(key)
         path.parent.mkdir(parents=True, exist_ok=True)
-        temp = path.with_suffix(".tmp")
+        # Due attività con lo stesso prompt possono scrivere insieme: ognuna ha il suo temporaneo
+        temp = path.with_name(f"{key}.{threading.get_ident()}.tmp")
         temp.write_text(json.dumps(value, ensure_ascii=False), "utf-8")
         os.replace(temp, path)
+
+    def delete(self, key: str) -> None:
+        if self.enabled:
+            self._path(key).unlink(missing_ok=True)

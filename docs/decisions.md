@@ -33,8 +33,11 @@ Scelte non coperte dal piano, o che lo adattano.
 | Spunte non salvate nel file dei capitoli | Il file descrive la divisione del libro, le spunte sono una scelta del momento |
 | Il documento dell'anteprima si chiude prima di leggere un altro PDF | PyMuPDF non regge più thread: durante la lettura in background non ci sono altre chiamate attive |
 | Chiave salvata in chiaro nel `.env`, solo su richiesta | Il `.env` è già il posto previsto ed è in gitignore |
-| Interrompere ferma la generazione tra un capitolo e l'altro | La chiamata in corso non si può annullare senza perderla; tutto ciò che è pronto resta in cache |
-| Chiamate in sequenza | Più semplice, e la cache rende la ripresa sicura. Da rivedere solo se i tempi sui libri lunghi pesano |
+| Interrompere non fa partire altre chiamate e aspetta quelle in corso | Una chiamata in corso non si può annullare senza perderla; tutto ciò che è pronto resta in cache |
+| Chiamate in parallelo con i thread, per fasi, 4 per default | Con il formato v2 un libro fa molte più chiamate. Aspettano la rete: non servono asyncio né dipendenze. Le fasi evitano pool annidati e dipendenze tra attività |
+| Solo risposte valide in cache, sotto il prompt iniziale | Con le risposte scartate in cache, un rilancio dopo un errore le rileggeva e falliva per sempre. Sotto il prompt iniziale, un capitolo con un ritentativo non si ripaga a ogni ripresa |
+| Una chiamata fallita non ferma le altre, tranne gli errori che le riguardano tutte | Le altre si possono usare subito. Provare 200 chiamate con una chiave sbagliata sarebbe invece inutile |
+| File di stato accanto al pack, senza risposte | Parametri, avanzamento e costo. Le risposte stanno solo nella cache: lo stato non può contraddirla, e niente code né database |
 
 ## Formato v2: più spazio per capire
 
@@ -71,3 +74,4 @@ Il primo formato dava lo stesso spazio a ogni capitolo: 12 card sia per 76 pagin
 |---|---|
 | `books/` in gitignore | Il piano ammette nel repo solo materiale di pubblico dominio, e i libri personali non vanno pubblicati |
 | PDF d'esempio impaginato da noi | Project Gutenberg offre di rado PDF. Lo script è in `samples/make_sample_pdf.py` |
+| Licenza MIT | Scelta del progetto. Copre il codice, non i libri da cui si generano i pack |

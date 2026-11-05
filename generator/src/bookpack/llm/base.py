@@ -29,7 +29,11 @@ _UNSUPPORTED_KEYS = {
 
 
 class LLMError(Exception):
-    pass
+    """`fatal`: vale per tutte le chiamate (chiave, credito, rete), inutile provare le altre."""
+
+    def __init__(self, message: str, fatal: bool = False) -> None:
+        super().__init__(message)
+        self.fatal = fatal
 
 
 @dataclass

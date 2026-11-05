@@ -24,13 +24,22 @@ from .condense.chunking import word_count
 from .condense.detect import detect_with_llm
 from .condense.estimate import estimate_build
 from .condense.pipeline import (
+    BuildIncomplete,
     PackError,
     build_pack,
     default_output_path,
     is_too_short,
+    make_input,
     numbered_chapters,
     target_sections,
     write_pack,
+)
+from .condense.state import (
+    DONE,
+    BuildState,
+    file_sha256,
+    find_state,
+    state_path_for,
 )
 from .config import DEFAULT_OUTPUT_DIR, ENV_PATH, load_settings
 from .extract.clean import clean_pages
@@ -65,6 +74,7 @@ WINDOW_HEIGHT = 900
 LEFT_PANEL_WIDTH = 720
 CHECKED = "☑"
 UNCHECKED = "☐"
+MAX_WORKERS = 16
 AUTO_LANG = "uguale al libro"
 LANGUAGES = [AUTO_LANG, "it", "en", "fr", "es", "de", "pt"]
 METHOD_LABELS = {
@@ -74,10 +84,6 @@ METHOD_LABELS = {
     "llm": "LLM",
     "none": "nessun capitolo rilevato",
 }
-
-
-class BuildCancelled(Exception):
-    pass
 
 
 @dataclass
@@ -91,6 +97,10 @@ class BuildRequest:
     output: Path
     info: ModelInfo | None
     detection: Detection
+    workers: int
+    pdf: Path
+    pdf_sha256: str
+    context_tokens: int | None  # quello della generazione ripresa: i prompt non devono cambiare
 
 
 class App:
@@ -111,6 +121,9 @@ class App:
         self.promoted: set[int] = set()  # sezioni escluse in automatico e incluse a mano
         self.current: int | None = None
         self.chapters_dirty = False
+        self.pdf_sha256 = ""
+        self.unfinished: BuildState | None = None  # generazione incompleta di questo PDF
+        self.resumed_budget: int | None = None
 
         self.pdf_var = tk.StringVar()
         self.toc_var = tk.StringVar()
@@ -120,6 +133,7 @@ class App:
         self.key_var = tk.StringVar(value=self.settings.api_key or "")
         self.lang_var = tk.StringVar(value=AUTO_LANG)
         self.output_var = tk.StringVar()
+        self.workers_var = tk.StringVar(value=str(self.settings.workers))
         self.include_all_var = tk.BooleanVar()
         self.no_cache_var = tk.BooleanVar()
         self.fake_var = tk.BooleanVar()
@@ -297,20 +311,34 @@ class App:
         self.output_button = ttk.Button(options, text="Scegli…", command=self._choose_output)
         self.output_button.grid(row=4, column=2, padx=(PAD, 0), pady=(PAD, 0))
 
+        ttk.Label(options, text="Insieme").grid(row=5, column=0, sticky="w", pady=(PAD, 0))
+        line = ttk.Frame(options)
+        line.grid(row=5, column=1, columnspan=2, sticky="w", pady=(PAD, 0))
+        ttk.Spinbox(line, textvariable=self.workers_var, from_=1, to=MAX_WORKERS, width=4).pack(
+            side="left"
+        )
+        ttk.Label(
+            line,
+            text="chiamate all'LLM: abbassa il numero se il provider limita le richieste",
+            foreground="#555555",
+        ).pack(side="left", padx=(PAD, 0))
+
         actions = ttk.Frame(main)
         actions.grid(row=3, column=0, sticky="ew", pady=(PAD, 0))
         actions.columnconfigure(0, weight=1)
-        ttk.Label(actions, textvariable=self.estimate_var, wraplength=LEFT_PANEL_WIDTH - 300).grid(
+        ttk.Label(actions, textvariable=self.estimate_var, wraplength=LEFT_PANEL_WIDTH - 400).grid(
             row=0, column=0, sticky="w"
         )
         self.open_button = ttk.Button(actions, text="Apri cartella", command=self._open_folder)
         self.open_button.grid(row=0, column=1, padx=(PAD, 0))
         self.stop_button = ttk.Button(actions, text="Interrompi", command=self._stop)
         self.stop_button.grid(row=0, column=2, padx=(PAD, 0))
+        self.resume_button = ttk.Button(actions, text="Riprendi", command=self._resume)
+        self.resume_button.grid(row=0, column=3, padx=(PAD, 0))
         self.build_button = ttk.Button(actions, text="Genera", command=self._start_build)
-        self.build_button.grid(row=0, column=3, padx=(PAD, 0))
+        self.build_button.grid(row=0, column=4, padx=(PAD, 0))
         self.progress = ttk.Progressbar(actions, mode="determinate")
-        self.progress.grid(row=1, column=0, columnspan=4, sticky="ew", pady=(PAD, 0))
+        self.progress.grid(row=1, column=0, columnspan=5, sticky="ew", pady=(PAD, 0))
 
         log_frame = ttk.Frame(main)
         log_frame.grid(row=4, column=0, sticky="nsew", pady=(PAD, 0))
@@ -363,6 +391,7 @@ class App:
         self._set_enabled(self.export_button, ready and has_sections)
         self._set_enabled(self.output_button, ready and has_book)
         self._set_enabled(self.build_button, ready and has_book)
+        self._set_enabled(self.resume_button, ready and has_book and self.unfinished is not None)
         self._set_enabled(self.stop_button, self.busy and not self.cancel.is_set())
         self._set_enabled(self.open_button, self.last_output is not None)
 
@@ -444,14 +473,16 @@ class App:
         self.progress.configure(mode="indeterminate")
         self.progress.start(15)
 
-        def work() -> tuple[PdfDocument, dict[int, str], Detection]:
+        def work() -> tuple[PdfDocument, dict[int, str], Detection, str]:
             doc = open_pdf(path)
-            return doc, clean_pages(doc.pages), detect_chapters(doc, None, False)
+            pages = clean_pages(doc.pages)
+            return doc, pages, detect_chapters(doc, None, False), file_sha256(path)
 
         def failed(error: Exception) -> None:
             self._stop_spinner()
             self.doc = None
             self.detection = None
+            self.unfinished = None
             self.info_var.set("Scegli un PDF per iniziare.")
             self._reset_chapter_state()
             self._fill_tree()
@@ -467,13 +498,14 @@ class App:
 
     def _on_pdf_loaded(self, loaded: object) -> None:
         self._stop_spinner()
-        self.doc, self.pages, detection = loaded  # type: ignore[misc]
+        self.doc, self.pages, detection, self.pdf_sha256 = loaded  # type: ignore[misc]
         if self.include_all_var.get():
             for section in detection.sections:
                 section.excluded = False
         self.detection = detection
         self.viewer.open(Path(self.pdf_var.get()))
         self._after_detection()
+        self._look_for_unfinished()
         self._set_busy(False)
 
     def _reset_chapter_state(self) -> None:
@@ -491,6 +523,7 @@ class App:
     def _after_detection(self) -> None:
         assert self.doc is not None and self.detection is not None
         self._reset_chapter_state()
+        self.resumed_budget = None
         if not self.output_is_custom:
             book_id = self.detection.book.get("id") or book_title(self.doc, self.detection)
             self.output_var.set(str(default_output_path(book_id)))
@@ -932,6 +965,12 @@ class App:
                 parent=self.root,
             ):
                 return None
+        workers = self.workers_var.get().strip()
+        if not workers.isdigit() or int(workers) < 1:
+            messagebox.showerror(
+                "Bookpack", "Le chiamate insieme devono essere almeno 1.", parent=self.root
+            )
+            return None
         lang = self.lang_var.get().strip()
         return BuildRequest(
             model=model,
@@ -943,6 +982,10 @@ class App:
             output=Path(output),
             info=info,
             detection=copy.deepcopy(self.detection),
+            workers=int(workers),
+            pdf=Path(self.pdf_var.get()),
+            pdf_sha256=self.pdf_sha256,
+            context_tokens=self.resumed_budget,
         )
 
     def _start_build(self) -> None:
@@ -955,7 +998,7 @@ class App:
         self._write_log(f"Avvio con {'prova gratis' if request.fake else request.model}.")
         self._in_background(lambda: self._build(request), self._on_built, self._on_build_failed)
 
-    def _build(self, request: BuildRequest) -> tuple[Path, object, object]:
+    def _build(self, request: BuildRequest) -> tuple[Path, object, object, BuildState]:
         assert self.doc is not None
         settings = load_settings(request.model, request.fake)
         settings.api_key = request.api_key or settings.api_key
@@ -969,29 +1012,88 @@ class App:
             self.events.put(lambda: self._write_log("Cerco i capitoli con l'LLM…"))
             detection = detect_with_llm(llm, self.doc, self.pages)
 
-        steps = len(target_sections(detection, self.pages, request.selected)) + 1
-        self.events.put(lambda: self.progress.configure(maximum=steps, value=0))
+        def on_step(step: str, done: int, total: int) -> None:
+            self.events.put(lambda: self._on_step(step, done, total))
 
-        def on_step(step: str) -> None:
-            if self.cancel.is_set():
-                raise BuildCancelled
-            self.events.put(lambda: self._on_step(step))
-
-        budget = context_budget(settings.context_tokens, request.info)
+        budget = request.context_tokens or context_budget(settings.context_tokens, request.info)
+        state = BuildState.begin(
+            state_path_for(request.output),
+            make_input(
+                request.pdf,
+                request.pdf_sha256,
+                settings.model,
+                request.fake,
+                request.lang,
+                request.selected,
+                request.output,
+                budget,
+                detection,
+            ),
+        )
         result = build_pack(
-            llm, self.doc, self.pages, detection, request.selected, request.lang, budget, on_step
+            llm,
+            self.doc,
+            self.pages,
+            detection,
+            request.selected,
+            request.lang,
+            budget,
+            on_step,
+            request.workers,
+            self.cancel.is_set,
+            state,
         )
         if not result.report.ok:
             problems = "\n".join(result.report.errors)
             raise PackError(f"Il pack non rispetta i vincoli e non è stato scritto:\n{problems}")
-        return write_pack(result.pack, request.output), result, llm.usage
+        path = write_pack(result.pack, request.output)
+        state.remove()
+        return path, result, llm.usage, state
 
-    def _on_step(self, step: str) -> None:
-        self._write_log(step)
-        self.progress.step(1)
+    def _on_step(self, step: str, done: int, total: int) -> None:
+        self._write_log(f"{done}/{total} {step}")
+        self.progress.configure(maximum=total, value=done)
+
+    # --- Ripresa -------------------------------------------------------------------------------
+
+    def _look_for_unfinished(self) -> None:
+        folders = [DEFAULT_OUTPUT_DIR]
+        if output := self.output_var.get().strip():
+            folders.append(Path(output).parent)
+        self.unfinished = find_state(folders, self.pdf_sha256) if self.pdf_sha256 else None
+        if self.unfinished:
+            counts = self.unfinished.counts()
+            self._write_log(
+                f"C'è una generazione incompleta di questo libro: {counts[DONE]} attività fatte su "
+                f"{len(self.unfinished.tasks)}. «Riprendi» la continua con gli stessi parametri."
+            )
+        self._update_controls()
+
+    def _resume(self) -> None:
+        """Rimette nella finestra i parametri della generazione incompleta, poi la rilancia."""
+        assert self.unfinished is not None
+        saved = self.unfinished.input
+        self.detection = copy.deepcopy(saved.detection)
+        self.output_var.set(saved.output)
+        self.output_is_custom = True
+        self._after_detection()
+        self.resumed_budget = saved.context_tokens
+        numbers = {id(section): index for index, section in numbered_chapters(self.detection)}
+        self.checked = {
+            position
+            for position, section in enumerate(self.detection.sections)
+            if numbers.get(id(section)) in saved.selected and not is_too_short(section, self.pages)
+        }
+        self.fake_var.set(saved.fake)
+        if not saved.fake:
+            self.model_var.set(saved.model)
+        self.lang_var.set(saved.lang or AUTO_LANG)
+        self._after_chapter_change()
+        self._on_model_changed()
+        self._start_build()
 
     def _on_built(self, built: object) -> None:
-        path, result, usage = built  # type: ignore[misc]
+        path, result, usage, state = built  # type: ignore[misc]
         self.last_output = path
         self.progress.configure(value=self.progress["maximum"])
         for skipped in result.skipped:
@@ -1001,10 +1103,13 @@ class App:
         for warning in result.report.warnings:
             self._write_log(f"Avviso: {warning}")
         spent = "" if usage.cost is None else f", costo effettivo ${usage.cost:.2f}"
+        if state.previous.cost and state.spent.cost is not None:
+            spent += f" (${state.spent.cost:.2f} con i lanci precedenti)"
         self._write_log(
             f"Fatto: {len(result.pack.chapters)} capitoli in {path}. "
             f"Chiamate {usage.calls}, dalla cache {usage.cached}, ritentativi {usage.retries}{spent}."
         )
+        self._look_for_unfinished()
         self._set_busy(False)
         messagebox.showinfo(
             "Bookpack",
@@ -1013,18 +1118,28 @@ class App:
         )
 
     def _on_build_failed(self, error: Exception) -> None:
-        self.progress.configure(value=0)
-        if isinstance(error, BuildCancelled):
-            self._set_busy(False)
-            self._write_log("Interrotto. Rilanciando, le risposte già ottenute non si ripagano.")
+        if isinstance(error, BuildIncomplete):
+            self._look_for_unfinished()
+            for label, problem in error.failures.items():
+                self._write_log(f"Non riuscita: {label}: {problem}")
+            self._write_log(
+                "Le risposte già ottenute non si ripagano: «Riprendi» fa solo il resto."
+            )
+            if not error.failures:
+                self._write_log(f"Interrotto: {error.done} attività su {error.total}.")
+                self._set_busy(False)
+                return
+            problems = "\n".join(f"{label}: {problem}" for label, problem in error.failures.items())
+            self._show_error(PackError(f"{error}\n\n{problems}"))
             return
+        self.progress.configure(value=0)
         if isinstance(error, LLMError):
             self._write_log("Le risposte già ottenute sono in cache: rilanciando non si ripagano.")
         self._show_error(error)
 
     def _stop(self) -> None:
         self.cancel.set()
-        self._write_log("Mi fermo alla fine della chiamata in corso…")
+        self._write_log("Non parte più niente di nuovo: aspetto le chiamate già in corso…")
         self._update_controls()
 
     def _open_folder(self) -> None:

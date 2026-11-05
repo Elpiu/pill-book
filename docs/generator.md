@@ -18,7 +18,8 @@ uv run bookpack gui ../books/libro.pdf
 - **Anteprima**: cliccando una riga, a destra si apre la sua prima pagina. **Prima pagina** e **Ultima pagina** saltano ai suoi confini, e la riga sotto l'anteprima dice a quale capitolo appartiene la pagina mostrata. Si sfoglia con le frecce, la rotella o il numero di pagina; `−`, `+` e **Adatta** regolano lo zoom.
 - **Correzioni**: titolo e pagine si cambiano sotto l'elenco. I pulsanti **Il capitolo inizia qui** e **finisce qui** usano la pagina mostrata. Il capitolo vicino segue il nuovo confine se era contiguo o se si sovrapporrebbe; un vuoto voluto tra due capitoli resta. Le modifiche valgono subito per la generazione, ma per ritrovarle in seguito vanno salvate con **Salva…**: chiudendo senza salvare, la finestra chiede conferma.
 - **Parametri**: il modello si cerca scrivendone una parte e sotto compaiono prezzo e limiti. **Salva in .env** rende modello e chiave quelli di default.
-- **Genera**: mostra la stima e chiede conferma. **Interrompi** si ferma alla fine della chiamata in corso; rilanciando, ciò che è già pronto non si ripaga. Correggere le pagine o il titolo di un capitolo già generato ne cambia il prompt, quindi si ripaga solo quel capitolo. Mentre genera si può continuare a sfogliare e correggere: la generazione in corso usa i capitoli com'erano al via.
+- **Genera**: mostra la stima e chiede conferma. Correggere le pagine o il titolo di un capitolo già generato ne cambia il prompt, quindi si ripaga solo quel capitolo. Mentre genera si può continuare a sfogliare e correggere: la generazione in corso usa i capitoli com'erano al via.
+- **Interrompi e Riprendi**: **Interrompi** non fa partire niente di nuovo e aspetta le chiamate già in corso. **Riprendi** si attiva quando c'è una generazione incompleta del PDF aperto: rimette capitoli corretti, spunte, modello, lingua e destinazione, poi continua. La finestra cerca in `generator/out/` e nella cartella di **Salva in**. Chiudendo la finestra durante una generazione, il programma termina solo dopo le chiamate in corso.
 
 Tkinter è compreso nel Python installato da uv. Con un altro Python su Linux può servire il pacchetto `python3-tk`.
 
@@ -31,10 +32,11 @@ Tkinter è compreso nel Python installato da uv. Con un altro Python su Linux pu
 | `uv run bookpack inspect libro.pdf [--toc f] [--include-all] [--model m]` | Metadati, capitoli, stima di token e costo | no |
 | `uv run bookpack toc libro.pdf -o libro.toc.yaml` | Esporta la divisione in YAML da correggere a mano | no |
 | `uv run bookpack build libro.pdf [opzioni]` | Genera il pack, dopo aver mostrato la stima | sì |
+| `uv run bookpack resume out/<id>.state.json [--pdf f] [--workers n] [--yes]` | Riprende una generazione incompleta, con gli stessi parametri | sì |
 | `uv run bookpack validate out.bookpack.json` | Valida contro schema e vincoli | no |
 | `uv run bookpack schema [-o file]` | Rigenera lo schema JSON | no |
 
-Opzioni di `build`: `-o`, `--toc`, `--chapters 1-3,7`, `--lang it`, `--model`, `--fake`, `--include-all`, `--no-cache`, `--yes`. Senza `-o` il pack va in `generator/out/<id>.bookpack.json`, che è in gitignore.
+Opzioni di `build`: `-o`, `--toc`, `--chapters 1-3,7`, `--lang it`, `--model`, `--fake`, `--include-all`, `--no-cache`, `--workers 4`, `--yes`. Senza `-o` il pack va in `generator/out/<id>.bookpack.json`, che è in gitignore.
 
 ## Configurazione
 
@@ -46,6 +48,7 @@ Copia `.env.example` in `.env`, che è in gitignore.
 | `BOOKPACK_MODEL` | `anthropic/claude-sonnet-5.5` | qualsiasi id del catalogo; `--model` ha la precedenza |
 | `BOOKPACK_CONTEXT_TOKENS` | `40000` | limite alla grandezza delle parti, oltre ai 5.000 token normali; per i modelli piccoli vale al massimo il 60% del loro contesto |
 | `BOOKPACK_CACHE_DIR` | `generator/.bookpack-cache` | contiene risposte e catalogo |
+| `BOOKPACK_WORKERS` | `4` | chiamate all'LLM insieme; `--workers` ha la precedenza |
 
 Un id sconosciuto viene rifiutato prima di spendere, con i suggerimenti più vicini.
 
@@ -68,6 +71,8 @@ L'opzione `--fake` non usa né rete né chiave e compone l'output con frasi estr
 6. **Libro** (`condense/book.py`): panoramica, idee, mindmap e glossario, ricavati solo dalle sintesi dei capitoli.
 7. **Validazione finale**: se fallisce il file non viene scritto.
 
+Le fasi 4, 4b e 6 girano una dopo l'altra, e dentro ogni fase le chiamate partono insieme: vedi [Parallelismo](#parallelismo).
+
 I prompt sono in `src/bookpack/condense/prompts/*.md`. Migliorarli e rigenerare non richiede modifiche all'app.
 
 ## Modelli e output strutturato
@@ -85,9 +90,66 @@ Molti modelli ragionano prima di rispondere. Quei token si pagano come output e,
 
 Sui modelli senza `low`, come `deepseek/deepseek-v4-flash`, il ragionamento può crescere col limite e la spesa può superare la stima. Conviene preferire un modello che lo offre: nella finestra lo indica "ragionamento low" sotto il modello.
 
-## Cache e ripresa
+## Parallelismo
 
-Ogni risposta viene salvata appena arriva, con chiave `sha256(provider, modello, prompt, schema)`. Se `build` si interrompe, rilanciarlo riparte da dove era senza ripagare. Cambiare un prompt o il modello invalida solo le chiamate interessate.
+Le chiamate aspettano la rete, quindi bastano i thread (`condense/tasks.py`), al massimo 4 insieme per default. Le fasi sono tre, e ognuna finisce prima che parta la successiva:
+
+1. tutte le parti di tutti i capitoli: il prompt di una parte dipende solo dal suo testo;
+2. la chiusura dei capitoli con tutte le parti riuscite;
+3. la panoramica del libro.
+
+Il risultato non dipende dal numero di chiamate insieme: card e id si assegnano alla fine, nell'ordine del libro. Anche i prompt non cambiano, quindi le cache esistenti restano valide.
+
+Misura reale su 4 capitoli brevi del libro d'esempio con `~deepseek/deepseek-flash-latest`, un lancio per configurazione e cache vuota:
+
+| Chiamate insieme | Tempo | Chiamate | Costo effettivo |
+|---|---|---|---|
+| 1 | 125 secondi | 9 | $0,02 |
+| 4 | 66 secondi | 11, di cui 2 ritentativi | $0,02 |
+
+Non si arriva a 4 volte più veloce perché ogni fase aspetta la sua chiamata più lenta, e la panoramica è una sola. I ritentativi dipendono dalle risposte del modello, non dal parallelismo. Sui libri lunghi non è ancora stato misurato. Se il provider limita le richieste, la generazione si ferma con un errore chiaro: basta riprendere con `--workers` più basso.
+
+## Errori, interruzioni e ripresa
+
+**Cache** (`cache.py`, `llm/structured.py`): la chiave è `sha256(provider, modello, prompt, schema)`. Si conservano solo le risposte che superano la validazione, sotto il prompt iniziale anche se è servito un ritentativo. Una risposta scartata viene tolta, così rilanciando se ne chiede una nuova. Cambiare un prompt o il modello invalida solo le chiamate interessate.
+
+**Errori**: se una chiamata fallisce, le altre proseguono, perché sono già pagate o lo saranno comunque. Alla fine si elenca cosa non è riuscito e il pack non viene scritto. Chiave non valida, modello inesistente, credito esaurito, limite di richieste e rete assente valgono per tutte le chiamate: in quei casi non parte più niente di nuovo.
+
+**Interruzione**: **Interrompi** nella finestra o Ctrl+C nel terminale non fanno partire altre chiamate. Quelle in corso finiscono e restano in cache.
+
+**File di stato** (`condense/state.py`): accanto al pack, in `out/<id>.state.json`, riscritto dopo ogni attività e cancellato quando il pack è pronto.
+
+```json
+{
+  "version": 1,
+  "input": {
+    "pdf": "D:/libri/libro.pdf",
+    "pdf_sha256": "...",
+    "model": "...",
+    "fake": false,
+    "lang": "it",
+    "selected": [1, 2, 3],
+    "output": "out/libro.bookpack.json",
+    "context_tokens": 40000,
+    "detection": { "method": "outline", "sections": [], "book": {}, "note": null }
+  },
+  "tasks": {
+    "ch-01/part-1": { "state": "done" },
+    "ch-01/part-2": { "state": "failed", "error": "..." },
+    "ch-01/wrap": { "state": "pending" },
+    "book": { "state": "pending" }
+  },
+  "spent": { "calls": 12, "input_tokens": 60000, "output_tokens": 30000, "cost": 0.04 }
+}
+```
+
+Non contiene testo del libro né chiavi, ed è in gitignore. Le risposte stanno solo nella cache, quindi riprendendo si rieseguono tutte le attività e quelle già pronte tornano subito. Il file serve a tre cose:
+
+- **stessi parametri**: pagine corrette a mano comprese, altrimenti i prompt cambierebbero e quei capitoli si ripagherebbero;
+- **costo totale**: `spent` si somma tra i lanci, se il lavoro è lo stesso;
+- **a che punto si è**: `bookpack resume` mostra attività fatte, fallite e da fare, e il costo stimato di ciò che resta, prima di chiedere conferma.
+
+Rilanciare `build` con gli stessi parametri funziona allo stesso modo. Con `resume`, il PDF viene riconosciuto dall'hash: se è stato spostato si indica con `--pdf`, se è cambiato viene rifiutato.
 
 ## Costi
 

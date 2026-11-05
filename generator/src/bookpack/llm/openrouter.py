@@ -175,20 +175,24 @@ class OpenRouterProvider(LLMProvider):
         try:
             return self._complete_with_retries(system, user, schema)
         except openai.AuthenticationError as exc:
-            raise LLMError("Chiave OpenRouter non valida: controlla OPENROUTER_API_KEY") from exc
+            raise LLMError(
+                "Chiave OpenRouter non valida: controlla OPENROUTER_API_KEY", fatal=True
+            ) from exc
         except openai.NotFoundError as exc:
-            raise LLMError(f"Modello non trovato su OpenRouter: {self.model}") from exc
+            raise LLMError(f"Modello non trovato su OpenRouter: {self.model}", fatal=True) from exc
         except openai.RateLimitError as exc:
             raise LLMError(
-                "Limite di richieste raggiunto anche dopo i ritentativi. Rilancia più tardi: "
-                "le chiamate già fatte sono in cache."
+                "Limite di richieste raggiunto anche dopo i ritentativi. Riprendi più tardi, con "
+                "meno chiamate insieme: quelle già fatte sono in cache.",
+                fatal=True,
             ) from exc
         except openai.APIStatusError as exc:
             if exc.status_code == 402:
                 raise LLMError(
                     f"Credito OpenRouter insufficiente ({exc.message}). Ricarica e rilancia: le "
-                    "chiamate già fatte sono in cache."
+                    "chiamate già fatte sono in cache.",
+                    fatal=True,
                 ) from exc
             raise LLMError(f"Errore da OpenRouter ({exc.status_code}): {exc.message}") from exc
         except openai.APIConnectionError as exc:
-            raise LLMError(f"Connessione a OpenRouter fallita: {exc}") from exc
+            raise LLMError(f"Connessione a OpenRouter fallita: {exc}", fatal=True) from exc

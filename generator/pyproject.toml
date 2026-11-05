@@ -3,6 +3,7 @@ name = "bookpack"
 version = "0.1.0"
 description = "Trasforma un PDF in un book pack: card, mindmap e flashcard per capitolo."
 readme = "README.md"
+license = "MIT"
 requires-python = ">=3.12"
 dependencies = [
     "openai>=3.0",

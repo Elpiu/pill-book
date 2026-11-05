@@ -5,6 +5,7 @@ import json
 import httpx2 as httpx
 import openai
 import pytest
+from pydantic import BaseModel
 
 from bookpack.cache import ResponseCache
 from bookpack.config import load_settings
@@ -218,13 +219,16 @@ def test_cache_is_kept_when_reasoning_or_limits_change(tmp_path):
         calls.append(1)
         return httpx.Response(200, json=_completion())
 
+    class Answer(BaseModel):
+        a: str
+
     cache = ResponseCache(tmp_path)
     before = _provider(handler)
-    StructuredLLM(before, cache)._complete("s", "u", SCHEMA)
+    StructuredLLM(before, cache).generate("s", "u", Answer)
     after = _provider(handler)
     after.reasoning_effort = "low"
     after.max_output_tokens = 1
-    StructuredLLM(after, cache)._complete("s", "u", SCHEMA)
+    StructuredLLM(after, cache).generate("s", "u", Answer)
     assert len(calls) == 1
 
 

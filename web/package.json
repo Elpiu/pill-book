@@ -1,6 +1,7 @@
 {
   "name": "bookpack-web",
   "private": true,
+  "license": "MIT",
   "packageManager": "pnpm@11.9.0",
   "type": "module",
   "scripts": {

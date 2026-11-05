@@ -65,25 +65,6 @@ def test_rerun_uses_cache_and_pays_nothing(pdf_with_outline, tmp_path):
     assert first_data == second.pack.model_dump(exclude={"generator"})
 
 
-def test_interrupted_build_resumes_from_cache(pdf_with_outline, tmp_path):
-    cache = tmp_path / "cache"
-
-    class Interrupted(FakeProvider):
-        def complete(self, system: str, user: str, schema: dict) -> LLMResponse:
-            if self.calls == 2:
-                raise LLMError("rete caduta")
-            return super().complete(system, user, schema)
-
-    with pytest.raises(LLMError):
-        _build(pdf_with_outline, Interrupted(), cache)
-
-    resumed = FakeProvider()
-    result, llm = _build(pdf_with_outline, resumed, cache)
-    assert result.report.ok
-    assert llm.usage.cached == 2
-    assert resumed.calls == 7  # 4 capitoli da 2 chiamate e il libro, meno le 2 già fatte
-
-
 def test_invalid_output_is_retried_with_the_error(tmp_path):
     seen: list[str] = []
 

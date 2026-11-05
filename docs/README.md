@@ -3,6 +3,7 @@
 | Documento | Contenuto |
 |---|---|
 | [status.md](status.md) | Stato delle milestone: cosa è fatto, come è stato verificato, cosa resta |
+| [roadmap.md](roadmap.md) | Lavori futuri |
 | [architecture.md](architecture.md) | Come sono collegati generatore, schema e lettore |
 | [bookpack-format.md](bookpack-format.md) | Il formato `*.bookpack.json` e i suoi vincoli |
 | [generator.md](generator.md) | La CLI: comandi, configurazione, pipeline, costi |

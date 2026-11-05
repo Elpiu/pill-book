@@ -62,6 +62,7 @@ uv run bookpack gui
 2. Se un confine è sbagliato, correggilo: sfoglia fino alla pagina giusta e premi **Il capitolo inizia qui** o **finisce qui**, oppure scrivi i numeri di pagina.
 3. Togli la spunta ai capitoli che non vuoi nel pack.
 4. Scegli modello e lingua, guarda il costo stimato e premi **Genera**. Chiave e modello si possono inserire anche da qui.
+5. Se ti fermi con **Interrompi** o qualcosa fallisce, **Riprendi** continua da dove eri, anche riaprendo il PDF in un secondo momento.
 
 <img src="docs/screenshots/gui.png" width="760" alt="Finestra di Bookpack con i capitoli da spuntare, l'anteprima delle pagine, i parametri e il costo stimato">
 
@@ -85,10 +86,16 @@ uv run bookpack toc ../books/libro.pdf -o out/libro.toc.yaml
 uv run bookpack build ../books/libro.pdf --toc out/libro.toc.yaml --chapters 1-2 --lang it
 ```
 
-**4. Genera il libro intero.** Le risposte già ottenute sono in cache e non si ripagano, anche dopo un'interruzione.
+**4. Genera il libro intero.** Partono fino a 4 chiamate insieme; `--workers` cambia il numero.
 
 ```bash
 uv run bookpack build ../books/libro.pdf --toc out/libro.toc.yaml --lang it
+```
+
+Se qualcosa fallisce, o premi Ctrl+C, le risposte già ottenute restano in cache e non si ripagano. Si riprende così, con gli stessi parametri:
+
+```bash
+uv run bookpack resume out/libro.state.json
 ```
 
 **5. Importa il file.** Apri `/import` nell'app e carica `generator/out/<id>.bookpack.json`.
@@ -111,6 +118,10 @@ La stima appare prima di ogni generazione e si aggiorna con il modello scelto. A
 ## Libri e copyright
 
 Nel repo vanno solo libri e pack di pubblico dominio. `books/` e `generator/out/` sono in gitignore: i pack generati da libri sotto copyright sono per uso personale.
+
+## Licenza
+
+Il codice è distribuito con licenza [MIT](LICENSE). La licenza non riguarda i libri da cui si generano i pack.
 
 ## Sviluppo
 

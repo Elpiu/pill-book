@@ -1,6 +1,7 @@
 """Chiamate LLM con output validato, retry passando l'errore al modello e cache."""
 
 import json
+import threading
 from collections.abc import Callable
 from dataclasses import dataclass
 from typing import TypeVar
@@ -26,38 +27,42 @@ class Usage:
 
 
 class StructuredLLM:
+    """Si può usare da più thread: il provider e la cache lo reggono, i contatori hanno un lock."""
+
     def __init__(self, provider: LLMProvider, cache: ResponseCache) -> None:
         self.provider = provider
         self.cache = cache
         self.usage = Usage()
+        self._lock = threading.Lock()
 
-    def _complete(self, system: str, user: str, schema: dict) -> str:
-        key = self.cache.key(
+    def _key(self, system: str, user: str, schema: dict) -> str:
+        return self.cache.key(
             self.provider.name,
             self.provider.model,
             system,
             user,
             json.dumps(schema, sort_keys=True),
         )
-        if (cached := self.cache.get(key)) is not None:
-            self.usage.cached += 1
-            return cached["text"]
 
-        response: LLMResponse = self.provider.complete(system, user, schema)
-        self.usage.calls += 1
-        self.usage.input_tokens += response.input_tokens
-        self.usage.output_tokens += response.output_tokens
-        if response.cost is not None:
-            self.usage.cost = (self.usage.cost or 0.0) + response.cost
-        self.cache.put(
-            key,
-            {
-                "text": response.text,
-                "input_tokens": response.input_tokens,
-                "output_tokens": response.output_tokens,
-            },
-        )
-        return response.text
+    def _complete(self, system: str, user: str, schema: dict) -> LLMResponse:
+        if (cached := self.cache.get(self._key(system, user, schema))) is not None:
+            with self._lock:
+                self.usage.cached += 1
+            return LLMResponse(
+                text=cached["text"],
+                input_tokens=cached.get("input_tokens", 0),
+                output_tokens=cached.get("output_tokens", 0),
+                cost=cached.get("cost"),
+            )
+
+        response = self.provider.complete(system, user, schema)
+        with self._lock:
+            self.usage.calls += 1
+            self.usage.input_tokens += response.input_tokens
+            self.usage.output_tokens += response.output_tokens
+            if response.cost is not None:
+                self.usage.cost = (self.usage.cost or 0.0) + response.cost
+        return response
 
     def generate(
         self,
@@ -75,17 +80,33 @@ class StructuredLLM:
         last_error = ""
         for attempt in range(MAX_ATTEMPTS):
             if attempt:
-                self.usage.retries += 1
-            text = self._complete(system, prompt, schema)
+                with self._lock:
+                    self.usage.retries += 1
+            response = self._complete(system, prompt, schema)
             try:
-                parsed = output_model.model_validate_json(text)
-                return parsed, convert(parsed) if convert else None
+                parsed = output_model.model_validate_json(response.text)
+                result = convert(parsed) if convert else None
             except ValidationError as exc:
                 last_error = _format_validation_error(exc)
             except ValueError as exc:
                 last_error = str(exc)
+            else:
+                # Si conserva sotto il prompt iniziale, anche se è servito un ritentativo: così
+                # riprendendo si ritrova subito, invece di ripagare la prima chiamata
+                self.cache.put(
+                    self._key(system, user, schema),
+                    {
+                        "text": response.text,
+                        "input_tokens": response.input_tokens,
+                        "output_tokens": response.output_tokens,
+                        "cost": response.cost,
+                    },
+                )
+                return parsed, result
+            # Una risposta scartata non resta: rilanciando va chiesta di nuovo, non riletta
+            self.cache.delete(self._key(system, prompt, schema))
             prompt = (
-                f"{user}\n\n<previous_attempt>\n{text}\n</previous_attempt>\n\n"
+                f"{user}\n\n<previous_attempt>\n{response.text}\n</previous_attempt>\n\n"
                 "The previous attempt was rejected for these reasons. Produce a corrected, complete "
                 f"output that keeps what was right and fixes all of them:\n{last_error}"
             )

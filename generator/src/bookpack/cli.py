@@ -15,12 +15,26 @@ from .condense.chunking import word_count
 from .condense.detect import detect_with_llm
 from .condense.estimate import estimate_build, estimate_section
 from .condense.pipeline import (
+    BuildIncomplete,
     PackError,
+    book_id_of,
     build_pack,
+    default_output_path,
     is_too_short,
+    make_input,
     numbered_chapters,
     target_sections,
     write_pack,
+)
+from .condense.state import (
+    DONE,
+    FAILED,
+    PENDING,
+    BuildInput,
+    BuildState,
+    StateError,
+    file_sha256,
+    state_path_for,
 )
 from .config import ConfigError, Settings, load_settings
 from .extract.clean import clean_pages
@@ -262,6 +276,9 @@ def build(
     fake: bool = typer.Option(False, "--fake", help="Prova gratis, senza LLM né rete."),
     include_all: bool = typer.Option(False, "--include-all", help="Includi le sezioni escluse."),
     no_cache: bool = typer.Option(False, "--no-cache", help="Ignora la cache delle risposte."),
+    workers: int | None = typer.Option(
+        None, "--workers", min=1, help="Chiamate all'LLM insieme (default: 4 o BOOKPACK_WORKERS)."
+    ),
     yes: bool = typer.Option(False, "--yes", "-y", help="Non chiedere conferma del costo."),
 ) -> None:
     """Genera il pack. Mostra la stima del costo e chiede conferma, salvo --yes."""
@@ -300,16 +317,113 @@ def build(
     if not yes:
         typer.confirm("Procedere?", abort=True)
 
+    build_input = make_input(
+        pdf,
+        file_sha256(pdf),
+        settings.model,
+        fake,
+        lang,
+        selected,
+        output or default_output_path(book_id_of(doc, detection)),
+        budget,
+        detection,
+    )
+    _generate(llm, doc, pages, build_input, workers or settings.workers)
+
+
+@app.command()
+def resume(
+    state_file: Path = typer.Argument(..., exists=True, dir_okay=False),
+    pdf: Path | None = typer.Option(
+        None, "--pdf", exists=True, dir_okay=False, help="Se il PDF è stato spostato."
+    ),
+    workers: int | None = typer.Option(
+        None, "--workers", min=1, help="Chiamate all'LLM insieme (default: 4 o BOOKPACK_WORKERS)."
+    ),
+    yes: bool = typer.Option(False, "--yes", "-y", help="Non chiedere conferma del costo."),
+) -> None:
+    """Riprende una generazione dal suo file di stato, con gli stessi parametri."""
+    try:
+        state = BuildState.load(state_file)
+    except StateError as exc:
+        raise _fail(str(exc)) from exc
+    build_input = state.input
+    path = pdf or Path(build_input.pdf)
+    if not path.is_file():
+        raise _fail(f"Non trovo il PDF {path}: indicalo con --pdf.")
+    if file_sha256(path) != build_input.pdf_sha256:
+        raise _fail(f"{path} non è il PDF di questa generazione: il contenuto è diverso.")
+    build_input.pdf = str(path.resolve())
+
+    try:
+        doc = open_pdf(path)
+    except PdfError as exc:
+        raise _fail(str(exc)) from exc
+    settings = _settings(build_input.model, build_input.fake)
+    info = _model_info(settings)
+    pages = clean_pages(doc.pages)
+    try:
+        llm = StructuredLLM(get_provider(settings, info), ResponseCache(settings.cache_dir))
+    except LLMError as exc:
+        raise _fail(str(exc)) from exc
+
+    _print_metadata(doc, build_input.detection)
+    counts = state.counts()
+    missing = counts[PENDING] + counts[FAILED]
+    targets = target_sections(build_input.detection, pages, set(build_input.selected))
+    estimate = estimate_build(targets, pages, _prices(settings, info), build_input.context_tokens)
+    cost = None if estimate.cost is None else estimate.cost * missing / max(1, len(state.tasks))
+    console.print(
+        f"{settings.model}: {counts[DONE]} attività fatte, {counts[FAILED]} non riuscite, "
+        f"{counts[PENDING]} da fare. Speso finora {_format_cost(state.spent.cost)}, "
+        f"resta circa {_format_cost(cost)}.",
+        highlight=False,
+    )
+    if not yes:
+        typer.confirm("Procedere?", abort=True)
+    _generate(llm, doc, pages, build_input, workers or settings.workers)
+
+
+def _generate(
+    llm: StructuredLLM,
+    doc: PdfDocument,
+    pages: dict[int, str],
+    build_input: BuildInput,
+    workers: int,
+) -> None:
+    """La generazione vera e propria, uguale per `build` e `resume`."""
+    output = Path(build_input.output)
+    state = BuildState.begin(state_path_for(output), build_input)
     progress_columns = (SpinnerColumn(), TextColumn("{task.description}"), TimeElapsedColumn())
     try:
         with Progress(*progress_columns, console=console, transient=True) as progress:
             task = progress.add_task("Avvio")
 
-            def on_step(step: str) -> None:
-                progress.update(task, description=step)
-                progress.console.print(f"[dim]{step}[/dim]", highlight=False)
+            def on_step(step: str, done: int, total: int) -> None:
+                line = f"{done}/{total} {step}"
+                progress.update(task, description=line)
+                progress.console.print(f"[dim]{line}[/dim]", highlight=False)
 
-            result = build_pack(llm, doc, pages, detection, selected, lang, budget, on_step)
+            result = build_pack(
+                llm,
+                doc,
+                pages,
+                build_input.detection,
+                set(build_input.selected),
+                build_input.lang,
+                build_input.context_tokens,
+                on_step,
+                workers,
+                state=state,
+            )
+    except BuildIncomplete as exc:
+        for label, error in exc.failures.items():
+            console.print(f"[red]non riuscita[/red] {label}: {error}", highlight=False)
+        console.print(
+            "[dim]Le risposte già ottenute sono in cache e non si ripagano. Per riprendere:[/dim]"
+        )
+        console.print(f"uv run bookpack resume {state.path}", highlight=False, soft_wrap=True)
+        raise _fail(str(exc)) from exc
     except (LLMError, PackError) as exc:
         console.print(
             "[dim]Le risposte già ottenute sono in cache: rilanciando non si ripagano.[/dim]"
@@ -328,9 +442,12 @@ def build(
         raise _fail("Il pack generato non rispetta i vincoli e non è stato scritto.")
 
     path = write_pack(result.pack, output)
+    state.remove()
 
     usage = llm.usage
     spent = "" if usage.cost is None else f", costo effettivo ${usage.cost:.2f}"
+    if state.previous.cost and state.spent.cost is not None:
+        spent += f" (${state.spent.cost:.2f} con i lanci precedenti)"
     console.print(
         f"[green]Pack scritto in[/green] {path}: {len(result.pack.chapters)} capitoli. "
         f"Chiamate {usage.calls}, dalla cache {usage.cached}, ritentativi {usage.retries}, "
