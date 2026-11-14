@@ -15,13 +15,13 @@ Controlli: `pnpm lint`, `pnpm typecheck`, `pnpm test`. Dopo un cambio di schema:
 
 | Route | Contenuto |
 |---|---|
-| `/` | Libreria, "Riprendi", stato vuoto con il libro d'esempio |
-| `/import` | Da file o da URL (`?url=` lo precompila), con validazione e anteprima |
+| `/` | Libreria, "Riprendi", stato vuoto con il libro d'esempio in italiano e in inglese |
+| `/import` | Da file o da URL (`?url=` lo precompila), con validazione e anteprima; nella scheda URL, i libri d'esempio |
 | `/book/[bookId]` | Percorso: panoramica, idee, tappe con stato, glossario |
-| `/book/[bookId]/ch/[chId]` | Sessione: card con domande, riassunto, mindmap, flashcard, completamento |
+| `/book/[bookId]/ch/[chId]` | Sessione: card con domande, riassunto, mindmap, flashcard, completamento; ascolto facoltativo |
 | `/review` | Ripasso di oggi: le domande dovute di tutti i libri |
 | `/book/[bookId]/map` | Mindmap del libro; toccando un titolo si apre il capitolo |
-| `/settings` | Tema, dimensione del testo, export e import, eliminazione, azzeramento |
+| `/settings` | Tema, dimensione del testo, ascolto, export e import, eliminazione, azzeramento |
 
 ## Sessione
 
@@ -32,6 +32,24 @@ Controlli: `pnpm lint`, `pnpm typecheck`, `pnpm test`. Dopo un cambio di schema:
 - **Mindmap**: cerchi per aprire e chiudere i rami, pinch-zoom e pan.
 - **Flashcard**: tap o spazio per girarle; dopo la risposta, "Lo sapevo" o "Da ripassare" (frecce destra e sinistra).
 - Riaprendo un capitolo completato si entra in **rilettura**: la posizione salvata e il completamento non cambiano, gli esiti delle flashcard si aggiornano.
+
+## Ascolto
+
+Le card si possono anche ascoltare, con le voci del dispositivo. Il PRD è il documento `doc-1` del backlog.
+
+- **Avvio**: il pulsante con le cuffie nell'intestazione della sessione, nelle fasi card e riassunto. Parte solo da un tocco, perché su iPhone la voce non può partire da sola. Non compare dove manca la sintesi vocale; se il dispositivo non ha voci nella lingua del libro (`book.lang`) appare attenuato e al tocco spiega come aggiungerle. Se il browser non elenca voci affatto si prova lo stesso, perché alcuni leggono con la voce di sistema.
+- **Barra in basso**: velocità (0,8×, 1×, 1,2×, 1,5×, salvata), card precedente, pausa e ripresa, card successiva, chiudi. Sopra, lo stato: card in lettura, "In pausa" o il conto alla rovescia di una domanda.
+- **Lettura**: le card avanzano da sole e la posizione si salva come negli spostamenti a mano. Swipe, tap e frecce fanno ripartire la voce dalla card raggiunta; la card in lettura ha l'icona delle cuffie. Le domande lasciano 7 secondi per pensare, saltabili con **Mostra ora**, poi la risposta compare e viene letta; gli esiti non si registrano da soli. Dopo l'ultima card si legge il riassunto, poi l'ascolto si ferma sulla mindmap con un messaggio.
+- **Interruzioni**: uscire dalla sessione o cambiare fase a mano ferma la voce. Quando l'app va in secondo piano l'ascolto passa in pausa, visibile al ritorno.
+- **Impostazioni**: la sezione Ascolto compare solo dove esiste la sintesi vocale. Contiene l'interruttore **Mostra il pulsante Ascolta**, che spento riporta la sessione com'era; la velocità predefinita; una voce per ciascuna lingua dei libri presenti, con **Prova** che legge una frase del libro; le indicazioni per installare voci migliori su iPhone e Android. Una voce scelta che non c'è più torna alla scelta automatica. Le preferenze entrano nell'export del progresso.
+
+Codice:
+
+- **`composables/useSpeech.ts`**: sintesi vocale del browser, senza sapere nulla di libri. Legge una coda di frasi e pause, una frase alla volta perché Chrome interrompe le letture lunghe; pausa e ripresa ripartono dall'inizio della frase, perché `pause()` su Android non riprende. Carica le voci anche quando l'elenco arriva in ritardo o `voiceschanged` non scatta. Sintetizzatore e utterance si possono iniettare, così i test girano senza browser.
+- **`composables/useListening.ts`**: regia della sessione in ascolto. Legge le card una dopo l'altra e il riassunto, e chiede alla pagina di spostarsi con delle callback, così si prova senza Nuxt. La pagina distingue i cambi di fase chiesti dalla regia da quelli dell'utente, che chiudono l'ascolto.
+- **`composables/useListenSettings.ts`**: velocità, voce per lingua e visibilità del pulsante, nella tabella `settings`; la sezione delle impostazioni è `components/settings/ListenSettings.vue`.
+- **`utils/speech.ts`**: lingue (`it_IT` vale `it-IT`), divisione in frasi con `Intl.Segmenter`, scelta e disponibilità delle voci: stessa regione, poi voci locali, poi voci migliorate, poi la predefinita.
+- **`utils/listening.ts`**: cosa si legge di card e riassunto. Solo testo del libro, codice escluso, pause tra i passi, 7 secondi per pensare dopo una domanda.
 
 ## Ripasso
 
@@ -46,7 +64,7 @@ Database IndexedDB `bookpack`, definito in `app/db/index.ts`:
 ```ts
 books:    { id, pack, importedAt, updatedAt }
 progress: { bookId, currentChapterId, lastOpenedAt, chapters: Record<chapterId, ChapterProgress> }
-settings: { key, value }   // fontScale, theme
+settings: { key, value }   // fontScale, theme, listenRate, listenVoices, listenShowButton
 reviews:  { key, bookId, itemId, box, dueAt, lastAt, lapses }
 ```
 
@@ -58,7 +76,7 @@ I dati restano solo nel browser: svuotando i dati del sito si perdono. Per conse
 
 ## PWA e offline
 
-Il service worker precarica JS, CSS, `index.html`, font latini, icone e il pack d'esempio. Tutte le route ripiegano su `index.html`. Font e icone sono nel bundle, quindi l'app non chiede nulla a server esterni. L'aggiornamento è automatico: alla pubblicazione di una nuova versione la pagina si ricarica da sola, e la lettura riprende dalla card esatta.
+Il service worker precarica JS, CSS, `index.html`, font latini, icone e i pack d'esempio, in italiano e in inglese. Tutte le route ripiegano su `index.html`. Font e icone sono nel bundle, quindi l'app non chiede nulla a server esterni. L'aggiornamento è automatico: alla pubblicazione di una nuova versione la pagina si ricarica da sola, e la lettura riprende dalla card esatta.
 
 **Installazione**: su Android e su Chrome da computer la home propone **Installa**, se il browser lo consente. Su iPhone si passa da Safari: Condividi, poi Aggiungi alla schermata Home. Le istruzioni sono anche nelle impostazioni. L'installazione richiede HTTPS, che GitHub Pages fornisce.
 

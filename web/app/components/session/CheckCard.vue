@@ -5,12 +5,18 @@ import type { FlashResult } from '~/utils/progress'
 const props = defineProps<{
   card: Card
   result?: FlashResult
+  listening?: boolean
+  /** In ascolto la risposta si mostra quando la voce comincia a leggerla. */
+  reveal?: boolean
 }>()
 
 const emit = defineEmits<{ answer: [known: boolean] }>()
 
 // Una domanda già affrontata mostra subito la risposta: tornandoci si rilegge
-const revealed = ref(Boolean(props.result))
+const revealed = ref(Boolean(props.result || props.reveal))
+watch(() => props.reveal, (value) => {
+  if (value) revealed.value = true
+})
 </script>
 
 <template>
@@ -22,6 +28,13 @@ const revealed = ref(Boolean(props.result))
         aria-hidden="true"
       />
       Fermati un momento
+      <UIcon
+        v-if="listening"
+        name="i-lucide-headphones"
+        class="ms-auto size-4"
+        aria-label="In ascolto"
+        data-testid="listening-mark"
+      />
     </p>
 
     <div class="card-scroll flex min-h-0 flex-1 flex-col overflow-y-auto">

@@ -5,6 +5,7 @@ import { parseProgressExport, type ProgressExport } from '~/utils/progress'
 const toast = useToast()
 const { $pwa } = useNuxtApp()
 const { fontScale, theme, restore, setFontScale, setTheme } = useSettings()
+const listen = useListenSettings()
 const { data: books } = useLiveQuery(() => db.books.toArray())
 
 const themes = [
@@ -47,7 +48,7 @@ async function applyImport(mode: 'merge' | 'replace') {
   if (!pendingImport.value) return
   await importProgress(pendingImport.value, mode)
   pendingImport.value = undefined
-  await restore()
+  await Promise.all([restore(), listen.restore()])
   toast.add({ title: 'Progresso importato', color: 'success', icon: 'i-lucide-check' })
 }
 
@@ -158,6 +159,8 @@ function askResetAll() {
           Il tempo è la materia grezza di tutto.
         </p>
       </section>
+
+      <SettingsListenSettings :packs="books?.map(book => book.pack) ?? []" />
 
       <section class="space-y-3">
         <h2 class="font-semibold">

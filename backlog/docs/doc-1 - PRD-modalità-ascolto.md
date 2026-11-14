@@ -3,13 +3,13 @@ id: doc-1
 title: 'PRD: modalità ascolto'
 type: specification
 created_date: '2026-11-14T16:10:00Z'
-updated_date: '2026-11-14T16:10:00Z'
+updated_date: '2026-11-14T16:16:00Z'
 ---
 # PRD: modalità ascolto
 
 | | |
 |---|---|
-| Stato | Proposta, da approvare |
+| Stato | Approvato il 14 novembre 2026 |
 | Data | 14 novembre 2026 |
 | Parte | Lettore (`web/`) |
 | Formato del pack | Invariato |
@@ -76,7 +76,7 @@ Solo il testo del libro, nella sua lingua. Nessuna parola dell'interfaccia viene
 | Citazione | Il testo citato |
 | Nuova parte | Titolo e introduzione, seguiti da una pausa più lunga |
 | Da portare via | Il testo |
-| Domanda | La domanda, poi qualche secondo per pensare con un conto alla rovescia visibile, poi la risposta, che si mostra anche sulla card. Un tocco salta l'attesa |
+| Domanda | La domanda, poi 7 secondi per pensare con un conto alla rovescia visibile, poi la risposta, che si mostra anche sulla card. Un tocco salta l'attesa |
 
 Le domande ascoltate **non registrano** alcun esito: "Lo sapevo" e "Da ripassare" restano disponibili sulla card, come in lettura, e toccarli non interrompe l'ascolto.
 
@@ -148,11 +148,13 @@ Le impostazioni seguono il percorso di quelle esistenti: tabella `settings` di I
 | Voci di rete | Senza connessione non parlano | Preferenza per voci locali; errore mostrato come pausa |
 | Chrome interrompe le letture lunghe | Frasi tagliate | Una frase alla volta |
 
-## Domande aperte
+## Decisioni
 
-1. Quanti secondi di attesa dopo una domanda? Proposta: 5, con il tocco per saltare.
-2. Serve un'impostazione per non leggere affatto le domande in ascolto? Proposta: no nella prima versione.
-3. L'ascolto deve continuare da solo al capitolo successivo? Proposta: no, si ferma al riassunto, perché mindmap e flashcard chiedono di guardare lo schermo.
+Prese all'approvazione, al posto delle domande aperte della proposta:
+
+1. **Attesa dopo una domanda**: 7 secondi prima della risposta, saltabili con un tocco.
+2. **Domande in ascolto**: si leggono sempre; nessuna impostazione per escluderle nella prima versione.
+3. **Capitolo successivo**: l'ascolto non continua da solo, si ferma dopo il riassunto, perché mindmap e flashcard chiedono di guardare lo schermo.
 
 ## Riferimenti
 

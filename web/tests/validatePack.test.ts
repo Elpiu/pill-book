@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
+import { SAMPLES } from '~/utils/samples'
 import { parseAndValidatePack, totalMinutes, validatePack } from '~/utils/validatePack'
 
 function loadJson(relative: string) {
@@ -17,6 +18,15 @@ describe('validatePack', () => {
       expect(full.pack.chapters).toHaveLength(12)
       expect(totalMinutes(full.pack)).toBeGreaterThan(12)
     }
+  })
+
+  it('il libro d\'esempio esiste in italiano e in inglese, come libri distinti', () => {
+    const results = SAMPLES.map(sample => validatePack(loadJson(`../public/samples/${sample.file}`)))
+    const packs = results.map(result => (result.ok ? result.pack : undefined))
+    expect(packs.every(Boolean)).toBe(true)
+    expect(packs.map(pack => pack?.book.lang)).toEqual(['it', 'en'])
+    expect(new Set(packs.map(pack => pack?.book.id)).size).toBe(SAMPLES.length)
+    expect(packs[1]?.chapters).toHaveLength(12)
   })
 
   it('rifiuta un file che non è un pack', () => {

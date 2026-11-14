@@ -13,6 +13,10 @@ groma:
       symbol: useImport
     - scanner: vue
       file: web/app/composables/useImport.ts
+    - scanner: typescript
+      file: web/app/utils/samples.ts
+    - scanner: vue
+      file: web/app/utils/samples.ts
   group: Schermate
 description: Carica un pack da file o URL, lo valida, ne mostra l'anteprima e lo salva.
 ---

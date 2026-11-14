@@ -1,6 +1,6 @@
 # Bookpack
 
-Trasforma un PDF in un percorso di studio per il telefono. Ogni capitolo diventa una serie di card che spiegano il perché e il come, con domande durante la lettura, un riassunto finale, una mindmap e flashcard che tornano nel ripasso nei giorni successivi. Lo spazio cresce con la lunghezza del capitolo, e la forma si adatta al contenuto: i manuali tecnici hanno procedure passo per passo e comandi. Il progresso resta salvato e l'app funziona offline.
+Trasforma un PDF in un percorso di studio per il telefono. Ogni capitolo diventa una serie di card che spiegano il perché e il come, con domande durante la lettura, un riassunto finale, una mindmap e flashcard che tornano nel ripasso nei giorni successivi. Lo spazio cresce con la lunghezza del capitolo, e la forma si adatta al contenuto: i manuali tecnici hanno procedure passo per passo e comandi. Il progresso resta salvato e l'app funziona offline. Se preferisci, le card si possono anche ascoltare con le voci del telefono, nella lingua del libro.
 
 <p>
   <img src="docs/screenshots/library.jpg" width="190" alt="Libreria con il pulsante Riprendi">
@@ -33,7 +33,7 @@ pnpm install
 pnpm dev
 ```
 
-Apri http://localhost:3000 e scegli **Prova l'esempio**: è *How to Live on 24 Hours a Day* di Arnold Bennett, in italiano, con 12 capitoli.
+Apri http://localhost:3000 e scegli **Esempio in italiano** o **Esempio in inglese**: è *How to Live on 24 Hours a Day* di Arnold Bennett, con 12 capitoli. Le due versioni si possono importare entrambe, anche dalla scheda **Da URL** dell'importazione.
 
 ## Generare un libro
 

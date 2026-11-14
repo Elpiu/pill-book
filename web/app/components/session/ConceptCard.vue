@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Card, CardType } from '~/types/bookpack'
 
-const props = defineProps<{ card: Card }>()
+const props = defineProps<{ card: Card, listening?: boolean }>()
 
 const STYLES: Record<CardType, { label: string, icon: string, tint: string, accent: string }> = {
   concept: {
@@ -73,6 +73,13 @@ const isDense = computed(() => Boolean(props.card.details || props.card.steps?.l
         aria-hidden="true"
       />
       {{ style.label }}
+      <UIcon
+        v-if="listening"
+        name="i-lucide-headphones"
+        class="ms-auto size-4"
+        aria-label="In ascolto"
+        data-testid="listening-mark"
+      />
     </p>
 
     <div

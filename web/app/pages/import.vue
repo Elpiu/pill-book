@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { SAMPLES, sampleUrl } from '~/utils/samples'
 import { totalMinutes } from '~/utils/validatePack'
 
 const route = useRoute()
+const { app } = useRuntimeConfig()
 const { pack, errors, loading, alreadyImported, fromFile, fromUrl, save, clear } = useImport()
 
 const tabs = [
@@ -23,6 +25,11 @@ watch(source, clear)
 
 function loadUrl() {
   if (url.value.trim()) fromUrl(url.value.trim())
+}
+
+function loadSample(file: string) {
+  url.value = sampleUrl(app.baseURL, file)
+  loadUrl()
 }
 
 if (queryUrl) loadUrl()
@@ -89,6 +96,22 @@ async function confirm() {
           :loading="loading"
         />
       </form>
+
+      <div
+        v-if="source === 'url'"
+        class="flex flex-wrap items-center gap-2"
+      >
+        <span class="text-sm text-muted">Libri d'esempio:</span>
+        <UButton
+          v-for="sample in SAMPLES"
+          :key="sample.file"
+          size="sm"
+          color="neutral"
+          variant="subtle"
+          :label="sample.label"
+          @click="loadSample(sample.file)"
+        />
+      </div>
 
       <p
         v-if="loading && source === 'file'"

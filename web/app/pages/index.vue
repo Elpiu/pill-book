@@ -1,7 +1,17 @@
 <script setup lang="ts">
+import { SAMPLES, sampleUrl } from '~/utils/samples'
+
 const { items, resume, dueCount, loaded, error } = useLibrary()
 const { app } = useRuntimeConfig()
-const sampleUrl = `${app.baseURL}samples/how-to-live-on-24-hours-a-day.bookpack.json`
+const emptyActions = [
+  { label: 'Importa un libro', to: '/import', icon: 'i-lucide-plus' },
+  ...SAMPLES.map(sample => ({
+    label: sample.label,
+    to: { path: '/import', query: { url: sampleUrl(app.baseURL, sample.file) } },
+    color: 'neutral' as const,
+    variant: 'subtle' as const,
+  })),
+]
 </script>
 
 <template>
@@ -88,11 +98,8 @@ const sampleUrl = `${app.baseURL}samples/how-to-live-on-24-hours-a-day.bookpack.
         class="pt-16"
         icon="i-lucide-library"
         title="La tua libreria è vuota"
-        description="Importa un book pack generato con la CLI, oppure prova il libro d'esempio per vedere come funziona."
-        :actions="[
-          { label: 'Importa un libro', to: '/import', icon: 'i-lucide-plus' },
-          { label: 'Prova l\'esempio', to: { path: '/import', query: { url: sampleUrl } }, color: 'neutral', variant: 'subtle' },
-        ]"
+        description="Importa un book pack generato con la CLI, oppure prova il libro d'esempio, in italiano o in inglese, per vedere come funziona."
+        :actions="emptyActions"
       />
     </main>
 

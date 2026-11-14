@@ -66,6 +66,8 @@ Il primo formato dava lo stesso spazio a ogni capitolo: 12 card sia per 76 pagin
 | Mindmap caricate solo quando servono | Le librerie sono pesanti e non servono nelle card |
 | Solo gli alfabeti latini nella cache offline | Riduce il precaricamento. Altri alfabeti usano i font di sistema se offline |
 | Primario `teal-700` in tema chiaro | Il default dava poco contrasto con il testo bianco |
+| Ascolto con la sintesi vocale del browser, non con audio generato | Nessuna dipendenza, nessun costo, funziona offline e non cambia il formato del pack. L'ascolto a schermo bloccato non è garantito: vedi il PRD `doc-1` |
+| Una frase alla volta, e pausa come cancel più nuovo avvio | Chrome interrompe le letture di circa 15 secondi, e `pause()` su Android non riprende in modo affidabile |
 | Solo `index.html` nel precaricamento delle pagine | Precaricare `/404` o `/import` fa fallire l'installazione sugli host che non li servono |
 
 ## Repo

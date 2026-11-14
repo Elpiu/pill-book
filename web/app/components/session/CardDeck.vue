@@ -6,6 +6,10 @@ const props = defineProps<{
   cards: Card[]
   startIndex: number
   results: Record<string, FlashResult>
+  /** Card che la modalità ascolto sta leggendo. */
+  listeningId?: string
+  /** Domanda di cui la voce sta leggendo la risposta: va mostrata. */
+  revealId?: string
 }>()
 
 const emit = defineEmits<{
@@ -53,6 +57,13 @@ function onKeydown(event: KeyboardEvent) {
 
 onMounted(() => window.addEventListener('keydown', onKeydown))
 onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
+
+/** La modalità ascolto sposta il deck da sola: lo spostamento arriva poi come change. */
+function scrollTo(index: number) {
+  emblaApi.value?.scrollTo(index)
+}
+
+defineExpose({ scrollTo })
 </script>
 
 <template>
@@ -81,11 +92,14 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
         v-if="item?.type === 'check'"
         :card="item"
         :result="results[item.id]"
+        :listening="item.id === listeningId"
+        :reveal="item.id === revealId"
         @answer="known => onAnswer(item.id, known)"
       />
       <SessionConceptCard
         v-else-if="item"
         :card="item"
+        :listening="item.id === listeningId"
       />
       <div
         v-else
