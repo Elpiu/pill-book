@@ -1,10 +1,10 @@
 ---
 id: DRAFT-8
-title: Streak e statistiche di lettura
+title: Statistiche di lettura
 status: Draft
 assignee: []
 created_date: '2026-11-13T21:35:00Z'
-updated_date: '2026-11-14T16:10:00Z'
+updated_date: '2026-11-14T21:46:00Z'
 labels:
   - lettore
 dependencies: []
@@ -13,7 +13,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Dalla roadmap del piano originale. La sintesi vocale, prima inclusa in questa bozza, ha ora un PRD proprio: doc-1, PRD: modalità ascolto.
+Dalla roadmap del piano originale. Streak e routine hanno ora un PRD proprio, doc-2: qui restano statistiche più ampie, per libro o nel tempo.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Definition of Done

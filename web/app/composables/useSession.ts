@@ -1,4 +1,4 @@
-import { db, recordReview, touchBook, updateChapterProgress } from '~/db'
+import { addActivity, db, recordReview, touchBook, updateChapterProgress } from '~/db'
 import type { BookPack, Chapter } from '~/types/bookpack'
 import { clampCardIndex, emptyChapterProgress, type ChapterProgress, type FlashResult, type Phase } from '~/utils/progress'
 
@@ -44,7 +44,15 @@ export function useSession(bookId: string, chapterId: string) {
     await touchBook(bookId, chapterId)
   }
 
+  function track(delta: Parameters<typeof addActivity>[0]) {
+    addActivity(delta).catch((cause) => {
+      console.error('Registro della giornata non aggiornato', cause)
+    })
+  }
+
   function setCard(index: number) {
+    // Per il registro della giornata contano i passi in avanti, anche in rilettura
+    if (index > cardIndex.value) track({ cards: 1 })
     cardIndex.value = index
     if (isReview.value) return
     save(saved => ({ ...saved, phase: 'cards', lastCardIndex: index }))
@@ -67,6 +75,7 @@ export function useSession(bookId: string, chapterId: string) {
 
   function complete() {
     phase.value = 'done'
+    track({ chapters: 1 })
     const completedAt = new Date().toISOString()
     save(saved => ({ ...saved, phase: 'done', completedAt: saved.completedAt ?? completedAt }))
   }

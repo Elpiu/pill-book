@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Chapter } from '~/types/bookpack'
 import type { FlashResult } from '~/utils/progress'
+import { plural } from '~/utils/routine'
 
 const props = defineProps<{
   bookId: string
@@ -12,6 +13,14 @@ const props = defineProps<{
 const known = computed(() => props.chapter.flashcards.filter(card => props.results[card.id]?.known))
 const toReview = computed(() => props.chapter.flashcards.filter(card => props.results[card.id]?.known === false))
 const takeaway = computed(() => props.chapter.cards.at(-1)?.body)
+
+const { today, streak, goalMinutes } = useRoutine()
+const routineLine = computed(() => {
+  const minutes = plural(Math.floor(today.value.seconds / 60), 'minuto', 'minuti')
+  const goal = streak.value.todayMet ? 'obiettivo raggiunto' : `obiettivo ${goalMinutes.value} minuti`
+  const series = streak.value.current ? ` · ${plural(streak.value.current, 'giorno', 'giorni')} di fila` : ''
+  return `Oggi ${minutes}, ${goal}${series}`
+})
 </script>
 
 <template>
@@ -30,6 +39,18 @@ const takeaway = computed(() => props.chapter.cards.at(-1)?.body)
       <p class="mt-1 text-muted">
         {{ chapter.title }}
       </p>
+      <NuxtLink
+        to="/routine"
+        class="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary"
+        data-testid="session-routine"
+      >
+        <UIcon
+          name="i-lucide-flame"
+          class="size-4"
+          aria-hidden="true"
+        />
+        {{ routineLine }}
+      </NuxtLink>
       <p class="mt-4 font-serif text-lg leading-relaxed">
         {{ takeaway }}
       </p>

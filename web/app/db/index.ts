@@ -10,6 +10,16 @@ import {
   type SettingRecord,
 } from '~/utils/progress'
 import { mergeReview, nextReview, reviewKey, type ReviewRecord } from '~/utils/review'
+import {
+  applyActivity,
+  dayKey,
+  emptyActivity,
+  goalMinutesOf,
+  mergeActivity,
+  type ActivityDelta,
+  type ActivityRecord,
+  type RoutineSettings,
+} from '~/utils/routine'
 
 export interface BookRecord {
   id: string
@@ -23,6 +33,7 @@ export const db = new Dexie('bookpack') as Dexie & {
   progress: EntityTable<ProgressRecord, 'bookId'>
   settings: EntityTable<SettingRecord, 'key'>
   reviews: EntityTable<ReviewRecord, 'key'>
+  activity: EntityTable<ActivityRecord, 'day'>
 }
 
 db.version(1).stores({
@@ -34,6 +45,28 @@ db.version(1).stores({
 db.version(2).stores({
   reviews: 'key, dueAt, bookId',
 })
+
+db.version(3).stores({
+  activity: 'day',
+})
+
+/**
+ * Aggiunge al registro di oggi. Segnala quando, con questi secondi, l'obiettivo del giorno viene
+ * raggiunto: serve a festeggiarlo una sola volta.
+ */
+export async function addActivity(
+  delta: ActivityDelta,
+  now = new Date(),
+): Promise<{ record: ActivityRecord, reachedGoal: boolean }> {
+  return db.transaction('rw', db.activity, db.settings, async () => {
+    const day = dayKey(now)
+    const routine = (await db.settings.get('routine'))?.value as Partial<RoutineSettings> | undefined
+    const previous = (await db.activity.get(day)) ?? emptyActivity(day)
+    const record = applyActivity(previous, delta, goalMinutesOf(routine) * 60)
+    await db.activity.put(record)
+    return { record, reachedGoal: record.met && !previous.met }
+  })
+}
 
 /** Salva un pack. Il progresso è indicizzato per id stabili, quindi sopravvive all'aggiornamento. */
 export async function saveBook(pack: BookPack): Promise<void> {
@@ -58,14 +91,16 @@ export async function deleteBook(bookId: string): Promise<void> {
 }
 
 export async function resetProgress(bookId?: string): Promise<void> {
-  await db.transaction('rw', db.progress, db.reviews, async () => {
+  await db.transaction('rw', db.progress, db.reviews, db.activity, async () => {
     if (bookId) {
       await db.progress.delete(bookId)
       await db.reviews.where('bookId').equals(bookId).delete()
     }
     else {
+      // Azzerare tutto cancella anche le giornate di lettura, quindi la streak
       await db.progress.clear()
       await db.reviews.clear()
+      await db.activity.clear()
     }
   })
 }
@@ -113,30 +148,39 @@ export async function recordReview(bookId: string, itemId: string, known: boolea
     const previous = await db.reviews.get(reviewKey(bookId, itemId))
     await db.reviews.put(nextReview(bookId, itemId, known, previous, now))
   })
+  await addActivity({ answers: 1 }, now)
 }
 
 export async function exportProgress(): Promise<ProgressExport> {
   return {
     type: PROGRESS_EXPORT_TYPE,
-    version: 2,
+    version: 3,
     exportedAt: new Date().toISOString(),
     progress: await db.progress.toArray(),
     settings: await db.settings.toArray(),
     reviews: await db.reviews.toArray(),
+    activity: await db.activity.toArray(),
   }
 }
 
 export async function importProgress(data: ProgressExport, mode: 'merge' | 'replace'): Promise<void> {
   const reviews = data.reviews ?? []
-  await db.transaction('rw', db.progress, db.settings, db.reviews, async () => {
+  const activity = data.activity ?? []
+  await db.transaction('rw', [db.progress, db.settings, db.reviews, db.activity], async () => {
     if (mode === 'replace') {
       await db.progress.clear()
       await db.settings.clear()
       await db.reviews.clear()
+      await db.activity.clear()
       await db.progress.bulkPut(data.progress)
       await db.settings.bulkPut(data.settings)
       await db.reviews.bulkPut(reviews)
+      await db.activity.bulkPut(activity)
       return
+    }
+    for (const incoming of activity) {
+      const existing = await db.activity.get(incoming.day)
+      await db.activity.put(existing ? mergeActivity(existing, incoming) : incoming)
     }
     for (const incoming of data.progress) {
       const existing = await db.progress.get(incoming.bookId)

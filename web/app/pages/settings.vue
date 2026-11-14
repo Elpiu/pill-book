@@ -160,6 +160,22 @@ function askResetAll() {
         </p>
       </section>
 
+      <section class="space-y-3">
+        <h2 class="font-semibold">
+          Routine di lettura
+        </h2>
+        <p class="text-sm text-muted">
+          Obiettivo di ogni giorno, orario, promemoria nel calendario e le tue giornate di lettura.
+        </p>
+        <UButton
+          to="/routine"
+          icon="i-lucide-flame"
+          color="neutral"
+          variant="subtle"
+          label="Apri la routine"
+        />
+      </section>
+
       <SettingsListenSettings :packs="books?.map(book => book.pack) ?? []" />
 
       <section class="space-y-3">

@@ -69,6 +69,10 @@ Il primo formato dava lo stesso spazio a ogni capitolo: 12 card sia per 76 pagin
 | Primario `teal-700` in tema chiaro | Il default dava poco contrasto con il testo bianco |
 | Ascolto con la sintesi vocale del browser, non con audio generato | Nessuna dipendenza, nessun costo, funziona offline e non cambia il formato del pack. L'ascolto a schermo bloccato non è garantito: vedi il PRD `doc-1` |
 | Una frase alla volta, e pausa come cancel più nuovo avvio | Chrome interrompe le letture di circa 15 secondi, e `pause()` su Android non riprende in modo affidabile |
+| Obiettivo in minuti di lettura attiva, con 3 minuti di tolleranza senza interazioni | Vale per card, ascolto e ripasso. Le card dense si leggono a lungo senza toccare; contare le card spingerebbe a scorrere in fretta |
+| Streak giornaliera con un giorno libero a settimana | Premia la costanza senza far abbandonare dopo un'interruzione. Le frasi non parlano mai di serie perse |
+| Promemoria come evento nel calendario, per 30 giorni rinnovabili | Senza server non ci sono notifiche affidabili, soprattutto su iPhone. L'app non può cancellare l'evento, quindi la serie si spegne da sola se l'app non si usa più |
+| Nessun punto, livello o traguardo nella prima versione | Gamification leggera, per non spostare l'attenzione dal capire al fare punti |
 | Solo `index.html` nel precaricamento delle pagine | Precaricare `/404` o `/import` fa fallire l'installazione sugli host che non li servono |
 
 ## Repo

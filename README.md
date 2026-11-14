@@ -1,6 +1,6 @@
 # Bookpack
 
-Trasforma un PDF in un percorso di studio per il telefono. Ogni capitolo diventa una serie di card che spiegano il perché e il come, con domande durante la lettura, un riassunto finale, una mindmap e flashcard che tornano nel ripasso nei giorni successivi. Lo spazio cresce con la lunghezza del capitolo, e la forma si adatta al contenuto: i manuali tecnici hanno procedure passo per passo e comandi. Il progresso resta salvato e l'app funziona offline. Se preferisci, le card si possono anche ascoltare con le voci del telefono, nella lingua del libro.
+Trasforma un PDF in un percorso di studio per il telefono. Ogni capitolo diventa una serie di card che spiegano il perché e il come, con domande durante la lettura, un riassunto finale, una mindmap e flashcard che tornano nel ripasso nei giorni successivi. Lo spazio cresce con la lunghezza del capitolo, e la forma si adatta al contenuto: i manuali tecnici hanno procedure passo per passo e comandi. Il progresso resta salvato e l'app funziona offline. Se preferisci, le card si possono anche ascoltare con le voci del telefono, nella lingua del libro. Per farne un'abitudine c'è una routine di lettura: un obiettivo di pochi minuti al giorno, la streak, il calendario delle giornate e un promemoria nel calendario del telefono.
 
 <p>
   <img src="docs/screenshots/library.jpg" width="190" alt="Libreria con il pulsante Riprendi">

@@ -15,11 +15,12 @@ Controlli: `pnpm lint`, `pnpm typecheck`, `pnpm test`. Dopo un cambio di schema:
 
 | Route | Contenuto |
 |---|---|
-| `/` | Libreria, "Riprendi", stato vuoto con il libro d'esempio in italiano e in inglese |
+| `/` | Libreria, scheda Oggi, "Riprendi", stato vuoto con il libro d'esempio in italiano e in inglese |
 | `/import` | Da file o da URL (`?url=` lo precompila), con validazione e anteprima; nella scheda URL, i libri d'esempio |
 | `/book/[bookId]` | Percorso: panoramica, idee, tappe con stato, glossario |
 | `/book/[bookId]/ch/[chId]` | Sessione: card con domande, riassunto, mindmap, flashcard, completamento; ascolto facoltativo |
 | `/review` | Ripasso di oggi: le domande dovute di tutti i libri |
+| `/routine` | Routine di lettura: oggi, streak, calendario, obiettivo, orario, promemoria |
 | `/book/[bookId]/map` | Mindmap del libro; toccando un titolo si apre il capitolo |
 | `/settings` | Tema, dimensione del testo, ascolto, export e import, eliminazione, azzeramento |
 
@@ -51,6 +52,19 @@ Codice:
 - **`utils/speech.ts`**: lingue (`it_IT` vale `it-IT`), divisione in frasi con `Intl.Segmenter`, scelta e disponibilità delle voci: stessa regione, poi voci locali, poi voci migliorate, poi la predefinita.
 - **`utils/listening.ts`**: cosa si legge di card e riassunto. Solo testo del libro, codice escluso, pause tra i passi, 7 secondi per pensare dopo una domanda.
 
+## Routine di lettura
+
+Il PRD è il documento `doc-2` del backlog.
+
+- **Minuti di lettura attiva**: contano nella sessione di capitolo e nel ripasso, con la pagina visibile e un'interazione negli ultimi 3 minuti, oppure con l'ascolto in corso. Il contatore (`composables/useReadingTimer.ts`) salva ogni 30 secondi, quando la pagina si nasconde e all'uscita; un salto lungo dei timer in background non diventa tempo di lettura.
+- **Registro**: una riga per giorno nella tabella `activity`, con minuti, card in avanti, risposte e capitoli completati. Una giornata è riuscita quando i minuti raggiungono l'obiettivo del momento, 10 minuti finché l'utente non ne sceglie un altro, e resta riuscita anche se poi l'obiettivo cambia.
+- **La tua routine** (`/routine`): obiettivo di 5, 10, 15 o 20 minuti, orario e appiglio ("dopo il caffè", "in treno" o testo libero), salvati nell'impostazione `routine` con lettura e scrittura in una transazione, così due modifiche ravvicinate non si cancellano.
+- **Promemoria** (`utils/calendar.ts`): un evento ogni giorno all'orario della routine, lungo quanto l'obiettivo, con avviso all'inizio, per 30 giorni. Su iPhone e iPad è un file `.ics` (RFC 5545: CRLF, righe ripiegate a 75 byte, ora locale senza fuso, `RRULE:FREQ=DAILY;COUNT=30`); altrove un link a Google Calendar con la ricorrenza e il fuso del dispositivo. L'altra strada resta disponibile. Il link si apre nello stesso tocco, altrimenti il browser lo bloccherebbe. L'app ricorda scadenza e orario del promemoria: nell'ultima settimana propone il rinnovo, che parte dal giorno dopo la scadenza; se l'orario della routine cambia, avvisa di aggiungere il nuovo evento e cancellare il vecchio. L'app non può modificare né cancellare eventi già nel calendario: per questo la serie scade da sola.
+- **Streak** (`utils/routine.ts`): giornate riuscite di fila. In ogni settimana, da lunedì a domenica, un solo giorno saltato è il giorno libero: non interrompe la serie e non si conta. Oggi, finché non è finito, non la interrompe mai. Il record è la serie più lunga con la stessa regola.
+- **Scheda Oggi** (home, sopra Riprendi): anello con i minuti di oggi sull'obiettivo, streak e una frase: obiettivo raggiunto, minuti che mancano per allungare la serie, "Ricomincia oggi" dopo una pausa, mai "hai perso la serie". Senza routine scelta invita a sceglierla; con il promemoria in scadenza e letture recenti propone il rinnovo.
+- **Pagina Routine**: in cima oggi, giorni di fila, record e giorno libero della settimana; poi il calendario delle ultime 12 settimane, con l'intensità rispetto all'obiettivo e il dettaglio di un giorno al tocco.
+- **Festeggiamenti**: quando, leggendo, si raggiunge l'obiettivo del giorno compare "Obiettivo di oggi raggiunto" con i giorni di fila, una volta al giorno; la schermata di capitolo completato riporta minuti di oggi e streak.
+
 ## Ripasso
 
 Ogni risposta, data a una flashcard o a una domanda durante la lettura, fissa quando la domanda dovrà tornare. Si usano le scatole di Leitner (`app/utils/review.ts`): se la sapevi, sale di scatola e torna dopo 3, 7, 16 e poi 35 giorni; se non la sapevi, riparte dalla prima e torna domani. Si ragiona a giorni, quindi una domanda dovuta domani è pronta dal mattino.
@@ -66,11 +80,12 @@ books:    { id, pack, importedAt, updatedAt }
 progress: { bookId, currentChapterId, lastOpenedAt, chapters: Record<chapterId, ChapterProgress> }
 settings: { key, value }   // fontScale, theme, listenRate, listenVoices, listenShowButton
 reviews:  { key, bookId, itemId, box, dueAt, lastAt, lapses }
+activity: { day, seconds, cards, answers, chapters, met }   // una riga per giorno locale
 ```
 
 La logica pura sta in `app/utils/progress.ts` ed è coperta da test. Se un pack aggiornato perde capitoli, card o flashcard, il progresso relativo viene ignorato senza errori.
 
-**Export e import**: un JSON con `progress`, `settings` e `reviews`; i libri si reimportano dai pack. Fondendo vince il punto più avanzato di ogni capitolo, l'esito più recente di flashcard e ripassi e il completamento di una qualsiasi delle due parti. Sostituendo si cancella il progresso attuale. Gli export precedenti, senza ripassi, si importano ancora.
+**Export e import**: un JSON, versione 3, con `progress`, `settings`, `reviews` e `activity`; i libri si reimportano dai pack. Fondendo vince il punto più avanzato di ogni capitolo, l'esito più recente di flashcard e ripassi, il completamento di una qualsiasi delle due parti e, per ogni giorno del registro, il valore più alto di ogni campo. Sostituendo si cancella il progresso attuale. Gli export delle versioni 1 e 2, senza ripassi o senza registro, si importano ancora. **Azzera tutto** cancella anche il registro delle giornate.
 
 I dati restano solo nel browser: svuotando i dati del sito si perdono. Per conservarli conviene l'export.
 
