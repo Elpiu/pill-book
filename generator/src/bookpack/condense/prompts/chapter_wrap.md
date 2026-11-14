@@ -6,6 +6,7 @@ Write:
 - `takeaway`: at most 60 words answering "what do I take away from this chapter?".
 - `mindmap`: hierarchical markdown for a mind map: one `#` heading with the chapter topic, `##` headings for the main branches, `-` items below them. At most 4 levels of depth and about {{mindmap_nodes}} nodes. Node labels are a few words, not sentences.
 - `flashcards`: about {{flashcards}} questions to review this chapter in the coming days, between 3 and 15. Every question must be answerable from the cards below: never ask about anything they do not explain. Mix recall of what matters most with application ("what would you do if", "why"). No yes/no questions and no trivia. Answers are 1 to 2 sentences. Each has the `page` of the card it comes from.
+- `title`: the chapter title written in the same language as your `summary`. The original title is "{{chapter_title}}": if it is in a different language, translate it faithfully; keep it unchanged only if it is already in that language. Keep any numbering, add no quotes.
 
 <chapter_cards>
 {{cards}}

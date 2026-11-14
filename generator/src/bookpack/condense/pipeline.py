@@ -228,7 +228,8 @@ def build_pack(
         book = None
     if book is None:
         raise BuildIncomplete(runner.failures, finished, total)
-    overview, glossary = book
+    # Il titolo nella lingua del pack; l'id resta quello del titolo originale, così il progresso regge
+    translated, overview, glossary = book
 
     pack = BookPack(
         schemaVersion=SCHEMA_VERSION,
@@ -239,7 +240,7 @@ def build_pack(
         ),
         book=Book(
             id=book_id,
-            title=title,
+            title=translated,
             author=author,
             lang=output_lang,
             sourcePages=doc.page_count,

@@ -28,6 +28,8 @@ MIN_SUMMARY_WORDS = 120
 MAX_SUMMARY_WORDS = 500
 SUMMARY_LOW_SHARE = 0.4
 SUMMARY_HIGH_SHARE = 1.8
+# Un titolo tradotto più lungo di così non è un titolo: si chiede di nuovo
+MAX_TITLE_WORDS = 20
 PART_CARD_TYPES = {
     CardType.CONCEPT,
     CardType.DEFINITION,
@@ -67,6 +69,8 @@ class ChapterWrap(BaseModel):
     takeaway: str
     mindmap: str
     flashcards: list[FlashcardDraft]
+    # In fondo: il modello lo scrive quando ha già scritto il resto nella lingua del pack
+    title: str
 
 
 @dataclass
@@ -185,6 +189,7 @@ def _to_chapter(
     summary_target: int,
 ) -> Chapter:
     """Applica i vincoli al capitolo completo. Solleva ValueError per ottenere un nuovo tentativo."""
+    title = translated_title(wrap.title, section.title)
     low = SUMMARY_LOW_SHARE * summary_target
     high = SUMMARY_HIGH_SHARE * summary_target
     if not low <= word_count(wrap.summary) <= high:
@@ -200,7 +205,7 @@ def _to_chapter(
     chapter = Chapter(
         id=ident,
         index=index,
-        title=section.title,
+        title=title,
         pageStart=section.page_start,
         pageEnd=section.page_end,
         estMinutes=estimate_minutes(all_cards, flashcards, wrap.summary),
@@ -214,6 +219,18 @@ def _to_chapter(
     if not report.ok:
         raise ValueError("\n".join(f"- {error}" for error in report.errors))
     return chapter
+
+
+def translated_title(proposed: str, original: str) -> str:
+    """Il titolo nella lingua del pack. Vuoto, si tiene quello del PDF; troppo lungo, si ritenta."""
+    title = " ".join(proposed.split()).strip("\"'“”«»")
+    if not title:
+        return original
+    if word_count(title) > MAX_TITLE_WORDS:
+        raise ValueError(
+            f"- the title has {word_count(title)} words: return only the chapter title"
+        )
+    return title
 
 
 def _first_page(text: str, section: Section) -> int:

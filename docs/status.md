@@ -18,7 +18,7 @@ Aggiornato al 14 novembre 2026. Il formato attuale è la v2: vedi [decisions.md]
 
 ## Cosa è stato verificato
 
-**Controlli automatici**: 161 test del generatore, 87 del lettore, ruff, ESLint e `nuxt typecheck` verdi.
+**Controlli automatici**: 164 test del generatore, 87 del lettore, ruff, ESLint e `nuxt typecheck` verdi.
 
 **Modulo vocale** (TASK-8.1): con il sintetizzatore vero di Chromium, a volume zero, una coda di frasi e pause arriva alla fine; la pausa ferma davvero la voce e la ripresa riparte dalla frase interrotta. Una card vera del libro d'esempio, 8 frasi e pause, si legge fino in fondo in 56 secondi senza blocchi.
 
@@ -49,6 +49,7 @@ Aggiornato al 14 novembre 2026. Il formato attuale è la v2: vedi [decisions.md]
 
 - generazione reale di un capitolo di 76 pagine: pack valido, 8 chiamate, 5 parti, copertura di tutte le sottosezioni;
 - generazione reale del libro d'esempio: pack valido, 29 chiamate, citazioni trovate nel testo;
+- titoli tradotti (TASK-9): rigenerando il libro d'esempio, quello italiano ha titolo e dodici capitoli in italiano, quello inglese li mantiene; id invariati. Con la prima versione dell'istruzione due titoli su dodici e quello del libro restavano in inglese, quindi il titolo ora si chiede dopo il riassunto e nella sua stessa lingua;
 - generazione reale della versione inglese, con 4 chiamate insieme: pack valido, 27 chiamate con 2 ritentativi, 1 minuto e 40 secondi, $0,03; importata accanto a quella italiana come libro distinto;
 - generazione reale di 4 capitoli del libro d'esempio, con 1 e con 4 chiamate insieme: 125 e 66 secondi, pack validi, $0,02 ciascuna;
 - generazione di un libro intero in parallelo, Ctrl+C in un terminale vero e ripresa con `bookpack resume` (prova manuale, TASK-3, senza numeri registrati qui);

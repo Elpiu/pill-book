@@ -3,7 +3,7 @@
   "generator": {
     "version": "0.1.0",
     "model": "~deepseek/deepseek-flash-latest",
-    "generatedAt": "2026-11-14T20:24:48+00:00"
+    "generatedAt": "2026-11-14T21:20:19+00:00"
   },
   "book": {
     "id": "how-to-live-on-24-hours-a-day-en",
@@ -14,17 +14,16 @@
     "coverColor": "#be123c"
   },
   "overview": {
-    "summary": "Time is the scarcer resource: every day brings an equal, unearned twenty-four hours that cannot be stolen, borrowed against, or earned back, so the day must be examined and managed minute by minute. The restlessness people mistake for a shortage of time is really the desire to exceed one's obligatory programme, especially through literary knowledge. Living well on the day is very hard and has no secret method; it begins at once, modestly, with a protected ambition rather than an enthusiastic scheme. The practical remedy is to treat 6 p.m. to 10 a.m. as a day within a day, reclaim the sixteen hours around work, and stop letting time leak in small unguarded moments. Fatigue after office is a habit, so ninety minutes every other evening can be made sacred for mental cultivation without giving up tennis, friends, or relaxation. A workable programme respects human nature: six days, seven and a half hours, a humble start, and a generous evening window. The mind is then trained by concentration, applied to daily self-examination, enlarged by arts and a sense of cause and effect, and stretched by serious reading that limits scope and demands reflection. The final dangers are priggishness, worship of the programme, and rush; the way through is silence, elasticity, attempting less, and starting absurdly slowly but regularly.",
+    "summary": "The book argues that everyone receives exactly twenty-four hours each day, yet most people never budget this income even though it cannot be earned back. It begins by showing that time, unlike money, is distributed equally and cannot be repaired by borrowing or earning, so daily expenditure must be examined minute by minute. The unease many feel comes from wanting to do something beyond obligatory duties but never beginning; before starting, one must accept difficulty, begin at once, and start small. The central mistake is treating the paid job as the whole day and letting the sixteen hours outside it drain away; the remedy is to protect the morning train and ninety minutes every other evening for consecutive mental cultivation. The book then trains concentration and the reflective mood, extends cultivation to the arts and to perceiving cause and effect, and defines serious reading by the strain it imposes. It closes by warning against self-importance, rigidity, and rush, recommending a modest programme held lightly.",
     "keyIdeas": [
-      "Each day gives an equal, unearned twenty-four hours that cannot be earned back, so time must be budgeted minute by minute.",
-      "The desire to exceed one's obligatory programme, not a shortage of hours, is the source of restlessness.",
-      "The task is very hard and has no secret method: begin at once, start small, and prefer petty success to glorious failure.",
-      "Treat 6 p.m. to 10 a.m. as a day within a day and reclaim the sixteen hours outside work.",
-      "Evening fatigue is a habit; protect ninety minutes every other evening for mental cultivation while leaving other evenings free.",
-      "A programme lasts only if it respects human nature: six days, seven and a half hours, a humble start, and a wide evening window.",
-      "Train the mind to obey, apply it to reflective self-examination, turn arts and cause and effect into interest, and read seriously under strain."
+      "Everyone gets the same twenty-four hours daily; time is the one income that cannot be increased or repaid.",
+      "The trouble is not too few hours but an unstarted wish to do something beyond obligatory duties.",
+      "Treat the sixteen hours outside the job as a day within a day and protect a small, regular programme of mental cultivation.",
+      "The mind can be trained by concentration and then applied to daily self-examination.",
+      "Art, cause-and-effect, and serious reading supply material for cultivation, but only strain and reflection make it count.",
+      "Attempt less, start slowly, and hold the programme lightly to avoid priggishness, rigidity, and rush."
     ],
-    "mindmap": "# How to Live on Twenty-Four Hours a Day (English)\n## The Daily Miracle\n- Time is a daily allowance, not income.\n- Wasted minutes cannot be earned back.\n- Examine the day minute by minute.\n## The Desire To Exceed One's Programme\n- Restlessness is aspiration, not shortage.\n- Wanting Mecca differs from leaving Brixton.\n- The wish lies outside obligatory duties.\n## Precautions Before Beginning\n- The task is very hard.\n- There is no secret method; begin at once.\n- Start small and distrust ardour.\n## The Cause Of The Troubles\n- Work is treated as the whole day.\n- Claim 6 p.m. to 10 a.m. as a day within a day.\n- Time leaks in small unguarded moments.\n## Tennis And The Immortal Soul\n- Reclaim the morning train from newspapers.\n- Evening fatigue is a habit.\n- Protect ninety minutes every other evening.\n## Remember Human Nature\n- Keep the programme to six days.\n- Seven and a half hours is the small budget.\n- Start humbly and keep a wide evening window.\n## Controlling The Mind\n- The mind can be trained to obey.\n- Hold a subject on the walk to work.\n- Perseverance guarantees success.\n## The Reflective Mood\n- Concentration is a means, not an end.\n- Examine happiness, direction, reason, and conduct.\n- Happiness comes from conduct matching principle.\n## Interest In The Arts\n- Any art already enjoyed can become knowledge.\n- Read a primer for spectators.\n- Spend three short evenings a week for forty-eight weeks.\n## Nothing In Life Is Humdrum\n- See cause and effect everywhere.\n- Apply it to nature, the street, and your trade.\n- Study your own field ninety minutes every other evening.\n## Serious Reading\n- Cultivation is measured by strain.\n- Poetry comes first; novels do not strain.\n- Limit scope and reflect for forty-five minutes.\n## Dangers To Avoid\n- Do not become a prig.\n- Do not worship the programme.\n- Avoid rush; attempt less and start absurdly slowly."
+    "mindmap": "# How to Live on Twenty-Four Hours a Day (English)\n## The Daily Miracle\n- Twenty-four hours are issued equally each morning.\n- Time cannot be earned back or borrowed.\n- Daily expenditure must be examined minute by minute.\n## The Desire To Exceed One's Programme\n- Unease comes from an unstarted wish beyond duties.\n- Attempt matters more than success.\n- The outside wish is often the desire for knowledge.\n## Precautions Before Beginning\n- Accept that the task is hard.\n- Begin at once; every hour arrives fresh.\n- Start small to avoid burnt-out ardour.\n## The Cause Of The Troubles\n- Do not treat the ten-to-six job as the whole day.\n- The sixteen hours outside work belong to body, soul, and others.\n- Small intervals drain away unseen.\n## Tennis And The Immortal Soul\n- Reclaim the morning train from newspapers.\n- Fatigue is a habit; shape the evening and it disappears.\n- Guard ninety minutes every other evening for mental cultivation.\n## Remember Human Nature\n- Aim at seven and a half hours a week over six days.\n- Treat extra time as a windfall.\n- Begin humbly and judge after three months.\n## Controlling The Mind\n- The mind can be trained like a muscle.\n- Choose a subject when leaving the house and haul attention back.\n- Concentrate on something worth thinking about.\n## The Reflective Mood\n- Concentration is only preliminary.\n- Examine your happiness, direction, principles, and conduct.\n- Books can shape principles but cannot replace daily self-examination.\n## Interest In The Arts\n- Reject the false choice of literature or nothing.\n- Learn the art you already enjoy with a primer.\n- Select concerts and specialise after hunting for detail.\n## Nothing In Life Is Humdrum\n- Perceive that nothing happens without a cause.\n- Causation makes human behaviour and the world less monotonous.\n- Study your own trade's causes for zest.\n## Serious Reading\n- Mental cultivation depends on strain.\n- Poetry comes first; history or philosophy if poetry repels.\n- Confine the subject and give at least forty-five minutes of reflection.\n## Dangers To Avoid\n- Do not become a prig about your system.\n- Do not worship or neglect the programme.\n- Attempt less rather than rush."
   },
   "chapters": [
     {
@@ -34,8 +33,8 @@
       "pageStart": 8,
       "pageEnd": 10,
       "estMinutes": 6,
-      "tldr": "You are given a free, perfectly equal and unearned twenty-four hours each day, and because lost time can never be earned back, the day must be examined and managed minute by minute.",
-      "summary": "Newspapers are full of advice on how to live on a given income of money, yet never on how to live on a given income of time — although time is the more valuable of the two, since money can be earned with time but never buys back a minute. Every morning brings a fresh supply of twenty-four hours: unstealable, evenly shared, never cut off however badly it is wasted, and impossible to borrow against, since only the passing moment can be squandered. A shortfall of money can be met by earning more; a shortfall of time cannot be met at all, so failing to make the day cover your proper expenditure muddles your life permanently. Most people merely exist, with the great spending departments of their lives unmanaged. The remedy starts from the truth that we shall never have more time than we have now, and so turns to a minute examination of how the day is actually spent.\n\nWhat ties it together is the contrast itself: an abundant, renewable allowance, distributed with perfect equality, that is nevertheless cruelly restricted in total and unforgiving of waste — a combination that makes careful daily accounting the only possible response.",
+      "tldr": "Everyone is issued exactly twenty-four hours each morning, equally and without fail, yet nobody budgets them — and unlike money, a shortfall of time can never be made up.",
+      "summary": "Newspapers print endless advice on living on a given income of money, but never on living on a given income of time — even though time is worth more, since money can be earned with time while no wealth buys back a single minute. Time is the raw material of everything: with it all is possible, without it nothing.\n\nEvery morning the purse is refilled with twenty-four hours, distributed with perfect equality: genius gets no extra hour and waste is never cut off at the meter, nor can you borrow against tomorrow. That is the daily miracle. And because a shortfall of time, unlike a shortfall of money, cannot be repaired by earning, borrowing or asking, most people merely muddle through, their great spending departments unmanaged. Since we shall never have more time than we have now, daily expenditure of time must be examined minute by minute.",
       "cards": [
         {
           "id": "ch-01-c01",
@@ -71,27 +70,33 @@
         {
           "id": "ch-01-c05",
           "type": "takeaway",
-          "body": "You receive twenty-four hours every morning, equally and unfailingly, but you can neither borrow against tomorrow nor earn back a wasted minute. Since a shortage of time, unlike a shortage of money, has no remedy, the day has to be budgeted deliberately instead of muddled through."
+          "body": "You get twenty-four hours every morning, equally, unfailingly, and with no debt allowed against tomorrow. Unlike money, a shortfall of time can never be made up — so the only remedy is to stop muddling through and examine, minute by minute, where your daily expenditure of time actually goes."
         }
       ],
-      "mindmap": "# Living on Twenty-Four Hours a Day\n## The neglected subject\n- Advice on living on an income of money\n- No essay on living on an income of time\n- Time outranks money\n## The daily miracle\n- Purse refilled every morning\n- Twenty-four hours, unstealable and equal\n- No aristocracy of wealth or genius\n- No punishment, no meter cut off\n- Cannot draw on the future\n## Deficit that cannot be earned back\n- Money shortfall: earn, steal, advertise\n- Time shortfall: no remedy\n- Most people merely exist\n- Great spending departments unmanaged\n## The remedy\n- We shall never have more time than now\n- Begin with minute examination",
+      "mindmap": "# The Daily Miracle\n## Missing literature\n- Endless advice on money\n- No essay on budgeting time\n## Time versus money\n- Money can be earned with time\n- No wealth buys back a minute\n## The daily miracle\n- Twenty-four hours each morning\n- Equally distributed, never withheld\n- No punishment for waste\n- No drawing on the future\n## An irreparable deficit\n- Money shortfalls can be earned back\n- Time shortfalls cannot be fixed\n- Most people merely exist\n## The remedy\n- We shall never have more time\n- Examine daily time-expenditure",
       "flashcards": [
         {
           "id": "ch-01-f01",
-          "q": "Why does the chapter claim that \"time is money\" understates the case?",
-          "a": "Time is the raw material of everything: having time means you can usually obtain money, but no amount of wealth can buy back a single extra minute. The proverb understates it.",
+          "q": "Why is the proverb \"time is money\" an understatement rather than a fair description?",
+          "a": "Because if you have time you can usually obtain money, but all the wealth in the world cannot buy you one extra minute beyond what everyone else has.",
           "page": 8
         },
         {
           "id": "ch-01-f02",
-          "q": "What does the \"miracle\" of the twenty-four hours mean for borrowing against the future?",
-          "a": "You cannot draw on the future or borrow: only the passing moment can be wasted, while tomorrow and the next hour are kept in reserve for you.",
+          "q": "What makes the daily issue of twenty-four hours a \"miracle\"?",
+          "a": "It arrives fresh every morning, is distributed with perfect equality regardless of wealth or genius, is never withheld however badly it is wasted, and cannot be overdrawn against tomorrow.",
           "page": 9
         },
         {
           "id": "ch-01-f03",
-          "q": "If you run short of time the way others run short of money, why can't you make the same budget-balancing effort?",
-          "a": "You would carry on, muddling through rather than living; the deficit cannot be made up, and the great spending departments of your life stay unmanaged, like a fine suit crowned by a shameful hat.",
+          "q": "Why is falling short of time more serious than falling short of money?",
+          "a": "A money shortfall can be met by earning more, stealing or advertising for it; a time shortfall admits no equivalent move, so the life stays permanently muddled.",
+          "page": 10
+        },
+        {
+          "id": "ch-01-f04",
+          "q": "If your days feel too short for everything you ought to do, what first step does the chapter point to?",
+          "a": "Accept that you will never have any more time than the twenty-four hours you have now, and begin a minute practical examination of how you actually spend them.",
           "page": 10
         }
       ]
@@ -103,8 +108,8 @@
       "pageStart": 11,
       "pageEnd": 13,
       "estMinutes": 5,
-      "tldr": "The twenty-four hours are not too few; what troubles us is an aspiration to do something beyond our obligatory duties, which stays a torment as long as we desire it and never attempt it.",
-      "summary": "The complaint is mistaken for a shortage of time: the hours suffice for duties and pleasures, yet we are restless that the years pass while life stays out of order. That restlessness is aspiration — a skeleton at the feast, interrupting the theatre and the last train with questions about youth and age.\n\nWanting Mecca differs from leaving Brixton: the man who sets out may fail, yet suffers less than the one who never starts, because attempt outweighs success. Most people never even ask the price of the tour, excusing themselves with twenty-four hours.\n\nBehind this lies a fixed idea that something must be done beyond obligatory duties. Health, debts, saving and efficiency can all succeed and still leave the skeleton present, since the wish lies outside the programme: a desire for knowledge, usually literary in shape.",
+      "tldr": "The chapter's restlessness comes not from too few hours but from an unmet wish to do something beyond one's obligatory programme — and from never having even begun.",
+      "summary": "The chapter's complaint is not too few hours but a persistent unease that years slip by while life stays out of order — an aspiration that interrupts theatre laughter and the last-train wait with the question of what you have done with your youth.\n\nThe torment belongs to the man who desires Mecca and never leaves Brixton, not to one who sets out and may drown: attempt matters, not success. Most never ask the price of the tour, hiding behind twenty-four hours. Behind the unease is a fixed idea that something be done beyond obligatory duties; until effort is made, one waits for something unstarted, and duties met — health, debts, savings — leave the skeleton present. That outside wish, often literary, is the desire for knowledge.",
       "cards": [
         {
           "id": "ch-02-c01",
@@ -140,33 +145,33 @@
         {
           "id": "ch-02-c05",
           "type": "takeaway",
-          "body": "Time poverty is an excuse: people never leave Brixton and blame the length of the day. The lasting unease comes from a desire for something beyond obligatory duties, and making an effort toward it, not succeeding at it, is what changes your position."
+          "body": "The unease you feel is not a shortage of hours but an unsatisfied wish to do something beyond your duties. Success at duties will not silence it. The difference that matters is attempting, not arriving — so begin, instead of blaming the length of the day."
         }
       ],
-      "mindmap": "# The Desire To Exceed One's Programme\n## The Unease\n- Years slipping by\n- Life out of working order\n- Skeleton at the feast\n- Breaks into theatre and last train\n## Brixton and Mecca\n- Desire without departure\n- Attempt, not success\n- Tour price never asked\n## The Twenty-Four-Hour Excuse\n- Hides not starting\n## The Wish Beyond Duty\n- Something more than duties\n- Success leaves skeleton present\n- Desire for knowledge\n- Literary shape, not only well",
+      "mindmap": "# The Desire To Exceed One's Programme\n## The real complaint\n- Not too few hours\n- Years slipping by\n- Life out of working order\n- Skeleton at the feast\n## Looking forward\n- Expectation and aspiration\n- Part of life\n- Degrees of torment\n## Brixton and Mecca\n- Desiring versus setting out\n- Attempt, not success\n- Excuse of twenty-four hours\n## The wish beyond duty\n- Fixed idea of something more\n- Waiting for what has not started\n- Duties achieved, skeleton remains\n- Desire for knowledge, often literary",
       "flashcards": [
         {
           "id": "ch-02-f01",
-          "q": "Why does the man who never leaves Brixton suffer more than the man who sets out for Mecca and fails to arrive?",
-          "a": "Because the real difference is attempt, not success. The one who stays has desired Mecca without ever starting, while the other has at least begun the journey.",
-          "page": 12
+          "q": "What does the skeleton at the feast represent, and when does it appear?",
+          "a": "It represents the constant uneasiness that the years are slipping by while life remains out of working order. It interrupts laughter between theatre acts and questions what you have done with your youth and age while you wait for the last train.",
+          "page": 11
         },
         {
           "id": "ch-02-f02",
-          "q": "What work is the excuse of 'only twenty-four hours in the day' doing in this argument?",
-          "a": "It hides the fact that a person has not started at all. Most people have not left Brixton or even asked the price of the tour, and the shortage of hours covers that.",
+          "q": "Why is the man who desires Mecca and never leaves Brixton more tormented than the man who sets out and fails to arrive?",
+          "a": "Because the difference between them is attempt, not success. The one who never leaves has not even asked the price of the journey, and covers his inaction with the excuse of only twenty-four hours in the day.",
           "page": 12
         },
         {
           "id": "ch-02-f03",
-          "q": "Why does succeeding at health, paying debts, saving and efficiency leave the uneasiness still present?",
-          "a": "Because the unease comes from a fixed idea that something ought to be done beyond obligatory duties. The wish lies outside the programme, so success inside the programme cannot satisfy it.",
+          "q": "Why does succeeding at duties such as health, paying debts and saving not remove the unease?",
+          "a": "Because the unease springs from a fixed idea that something ought to be done in addition to the obligatory programme. Until an effort is made toward that wish, one is simply waiting for something that has not started.",
           "page": 13
         },
         {
           "id": "ch-02-f04",
-          "q": "If you feel the skeleton at the feast interrupting your pleasures, what would this chapter have you do?",
-          "a": "Make an effort toward the wish that lies outside your duties instead of waiting. Until that attempt is made, you keep waiting for something that has not started.",
+          "q": "If someone is efficient, solvent and comfortable yet still restless, what does this chapter suggest they should do?",
+          "a": "Make an effort toward the wish that lies outside their programme instead of waiting for it. The wish is a form of the desire for knowledge, often literary, though literature is not the only well.",
           "page": 13
         }
       ]
@@ -177,9 +182,9 @@
       "title": "Precautions Before Beginning",
       "pageStart": 14,
       "pageEnd": 16,
-      "estMinutes": 5,
-      "tldr": "Living well on twenty-four hours a day is extremely hard, has no secret method, and must begin at once with modest, protected ambitions rather than an enthusiastic scheme.",
-      "summary": "There is no clever system that lets you fit everything into a day. The first requirement is to accept, calmly, that the task is very hard: it will demand sacrifices, constant effort, and will still yield only a small result. Anyone looking for an easy, unfatiguing method should stop before starting; the will to face that discouragement is what distinguishes a person from a cat dozing by the fire.\n\nBeginning requires no technique — you simply begin, as one jumps into a cold bath, and there is no reason to wait, since time cannot be wasted in advance. Each hour arrives unspoilt and the supply is constant, so a new leaf can be turned at any hour. Expecting the water to be warmer next week is self-deception; it will be colder.\n\nFinally, distrust your own ardour: it escalates and then collapses. Start small, allow for accidents and human nature, and prefer a petty success to a glorious failure, since failure costs self-esteem and confidence and most people are ruined by attempting too much. Only then is the day's budget opened: seven hours for a livelihood, seven for sleep, eight still free.",
+      "estMinutes": 6,
+      "tldr": "Before reorganising your day, accept that the task is punishingly hard, start at once instead of waiting for a better moment, and begin with small aims so that ardour does not burn out.",
+      "summary": "The chapter insists that the difficulty be accepted before anything else begins. No method will fit everything a person wants into one day; the honest beginner should expect sacrifice, steady effort and small returns rather than a painless system, and anyone unwilling to face discouragement is told not to start at all.\n\nBeginning itself needs no technique: one simply begins, as one jumps into cold water, and nothing is gained by waiting for next week, since time cannot be squandered before it is used — every hour arrives fresh and unspoilt.\n\nThe last danger is ardour, which demands more and more and then dies. Start small, allow for accidents and human weakness, prefer a petty success to a glorious failure, because failure destroys confidence. Then the day's budget opens: seven hours of work, seven of sleep, eight unaccounted for.",
       "cards": [
         {
           "id": "ch-03-c01",
@@ -215,27 +220,33 @@
         {
           "id": "ch-03-c05",
           "type": "takeaway",
-          "body": "Accept that the task is hard and that no secret method exists. Begin now, since every hour arrives unspoilt. Start small and guard against ardour: a petty success beats a glorious failure, because failure drains the confidence you need to continue."
+          "body": "Expect the task to be hard and unglamorous, start today rather than waiting for a better moment, and begin with small aims: ardour inflates plans and then collapses, while a petty success builds the confidence a glorious failure destroys."
         }
       ],
-      "mindmap": "# Living on Twenty-Four Hours a Day\n## Facing the difficulty\n- No secret system\n- Hard, stony path\n- Small result for big effort\n- Give up if you need ease\n## Beginning\n- Just jump in\n- Today is unspoilt\n- Constant supply of time\n- New leaf every hour\n- Waiting is self-deception\n## Guarding against ardour\n- Ardour rises then dies\n- Undertake little at first\n- Allow for accidents\n- Petty success over glorious failure\n- Failure costs confidence\n## The day's budget\n- Seven hours livelihood\n- Seven hours sleep\n- Eight hours free",
+      "mindmap": "# Precautions Before Beginning\n## Accept the difficulty\n- No secret system\n- Sacrifice and endless effort\n- Never quite arrive\n- Will-bracing vs. dozing cat\n## Begin at once\n- No magic method\n- Jump into cold water\n- Time cannot be squandered ahead\n- Waiting is self-deception\n## Guard against ardour\n- Ardour demands more, then dies\n- Undertake little at first\n- Allow for accidents and human nature\n- Petty success over glorious failure\n## The day's budget\n- Seven hours livelihood, seven sleep\n- Eight hours unaccounted for",
       "flashcards": [
         {
           "id": "ch-03-f01",
-          "q": "Why is it useless to look for a clever method of organising your day before starting?",
-          "a": "Because no such system exists: the task is extremely hard and no timetable on paper will achieve the ideal. The first step is accepting that, not searching for an easier route.",
+          "q": "Someone wants a painless method that squeezes everything they want into a single day. What does the chapter tell them?",
+          "a": "That no such method exists: the first step is accepting the task as extremely hard, full of sacrifice and endless effort with no real arrival, and someone who cannot accept discouragement and a small result for a big effort should not begin.",
           "page": 14
         },
         {
           "id": "ch-03-f02",
-          "q": "Someone decides to reform their use of time but waits until next week because conditions will be better. What is wrong with that reasoning?",
-          "a": "Time cannot be wasted in advance: every hour arrives unspoilt and the supply is constant, so you can turn over a new leaf at any hour. The water will not be warmer next week; it will be colder.",
+          "q": "Why does the chapter see no point in waiting until next week to start?",
+          "a": "Because time cannot be wasted in advance — every hour arrives unspoilt, as perfect as if you had never misspent a moment, so you can turn over a new leaf at any hour; the water will be colder next week, not warmer.",
           "page": 15
         },
         {
           "id": "ch-03-f03",
-          "q": "Why is a petty success preferable to a glorious failure when you start reorganising your day?",
-          "a": "A glorious failure leads to nothing, while a petty success may lead to a success that is not petty. Failure also damages self-esteem and confidence, and most people are ruined by attempting too much.",
+          "q": "Why is a petty success worth more than a glorious failure?",
+          "a": "A failure matters mainly for the loss of self-esteem and confidence it leaves behind, and nothing fails like failure; most people are ruined by attempting too much, while a petty success may grow into one that is not petty.",
+          "page": 16
+        },
+        {
+          "id": "ch-03-f04",
+          "q": "How does the chapter finally divide up a day?",
+          "a": "Into roughly seven hours spent earning a livelihood, seven hours of sleep, and eight hours still unaccounted for.",
           "page": 16
         }
       ]
@@ -247,8 +258,8 @@
       "pageStart": 17,
       "pageEnd": 20,
       "estMinutes": 6,
-      "tldr": "Because we treat our working hours as the whole day and let the hours that are truly ours drain away in small unnoticed pieces, we must reclaim the sixteen hours from 6 p.m. to 10 a.m. as a day within a day.",
-      "summary": "The chapter reasons from a single concrete life — a London office worker on ten to six who travels fifty minutes each way — because there is no such thing as an average man, and because money makes no difference to the problem. That man inverts his own existence: he counts the office as the day and the sixteen hours surrounding it as mere prologue and epilogue, so two-thirds of his life is subordinated to the third he only wants to be done with. The remedy is to claim 6 p.m. to 10 a.m. as a day within a day, sixteen hours for body, soul and fellow men, and business loses nothing by it, since the mind is restored by change rather than rest. The real leak is elsewhere: time slips away in small, unguarded moments, and a man who would protest at a bad rate of exchange cheerfully loses five minutes twice a day.",
+      "tldr": "The trouble begins when a man treats his ten-to-six job as the whole day and lets the sixteen hours that are truly his own slip away unused.",
+      "summary": "The argument has to begin somewhere concrete, so it begins with one man: a London clerk on ten to six, travelling fifty minutes each way. Money is set aside entirely, because for this purpose the man on a pound a week stands level with the millionaire. Every case is special, and only a real life, not a statistical average, can be reasoned about.\n\nThe mistake that man makes is to put the job at the centre. He calls ten to six 'the day' and counts the hours on either side as prologue and epilogue, even though he begins work reluctantly, ends it gladly, and never runs at full power while at it. Two-thirds of his existence are thus made to serve one-third he merely wants to get through. The remedy is to see the stretch from six in the evening to ten in the morning as a day within a day, sixteen hours belonging to body, soul and other people. Nor is the employer the loser, since the mind is refreshed by change rather than rest. Yet even these hours drain away unseen: on the platform, in a mental coma, five minutes are lost twice daily, and a man would cry out if a sovereign were changed on such terms.",
       "cards": [
         {
           "id": "ch-04-c01",
@@ -284,33 +295,27 @@
         {
           "id": "ch-04-c05",
           "type": "takeaway",
-          "body": "Stop treating the working day as the whole day. The hours from 6 p.m. to 10 a.m. are yours — sixteen of them, for body, soul and other people — and business does not suffer, because the mind wants change, not rest. Guard them from the small daily leaks."
+          "body": "Do not let a job you only want to get through sit at the centre of your life. The sixteen hours from six in the evening to ten in the morning are your own real day. And watch the small daily losses, like five idle minutes twice at the station, which are time spent at a shocking rate of exchange."
         }
       ],
-      "mindmap": "# The Cause of the Troubles\n## One concrete case\n- No average man\n- London clerk, ten to six\n- Fifty minutes each way\n## The mistaken day\n- Ten to six as \"the day\"\n- Own hours as margin\n- Two-thirds subservient to one-third\n## A day within a day\n- 6 p.m. to 10 a.m.\n- Sixteen hours for body, soul, fellows\n- Mind wants change, not rest\n## Time stolen in small amounts\n- Mental coma at the door\n- Five minutes twice daily\n- Sovereign of time changed at a loss",
+      "mindmap": "# The Cause Of The Troubles\n## Start from one real case\n- No such thing as the average man\n- London clerk, ten to six, fifty minutes each way\n- Money set aside: pound a week or millionaire\n- Every case is special\n## The job wrongly at the centre\n- Ten to six mistaken for 'the day'\n- Own hours treated as prologue and epilogue\n- Work begun late, dropped early, never full power\n- Two-thirds serving the one-third\n## The day within a day\n- Six in the evening to ten in the morning\n- Sixteen hours for body, soul, fellow men\n- Not a wage-earner there\n- Mind wants change, not rest\n## Small daily leakage\n- Mental coma from door to station\n- Five minutes lost twice a day\n- A sovereign of time changed badly",
       "flashcards": [
         {
           "id": "ch-04-f01",
-          "q": "Why does the argument follow one London clerk instead of an average man?",
-          "a": "Because there is no average man and no average case; every case is special, so reasoning has to start from one concrete life. The clerk on ten to six with fifty minutes of travel is chosen only because he comes as near the average as facts permit, and money is set aside because it makes no difference here.",
+          "q": "Why does the chapter refuse to argue from an 'average man' and choose a London clerk instead?",
+          "a": "Because there is no average man and every case is special, so the reasoning must follow one concrete life. The clerk on ten to six with fifty minutes' travel is chosen only because he comes as near the average as facts allow.",
           "page": 17
         },
         {
           "id": "ch-04-f02",
-          "q": "What does it mean to build a \"day within a day\", and what mistake does it correct?",
-          "a": "It means treating 6 p.m. to 10 a.m. as sixteen hours that belong to body, soul and fellow men, in which one is not a wage-earner. It corrects the habit of taking the office day as the whole day and counting one's own hours as mere margin around it.",
+          "q": "A man says his job is the real day and the hours around it are margin. What is wrong with that, and what should replace it?",
+          "a": "He is making two-thirds of his existence serve a third he only wants to get through, and giving it full power at neither end. He should treat 6 p.m. to 10 a.m. as a day within a day, sixteen hours that are truly his own.",
           "page": 18
         },
         {
           "id": "ch-04-f03",
-          "q": "Why does claiming the sixteen hours not damage a man's business?",
-          "a": "Because mental faculties do not tire like an arm or a leg: what they need is change, not rest, except in sleep. Using the hours outside business differently therefore leaves the working faculties refreshed rather than drained.",
-          "page": 18
-        },
-        {
-          "id": "ch-04-f04",
-          "q": "A commuter loses five minutes twice a day without noticing. How does the sovereign comparison expose what he is doing?",
-          "a": "He has a sovereign of time to spend each day, and losing five minutes twice a day is like paying three halfpence to get change for that sovereign — a rate he would loudly object to. He tolerates it only because he thinks so little of time that easy precautions never occur to him.",
+          "q": "What does the loss of five minutes twice a day at the station illustrate?",
+          "a": "That a man values his time so little he takes no easy precaution against losing it. Losing five minutes twice daily is like paying three halfpence to change a sovereign, a rate he would protest at immediately.",
           "page": 19
         }
       ]
@@ -322,8 +327,8 @@
       "pageStart": 21,
       "pageEnd": 24,
       "estMinutes": 6,
-      "tldr": "The evening tiredness that keeps you from self-improvement is a habit, not a fact, and you can reclaim it by protecting a sacred ninety minutes every other evening for mental cultivation, without giving up tennis, friends or relaxation.",
-      "summary": "The chapter attacks two places where time silently disappears. The morning train, it argues, should not be spent on newspapers, which are designed for rapid reading in odd moments; those thirty or forty minutes of rare solitude are worth reclaiming for oneself. The objection is not to newspapers but to handing them a secure block of time that could be put to better use.\n\nThe same logic applies to the evening. The fatigue felt after office is not a fixed fact: when a theatre visit or a weekly chorus imposes a definite engagement, tiredness is forgotten and the evening seems long and full of vitality. So the reader should admit at six o'clock that the tiredness is a habit, arrange the evening so a meal does not cut it in two, and protect at least three clear hours. Of these, ninety minutes every other evening go to consecutive mental cultivation, treated as sacred as a rehearsal or a tennis match; the other evenings stay free for friends, bridge, tennis and reading, with the weekend still offering forty-five hours.",
+      "tldr": "The tiredness that supposedly rules out evening effort is a habit, so protect your best time — the morning train and a sacred ninety minutes every other evening — for consecutive cultivation of the mind.",
+      "summary": "The chapter starts by clearing away two excuses: the wrong use of time and the wrong belief about tiredness. The morning train, thirty or forty minutes of rare solitude, is too often handed over to newspapers, which are built for rapid reading in odd moments; reclaiming that time returns roughly three-quarters of an hour.\n\nThe second excuse is fatigue. It is not a fixed fact: when a theatre visit or a weekly chorus gives the evening a definite shape, the tiredness is forgotten and the evening feels long and energised. So at six o'clock you should admit you are not tired, arrange the evening so no meal cuts it in two, and secure three clear hours. From these, ninety minutes every other evening go to consecutive mental cultivation, while the other evenings stay free for friends, tennis, reading and pleasure. Those ninety minutes must be guarded as strictly as a rehearsal or a match.",
       "cards": [
         {
           "id": "ch-05-c01",
@@ -368,39 +373,33 @@
         {
           "id": "ch-05-c05",
           "type": "takeaway",
-          "body": "Stop treating evening fatigue as a fact: it is a habit. Treat ninety minutes every other evening as unbreakable as a tennis match and say \"I have to work\" — the rest of the evening stays free for pleasure, and the morning train stops being newspaper time."
+          "body": "Fatigue after work is a habit, not a limit. Claim the morning train instead of the newspapers, and reserve ninety minutes every other evening for continuous mental work — defended as firmly as a tennis match, with the honest answer \"I have to work\"."
         }
       ],
-      "mindmap": "# Reclaiming Time for the Mind\n\n## Morning train\n- Not for newspapers\n- Newspapers suit odd moments\n- Reclaim ~45 minutes of solitude\n- Objection is to secure blocks, not papers\n\n## Evening fatigue\n- Tiredness is habit, not fact\n- Definite engagements erase fatigue\n- Theatre and chorus examples\n- Engagement gives the day a glow\n\n## The sacred ninety minutes\n- Admit at six you are not tired\n- No meal splitting the evening\n- Three clear hours gained\n- 90 minutes every other evening\n- Sacred as a rehearsal or match\n- Say \"I have to work\"\n\n## What stays free\n- Friends, bridge, tennis, reading\n- Weekend holds 45 hours",
+      "mindmap": "# Tennis and the Immortal Soul\n## The morning train\n- Newspapers are for odd moments\n- Thirty–forty minutes of solitude lost\n- Reclaim three-quarters of an hour\n## Fatigue is a habit\n- Theatre engagement erases tiredness\n- Chorus gives the day a glow\n- Definite plans employ all energy\n## The sacred ninety minutes\n- At six, admit you are not tired\n- No meal splits the evening\n- Ninety minutes every other evening\n- Consecutive mental cultivation\n## Keeping the balance\n- Remaining evenings free for pleasures\n- As sacred as a rehearsal\n- Say \"I have to work\"",
       "flashcards": [
         {
           "id": "ch-05-f01",
-          "q": "Why does the chapter object to reading newspapers on the morning train, if it has nothing against newspapers as such?",
-          "a": "Newspapers are made to be read rapidly and suit odd moments, so giving them thirty or forty consecutive minutes of rare solitude wastes time that could be reserved for something else.",
+          "q": "Why does the chapter object to reading newspapers on the morning train?",
+          "a": "Newspapers are made to be read rapidly and belong in odd moments. Spending thirty or forty consecutive minutes of rare solitude on them, and even lingering over advertisements, throws away about three-quarters of an hour that could be used for something else.",
           "page": 21
         },
         {
           "id": "ch-05-f02",
-          "q": "What evidence does the chapter give that post-office fatigue is not a fixed fact?",
-          "a": "A definite engagement such as a theatre trip or a weekly operatic chorus makes the tiredness disappear, stretches the evening out, and leaves you with more intense vitality.",
+          "q": "What does the theatre trip and the weekly chorus show about feeling tired after the office?",
+          "a": "That the fatigue is not a fixed fact: a definite evening engagement makes it disappear, the evening feels long, and the whole day gains a glow and more intense vitality.",
           "page": 22
         },
         {
           "id": "ch-05-f03",
-          "q": "What arrangement does the chapter propose for the evening, and how much of it is reserved for mental cultivation?",
-          "a": "Admit at six that you are not tired, arrange the evening so no meal splits it in two, secure at least three clear hours, and give ninety minutes every other evening to consecutive mental cultivation.",
+          "q": "How should the ninety minutes of mental cultivation be set up and defended?",
+          "a": "At six o'clock admit you are not tired and arrange the evening so no meal splits it, giving three clear hours; then take ninety minutes every other evening and treat them as sacred as a dramatic rehearsal or a tennis match.",
           "page": 23
         },
         {
           "id": "ch-05-f04",
-          "q": "How seriously should the ninety reserved minutes be treated, and how do you defend them?",
-          "a": "As sacred as a dramatic rehearsal or a tennis match, saying \"I have to work\" instead of letting tennis or another pleasure serve as the excuse.",
-          "page": 23
-        },
-        {
-          "id": "ch-05-f05",
-          "q": "What would you do if a friend invites you to play tennis on one of your reserved evenings?",
-          "a": "Decline and use the same firm formula you would use for the cultivation time, saying \"I have to work\" — the other evenings remain free for tennis and friends.",
+          "q": "A friend invites you to play tennis on one of your cultivation evenings. What does the chapter tell you to answer?",
+          "a": "Say \"I have to work\" instead of using tennis as the excuse, because the ninety minutes must be as fixed an engagement as a rehearsal or a match.",
           "page": 23
         }
       ]
@@ -412,8 +411,8 @@
       "pageStart": 25,
       "pageEnd": 27,
       "estMinutes": 6,
-      "tldr": "A workable programme respects human nature: keep it to six days and seven and a half hours, start humbly, and protect a generous evening window so accidents and habit cannot wreck it.",
-      "summary": "The plan is deliberately kept to six days a week, because a recurring idle day has a moral value that only people who have worked seven days at full stretch can appreciate; extra effort should be a windfall, so you can drop back to six days without feeling poorer. The budget itself is small: half an hour on six mornings and ninety minutes on three evenings make seven and a half hours, which sounds negligible out of a hundred and sixty-eight, yet fully used it quickens the whole week, as ten minutes of exercise morning and evening shows in every hour of the day. Even this much is hard to clear, since those hours are already occupied and replacing them means changing habits, and change brings discomfort. Because a failure would be almost disastrous and self-respect is the root of purposefulness, start humbly. Protect a generous evening window rather than the bare task, so accidents and human nature cannot break the programme.\n\nThe chapter ends where it began: trust human nature rather than fight it. A programme built on six days, seven and a half hours, a humble start and a wide evening window survives real life. The small, protected budget is what makes the resolution last.",
+      "tldr": "Aim at only seven and a half hours a week over six days, treat any extra as a windfall, and start humbly enough that the change of habits cannot fail.",
+      "summary": "The programme belongs to six days, not seven: a regular day of idleness has real moral worth, and any time added beyond that should be counted as a windfall, so that returning to six days never feels like a loss. What is aimed at is small — half an hour on six mornings and ninety minutes on three evenings, seven and a half hours a week. Against a hundred and sixty-eight hours that looks negligible, yet, like brief daily exercise, it enlivens the whole week, and more time would only give more. Clearing even this much is hard, because the hours are already occupied and habits resist change, and a failed plan wounds the self-respect that purposefulness rests on. So begin humbly and quietly, judge yourself only after three months, and in the evening protect a window far longer than the task.",
       "cards": [
         {
           "id": "ch-06-c01",
@@ -462,27 +461,33 @@
         {
           "id": "ch-06-c06",
           "type": "takeaway",
-          "body": "Start small and protect the margins: six days a week, seven and a half hours, a quiet beginning, and an evening window wider than the task. Those hours are already spent and habits are hard to change, so budget for accidents and human weakness — a failed plan wounds the self-respect every purpose depends on."
+          "body": "Aim small: seven and a half hours a week, spread over six days, with the seventh free. Treat any extra time as a windfall. Expect clearing those hours to cost you old habits, so start so quietly that failure is unlikely, and give each evening session a window much longer than the work itself."
         }
       ],
-      "mindmap": "# Remember Human Nature\n\n## Six days, not seven\n- One idle day has moral value\n- Extension only in proportion to real desire\n- Extra time as windfall, not income\n- Windfall keeps return to six days painless\n\n## The small weekly budget\n- Half an hour, six mornings\n- Ninety minutes, three evenings\n- Seven and a half hours total\n- Small but quickens the whole week\n- Like brief daily exercise\n\n## Why clearing time hurts\n- The hours are already spent\n- Doing otherwise means changing habits\n- Habits are very hard to change\n- All change brings discomfort\n\n## Starting humbly\n- Failure is nearly disastrous\n- Self-respect underlies purposefulness\n- A planned failure wounds it\n- Wait three conscientious months\n\n## Budgeting the evening\n- Allow more time than the task needs\n- Ninety minutes inside 9 to 11.30\n- Protect the window, not the task\n- Margin absorbs accidents and resistance",
+      "mindmap": "# Remember Human Nature\n\n## Six days, not seven\n- A day of idleness has moral value\n- Extra time as windfall, not income\n\n## Seven and a half hours\n- Half an hour on six mornings\n- Ninety minutes on three evenings\n- The exercise analogy\n- Quickens the whole week\n\n## Clearing the time\n- The hours are already spent\n- Habits are hard to change\n- Self-respect at the root\n- Three months before judging\n\n## The evening window\n- Window larger than the task\n- 9 to 11.30 for ninety minutes",
       "flashcards": [
         {
           "id": "ch-06-f01",
-          "q": "Why can seven and a half hours a week be enough to start a mental programme?",
-          "a": "Seven and a half hours — half an hour on six mornings plus ninety minutes on three evenings. It looks tiny against a 168-hour week, but the claim is that using it fully quickens the whole week, the way brief daily exercise affects every hour of the day.",
-          "page": 26
+          "q": "Why keep the programme to six days a week instead of seven?",
+          "a": "Because a recurring day of idleness has a real moral value, and treating any extra time as a windfall rather than regular income means you can drop back to six days without feeling like a backslider.",
+          "page": 25
         },
         {
           "id": "ch-06-f02",
-          "q": "What makes clearing even seven and a half hours out of a week difficult?",
-          "a": "Because the time is already occupied by something, so doing something else demands a change of habits, which are very hard to change. You cannot give those hours to continuous effort and still keep living exactly as before.",
-          "page": 27
+          "q": "Seven and a half hours is nothing against a hundred and sixty-eight — why is it still worth aiming at?",
+          "a": "Like ten minutes of exercise morning and evening that affects every hour of the day, an average of just over an hour a day on the mind quickens the whole week and adds zest even to banal occupations. More time would give more, but the start is deliberately small.",
+          "page": 26
         },
         {
           "id": "ch-06-f03",
-          "q": "When you schedule an evening session of ninety minutes, how should you arrange the clock time, and why?",
-          "a": "You protect the whole window, not just the task: a ninety-minute task gets a slot from 9 to 11.30. The extra margin absorbs accidents, interruptions and human resistance so the session can still happen.",
+          "q": "You plan ninety minutes of serious work on Tuesday evening. How should you schedule it?",
+          "a": "Give the ninety-minute task a far larger window, such as 9 to 11.30, so a late start or an interruption cannot destroy the session; protect the window, not just the task.",
+          "page": 27
+        },
+        {
+          "id": "ch-06-f04",
+          "q": "Why start quietly and modestly rather than with an ambitious plan?",
+          "a": "Because failure here is almost disastrous and self-respect is at the root of all purposefulness, so a planned failure wounds it desperately. Prove yourself over three conscientious months before expecting wonders.",
           "page": 27
         }
       ]
@@ -493,9 +498,9 @@
       "title": "Controlling The Mind",
       "pageStart": 28,
       "pageEnd": 30,
-      "estMinutes": 6,
-      "tldr": "Because everything we feel happens inside the brain, learning to give the mind a task and make it obey is the first requirement of a full life — and it is trained by a daily walk-to-work concentration exercise on a worthwhile subject.",
-      "summary": "All that we enjoy or suffer takes place in the brain, which makes the power to command our own thinking the most valuable skill available to us. It is not a fixed gift handed out at birth: anyone who chooses to can train the thinking machine, and without that power genuine life is impossible. So the mind deserves the daily drilling we already give the far more delicate matter of the body — and it needs no equipment at all.\n\nThe training itself is simple. Leaving the house, you pick a subject and hold the mind to it; each time it slips away you haul it back, perhaps forty times before the station, and you keep doing this in the street, on the platform or hanging on a strap in the Underground, unseen and unnoticed. Perseverance alone guarantees success. Since the discipline is what counts, the subject should be worth thinking about: a short chapter of Marcus Aurelius or Epictetus read the night before serves well, being plain common sense for ordinary people. Beyond a trained mind, the practice is said to cure worry, a shameful and avoidable disease.",
+      "estMinutes": 7,
+      "tldr": "The mind can and must be trained like a muscle: choose a subject when you leave the house, haul your attention back every time it strays, and concentrate on something worth thinking about, since this discipline is the first requirement of a full life.",
+      "summary": "Everything a person feels, enjoys or suffers happens inside the brain, so the power to give that brain a task and make it obey is the most valuable skill there is. It is not a fixed gift handed out at birth: people who say they cannot concentrate are wrong, because the thinking machine can be controlled if you decide to control it, and without that control real living is impossible. The mind therefore deserves the daily fuss we already give the far coarser machinery of the body — and it needs no equipment at all.\n\nThe training itself happens on the way to work. Pick a subject as you leave the house and keep it there; the mind will bolt within yards, and the work is to drag it back each time, perhaps forty times before the station. No book or apparatus is required, so it can be done in the street or on the train without anyone noticing. Since the discipline is what counts, the subject should be worth the effort: a short chapter of Marcus Aurelius or Epictetus read in the evening, held in the mind the next morning — plain sense for ordinary people, and a cure for worry.",
       "cards": [
         {
           "id": "ch-07-c01",
@@ -538,27 +543,33 @@
         {
           "id": "ch-07-c05",
           "type": "takeaway",
-          "body": "Train the mind the way you would train the body, and start today: choose a subject on leaving the house, drag your attention back every time it wanders — forty times is normal — and keep at it daily. Pick something worth the effort, and expect a trained mind and less worry in return."
+          "body": "Concentration is a trainable skill, not a birthright, and nothing else in life works without it. Practise daily on the way to work: hold one chosen subject and bring the mind back every time it wanders, forty times if need be. Make the subject worth thinking about."
         }
       ],
-      "mindmap": "# Controlling the Mind\n## Why mind control matters\n- Everything happens in the brain\n- The most valuable skill\n- Acquirable, not inherited\n- Without it, no true life\n## Daily exercise\n- Choose a subject on leaving\n- Bring the mind back each time\n- About forty recaptures\n- Anywhere: street, platform, train\n- No tools, no book, unseen\n- Perseverance is the only secret\n## Choosing a subject\n- Pick something useful\n- Marcus Aurelius or Epictetus\n- Short chapters, plain sense\n## Reward\n- A trained mind\n- Cure for worry",
+      "mindmap": "# Controlling the Mind\n## Why it matters\n- All experience happens in the brain\n- Control can be acquired\n- First element of a full life\n## The daily exercise\n- Pick a subject at the door\n- Drag the mind back\n- About forty recaptures\n- Street, platform, train\n- No tools, no book\n- Perseverance the only secret\n## Choosing the subject\n- Choose something useful\n- Marcus Aurelius or Epictetus\n- Short chapter tonight, focus tomorrow\n## The reward\n- A trained mind\n- Worry cured",
       "flashcards": [
         {
           "id": "ch-07-f01",
-          "q": "Why does the text call mind control the first element of a full existence?",
-          "a": "Because everything we feel, enjoy or suffer happens inside the brain, so without the power to give the mind a task and ensure it obeys, true life is impossible.",
+          "q": "Why is the power to control the mind called the first element of a full existence?",
+          "a": "Because everything we feel, enjoy or suffer takes place inside the brain, so being able to give the brain a task and ensure its obedience is what makes true life possible. It is treated as an acquirable skill, not a fixed gift, even though people complain they simply lack it.",
           "page": 28
         },
         {
           "id": "ch-07-f02",
-          "q": "You are on the platform waiting for your train and want to do the concentration exercise. What exactly do you do, and how many recaptures should you expect?",
-          "a": "Hold your chosen subject in mind and bring it back at once every time it wanders; expect roughly forty recaptures before reaching the station, and do not despair at the number.",
+          "q": "Describe exactly what you do during the concentration exercise on the way to work.",
+          "a": "On leaving the house you choose a subject and concentrate on it; the moment the mind skips away you bring it back at once, expecting roughly forty recaptures before reaching the station. You repeat this every day, wherever you are, and perseverance is the only secret.",
           "page": 29
         },
         {
           "id": "ch-07-f03",
-          "q": "Why does the text recommend reading a short chapter of Marcus Aurelius or Epictetus the evening before the exercise?",
-          "a": "Because the disciplining of the mind is what counts, so the subject should be worth thinking about — those chapters are short and full of plain common sense for ordinary daily life.",
+          "q": "Why can this exercise be done in the street or on a crowded train when other training cannot?",
+          "a": "It needs no tools and no book — not even an encyclopaedia or dumb-bells — so nobody can see what you are doing and nobody can laugh at you. The whole apparatus is your own attention.",
+          "page": 29
+        },
+        {
+          "id": "ch-07-f04",
+          "q": "Why does it matter which subject you concentrate on, and what is recommended?",
+          "a": "The disciplining of the thinking machine is what counts whichever subject you use, so a useful one costs nothing extra: read a short chapter of Marcus Aurelius or Epictetus in the evening and concentrate on it the next morning. Such chapters are short and full of plain common sense for ordinary people, and the practice is said to cure half the evils of life, especially worry.",
           "page": 30
         }
       ]
@@ -570,8 +581,8 @@
       "pageStart": 31,
       "pageEnd": 34,
       "estMinutes": 7,
-      "tldr": "Concentration is only the preliminary skill; the real work is a daily reflective examination of oneself — one's happiness, direction, reason and the fit between principles and conduct — because happiness comes from that fit and nothing, not even good books, can do the examining for you.",
-      "summary": "The chapter turns concentration into a means rather than an end. Once the mind has learned to obey, it must be applied to a long course of study whose subject is the student: \"Man, know thyself.\" This is not literature, art, history or science, and what most well-meaning people lack is the reflective mood — thought about their own happiness, the direction they are heading, how much reason actually governs them, and whether their conduct matches their principles.\n\nHappiness, the chapter argues, does not come from pleasure but from reason developed and conduct adjusted to principle; even martyrs are happy because the two agree, and the content of the principle matters less than the agreement. Since adjustment only happens through daily examination, skipping it means neglecting the one act the goal requires. A bookshelf of Marcus Aurelius or Epictetus shapes principles but cannot look at you; the evening journey home is proposed for that disconcerting, indispensable self-scrutiny.",
+      "tldr": "Concentration is only the preliminary skill; the real daily work is the reflective mood — candid self-examination of your happiness, direction, reason, principles and conduct, for which no book is a substitute.",
+      "summary": "Concentration is merely the preliminary, like practising scales on a piano; once the mind obeys, it must be applied to a prolonged study whose subject is oneself. Sensible people of every age agree that this course is not literature, art, history or science but \"Man, know thyself\" — universally praised, rarely practised. What the well-intentioned person most lacks is the reflective mood: thought about his own happiness, the direction he is taking, the share reason has in his actions, and whether his conduct matches his principles.\n\nHappiness, moreover, does not come from pleasure but from reason developed and conduct adjusted to principles, and that adjustment happens only through daily examination and resolution. The specific principles matter less than the agreement between them and one's deeds: martyrs are happy because the two coincide, while burglars are sorrowful because their principles contradict their trade. Books by Marcus Aurelius, Epictetus, Pascal, La Bruyère and Emerson can shape principles, but nothing replaces an honest daily look at oneself — best taken in the solitude of the evening journey home.",
       "cards": [
         {
           "id": "ch-08-c01",
@@ -615,39 +626,33 @@
         {
           "id": "ch-08-c06",
           "type": "takeaway",
-          "body": "Concentration is just the warm-up: the real study is yourself. Set aside some hour each day to ask whether your conduct matches your principles, since that match, not pleasure, is where happiness comes from — and no book can perform that examination in your place."
+          "body": "Train concentration only as a means; then spend part of every day examining yourself — your happiness, your direction, how much reason rules you, and whether your conduct matches your principles. Happiness depends on that fit, and no book can do the examining for you."
         }
       ],
-      "mindmap": "# The Reflective Mood\n## Self-knowledge as the course\n- Concentration is only preliminary\n- The subject studied is oneself\n- \"Man, know thyself\"\n## What to reflect on\n- One's own happiness\n- The direction of life\n- Reason versus instinct\n- Principles versus conduct\n## Happiness through conduct\n- Not from pleasure\n- Adjusted by daily examination\n- Martyrs: conduct agrees with principle\n## Books and self-examination\n- Marcus Aurelius and others\n- Reading cannot replace self-scrutiny\n- The evening journey home\n- Some hour every day",
+      "mindmap": "# The Reflective Mood\n## Concentration as preliminary\n- Like piano scales\n- Mind must first learn obedience\n## The true course of study\n- Subject: oneself\n- \"Man, know thyself\"\n- Not literature, art, history, science\n- Praised but rarely practised\n## What reflection covers\n- One's own happiness\n- Main direction of life\n- Share of reason in actions\n- Principles versus conduct\n## Why it matters\n- Happiness from conduct matching principles\n- Not from pleasure\n- Martyrs happy, burglars sorrowful\n- Neglect leaves the one necessary act undone\n## Reason consulted\n- Over-cooked steak example\n- Waiter not at fault\n- Anger gains nothing\n- Calm, kindly insistence\n## Books and practice\n- Marcus Aurelius, Epictetus, Pascal, La Bruyère, Emerson\n- No substitute for self-examination\n- Evening journey home\n- Some hour of the day, without fail",
       "flashcards": [
         {
           "id": "ch-08-f01",
-          "q": "What does the chapter say most well-intentioned people lack, and what four things should reflection cover?",
-          "a": "They lack the reflective mood. It covers reflection on one's own happiness, on the main direction one is going, on the share reason has in determining one's actions, and on the relation between one's principles and one's conduct.",
+          "q": "Why is concentration described as only a preliminary, like scales on the piano?",
+          "a": "Because it is just the training that teaches the mind to obey; once that is achieved, the mind must be put to work on the real course of study, whose subject is oneself.",
           "page": 31
         },
         {
           "id": "ch-08-f02",
-          "q": "Why does the chapter claim that skipping daily reflection means leaving undone the one act necessary to happiness?",
-          "a": "Because happiness comes from the development of reason and the adjustment of conduct to principles, and conduct only adjusts through daily examination, reflection and resolution. To want the result while giving no part of the day to considering reason, principles and conduct is to omit the very act that produces it.",
+          "q": "According to the chapter, what actually produces happiness, and why does that make daily reflection necessary?",
+          "a": "Happiness comes from reason developed and conduct adjusted to principles, not from physical or mental pleasure. Since conduct only adjusts through daily examination, reflection and resolution, skipping it means leaving undone the one act the goal depends on.",
           "page": 32
         },
         {
           "id": "ch-08-f03",
-          "q": "In the over-cooked steak example, what does consulting reason reveal, and what is the practical outcome?",
-          "a": "Reason shows that the waiter did not cook the steak, that anger changes nothing, and that it costs you your dignity, makes you look foolish and sours the waiter while the steak stays the same. The outcome is to stay calm and kindly, treat him as a fellow-creature and politely insist on a fresh steak.",
+          "q": "What does reason show you when you are angry about an over-cooked steak, and what should you do instead?",
+          "a": "That the waiter did not cook the steak and that anger changes nothing — it only costs you dignity and sours him while the steak stays the same. Stay calm and kindly, treat him as a fellow-creature, and politely insist on a fresh steak.",
           "page": 33
         },
         {
           "id": "ch-08-f04",
-          "q": "Books like Marcus Aurelius and Epictetus help form principles. Why can they not replace the reflective mood?",
-          "a": "They can help form and modify principles, but no reading substitutes for a daily, candid, honest examination of what one has recently done and is about to do. Books cannot do the steady looking at oneself in the face, disconcerting as that sight may be.",
-          "page": 33
-        },
-        {
-          "id": "ch-08-f05",
-          "q": "Why does the chapter propose the evening journey home for this reflection, and what is the condition attached?",
-          "a": "A reflective mood naturally follows the exertion of having earned the day's living, and the paper can be read while waiting for dinner. But the condition is that you attend to it at some hour of the day — the hour is flexible, the practice is not.",
+          "q": "What role do books such as Marcus Aurelius or Epictetus play, and what can they not replace?",
+          "a": "They help form and modify one's principles, but no reading can substitute for a daily, candid and honest examination of what one has recently done and is about to do.",
           "page": 33
         }
       ]
@@ -658,9 +663,9 @@
       "title": "Interest In The Arts",
       "pageStart": 35,
       "pageEnd": 37,
-      "estMinutes": 6,
-      "tldr": "You do not have to choose between idleness and literature: any art you already enjoy — music, pictures, architecture — can be turned into real knowledge by reading a primer for spectators and spending three short evenings a week on it for forty-eight weeks.",
-      "summary": "The belief that an evening offers only two choices, doing nothing or reading literature, is what keeps people idle. Books on bridge, boat-sailing or music are books too, and enjoy them requires no taste for poetry or for Wordsworth and Tennyson; not loving belles-lettres is neither a crime nor a sign of stupidity.\n\nTake the art you already respond to. You may be thrilled by a symphony and still hear only an agreeable blur, unable to say which instruments carry the opening theme. A cheap primer written for listeners, with photographs of instruments and plans of orchestral seating, changes the next concert into something you can follow actively instead of sitting in a beatific coma.\n\nThe method is systematic, not heroic: forty-eight weeks of three brief evenings, a good primer, and concerts you select yourself out of your growing knowledge. You need no performing skill. The same approach works for pictures or architecture, and its aim is knowledge, not performance.",
+      "estMinutes": 7,
+      "tldr": "Evening self-improvement fails on a false choice between doing nothing and studying literature; any art you already enjoy can be learned systematically, with a primer, chosen concerts, and a year of short evenings.",
+      "summary": "The chapter attacks the assumption that a worthwhile evening means either literature or nothing. Because people equate reading with belles-lettres, they conclude they have no taste for study, when in fact a book on bridge, boat-sailing or music is a book too, and needs no appetite for poetry to be enjoyed.\n\nMusic shows how much there is to gain. A concertgoer may be genuinely moved yet hear only an agreeable blur, unable to name the instruments playing the opening theme of the C minor symphony. A cheap primer with photographs of instruments and seating plans turns that blur into separate voices with separate functions.\n\nThe method generalises. Take the art you already like, admit you understand it only vaguely, and read a primer meant for listeners or viewers rather than performers. Attend what you already attend, but hunt for detail; then select future concerts yourself from what you have learned, and specialise in one form or composer. Forty-eight weeks of three brief evenings buys real knowledge — never performance.",
       "cards": [
         {
           "id": "ch-09-c01",
@@ -705,27 +710,33 @@
         {
           "id": "ch-09-c05",
           "type": "takeaway",
-          "body": "Pick the art you already enjoy but understand only vaguely, read a primer written for spectators rather than performers, and give it forty-eight weeks of three short evenings — picking your own concerts or exhibitions as you go. Expect knowledge, not performance, and stop treating reading as the only alternative to idleness."
+          "body": "You need no talent and no love of literature to learn an art. Take the one you already enjoy, admit you only half understand it, read a primer written for audiences rather than performers, then attend with your attention sharpened and choose what to see next. Three short evenings a week for forty-eight weeks is enough to know something real."
         }
       ],
-      "mindmap": "# Interest In The Arts\n\n## The false choice\n- Idleness or literature\n- Non-literary books still books\n- Bridge, boat-sailing, music\n\n## Literature vs. books\n- Separate belles-lettres from other subjects\n- \"I don't care for reading\" means poetry\n- No crime, no imbecility\n\n## Music as test case\n- Taste without trained attention\n- Agreeable blur vs. separate instruments\n- C minor symphony theme unnamed\n- Krehbiel's primer, seating plans\n\n## Systematic method\n- Primer for listeners, not performers\n- Forty-eight weeks, three brief evenings\n- Concerts chosen by yourself\n- Hunt for details and functions\n- Specialise: one form or composer\n\n## Aim\n- Knowledge, not performance",
+      "mindmap": "# Interest In The Arts\n## The false choice\n- Nothing or literature\n- Books on bridge, sailing, music\n- Literature vs. non-literary books\n## The music case\n- Genuine taste already present\n- Untrained attention: agreeable blur\n- C minor symphony theme unnamed\n- Krehbiel primer: instruments, seating\n## Method\n- Primer for listeners, not performers\n- Attend and hunt for detail\n- Identify elements and functions\n- Choose next concerts yourself\n- Specialise: one form or composer\n- 48 weeks, three short evenings\n## Transfer\n- Witt on pictures\n- Sturgis on architecture\n- London as material\n- Knowledge, not performance",
       "flashcards": [
         {
           "id": "ch-09-f01",
-          "q": "Someone says they don't enjoy reading, so evenings of study are not for them. What is wrong with that reasoning?",
-          "a": "They are confusing literature with books in general. A book on bridge, boat-sailing or music is still a book, and it demands no love of poetry — so their objection only rules out belles-lettres, not study.",
+          "q": "Why does saying \"I don't care for reading\" fail to rule out evening study?",
+          "a": "It usually means a dislike of belles-lettres only, and books on bridge, boat-sailing or music are still books that require no love of literature.",
           "page": 35
         },
         {
           "id": "ch-09-f02",
-          "q": "You are thrilled by a symphony but hear only an agreeable blur. What specific step changes that at the next concert?",
-          "a": "Read a primer written for listeners, with photographs of the instruments and plans of orchestral seating, such as Krehbiel's \"How to Listen to Music\". Then you can pick out individual instruments and the function of each group instead of sitting in a beatific coma.",
+          "q": "What changes at a concert once you have read a primer such as Krehbiel's?",
+          "a": "The agreeable blur breaks into separate instruments with separate functions: you listen for each sound and live in the music instead of existing in a beatific coma.",
           "page": 36
         },
         {
           "id": "ch-09-f03",
-          "q": "Why does the method require no performing skill, and what does it ask for instead?",
-          "a": "The primers are built for listeners and viewers, not performers, so you never need pianistic skill or the ability to play \"The Maiden's Prayer\". What it asks for is forty-eight weeks of three brief evenings, with concerts or exhibitions you choose yourself as your knowledge grows.",
+          "q": "You already attend concerts but understand them only vaguely. What does the chapter tell you to do next?",
+          "a": "Admit the vagueness, read a primer written for listeners, hunt for detail at the concerts you already attend, pick your next concerts from what you learn, and specialise in one form or composer.",
+          "page": 37
+        },
+        {
+          "id": "ch-09-f04",
+          "q": "What time budget does the chapter give for gaining real knowledge of an art, and what does that budget not require?",
+          "a": "Forty-eight weeks of three brief evenings each, plus programmes and concerts; it requires neither pianistic skill nor any ability to perform.",
           "page": 37
         }
       ]
@@ -737,8 +748,8 @@
       "pageStart": 38,
       "pageEnd": 41,
       "estMinutes": 6,
-      "tldr": "Nothing is humdrum once you train yourself to see cause and effect everywhere — in nature, in the street and especially in your own trade — and that habit makes life both larger-hearted and permanently interesting.",
-      "summary": "The chapter opens with a claim about perception: the most valuable thing a person can acquire is a constant sense of cause and effect, the knowledge that nothing happens without a cause. Once that idea settles in, you stop being perpetually shocked by how other people behave; human nature ceases to feel like a foreign country with awful customs, and even a stolen watch can be met with understanding instead of bitterness, since the thief became a thief through heredity and environment. The same shift of vision transforms the physical world. To someone who has absorbed the idea of development, the sea is not a monotonous view but an element that was vapour, then boiling water, and will be ice — matter permanently in transit, which is why cultivating that appreciation is called the end of all science and yields lasting satisfaction.\n\nThis way of looking can be applied deliberately to ordinary working life. A traffic block in Oxford Street pushed travellers into cellars and drains and pushed up rents in Shepherd's Bush — trace such chains and your own trade gains zest. The method is simply to study your own field for ninety minutes every other evening, whatever it is. No devotion to art or literature is needed to live fully.",
+      "tldr": "Nothing in life is humdrum once you habitually perceive cause and effect — in human nature, in the changing world, and in your own trade.",
+      "summary": "The chapter's central claim is that the most valuable perception a person can cultivate is the continual sense that nothing happens without a cause. Whoever habitually asks why things happen becomes both large-minded and large-hearted: he stops being shocked and pained by human behaviour as though he were a stranger in a strange land, and can even absorb a stolen watch by reflecting that the thief was made by heredity and environment, which makes bitterness impossible.\n\nThe same habit makes the world picturesque rather than monotonous. To someone imbued with development, the sea is not a fixed view costing three shillings third-class in August, but an element that was vapour, then boiling water, and will inevitably be ice — a liquid merely on its way to being solid. That durable satisfaction is what all science is for, and it works on ordinary city life too: a traffic block in Oxford Street pushes travellers under cellars and drains and raises rents in Shepherd's Bush. Study your own trade's causes for ninety minutes every other evening and it gains zest; art or literature is not required to live fully.",
       "cards": [
         {
           "id": "ch-10-c01",
@@ -774,33 +785,33 @@
         {
           "id": "ch-10-c05",
           "type": "takeaway",
-          "body": "Train the habit of asking what caused this. It removes resentment of other people, turns even the sea into something dramatic, and makes your own daily trade interesting — ninety minutes of study every other evening is enough to start."
+          "body": "Train yourself to see causes everywhere: in other people's conduct, in the changing state of things, and in your own daily work. Once you trace why things happen, nothing looks dull or shocking any more, and you can study your own trade for ninety minutes every other evening to keep that zest alive."
         }
       ],
-      "mindmap": "# Nothing In Life Is Humdrum\n## Cause and effect\n- Nothing happens without a cause\n- Ends shock at human nature\n- No longer a stranger in a strange land\n- Stolen watch: heredity and environment\n## Development changes sight\n- Sea: vapour, boiling, ice\n- Liquid on its way to solid\n- Tourist sees only a view\n- Durable satisfaction\n## Apply it to your trade\n- Traffic block raises rents\n- Two-penny Tube and wigwams\n- Ninety minutes every other evening\n- Estate agent: London property\n- Bank clerk: Lombard Street\n- Or moths at a gas lamp\n- Art not required",
+      "mindmap": "# Nothing in Life Is Humdrum\n## Cause and effect\n- Nothing happens without a cause\n- Cures shock at human nature\n- Stolen watch: heredity and environment\n- No longer a stranger in a strange land\n## Development and change\n- Sea: vapour, water, ice\n- A liquid on its way to solid\n- Changeful picturesqueness of life\n- End of all science\n## Your own trade\n- Traffic block raises rents\n- Two-penny Tube and wigwams\n- Ninety minutes every other evening\n- Estate agent, bank clerk\n- Moths round a gas lamp\n- Art not required",
       "flashcards": [
         {
           "id": "ch-10-f01",
-          "q": "Why does seeing cause and effect make a stolen watch bearable?",
-          "a": "Because you reflect that the thief became a thief through heredity and environment, which is comprehensible rather than merely outrageous, so you buy another watch without bitterness.",
+          "q": "Why does the chapter claim that perceiving cause and effect makes a person large-hearted as well as large-minded?",
+          "a": "Because it replaces shock at human behaviour with comprehension: even a thief can be seen as a product of heredity and environment, so the bitterness of feeling wronged becomes impossible.",
           "page": 38
         },
         {
           "id": "ch-10-f02",
-          "q": "What does a person imbued with the idea of development see in the sea that a tourist does not?",
-          "a": "Not a grandiose, monotonous view, but an element that was vapour, then boiling, and will be ice — a liquid merely on its way to being solid.",
+          "q": "How does a sense of development change what someone sees in the sea?",
+          "a": "Instead of a grandiose, monotonous view, he sees an element that was vapour the day before yesterday, is liquid now, and will inevitably be ice — a liquid merely on its way to being solid.",
           "page": 39
         },
         {
           "id": "ch-10-f03",
-          "q": "What concrete method does the chapter give for applying this habit to your own trade?",
-          "a": "Study your own field for ninety minutes every other evening — the estate agent the London property question, the bank clerk Bagehot's Lombard Street — tracing causes and co-ordinating what you learn.",
+          "q": "Why is a traffic block in Oxford Street worth studying rather than merely endured?",
+          "a": "Because tracing its causes and consequences shows nothing is humdrum: travellers were pushed under cellars and drains, and rents rose in Shepherd's Bush as a result.",
           "page": 40
         },
         {
           "id": "ch-10-f04",
-          "q": "How does the Oxford Street traffic block show that nothing is humdrum?",
-          "a": "Tracing its effects shows travellers pushed under cellars and drains and rents rising in Shepherd's Bush, and clerks at a Lyons linking the Two-penny Tube to the demand for wigwams and the price of wigwams.",
+          "q": "What practical routine does the chapter recommend for bringing zest to your own trade?",
+          "a": "Study your own field for ninety minutes every other evening — the estate agent the London property question, the bank clerk Bagehot's Lombard Street — tracing causes rather than just noting events.",
           "page": 40
         }
       ]
@@ -811,9 +822,9 @@
       "title": "Serious Reading",
       "pageStart": 42,
       "pageEnd": 45,
-      "estMinutes": 7,
-      "tldr": "Serious reading works only when the mind is stretched: novels give no strain, poetry gives the most, and whatever you read you must limit its scope and think hard about it.",
-      "summary": "The ninety daily minutes are for mental cultivation, and cultivation is measured by strain. A good novel cannot supply that strain: it carries you along without effort, which is why novels belong outside the serious hour — not because they are worthless, since much great literature is prose fiction.\n\nPoetry, by contrast, is the hardest and most rewarding reading, so it comes first. If poetry repels you, Hazlitt's essay on poetry in general removes the sense that it is a torture, and E. B. Browning's Aurora Leigh, read straight through for its story and social ideas, is the honest test of whether you truly dislike it.\n\nShould poetry still resist you, turn to history or philosophy and obey two rules: confine yourself to a limited period, subject or author for a set time, and give at least forty-five minutes of fatiguing reflection to what you read, otherwise the hour is wasted.",
+      "estMinutes": 6,
+      "tldr": "Serious reading means giving your daily ninety minutes to material that strains the mind — poetry first, then history or philosophy — narrowed to a fixed subject and paired with at least forty-five minutes of hard reflection.",
+      "summary": "Mental cultivation depends on strain, and that single criterion decides what belongs in the reading hour. A good novel carries you forward without effort, so it is excluded — not because novels are inferior, but because they cannot supply the resistance the mind needs to grow.\n\nPoetry imposes the heaviest strain and returns the most, so it comes first. If poetry feels closed to you, Hazlitt's essay on the nature of poetry dissolves the fear, and Browning's Aurora Leigh, read simply for its story and social ideas, is the honest test of whether you really dislike it. Should poetry remain repellent, turn to history or philosophy instead — but only under two rules: confine yourself to a limited period, subject or single author for a set stretch of time, and think as well as read, giving what you read at least forty-five minutes of tiring reflection. Without that thinking, the time is mostly wasted.",
       "cards": [
         {
           "id": "ch-11-c01",
@@ -856,39 +867,27 @@
         {
           "id": "ch-11-c05",
           "type": "takeaway",
-          "body": "Read what stretches you. Novels rest you, poetry stretches you most, so start there; if poetry fails, pick a narrow historical or philosophical subject and fix a time limit. Then spend at least forty-five minutes genuinely thinking about what you read — slow is fine, unthinking is not."
+          "body": "Choose reading that strains you. Novels, however good, don't count because they carry you along. Begin with poetry — Hazlitt to open the door, Aurora Leigh as the honest test. If poetry fails, take history or philosophy, narrow the field to one period, subject or author, and give at least forty-five minutes of hard thinking to it."
         }
       ],
-      "mindmap": "# Serious Reading\n\n## Novels set aside\n- No strain, unexhausted\n- Cultivation needs strain\n- Still read novels\n\n## Getting into poetry\n- Severest strain, highest reward\n- Hazlitt removes the fear\n- Start with narrative poetry\n- Aurora Leigh as honest test\n- Read for story, not verse\n\n## History or philosophy\n### Limit the scope\n- One period or subject\n- One single author\n- Fixed span of time\n### Think while reading\n- Forty-five minutes of reflection\n- Fatiguing and boring at first\n- Slow pace acceptable",
+      "mindmap": "# Serious Reading\n## Novels excluded\n- No mental strain\n- Rushes you forward\n- Strain cultivates the mind\n## Poetry first\n- Severest strain, highest reward\n- Hazlitt clears the fear\n- Aurora Leigh as the test\n- Read it for the story\n## If poetry fails\n- History or philosophy\n## Two rules for good reading\n- Fix direction and scope\n- One period, subject or author\n- Think as well as read\n- Forty-five minutes of reflection\n- Slow pace is acceptable",
       "flashcards": [
         {
           "id": "ch-11-f01",
-          "q": "Why are novels left out of the ninety minutes of serious reading?",
-          "a": "Because a good novel produces no mental strain — it carries you forward breathless but unexhausted, and mental cultivation depends on the feeling of strain. The exclusion is not a verdict against novels, which should still be read.",
+          "q": "Why are novels left out of serious reading, and is that a judgement on the genre?",
+          "a": "Because a good novel produces no mental strain — it carries you along like a skiff down a stream — and cultivation depends on feeling strain. It is not a judgement: great literature includes prose fiction and you should read novels, just outside the ninety minutes.",
           "page": 42
         },
         {
           "id": "ch-11-f02",
-          "q": "If poetry feels like a sealed book to you, what route does the chapter prescribe?",
-          "a": "Read Hazlitt's famous essay on the nature of poetry in general to clear away the idea that poetry is torture, then begin with purely narrative poetry and read E. B. Browning's Aurora Leigh right through for the story and social ideas, finally asking honestly whether you still dislike poetry.",
+          "q": "How would you honestly test whether you actually dislike poetry?",
+          "a": "Read Hazlitt's essay on the nature of poetry to clear away the idea that poetry is a form of torture, then start with purely narrative poetry and read Aurora Leigh through for the story and social ideas. Afterwards ask yourself honestly whether you still dislike poetry.",
           "page": 43
         },
         {
           "id": "ch-11-f03",
-          "q": "What two rules decide whether reading history or philosophy does you any good?",
-          "a": "Define the direction and scope of your effort by choosing a limited period, subject or single author and confining yourself to it for a settled time, and think as well as read.",
-          "page": 44
-        },
-        {
-          "id": "ch-11-f04",
-          "q": "You have decided to know something about the French Revolution. What else must you settle beforehand, and why?",
-          "a": "You must fix the period during which you will confine yourself to that choice, because there is much pleasure in being a specialist — a limited subject held to for a set time is what makes the reading count.",
-          "page": 44
-        },
-        {
-          "id": "ch-11-f05",
-          "q": "What does thinking about your reading actually cost, and what happens if you skip it?",
-          "a": "It costs at least forty-five minutes of careful, fatiguing reflection, which is an awful bore at first. Without it the ninety minutes are chiefly wasted and you merely fly through literature for the sake of motion.",
+          "q": "You have settled on history. What two rules decide whether the reading does any good, and what does each require?",
+          "a": "Define the direction and scope of your effort — a limited period, a limited subject or a single author, held to for a period settled beforehand. And think as well as read, giving at least forty-five minutes of careful, fatiguing reflection to what you read.",
           "page": 44
         }
       ]
@@ -900,8 +899,8 @@
       "pageStart": 46,
       "pageEnd": 48,
       "estMinutes": 6,
-      "tldr": "Using your hours well has its own traps — priggishness, worshipping the programme, and rush — and the way through is to keep quiet, stay elastic, attempt less, and start absurdly slowly but regularly.",
-      "summary": "The chapter maps the ways a well-run life goes wrong. The first danger is the prig: mastering your hours can make you pompous, humourless and quietly resentful that nobody else is impressed. Because the time in question is your own and not other people's, the fix is silence — no chatter about your budget of hours, no pained looks at the world wasting its own.\n\nThe second danger is treating the programme as a religion. A schedule deserves respect, as the martyred wife shows when she lets her husband's fixed routine veto everything, yet a programme nobody tends becomes a joke; finding the exact degree of deference is harder than it looks. The third is rush: filling the day until it overflows leaves you trapped in whatever comes next, and occasional rebellion mends nothing — attempt less instead. At the start, move absurdly slowly and regularly, finish the first task at all costs for the confidence it buys, and choose that task by taste alone.",
+      "tldr": "Using your hours well can make you a smug prig or a slave to your own timetable, and it is more likely to fail through trying to do too much at a rush than through laziness — so attempt less, start slowly, and hold your programme lightly.",
+      "summary": "Time-keeping brings two temptations of character before it brings any benefit. The first is self-importance: a person who has discovered a way to use hours well easily turns into a prig, humourless and aggrieved that others are not impressed. The corrective is scale — the material is your own time, not other people's, and the world got along before your budget existed. Say nothing about your system; looking after yourself exhausts your commission.\n\nThe second is rigidity. A programme deserves respect but not worship, and there is a fine line: treat it as a fetish and you become the wife who says a thing is \"quite out of the question\" because the dog must be walked at eight; neglect it entirely and it is a joke. The third and cruellest danger is rush, which narrows life to the next obligation. Rebellion does not mend it, since the fault is an overfull programme; only attempting less does. Where the programme cannot be cut, deliberately waste five minutes in mental quiet. And go slowly at the start, finishing each task so that confidence survives.",
       "cards": [
         {
           "id": "ch-12-c01",
@@ -937,33 +936,33 @@
         {
           "id": "ch-12-c05",
           "type": "takeaway",
-          "body": "Keep your regime to yourself and treat your schedule as a tool, not a religion. Cut the programme down rather than rebelling against it now and then. Start so slowly and regularly that the first task is certain to be finished — the confidence from that first lap carries the rest."
+          "body": "Guard against smugness: the schedule is yours alone, so don't preach it. Respect your programme without becoming its slave. If you are always rushing, the answer is not occasional revolt but attempting less; if your first efforts fail, you may lose the impulse altogether, so begin absurdly slowly, complete each task for the confidence it gives, and pick that first evening's activity purely by taste."
         }
       ],
-      "mindmap": "# Dangers To Avoid\n## The prig\n- Superior airs, no humour\n- Remedy: only your own time\n- No chatter or pained looks\n## Programme: respect, not worship\n- Neither rigidity nor neglect\n- The martyred wife\n- Untended programme a poor joke\n## Rush\n- Prisoner of the next task\n- Cure: attempt less\n- Five minutes of quiescence\n## Beginnings\n- Absurdly slow but regular\n- Finish at all costs\n- Choose by taste",
+      "mindmap": "# Dangers To Avoid\n## The prig\n- Airs of superior wisdom\n- Sense of humour lost\n- It is your time, not others'\n- Do not chatter about it\n- No pained sadness at the world\n## Programme: respect, not worship\n- Not a religion or fetish\n- The martyred wife's finality\n- Untended, it becomes a joke\n- Right degree of deference is hard\n## Rush and bad starts\n- Rush imprisons in the next task\n- Cure: attempt less\n- Five quiet minutes in an overfull day\n- Go absurdly slowly at first\n- Finish, for self-confidence\n- Choose the first evening by taste",
       "flashcards": [
         {
           "id": "ch-12-f01",
-          "q": "Why does using your time well risk turning you into a prig, and what is the remedy?",
-          "a": "You can become a pompous fool who has lost his sense of humour and is displeased that the world is not impressed by your discovery. The remedy is to remember the material is your own time, not other people's: do not chatter about it and do not look pained at a world wasting its hours.",
+          "q": "What exactly is the danger of becoming a prig, and what is the remedy?",
+          "a": "You become a pompous fool who has lost his sense of humour and is displeased that the world is unimpressed by your discovery. The remedy is to remember the material is your own time, not other people's, so say nothing about it and accept that looking after yourself is all you can manage.",
           "page": 46
         },
         {
           "id": "ch-12-f02",
-          "q": "What is the difference between respecting your programme and worshipping it?",
-          "a": "A programme is not a religion and must be lived with neither too much nor too little elasticity; the martyred wife shows the extreme, where a fixed routine makes everything 'quite out of the question'. But a programme left untended is no better than a poor joke, so the right degree of deference is hard to hit.",
-          "page": 47
-        },
-        {
-          "id": "ch-12-f03",
-          "q": "If breaking your programme now and then does not help, what does the chapter prescribe for a day that is too full?",
-          "a": "The evil comes from filling the programme until it runs over, so you must reconstitute it and attempt less rather than rebel occasionally. If you refuse to modify it, spend five minutes in perfect mental quiescence between portions, consciously wasting them.",
+          "q": "Why does breaking the programme now and then fail to cure a life of rush?",
+          "a": "Because the evil comes from having filled the programme till it runs over, so occasional rebellion changes nothing. The programme has to be reconstituted with less in it; if you will not cut it, spend five minutes in perfect mental quiescence between portions, consciously wasting them.",
           "page": 48
         },
         {
+          "id": "ch-12-f03",
+          "q": "What does the example of the wife of Arthur's household illustrate?",
+          "a": "Her \"it's quite out of the question that we should...\" shows the ridiculous tragedy of a life enslaved to its own timetable. It is the excess of rigidity — treating the programme as a fetish rather than something to be respected — and the book notes that hitting the right degree of deference is far from simple.",
+          "page": 47
+        },
+        {
           "id": "ch-12-f04",
-          "q": "What would you do with your first evening occupation, and why does finishing it matter so much?",
-          "a": "Choose it by taste alone — street-cries over philosophy if that is what you like — and make the first lap absurdly slow but regular. A failure at the commencement can kill the newborn impulse, so finish the task at all costs for the immense gain in self-confidence.",
+          "q": "How should you plan the very first evening of a new habit, and why?",
+          "a": "Go absurdly slowly and regularly, and finish the task at all costs for the self-confidence it brings, because a failure at the commencement can kill the newborn impulse. Choose the occupation by taste alone — street-cries over philosophy, if that is what you like.",
           "page": 48
         }
       ]
@@ -971,34 +970,34 @@
   ],
   "glossary": [
     {
-      "term": "daily miracle",
-      "definition": "The free, perfectly equal, unearned supply of twenty-four hours given every morning, which cannot be stolen, borrowed against, or earned back.",
+      "term": "Daily miracle",
+      "definition": "The morning refill of twenty-four hours, distributed equally to everyone, with no extra hour for genius and no borrowing against tomorrow.",
       "chapterId": "ch-01"
     },
     {
-      "term": "programme",
-      "definition": "The fixed round of obligatory duties and pleasures; the desire to do something beyond it is what torments people.",
-      "chapterId": "ch-02"
-    },
-    {
-      "term": "day within a day",
-      "definition": "The sixteen hours from 6 p.m. to 10 a.m., claimed as one's own day for body, soul, and fellow men.",
-      "chapterId": "ch-04"
-    },
-    {
-      "term": "mental cultivation",
-      "definition": "Protected consecutive time for mental cultivation, at least ninety minutes every other evening, treated as sacred as a rehearsal or tennis match.",
+      "term": "Consecutive mental cultivation",
+      "definition": "Ninety minutes every other evening given to connected mental work, guarded as strictly as a rehearsal or a match.",
       "chapterId": "ch-05"
     },
     {
-      "term": "reflective mood",
-      "definition": "Thought about one's own happiness, the direction one is heading, how much reason governs one, and whether conduct matches principles.",
+      "term": "Programme",
+      "definition": "The planned use of hours over six days: half an hour on six mornings and ninety minutes on three evenings, with extra time counted as a windfall.",
+      "chapterId": "ch-06"
+    },
+    {
+      "term": "Reflective mood",
+      "definition": "Thought about one's own happiness, direction, share of reason, and whether conduct matches principles.",
       "chapterId": "ch-08"
     },
     {
-      "term": "cause and effect",
-      "definition": "The constant sense that nothing happens without a cause, applied to human nature, the physical world, and one's own trade.",
-      "chapterId": "ch-10"
+      "term": "Strain",
+      "definition": "The resistance the mind needs to grow; the criterion deciding what belongs in the reading hour.",
+      "chapterId": "ch-11"
+    },
+    {
+      "term": "Serious reading",
+      "definition": "Reading that strains the mind, with poetry first and at least forty-five minutes of hard reflection; effortless novels are excluded.",
+      "chapterId": "ch-11"
     }
   ]
 }

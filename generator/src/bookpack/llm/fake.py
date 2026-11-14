@@ -15,6 +15,13 @@ _CHAPTER_LINE = re.compile(r"^### (ch-\d+) \| (.+)$", re.M)
 _SENTENCE = re.compile(r"[^.!?\n][^.!?]{30,}[.!?]")
 _TARGET_CARDS = re.compile(r"Target: (\d+) content cards")
 _SUMMARY_WORDS = re.compile(r"About (\d+) words")
+_WRAP_TITLE = re.compile(r'The original title is "(.+?)": if')
+_BOOK_TITLE = re.compile(r'The original title is "(.+?)": if')
+
+
+def _found(pattern: re.Pattern[str], text: str, default: str) -> str:
+    match = pattern.search(text)
+    return match.group(1) if match else default
 
 
 def _sentences(text: str) -> list[tuple[str, int]]:
@@ -108,6 +115,8 @@ class FakeProvider(LLMProvider):
         while len(flashcards) < 3:
             flashcards.append(dict(flashcards[-1]))
         return {
+            # Il finto non traduce: restituisce il titolo che riceve
+            "title": _found(_WRAP_TITLE, user, "Capitolo di prova"),
             "tldr": "Sintesi di prova del capitolo.",
             "summary": " ".join(["Riassunto di prova del capitolo."] * (target // 5)),
             "takeaway": "Cosa portare via, di prova.",
@@ -119,6 +128,7 @@ class FakeProvider(LLMProvider):
         chapters = _CHAPTER_LINE.findall(user)
         titles = [title for _, title in chapters]
         return {
+            "title": _found(_BOOK_TITLE, user, "Libro di prova"),
             "summary": "Riassunto di prova generato senza LLM.",
             "keyIdeas": ["Idea portante di prova 1", "Idea portante di prova 2", "Idea di prova 3"],
             "mindmap": "# Libro\n" + "\n".join(f"## {title}" for title in titles),

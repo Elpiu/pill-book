@@ -65,6 +65,58 @@ def test_rerun_uses_cache_and_pays_nothing(pdf_with_outline, tmp_path):
     assert first_data == second.pack.model_dump(exclude={"generator"})
 
 
+class Translating(FakeProvider):
+    """Traduce i titoli come farebbe il modello, oppure restituisce `chapter_title` così com'è."""
+
+    def __init__(self, chapter_title=None, book_title="Il manuale di prova") -> None:
+        super().__init__()
+        self.chapter_title = chapter_title
+        self.book_title = book_title
+
+    def complete(self, system: str, user: str, schema: dict) -> LLMResponse:
+        response = super().complete(system, user, schema)
+        data = json.loads(response.text)
+        if "takeaway" in schema["properties"]:
+            title = data["title"]
+            data["title"] = (
+                self.chapter_title if self.chapter_title is not None else f"«Tradotto: {title}»"
+            )
+        elif "keyIdeas" in schema["properties"]:
+            data["title"] = self.book_title
+        response.text = json.dumps(data)
+        return response
+
+
+def test_titles_come_out_in_the_pack_language_with_stable_ids(pdf_with_outline, tmp_path):
+    result, _ = _build(pdf_with_outline, Translating(), tmp_path / "cache", lang="it")
+    assert result.report.ok, result.report.errors
+    pack = result.pack
+    assert pack.book.title == "Il manuale di prova"
+    assert pack.book.id == "manuale-di-prova"
+    assert [chapter.id for chapter in pack.chapters] == ["ch-01", "ch-02", "ch-03", "ch-04"]
+    # Virgolette tolte, e la mindmap del libro usa i titoli tradotti
+    assert pack.chapters[0].title == "Tradotto: Capitolo 1: tema 1"
+    assert "## Tradotto: Capitolo 1: tema 1" in pack.overview.mindmap
+
+
+def test_an_empty_title_keeps_the_original(pdf_with_outline, tmp_path):
+    provider = Translating(chapter_title="  ", book_title="")
+    result, _ = _build(pdf_with_outline, provider, tmp_path / "cache", selected={1})
+    assert result.pack.chapters[0].title == "Capitolo 1: tema 1"
+    assert result.pack.book.title == "Manuale di prova"
+
+
+def test_a_title_that_is_not_a_title_is_asked_again(pdf_with_outline, tmp_path):
+    class Rambling(Translating):
+        def complete(self, system: str, user: str, schema: dict) -> LLMResponse:
+            self.chapter_title = None if "rejected" in user else "parola " * 30
+            return super().complete(system, user, schema)
+
+    result, llm = _build(pdf_with_outline, Rambling(), tmp_path / "cache", selected={1})
+    assert result.pack.chapters[0].title == "Tradotto: Capitolo 1: tema 1"
+    assert llm.usage.retries == 1
+
+
 def test_invalid_output_is_retried_with_the_error(tmp_path):
     seen: list[str] = []
 

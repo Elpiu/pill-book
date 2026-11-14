@@ -14,6 +14,7 @@ Scelte non coperte dal piano, o che lo adattano.
 | Provider `fake` dentro il pacchetto | Permette di provare la pipeline su un PDF vero senza chiave. Il piano lo chiedeva per i test |
 | Lingua riconosciuta dalle parole frequenti | `--lang` resta l'override; basta una stima per il default |
 | File YAML con `book: {id, title, author, lang}` | Molti PDF hanno metadati vuoti, come il libro di prova |
+| Titoli di libro e capitoli tradotti nella lingua del pack dalle chiamate di chiusura e di panoramica | Prima restavano nella lingua del PDF: un libro inglese generato in italiano mostrava titoli inglesi ovunque. Nessuna chiamata in più, e gli id non cambiano |
 | Prompt in inglese, output nella lingua richiesta | Le istruzioni restano le stesse per ogni lingua di output |
 | **OpenRouter come unico provider**, in deroga al piano (che prevedeva Anthropic e OpenAI-compatible) | Decisione del progetto: una sola chiave e qualsiasi modello, senza legarsi a un fornitore |
 | Client OpenRouter costruito sull'SDK `openai` | OpenRouter espone un'API compatibile: SDK, retry e tipi sono già pronti |

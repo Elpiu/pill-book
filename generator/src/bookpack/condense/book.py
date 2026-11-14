@@ -6,6 +6,7 @@ from pydantic import BaseModel
 
 from ..llm.structured import StructuredLLM
 from ..models import MAX_KEY_IDEAS, MIN_KEY_IDEAS, Chapter, GlossaryEntry, Overview
+from .chapter import translated_title
 from .prompts import render
 
 
@@ -18,6 +19,8 @@ class GlossaryDraft(BaseModel):
 class BookDraft(BaseModel):
     summary: str
     keyIdeas: list[str]
+    # Dopo il testo, nella stessa lingua; prima della mindmap, che lo usa come radice
+    title: str
     mindmap: str
     glossary: list[GlossaryDraft]
 
@@ -55,7 +58,8 @@ def condense_book(
     book_title: str,
     author: str | None,
     lang: str,
-) -> tuple[Overview, list[GlossaryEntry] | None]:
+) -> tuple[str, Overview, list[GlossaryEntry] | None]:
+    """Restituisce anche il titolo del libro nella lingua del pack."""
     user = render(
         "book",
         book_title=book_title,
@@ -63,9 +67,13 @@ def condense_book(
         lang=lang,
         chapters="\n\n".join(chapter_digest(chapter) for chapter in chapters),
     )
-    draft, _ = llm.generate(
-        render("book_system"), user, BookDraft, lambda parsed: _check(parsed, chapters)
-    )
+
+    def convert(parsed: BookDraft) -> str:
+        _check(parsed, chapters)
+        return translated_title(parsed.title, book_title)
+
+    draft, title = llm.generate(render("book_system"), user, BookDraft, convert)
     overview = Overview(summary=draft.summary, keyIdeas=draft.keyIdeas, mindmap=draft.mindmap)
     glossary = [GlossaryEntry(**entry.model_dump()) for entry in draft.glossary]
-    return overview, glossary or None
+    assert isinstance(title, str)
+    return title, overview, glossary or None
