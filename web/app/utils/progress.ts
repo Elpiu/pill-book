@@ -1,5 +1,6 @@
 import type { BookPack, Chapter } from '~/types/bookpack'
 import type { ReviewRecord } from '~/utils/review'
+import type { ActivityRecord } from '~/utils/routine'
 
 export type Phase = 'cards' | 'summary' | 'mindmap' | 'flashcards' | 'done'
 
@@ -111,11 +112,12 @@ export const PROGRESS_EXPORT_TYPE = 'bookpack-progress'
 
 export interface ProgressExport {
   type: typeof PROGRESS_EXPORT_TYPE
-  version: 1 | 2
+  version: 1 | 2 | 3
   exportedAt: string
   progress: ProgressRecord[]
   settings: SettingRecord[]
   reviews?: ReviewRecord[]  // assente negli export della versione 1
+  activity?: ActivityRecord[]  // registro delle giornate, dalla versione 3
 }
 
 export function parseProgressExport(text: string): ProgressExport {
@@ -126,7 +128,7 @@ export function parseProgressExport(text: string): ProgressExport {
   catch {
     throw new Error('Il file non è un JSON valido.')
   }
-  if (data?.type !== PROGRESS_EXPORT_TYPE || (data.version !== 1 && data.version !== 2)) {
+  if (data?.type !== PROGRESS_EXPORT_TYPE || ![1, 2, 3].includes(data.version as number)) {
     throw new Error('Il file non è un export del progresso di Bookpack.')
   }
   if (!Array.isArray(data.progress) || !Array.isArray(data.settings)) {
@@ -136,6 +138,10 @@ export function parseProgressExport(text: string): ProgressExport {
     item => typeof item?.bookId === 'string' && typeof item.chapters === 'object' && item.chapters !== null,
   )
   if (!valid) throw new Error('L\'export contiene voci di progresso non valide.')
+  const days = data.activity ?? []
+  if (!Array.isArray(days) || !days.every(item => typeof item?.day === 'string' && typeof item.seconds === 'number')) {
+    throw new Error('L\'export contiene un registro delle giornate non valido.')
+  }
   return data as ProgressExport
 }
 

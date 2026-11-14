@@ -158,6 +158,12 @@ onMounted(() => {
   document.addEventListener('visibilitychange', onVisibility)
   speech.loadVoices().catch(() => undefined)
 })
+
+// Minuti di lettura attiva: l'ascolto conta anche senza toccare lo schermo
+useReadingTimer({
+  isListening: () => listening.active.value && ['speaking', 'waiting'].includes(speech.status.value),
+  onGoalReached: useGoalCelebration(),
+})
 onBeforeUnmount(() => {
   document.removeEventListener('visibilitychange', onVisibility)
   listening.close()

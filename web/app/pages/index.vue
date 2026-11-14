@@ -37,6 +37,8 @@ const emptyActions = [
 
       <CommonInstallBanner />
 
+      <RoutineTodayCard v-if="items.length" />
+
       <NuxtLink
         v-if="resume"
         :to="`/book/${resume.item.record.id}/ch/${resume.chapter.id}`"

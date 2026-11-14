@@ -152,6 +152,14 @@ describe('fasi e parti', () => {
     expect(sectionPosition({ ...first!, cards: [card('b', 'concept')] }, 0)).toBeUndefined()
   })
 
+  it('accetta gli export della versione 3 con il registro delle giornate', () => {
+    const day = { day: '2026-11-12', seconds: 600, cards: 3, answers: 1, chapters: 0, met: true }
+    const current = { type: 'bookpack-progress', version: 3, exportedAt: 'x', progress: [], settings: [], reviews: [], activity: [day] }
+    expect(parseProgressExport(JSON.stringify(current)).activity).toEqual([day])
+    const broken = { ...current, activity: [{ day: 12 }] }
+    expect(() => parseProgressExport(JSON.stringify(broken))).toThrow('registro')
+  })
+
   it('accetta gli export della versione precedente, senza ripassi', () => {
     const old = { type: 'bookpack-progress', version: 1, exportedAt: 'x', progress: [], settings: [] }
     expect(parseProgressExport(JSON.stringify(old)).reviews).toBeUndefined()

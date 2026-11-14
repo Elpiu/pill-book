@@ -21,3 +21,4 @@ L'elenco si fissa all'apertura: una domanda sbagliata torna domani, non nello st
 | [web/app/pages/review.vue](../../../../../../web/app/pages/review.vue) | [web/app/components/session/FlashcardDeck.vue](../../../../../../web/app/components/session/FlashcardDeck.vue) | Propone le domande | componente Vue |
 | [web/app/pages/review.vue](../../../../../../web/app/pages/review.vue) | [web/app/db/index.ts](../../../../../../web/app/db/index.ts) | Registra i ripassi | chiamata TypeScript |
 | [web/app/pages/review.vue](../../../../../../web/app/pages/review.vue) | [web/app/utils/review.ts](../../../../../../web/app/utils/review.ts) | Sceglie le domande dovute | chiamata TypeScript |
+| [web/app/pages/review.vue](../../../../../../web/app/pages/review.vue) | [web/app/composables/useReadingTimer.ts](../../../../../../web/app/composables/useReadingTimer.ts) | Conta i minuti | chiamata TypeScript |

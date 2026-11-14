@@ -28,3 +28,4 @@ Tutte le scritture passano da qui. L'import fonde i dati: vince il punto più av
 | --- | --- | --- | --- |
 | [web/app/db/index.ts](../../../../../../web/app/db/index.ts) | [web/app/utils/progress.ts](../../../../../../web/app/utils/progress.ts) | Fonde i progressi | chiamata TypeScript |
 | [web/app/db/index.ts](../../../../../../web/app/db/index.ts) | [web/app/utils/review.ts](../../../../../../web/app/utils/review.ts) | Fissa il prossimo ripasso | chiamata TypeScript |
+| [web/app/db/index.ts](../../../../../../web/app/db/index.ts) | [web/app/utils/routine.ts](../../../../../../web/app/utils/routine.ts) | Aggiorna la giornata | chiamata TypeScript |

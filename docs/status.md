@@ -15,16 +15,19 @@ Aggiornato al 14 novembre 2026. Il formato attuale è la v2: vedi [decisions.md]
 | Formato v2 | Fatto | Spazio proporzionale, card dense, domande, riassunto, ripasso |
 | Generazione parallela e ripresa | Fatta | Chiamate insieme, errori che non fermano tutto, file di stato, `bookpack resume`, **Riprendi** |
 | Modalità ascolto | Fatta | Modulo vocale, sessione e impostazioni (TASK-8.1, 8.2, 8.3), provati anche su telefono (TASK-8) |
+| Routine di lettura | **Quasi** | Registro, minuti attivi, streak, routine, promemoria, scheda Oggi e calendario (TASK-10.1, 10.2, 10.3), sul branch `feature/routine-lettura`; manca la prova su telefono (TASK-10) |
 
 ## Cosa è stato verificato
 
-**Controlli automatici**: 164 test del generatore, 87 del lettore, ruff, ESLint e `nuxt typecheck` verdi.
+**Controlli automatici**: 164 test del generatore, 127 del lettore, ruff, ESLint e `nuxt typecheck` verdi.
 
 **Modulo vocale** (TASK-8.1): con il sintetizzatore vero di Chromium, a volume zero, una coda di frasi e pause arriva alla fine; la pausa ferma davvero la voce e la ripresa riparte dalla frase interrotta. Una card vera del libro d'esempio, 8 frasi e pause, si legge fino in fondo in 56 secondi senza blocchi.
 
 **Ascolto nella sessione** (TASK-8.2), nel browser integrato a 375 px con il sintetizzatore vero a volume zero: avvio dal pulsante, barra con avanti, indietro, velocità salvata e pausa; freccia che fa ripartire la voce dalla card raggiunta; domanda con conto alla rovescia di 7 secondi, **Mostra ora**, risposta mostrata e nessun esito registrato; passaggio da solo dall'ultima card al riassunto; fine sulla mindmap con il messaggio; pausa quando la pagina va in secondo piano (simulata); voce fermata cambiando fase a mano o uscendo dalla sessione. Casi limite simulati: con la sola voce inglese su un libro italiano il pulsante è attenuato e spiega perché; senza sintesi vocale il pulsante non c'è.
 
 **Ascolto su telefono e su Chrome** (prova manuale, TASK-8): capitolo ascoltato fino al riassunto senza toccare lo schermo, libro italiano e inglese ciascuno con la voce della sua lingua, posizione mantenuta tra ascolto e lettura, modalità aereo con voce locale, pausa con lo schermo bloccato e ripresa con un tocco.
+
+**Routine di lettura** (TASK-10.1, 10.2, 10.3), nel browser integrato a 375 px con giornate simulate: minuti, card, risposte e capitoli scritti nel registro; giornata riuscita al superamento dell'obiettivo con un solo festeggiamento ("5 giorni di fila"); scheda Oggi, pagina Routine e calendario coerenti con il registro, giorno libero compreso; routine salvata, promemoria con Google Calendar e file `.ics`, cambio di orario e rinnovo che parte dopo la scadenza; export in versione 3 con fusione per giorno. Le icone nuove sono nella build di produzione.
 
 **Impostazioni dell'ascolto** (TASK-8.3), con voci simulate: elenco delle voci italiane nell'ordine previsto, voce di rete segnalata, scelta salvata, **Prova** con la voce e la velocità scelte, ritorno alla voce automatica quando quella scelta sparisce, pulsante tolto dalla sessione con l'interruttore spento, preferenze presenti nell'export. Il browser di prova non espone voci, quindi la scelta tra voci reali è coperta solo dai test.
 
@@ -68,6 +71,7 @@ Aggiornato al 14 novembre 2026. Il formato attuale è la v2: vedi [decisions.md]
 
 | Cosa | Perché | Come chiuderlo |
 |---|---|---|
+| Routine su telefono | Il file `.ics` su iPhone, soprattutto dall'app installata, e il link a Google Calendar su Android non sono provati; più giorni reali d'uso nemmeno | Le prove di TASK-10 |
 | Quanto resta davvero al lettore | Le misure dicono quanto testo c'è, non cosa si ricorda | Uso reale per qualche settimana |
 | Altri modelli oltre a `~deepseek/deepseek-flash-latest` | Ogni prova ha un costo | Fuori scopo, per scelta (TASK-4 archiviata) |
 | Modelli senza output strutturato | Il ripiego con lo schema nel prompt è provato solo in simulazione | Fuori scopo, per scelta (TASK-5 archiviata) |

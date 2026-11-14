@@ -28,3 +28,4 @@ Mostra ogni libro con la sua percentuale di avanzamento e propone di riprendere 
 | [web/app/composables/useLibrary.ts](../../../../../../web/app/composables/useLibrary.ts) | [web/app/utils/progress.ts](../../../../../../web/app/utils/progress.ts) | Calcola l'avanzamento | chiamata TypeScript |
 | [web/app/composables/useLibrary.ts](../../../../../../web/app/composables/useLibrary.ts) | [web/app/utils/review.ts](../../../../../../web/app/utils/review.ts) | Conta i ripassi dovuti | chiamata TypeScript |
 | [web/app/pages/index.vue](../../../../../../web/app/pages/index.vue) | [web/app/utils/samples.ts](../../../../../../web/app/utils/samples.ts) | Propone i libri d'esempio | chiamata TypeScript |
+| [web/app/pages/index.vue](../../../../../../web/app/pages/index.vue) | [web/app/components/routine/TodayCard.vue](../../../../../../web/app/components/routine/TodayCard.vue) | Mostra la scheda Oggi | chiamata TypeScript |

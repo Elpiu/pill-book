@@ -18,6 +18,8 @@ onMounted(async () => {
   status.value = items.value.length ? 'reviewing' : 'empty'
 })
 
+useReadingTimer({ onGoalReached: useGoalCelebration() })
+
 const known = computed(() => Object.values(results.value).filter(result => result.known).length)
 
 const nextDueLabel = computed(() =>
