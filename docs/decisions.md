@@ -75,3 +75,8 @@ Il primo formato dava lo stesso spazio a ogni capitolo: 12 card sia per 76 pagin
 | `books/` in gitignore | Il piano ammette nel repo solo materiale di pubblico dominio, e i libri personali non vanno pubblicati |
 | PDF d'esempio impaginato da noi | Project Gutenberg offre di rado PDF. Lo script è in `samples/make_sample_pdf.py` |
 | Licenza MIT | Scelta del progetto. Copre il codice, non i libri da cui si generano i pack |
+| Backlog.md per le attività, groma.md per l'architettura | Scelta del progetto. Restano Markdown nel repository, revisionati con il codice e leggibili anche dagli agenti |
+| Idee non decise come bozze del backlog, non come attività | Per Backlog.md un'attività è lavoro deciso. La roadmap del piano e le proposte discusse restano bozze finché non vengono scelte |
+| Test, script di sviluppo, configurazioni di ESLint e Vitest, tipi generati e `samples/` esclusi dalla mappa di groma.md | Non sono architettura del prodotto. Le esclusioni stanno in `groma/config.json` |
+| Mappa con due container, generatore e lettore, e componenti per responsabilità invece che per file | Il lettore resta segnato come bozza perché nessuno scanner riconosce un'app Nuxt come container. Le relazioni sono verificate negli import, perché groma.md non permette di cancellarle |
+| Definition of Done del backlog presa dal piano: lint e test verdi, documentazione aggiornata | È la regola di fine milestone del piano. Le verifiche manuali la sostituiscono con l'aggiornamento di `docs/status.md` |

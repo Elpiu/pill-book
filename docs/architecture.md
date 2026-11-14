@@ -2,6 +2,8 @@
 
 Due progetti indipendenti che comunicano solo attraverso un file.
 
+Questa pagina è la panoramica. La mappa completa, con componenti, relazioni e flussi principali, sta in [`groma/`](../groma/) e si apre con `groma web`: vedi il [README](../README.md#attività-e-architettura).
+
 ```
  PDF ──► generator (CLI Python) ──► libro.bookpack.json ──► web (PWA Nuxt) ──► IndexedDB
               ▲                            │

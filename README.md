@@ -143,4 +143,26 @@ cd generator && uv run bookpack schema
 cd web && pnpm gen:types
 ```
 
+### Attività e architettura
+
+Le attività stanno in `backlog/`, gestite con [Backlog.md](https://github.com/MrLesk/Backlog.md). La mappa dell'architettura sta in `groma/`, gestita con [groma.md](https://github.com/MrLesk/Groma.md). Sono entrambe file Markdown nel repository e si modificano con le rispettive CLI, non a mano.
+
+```bash
+npm i -g backlog.md groma.md
+```
+
+```bash
+backlog board
+```
+
+```bash
+backlog browser
+```
+
+```bash
+groma web
+```
+
+`backlog board` mostra la Kanban nel terminale e `backlog browser` la apre nel browser, su http://localhost:6420. `groma web` riscansiona il codice e apre la mappa su http://localhost:4747. Su un altro computer, prima di scansionare, `groma plugin install` scarica gli scanner elencati in `groma/config.json`.
+
 La documentazione completa è in [docs/](docs/README.md): [architettura](docs/architecture.md), [formato](docs/bookpack-format.md), [generatore](docs/generator.md), [lettore e deploy](docs/web.md), [decisioni](docs/decisions.md). Il piano originale è in [PLAN.md](PLAN.md).

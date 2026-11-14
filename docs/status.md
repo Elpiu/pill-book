@@ -1,6 +1,6 @@
 # Stato del progetto
 
-Aggiornato al 5 novembre 2026. Il formato attuale è la v2: vedi [decisions.md](decisions.md).
+Aggiornato al 14 novembre 2026. Il formato attuale è la v2: vedi [decisions.md](decisions.md).
 
 | Milestone | Stato | Note |
 |---|---|---|
@@ -10,7 +10,7 @@ Aggiornato al 5 novembre 2026. Il formato attuale è la v2: vedi [decisions.md](
 | M3 Condensazione | Fatta | Provata con generazioni reali su `~deepseek/deepseek-flash-latest` |
 | M4 Libreria e percorso | Fatta | |
 | M5 Sessione | Fatta | Interazioni a 375 px, vedi sotto |
-| M6 Progresso e PWA | **Quasi** | Pubblicata su GitHub Pages, manca la prova su telefono |
+| M6 Progresso e PWA | Fatta | Pubblicata su GitHub Pages e provata su un telefono vero |
 | M7 Esempio e documentazione | Fatta | Il pack d'esempio è generato dalla pipeline da un libro di pubblico dominio |
 | Formato v2 | Fatto | Spazio proporzionale, card dense, domande, riassunto, ripasso |
 | Generazione parallela e ripresa | Fatta | Chiamate insieme, errori che non fermano tutto, file di stato, `bookpack resume`, **Riprendi** |
@@ -34,11 +34,15 @@ Aggiornato al 5 novembre 2026. Il formato attuale è la v2: vedi [decisions.md](
 
 **Deploy**: il workflow è riuscito su GitHub e il sito è online su <https://elpiu.github.io/pill-book/>. Pagina, manifest e service worker rispondono correttamente.
 
+**Su un telefono vero** (prova manuale, TASK-1): swipe e tap sulle card, anche lunghe, pinch-zoom e pan nelle mindmap, installazione su Android e iPhone, sessione completa in modalità aereo.
+
 **Generatore**:
 
 - generazione reale di un capitolo di 76 pagine: pack valido, 8 chiamate, 5 parti, copertura di tutte le sottosezioni;
 - generazione reale del libro d'esempio: pack valido, 29 chiamate, citazioni trovate nel testo;
 - generazione reale di 4 capitoli del libro d'esempio, con 1 e con 4 chiamate insieme: 125 e 66 secondi, pack validi, $0,02 ciascuna;
+- generazione di un libro intero in parallelo, Ctrl+C in un terminale vero e ripresa con `bookpack resume` (prova manuale, TASK-3, senza numeri registrati qui);
+- pack generati prima della v2 rigenerati e importati nell'app pubblicata (TASK-2);
 - pack generato in parallelo identico a quello in sequenza, con le risposte in ordine sparso (test);
 - errore su un capitolo, interruzione e Ctrl+C simulato: nessuna chiamata già fatta viene ripetuta, e la ripresa fa solo ciò che manca (test);
 - `resume` da riga di comando e **Riprendi** nella finestra, con pagine corrette a mano, spunte e lingua ripristinate (test);
@@ -53,15 +57,10 @@ Aggiornato al 5 novembre 2026. Il formato attuale è la v2: vedi [decisions.md](
 
 | Cosa | Perché | Come chiuderlo |
 |---|---|---|
-| Altri modelli oltre a `~deepseek/deepseek-flash-latest` | Ogni prova ha un costo | Un confronto sullo stesso capitolo |
-| Parallelismo su un libro lungo | Misurato solo su 4 capitoli brevi, con un lancio per configurazione. Limiti di richieste mai incontrati | La prossima generazione di un libro intero |
-| Ctrl+C in un terminale vero | Provato in simulazione: nel test l'interruzione arriva dentro l'attesa | Premerlo durante una generazione |
 | Quanto resta davvero al lettore | Le misure dicono quanto testo c'è, non cosa si ricorda | Uso reale per qualche settimana |
-| Modelli senza output strutturato | Il ripiego con lo schema nel prompt è provato solo in simulazione | Una prova con un modello senza "Schema" in `bookpack models` |
-| Finestra su macOS e Linux | Provata solo su Windows | Un avvio su quei sistemi |
-| Telefono vero | Solo emulazione: gesti simulati col mouse, pinch-zoom e installazione non provati | Aprire l'app pubblicata su un telefono |
-| Viewport esatto di 390 px | A 390 il pannello del browser sfalsava i clic. Le interazioni sono state fatte a 375 px; a 390 è stato controllato solo il layout, senza overflow | Coperto dalla prova su telefono |
-| Lighthouse PWA | Dalla versione 12 Lighthouse non ha più la categoria PWA. Controllati a mano manifest, icone, service worker e offline | Installazione dal telefono |
+| Altri modelli oltre a `~deepseek/deepseek-flash-latest` | Ogni prova ha un costo | Fuori scopo, per scelta (TASK-4 archiviata) |
+| Modelli senza output strutturato | Il ripiego con lo schema nel prompt è provato solo in simulazione | Fuori scopo, per scelta (TASK-5 archiviata) |
+| Finestra su macOS e Linux | Provata solo su Windows. Dipende da Python e Tkinter | Fuori scopo, per scelta (TASK-6 archiviata) |
 
 ## Scostamenti dal piano
 
@@ -71,7 +70,4 @@ Aggiornato al 5 novembre 2026. Il formato attuale è la v2: vedi [decisions.md](
 
 ## Cosa resta
 
-1. Prova su telefono: gesti, scorrimento delle card lunghe, pinch-zoom, installazione, modalità aereo.
-2. Rigenerare con il formato v2 i libri già generati: i vecchi pack non si importano più.
-
-Per i lavori futuri vedi [roadmap.md](roadmap.md).
+Nel backlog non ci sono attività aperte. Le idee non ancora decise stanno tra le bozze, in `backlog/drafts/`: sincronizzazione con Google Drive, prompt per la narrativa e le voci della roadmap del piano. Si consultano con `backlog board`, `backlog draft list` o `backlog browser`.

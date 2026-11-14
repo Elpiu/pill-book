@@ -107,7 +107,7 @@ Misura reale su 4 capitoli brevi del libro d'esempio con `~deepseek/deepseek-fla
 | 1 | 125 secondi | 9 | $0,02 |
 | 4 | 66 secondi | 11, di cui 2 ritentativi | $0,02 |
 
-Non si arriva a 4 volte più veloce perché ogni fase aspetta la sua chiamata più lenta, e la panoramica è una sola. I ritentativi dipendono dalle risposte del modello, non dal parallelismo. Sui libri lunghi non è ancora stato misurato. Se il provider limita le richieste, la generazione si ferma con un errore chiaro: basta riprendere con `--workers` più basso.
+Non si arriva a 4 volte più veloce perché ogni fase aspetta la sua chiamata più lenta, e la panoramica è una sola. I ritentativi dipendono dalle risposte del modello, non dal parallelismo. Su un libro intero è stato provato a mano, con il default di 4, senza tempi registrati qui. Se il provider limita le richieste, la generazione si ferma con un errore chiaro: basta riprendere con `--workers` più basso.
 
 ## Errori, interruzioni e ripresa
 
